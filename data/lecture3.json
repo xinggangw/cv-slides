@@ -1,0 +1,3126 @@
+{
+ "lecture": 3,
+ "name": "从浅层到深度的表征学习",
+ "source": "3 - 从浅层到深度的表征学习.pptx",
+ "slide_width_emu": 12192000,
+ "slide_height_emu": 6858000,
+ "slide_count": 112,
+ "image_count": 161,
+ "slides": [
+  {
+   "index": 1,
+   "title": "Representation learning:",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Representation learning: From handcrafted representation to deep representation learning"
+    },
+    {
+     "level": 0,
+     "text": "Xinggang Wang"
+    },
+    {
+     "level": 0,
+     "text": "https://xwcv.github.io"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 2,
+   "title": "SIFT: scale-invariant feature transformation",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "经典计算机视觉局部特征，基于梯度特征来描述图像，擅长于图像匹配，但不够稳定"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s002_img1.png",
+     "left": 166390,
+     "top": 1825625,
+     "width": 5993110,
+     "height": 3016802,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s002_img2.png",
+     "left": 6393622,
+     "top": 1825625,
+     "width": 5652602,
+     "height": 2826301,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 3,
+   "title": "HOG: Histogram of Gradient",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "使用 HOG 描述符进行人体检测。 HOG 主要根据梯度进行图像描述。 (a) 训练数据上的平均梯度图像。 (b) 每个“像素”显示以该像素为中心的块中的最大正 SVM 权重。 (c) 对于负 SVM 权重也是如此。 (d) 测试图像。 (e) 计算出的 HOG 描述符。 (f,g) 分别由正 SVM 权重和负 SVM 权重加权的 HOG 描述符。 该图转载自（Dalal 和 Triggs，2005）。"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s003_img3.png",
+     "left": 1946911,
+     "top": 2026753,
+     "width": 8298178,
+     "height": 2518741,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 4,
+   "title": "HOG + SVM for Pedestrian Detection",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "典型的浅层特征 + 分类器来完成视觉任务的模式"
+    },
+    {
+     "level": 0,
+     "text": "由于行人相对刚性，可以用模板来表示"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s004_img4.png",
+     "left": 2815298,
+     "top": 1440996,
+     "width": 6379502,
+     "height": 4102480,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 5,
+   "title": "Hand-crafted features are not robust",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Occlusion"
+    },
+    {
+     "level": 0,
+     "text": "Bad light conditions"
+    },
+    {
+     "level": 0,
+     "text": "Large appearance variation"
+    },
+    {
+     "level": 0,
+     "text": "Large pose/shape variation"
+    },
+    {
+     "level": 0,
+     "text": "View points variation"
+    },
+    {
+     "level": 0,
+     "text": "Scale variation"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 6,
+   "title": "从手工“特征设计”到特征学习",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "从手工“特征设计”到特征学习feature/representation learning"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 7,
+   "title": "Yann LeCun：自监督学习才是蛋糕的主体",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s007_img5.png",
+     "left": 1632857,
+     "top": 930728,
+     "width": 8316224,
+     "height": 5324929,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 8,
+   "title": "Representation learning",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Representations in the brain"
+    },
+    {
+     "level": 0,
+     "text": "How to perform representation learning using non-deep and deep learning methods?"
+    },
+    {
+     "level": 0,
+     "text": "What is learned by a deep net?"
+    },
+    {
+     "level": 0,
+     "text": "Transfer learning and finetuning"
+    },
+    {
+     "level": 0,
+     "text": "Unsupervised and self-supervised learning"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s008_img6.png",
+     "left": 8306490,
+     "top": 1139343,
+     "width": 3444000,
+     "height": 5166000,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 9,
+   "title": "Generative vs. Self-supervised Learning",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "学习生成像素级细节通常是不必要的； 通过代理任务来学习高级语义特征"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s009_img7.png",
+     "left": 1885042,
+     "top": 1588635,
+     "width": 8421915,
+     "height": 4127690,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 10,
+   "title": "Representation learning",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s010_img8.png",
+     "left": 2547178,
+     "top": 1690688,
+     "width": 6893315,
+     "height": 4498956,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 11,
+   "title": "Representation learning",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s011_img9.png",
+     "left": 1894114,
+     "top": 1690688,
+     "width": 8737600,
+     "height": 4292600,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 12,
+   "title": "general-purpose representations",
+   "bullets": [],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 13,
+   "title": "How to evaluate a self-supervised learning method?",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "We usually don’t care about the performance of the self-supervised learning task, e.g., we don’t care if the model learns to predict image rotation perfectly."
+    },
+    {
+     "level": 0,
+     "text": "Evaluate the learned feature encoders on downstream target tasks"
+    },
+    {
+     "level": 0,
+     "text": "迁移学习"
+    },
+    {
+     "level": 0,
+     "text": "代理任务（pretext task）"
+    },
+    {
+     "level": 0,
+     "text": "下游任务"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s013_img10.png",
+     "left": 1268202,
+     "top": 2497829,
+     "width": 9374542,
+     "height": 2882890,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 14,
+   "title": "浅层特征学习方法",
+   "bullets": [],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 15,
+   "title": "PCA Face",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "rep1"
+    },
+    {
+     "level": 0,
+     "text": "rep2"
+    },
+    {
+     "level": 0,
+     "text": "寻找本征表示（基向量）"
+    },
+    {
+     "level": 0,
+     "text": "显著的降维"
+    },
+    {
+     "level": 0,
+     "text": "以重建、压缩为目标"
+    },
+    {
+     "level": 0,
+     "text": "Original training images"
+    },
+    {
+     "level": 0,
+     "text": "Reconstructed images of training images- they are almost same as their original images"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s015_img11.png",
+     "left": 958850,
+     "top": 3637247,
+     "width": 10248900,
+     "height": 1016000,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s015_img12.png",
+     "left": 984250,
+     "top": 4788184,
+     "width": 10223500,
+     "height": 1016000,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s015_img13.png",
+     "left": 8411124,
+     "top": 626100,
+     "width": 2726041,
+     "height": 2483367,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 16,
+   "title": "PCA Face",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s016_img14.png",
+     "left": 425450,
+     "top": 1611176,
+     "width": 11341100,
+     "height": 1493837,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s016_img14.png",
+     "left": 546652,
+     "top": 3105013,
+     "width": 11343174,
+     "height": 705600,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s016_img15.png",
+     "left": 546100,
+     "top": 4041913,
+     "width": 11099800,
+     "height": 1371600,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s016_img16.png",
+     "left": 751926,
+     "top": 5413513,
+     "width": 11137900,
+     "height": 698500,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 17,
+   "title": "Sparse representation",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s017_img17.png",
+     "left": 12700,
+     "top": 1703872,
+     "width": 12179300,
+     "height": 4368800,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s017_img18.png",
+     "left": 6393543,
+     "top": 681037,
+     "width": 5392057,
+     "height": 738853,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 18,
+   "title": "图像的“中层表示”",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s018_img19.png",
+     "left": 2798536,
+     "top": 1591129,
+     "width": 5873750,
+     "height": 4543060,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 19,
+   "title": "Classical object recognition",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "The BoW Model"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s019_img20.png",
+     "left": 1682750,
+     "top": 1886744,
+     "width": 8826500,
+     "height": 4229100,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 20,
+   "title": "Locality-constrained Linear Coding",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Vector quantization"
+    },
+    {
+     "level": 0,
+     "text": "Sparse coding"
+    },
+    {
+     "level": 0,
+     "text": "LLC"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s020_img21.png",
+     "left": 730526,
+     "top": 1514475,
+     "width": 5562600,
+     "height": 4978400,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s020_img22.png",
+     "left": 6589643,
+     "top": 1635539,
+     "width": 5029200,
+     "height": 1397000,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s020_img23.png",
+     "left": 6647622,
+     "top": 3336512,
+     "width": 4838700,
+     "height": 977900,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s020_img24.png",
+     "left": 6555961,
+     "top": 4423326,
+     "width": 4864100,
+     "height": 1346200,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s020_img25.png",
+     "left": 9066972,
+     "top": 5366578,
+     "width": 2844800,
+     "height": 889000,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 21,
+   "title": "Multiple instance learning",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s021_img26.png",
+     "left": 1549400,
+     "top": 1773482,
+     "width": 2695278,
+     "height": 1689976,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s021_img27.png",
+     "left": 838200,
+     "top": 3676917,
+     "width": 4265408,
+     "height": 2274434,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s021_img28.png",
+     "left": 5543870,
+     "top": 1576937,
+     "width": 5719804,
+     "height": 4691097,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 22,
+   "title": "Mining mid-level image representation",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Mining discriminative patterns using MIL for image representation"
+    },
+    {
+     "level": 0,
+     "text": "Representation"
+    },
+    {
+     "level": 0,
+     "text": "Learning"
+    },
+    {
+     "level": 0,
+     "text": "Step by step"
+    },
+    {
+     "level": 0,
+     "text": "End to end?"
+    },
+    {
+     "level": 0,
+     "text": "Quannan Li, Jiajun Wu, and Zhuowen Tu, \"Harvesting Mid-level Visual Concepts from Large-scale Internet Images\", CVPR 2013"
+    },
+    {
+     "level": 0,
+     "text": "Xinggang Wang, Baoyuan Wang, Xiang Bai, Wenyu Liu, and Zhuowen Tu, \"Max-Margin Multiple Instance Dictionary Learning\", International Conference on Machine Learning (ICML), Atlanta, June, 2013."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s022_img29.png",
+     "left": 1677074,
+     "top": 2181955,
+     "width": 964774,
+     "height": 3421015,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img30.png",
+     "left": 1127601,
+     "top": 1278571,
+     "width": 1414954,
+     "height": 1130853,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img31.png",
+     "left": 2692262,
+     "top": 1278571,
+     "width": 1414954,
+     "height": 1130853,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img32.png",
+     "left": 1118571,
+     "top": 2498924,
+     "width": 1410513,
+     "height": 1128410,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img33.png",
+     "left": 2730108,
+     "top": 2513588,
+     "width": 1410513,
+     "height": 1128410,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img34.png",
+     "left": 1127602,
+     "top": 3739649,
+     "width": 1411403,
+     "height": 1129123,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img35.png",
+     "left": 2751373,
+     "top": 3771159,
+     "width": 1411403,
+     "height": 1129123,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img36.png",
+     "left": 1126311,
+     "top": 5767266,
+     "width": 1376978,
+     "height": 1095141,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img37.png",
+     "left": 2682015,
+     "top": 5767265,
+     "width": 1376978,
+     "height": 1095141,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img38.png",
+     "left": 1118574,
+     "top": 6987419,
+     "width": 1364319,
+     "height": 1095140,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img39.png",
+     "left": 2717579,
+     "top": 6987419,
+     "width": 1364319,
+     "height": 1095140,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img40.png",
+     "left": 1101800,
+     "top": 8231469,
+     "width": 1363610,
+     "height": 1090887,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img41.png",
+     "left": 2692262,
+     "top": 8231469,
+     "width": 1363610,
+     "height": 1090887,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img42.png",
+     "left": 3921816,
+     "top": 2365665,
+     "width": 352770,
+     "height": 510825,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img43.png",
+     "left": 4642519,
+     "top": 2694607,
+     "width": 352770,
+     "height": 510825,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img44.png",
+     "left": 4379428,
+     "top": 2304984,
+     "width": 352770,
+     "height": 510825,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img45.png",
+     "left": 4341295,
+     "top": 3039690,
+     "width": 352770,
+     "height": 510825,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img46.png",
+     "left": 3929865,
+     "top": 2950020,
+     "width": 352770,
+     "height": 510825,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img47.png",
+     "left": 6105315,
+     "top": 2353972,
+     "width": 334619,
+     "height": 484542,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img48.png",
+     "left": 5860218,
+     "top": 2889697,
+     "width": 334619,
+     "height": 484542,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img49.png",
+     "left": 5680195,
+     "top": 2385825,
+     "width": 334619,
+     "height": 484542,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img50.png",
+     "left": 5436531,
+     "top": 2951534,
+     "width": 334619,
+     "height": 484542,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img51.png",
+     "left": 6219249,
+     "top": 2889416,
+     "width": 334619,
+     "height": 484542,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img52.png",
+     "left": 4423636,
+     "top": 4140120,
+     "width": 308562,
+     "height": 495681,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img53.png",
+     "left": 4625334,
+     "top": 4699728,
+     "width": 308562,
+     "height": 495681,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img54.png",
+     "left": 3921816,
+     "top": 4674877,
+     "width": 308562,
+     "height": 495681,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img55.png",
+     "left": 4024629,
+     "top": 4123822,
+     "width": 308562,
+     "height": 495681,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img56.png",
+     "left": 4263623,
+     "top": 4760048,
+     "width": 308562,
+     "height": 495681,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img57.png",
+     "left": 6036549,
+     "top": 4156283,
+     "width": 289584,
+     "height": 465194,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img58.png",
+     "left": 5603840,
+     "top": 4156283,
+     "width": 289584,
+     "height": 465194,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img59.png",
+     "left": 5491178,
+     "top": 4854428,
+     "width": 289584,
+     "height": 465194,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img60.png",
+     "left": 6194837,
+     "top": 4724510,
+     "width": 289584,
+     "height": 465194,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s022_img61.png",
+     "left": 5858790,
+     "top": 4743269,
+     "width": 289584,
+     "height": 465194,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 23,
+   "title": "Mining mid-level image representation",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s023_img62.png",
+     "left": 695581,
+     "top": 1573379,
+     "width": 6197108,
+     "height": 4495941,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s023_img63.png",
+     "left": 6750070,
+     "top": 1690688,
+     "width": 5083352,
+     "height": 1325563,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s023_img64.png",
+     "left": 6937829,
+     "top": 3017211,
+     "width": 5062182,
+     "height": 2862262,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 24,
+   "title": "Classical object recognition",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "The BoW Model"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s019_img20.png",
+     "left": 1682750,
+     "top": 1886744,
+     "width": 8826500,
+     "height": 4229100,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 25,
+   "title": "Deep learning",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s025_img65.png",
+     "left": 1530350,
+     "top": 2312194,
+     "width": 9131300,
+     "height": 3378200,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 26,
+   "title": "深度特征学习方法",
+   "bullets": [],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 27,
+   "title": "What do deep nets internally learn?",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s027_img66.png",
+     "left": 2247900,
+     "top": 2112341,
+     "width": 7696200,
+     "height": 3136900,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 28,
+   "title": "",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s028_img67.png",
+     "left": 1308100,
+     "top": 666750,
+     "width": 9575800,
+     "height": 5524500,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 29,
+   "title": "",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s029_img68.png",
+     "left": 1352550,
+     "top": 647700,
+     "width": 9486900,
+     "height": 5562600,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 30,
+   "title": "",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s030_img69.png",
+     "left": 1123950,
+     "top": 615950,
+     "width": 9944100,
+     "height": 5626100,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 31,
+   "title": "",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s031_img70.png",
+     "left": 1758950,
+     "top": 660400,
+     "width": 8674100,
+     "height": 5537200,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 32,
+   "title": "",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s032_img71.png",
+     "left": 1619250,
+     "top": 622300,
+     "width": 8953500,
+     "height": 5613400,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 33,
+   "title": "CNNs learned the classical visual recognition pipeline!",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s033_img72.png",
+     "left": 1733550,
+     "top": 1414394,
+     "width": 8724900,
+     "height": 4559300,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 34,
+   "title": "What do deep nets internally learn?",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "强监督深度学习可以学习到好的表征！"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s034_img73.png",
+     "left": 1704521,
+     "top": 1748419,
+     "width": 8629650,
+     "height": 3763641,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 35,
+   "title": "迁移学习",
+   "bullets": [],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 36,
+   "title": "Transfer learning",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "“Generally speaking, a good representation is one that makes a subsequent learning task easier.” — Deep Learning, Goodfellow et al. 2016"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s036_img74.png",
+     "left": 1840948,
+     "top": 3256796,
+     "width": 8510104,
+     "height": 3236079,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 37,
+   "title": "Transfer learning：微调",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s037_img75.png",
+     "left": 1507671,
+     "top": 1760072,
+     "width": 9176657,
+     "height": 4482444,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 38,
+   "title": "Finetuning in practice",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "The “learned representation” is just the weights and biases, so that’s what we transfer"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s038_img76.png",
+     "left": 1466850,
+     "top": 1690688,
+     "width": 9258300,
+     "height": 3708400,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 39,
+   "title": "Supervised object recognition",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s039_img77.png",
+     "left": 1314450,
+     "top": 1825625,
+     "width": 9563100,
+     "height": 4368800,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 40,
+   "title": "Supervised object recognition",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s040_img78.png",
+     "left": 1219200,
+     "top": 1820863,
+     "width": 9753600,
+     "height": 4356100,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 41,
+   "title": "Supervised object recognition",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s041_img79.png",
+     "left": 1301750,
+     "top": 1820863,
+     "width": 9588500,
+     "height": 4356100,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 42,
+   "title": "异构网络知识迁移",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Jiemin Fang#, Yuzhu Sun#, Qian Zhang, Kangjian Peng, Yuan Li, Wenyu Liu, Xinggang Wang*. FNA++: Fast Network Adaptation via Parameter Remapping and Architecture Search. IEEE Transactions on Pattern Analysis and Machine Intelligence (IEEE TPAMI)， vol. 43, no. 9, pp. 2990-3004, 1 Sept. 2021, doi: 10.1109/TPAMI.2020.3044416"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s042_img80.png",
+     "left": 228371,
+     "top": 1690688,
+     "width": 6756721,
+     "height": 1540681,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s042_img81.png",
+     "left": 366485,
+     "top": 3659193,
+     "width": 6622143,
+     "height": 1828399,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s042_img82.png",
+     "left": 7372545,
+     "top": 1690688,
+     "width": 4591084,
+     "height": 1376373,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s042_img83.png",
+     "left": 7795858,
+     "top": 3105979,
+     "width": 3871941,
+     "height": 857256,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s042_img84.png",
+     "left": 7598327,
+     "top": 3963235,
+     "width": 3976717,
+     "height": 1343035,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 43,
+   "title": "半监督学习",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "半监督学习semi-supervised learning"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 44,
+   "title": "",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s044_img85.png",
+     "left": 1403350,
+     "top": 1085850,
+     "width": 9385300,
+     "height": 4686300,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 45,
+   "title": "Learning from labels (aka supervised learning)",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s045_img86.png",
+     "left": 2057400,
+     "top": 2001044,
+     "width": 8077200,
+     "height": 4000500,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 46,
+   "title": "Semi-supervised learning",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "伪标签技术"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s046_img87.png",
+     "left": 1809750,
+     "top": 1577705,
+     "width": 8572500,
+     "height": 4286250,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 47,
+   "title": "Semi-supervised learning: label propagation",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "标记传播技术"
+    },
+    {
+     "level": 0,
+     "text": "Label Propagation for Deep Semi-supervised Learning, CVPR 19"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s047_img88.png",
+     "left": 320033,
+     "top": 1592383,
+     "width": 3886537,
+     "height": 4869602,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s047_img89.png",
+     "left": 4657183,
+     "top": 1750871,
+     "width": 7214784,
+     "height": 4331617,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 48,
+   "title": "Semi-supervised learning: FixMatch",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "相同语义的不同视图"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s048_img90.png",
+     "left": 1183882,
+     "top": 1472974,
+     "width": 9286162,
+     "height": 4390798,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 49,
+   "title": "Semi-supervised learning: mean teachers",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "一致性损失："
+    },
+    {
+     "level": 0,
+     "text": "指数滑动平均（EMA）："
+    },
+    {
+     "level": 0,
+     "text": "通过指数滑动平均（EMA）来更新教师网络"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s049_img91.png",
+     "left": 7943838,
+     "top": 2628898,
+     "width": 3343299,
+     "height": 619130,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s049_img92.png",
+     "left": 8043855,
+     "top": 4098129,
+     "width": 1952639,
+     "height": 595317,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s049_img93.png",
+     "left": 354782,
+     "top": 1974045,
+     "width": 6681836,
+     "height": 2909909,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 50,
+   "title": "无监督学习 / 自监督学习",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "无监督学习 / 自监督学习unsupervised learning / self-supervised learning"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 51,
+   "title": "Learning without labels",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "(includes unsupervised learning and reinforcement learning)"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s051_img94.png",
+     "left": 1924050,
+     "top": 2298144,
+     "width": 8343900,
+     "height": 3238500,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 52,
+   "title": "Unsupervised Representation Learning",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s052_img95.png",
+     "left": 1174750,
+     "top": 1628775,
+     "width": 9842500,
+     "height": 4864100,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 53,
+   "title": "Autoencoder",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s053_img96.png",
+     "left": 1187450,
+     "top": 1893094,
+     "width": 9817100,
+     "height": 4216400,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 54,
+   "title": "Autoencoder",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s054_img97.png",
+     "left": 2006601,
+     "top": 1825625,
+     "width": 7413171,
+     "height": 4077244,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 55,
+   "title": "Autoencoder",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s055_img98.png",
+     "left": 2679700,
+     "top": 1912144,
+     "width": 6832600,
+     "height": 4178300,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 56,
+   "title": "Autoencoder",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s056_img99.png",
+     "left": 1155700,
+     "top": 2062163,
+     "width": 9880600,
+     "height": 4114800,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 57,
+   "title": "Exploiting raw unlabeled data",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Acquiring raw unlabeled data is usually easy"
+    },
+    {
+     "level": 0,
+     "text": "However, typical supervised methods cannot exploit them"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s057_img100.png",
+     "left": 947231,
+     "top": 1690688,
+     "width": 9092119,
+     "height": 3290202,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 58,
+   "title": "Self-supervised learning pipeline",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s058_img101.png",
+     "left": 1758452,
+     "top": 1625601,
+     "width": 8393883,
+     "height": 4589462,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 59,
+   "title": "度量准则：Linear classification / probe",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s059_img102.png",
+     "left": 771727,
+     "top": 1942142,
+     "width": 10920919,
+     "height": 3886074,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 60,
+   "title": "自监督学习的各种形式",
+   "bullets": [],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 61,
+   "title": "Data compression",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s061_img103.png",
+     "left": 1574800,
+     "top": 2179707,
+     "width": 9042400,
+     "height": 3187700,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 62,
+   "title": "Label prediction",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s062_img104.png",
+     "left": 2546350,
+     "top": 2001044,
+     "width": 7099300,
+     "height": 4000500,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 63,
+   "title": "Data prediction aka “self-supervised learning”",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s063_img105.png",
+     "left": 1670050,
+     "top": 1860550,
+     "width": 8851900,
+     "height": 3136900,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 64,
+   "title": "",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s064_img106.png",
+     "left": 1225550,
+     "top": 685800,
+     "width": 9740900,
+     "height": 5486400,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 65,
+   "title": "Rotation prediction",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "S. Gidaris et al., Unsupervised Representation Learning by Predicting Image Rotations, ICLR 2018"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s065_img107.png",
+     "left": 2074371,
+     "top": 1525243,
+     "width": 7930271,
+     "height": 4542525,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 66,
+   "title": "自监督学习：",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "自监督学习：对比学习（contrastive learning）"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 67,
+   "title": "Contrastive Self-Supervised Learning",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "can we build representation learning algorithms that don’t concentrate on pixel-level details, and only encode high-level features sufficient enough to distinguish different objects?"
+    },
+    {
+     "level": 0,
+     "text": "https://ankeshanand.com/blog/2020/01/26/contrative-self-supervised-learning.html"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s067_img108.png",
+     "left": 2308532,
+     "top": 1779127,
+     "width": 7574936,
+     "height": 3299746,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 68,
+   "title": "Generative vs Contrastive Methods",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Contrastive methods, as the name implies, learn representations by contrasting positive and negative examples. Although not a new paradigm, they have led to great empirical success in computer vision tasks with unsupervised contrastive pre-training."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s068_img109.png",
+     "left": 1486981,
+     "top": 1726100,
+     "width": 9322481,
+     "height": 2576213,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 69,
+   "title": "How do contrastive methods work?",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s069_img110.png",
+     "left": 1055966,
+     "top": 2057684,
+     "width": 10080068,
+     "height": 2579630,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s069_img111.png",
+     "left": 3804224,
+     "top": 4858925,
+     "width": 4465578,
+     "height": 726198,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 70,
+   "title": "Deep InfoMax",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s070_img112.png",
+     "left": 92966,
+     "top": 2169963,
+     "width": 5512875,
+     "height": 3415110,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s070_img113.png",
+     "left": 5844864,
+     "top": 1687684,
+     "width": 6254170,
+     "height": 4013200,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 71,
+   "title": "Contrastive Predictive Coding",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Contrastive Predictive Coding (CPC, van den Oord et al., 2018) is a contrastive method that can be applied to any form of data that can be expressed in an ordered sequence: text, speech, video, even images (an image can be seen as a sequence of pixels or patches)."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s071_img114.png",
+     "left": 284801,
+     "top": 1825625,
+     "width": 6296753,
+     "height": 4287888,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s071_img115.png",
+     "left": 7090538,
+     "top": 3726783,
+     "width": 4949988,
+     "height": 2143944,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 72,
+   "title": "A Simple Framework for Contrastive Learning of Visual Representations",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s072_img116.png",
+     "left": 528213,
+     "top": 2533456,
+     "width": 7163224,
+     "height": 3442857,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s072_img117.png",
+     "left": 7745335,
+     "top": 1855957,
+     "width": 4150801,
+     "height": 4201318,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 73,
+   "title": "",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s073_img118.png",
+     "left": 803451,
+     "top": 72099,
+     "width": 10585097,
+     "height": 6713802,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 74,
+   "title": "Momentum Contrast for Unsupervised Visual Representation Learning",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "On the left is the query image and encoder, on the right is the queue of mini-batches of keys and the momentum encoder"
+    },
+    {
+     "level": 0,
+     "text": "A simplified illustration of the key idea behind the initial MoCo paper."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s074_img119.png",
+     "left": 1078149,
+     "top": 2060697,
+     "width": 4288047,
+     "height": 3508848,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s074_img120.png",
+     "left": 6186792,
+     "top": 2025566,
+     "width": 5274267,
+     "height": 3447864,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 75,
+   "title": "Instance Localization for Self-supervised Detection Pretraining",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s075_img121.png",
+     "left": 1968779,
+     "top": 1592262,
+     "width": 8439817,
+     "height": 4745754,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 76,
+   "title": "Self-Supervised Vision Transformers with DINO",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s076_img122.png",
+     "left": 2323773,
+     "top": 2019922,
+     "width": 7544454,
+     "height": 3962743,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 77,
+   "title": "Self-Supervised Vision Transformers with DINO",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "self-distillation with no labels"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": [
+    {
+     "kind": "PLACEHOLDER (14)",
+     "name": "内容占位符 4",
+     "detail": "无可提取文字"
+    }
+   ]
+  },
+  {
+   "index": 78,
+   "title": "Self-Supervised Vision Transformers with DINO",
+   "bullets": [],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": [
+    {
+     "kind": "PLACEHOLDER (14)",
+     "name": "116817761-47885e80-ab68-11eb-9975-d61d5a919e13",
+     "detail": "无可提取文字"
+    }
+   ]
+  },
+  {
+   "index": 79,
+   "title": "Self-Supervised Vision Transformers with DINO",
+   "bullets": [],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": [
+    {
+     "kind": "PLACEHOLDER (14)",
+     "name": "内容占位符 4",
+     "detail": "无可提取文字"
+    }
+   ]
+  },
+  {
+   "index": 80,
+   "title": "Self-Supervised Vision Transformers with DINO",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "https://ai.facebook.com/blog/dino-paws-computer-vision-with-self-supervised-transformers-and-10x-more-efficient-training/"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s080_img123.png",
+     "left": 2220894,
+     "top": 2309132,
+     "width": 7750212,
+     "height": 4183743,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 81,
+   "title": "CLIP (Contrastive Language-Image Pre-Training)",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "https://openai.com/blog/clip/"
+    },
+    {
+     "level": 0,
+     "text": "https://huggingface.co/spaces/vivien/clip"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s081_img124.png",
+     "left": 1611241,
+     "top": 2003888,
+     "width": 8969517,
+     "height": 3513124,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 82,
+   "title": "自监督学习：掩码建模（masked modeling）",
+   "bullets": [],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 83,
+   "title": "BERT: Bidirectional Encoder Representations from Transformers",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "77109 citations, 2023/09"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s083_img125.png",
+     "left": 1038224,
+     "top": 1887187,
+     "width": 5995988,
+     "height": 4065773,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s083_img126.png",
+     "left": 7777148,
+     "top": 2047872,
+     "width": 3781453,
+     "height": 581029,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s083_img127.png",
+     "left": 7767617,
+     "top": 3386128,
+     "width": 4014808,
+     "height": 2007404,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 84,
+   "title": "BEIT: BERT Pre-Training of Image Transformers",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s084_img128.png",
+     "left": 440373,
+     "top": 1615637,
+     "width": 6360477,
+     "height": 4941258,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s084_img129.png",
+     "left": 6953935,
+     "top": 2264246,
+     "width": 5114847,
+     "height": 3429677,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 85,
+   "title": "Masked Autoencoders Are Scalable Vision Learners",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "2743 citations, 2023/09"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s085_img130.png",
+     "left": 963798,
+     "top": 1690688,
+     "width": 4907705,
+     "height": 4564776,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s085_img131.png",
+     "left": 7408299,
+     "top": 1578746,
+     "width": 3945501,
+     "height": 2573700,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s085_img132.png",
+     "left": 7145082,
+     "top": 4350747,
+     "width": 4208718,
+     "height": 2030639,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 86,
+   "title": "Masked Autoencoders Are Scalable Vision Learners",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s086_img133.png",
+     "left": 2276732,
+     "top": 1379157,
+     "width": 7742757,
+     "height": 5100623,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 87,
+   "title": "Corrupted Image Modeling for Self-Supervised Visual Pre-Training",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s087_img134.png",
+     "left": 567898,
+     "top": 1740280,
+     "width": 7058587,
+     "height": 4617223,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s087_img135.png",
+     "left": 7797765,
+     "top": 2063709,
+     "width": 3924640,
+     "height": 3970364,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 88,
+   "title": "Image as a Foreign Language: BEiT Pretraining for All Vision and Vision-Language Tasks",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s088_img136.png",
+     "left": 2821462,
+     "top": 1748996,
+     "width": 6652837,
+     "height": 4618120,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 89,
+   "title": "Image as a Foreign Language: BEiT Pretraining for All Vision and Vision-Language Tasks",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s089_img137.png",
+     "left": 5351309,
+     "top": 1569657,
+     "width": 6469941,
+     "height": 5197290,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s089_img138.png",
+     "left": 180207,
+     "top": 2487135,
+     "width": 5171102,
+     "height": 2889019,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 90,
+   "title": "EVA",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s090_img139.png",
+     "left": 545805,
+     "top": 2028752,
+     "width": 5617329,
+     "height": 3945084,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": [
+    {
+     "kind": "picture",
+     "name": "内容占位符 4",
+     "detail": "浏览器不支持的格式 .emf（sha1=cbce2c922b）"
+    }
+   ]
+  },
+  {
+   "index": 91,
+   "title": "自监督学习：自回归（auto regression）/ GPT-style",
+   "bullets": [],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 92,
+   "title": "GPT-1",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s092_img140.png",
+     "left": 1438246,
+     "top": 1975630,
+     "width": 9640600,
+     "height": 4517245,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": [
+    {
+     "kind": "PLACEHOLDER (14)",
+     "name": "内容占位符 6",
+     "detail": "无可提取文字"
+    }
+   ]
+  },
+  {
+   "index": 93,
+   "title": "Image GPT",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "https://cdn.openai.com/papers/Generative_Pretraining_from_Pixels_V2.pdf"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s093_img141.png",
+     "left": 6968314,
+     "top": 834984,
+     "width": 4757772,
+     "height": 5657891,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s093_img142.png",
+     "left": 97597,
+     "top": 2759591,
+     "width": 6582603,
+     "height": 2166427,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 94,
+   "title": "自监督学习：其他",
+   "bullets": [],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 95,
+   "title": "Data2vec: CL + MIM",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s095_img143.png",
+     "left": 551432,
+     "top": 1817059,
+     "width": 11259152,
+     "height": 4083677,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 96,
+   "title": "iBot: image bert pre-training with online tokenizer",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s096_img144.png",
+     "left": 1448813,
+     "top": 1762936,
+     "width": 9623190,
+     "height": 4637864,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 97,
+   "title": "Barlow Twins: Self-Supervised Learning via Redundancy Reduction",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Barlow Twins: Self-Supervised Learning via Redundancy Reduction, ICML 2021"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s097_img145.png",
+     "left": 284827,
+     "top": 1985111,
+     "width": 6317527,
+     "height": 3276884,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s097_img146.png",
+     "left": 6954053,
+     "top": 2417439,
+     "width": 4953120,
+     "height": 2522959,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 98,
+   "title": "Self-supervised learning",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s098_img147.png",
+     "left": 1314450,
+     "top": 1967672,
+     "width": 9563100,
+     "height": 3797300,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 99,
+   "title": "Multisensory self-supervision",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s099_img148.png",
+     "left": 1562100,
+     "top": 1543844,
+     "width": 9067800,
+     "height": 4914900,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 100,
+   "title": "“Multiview” self-supervised predictive learning",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s100_img149.png",
+     "left": 1243249,
+     "top": 2103201,
+     "width": 9575800,
+     "height": 3390900,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 101,
+   "title": "Highlights",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Hand-crafted features (e.g., SIFT and HOG) are not robust in open-world scenes"
+    },
+    {
+     "level": 0,
+     "text": "Data-driven representation learning is (currently) the right way to explore"
+    },
+    {
+     "level": 0,
+     "text": "Hand-crafted features + classifiers (ML tools) are old visual recognition solutions (detection and image classification) – but not representation learning."
+    },
+    {
+     "level": 0,
+     "text": "Feature coding methods performance feature learning via k-means, PCA, sparse representation, max-margin multi-instance learning etc."
+    },
+    {
+     "level": 0,
+     "text": "Deep representations (CL, MIM, AR/GPT) are powerful, can be learned via supervised learning and self-supervised learning."
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 102,
+   "title": "INR",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Implicit Neural Representations (INR):"
+    },
+    {
+     "level": 0,
+     "text": "A function mapping a coordinate input vector x to an output feature vector y parameterised by neural network weights."
+    },
+    {
+     "level": 0,
+     "text": "input vector x : images(x,y); videos(x,y,t) ……."
+    },
+    {
+     "level": 0,
+     "text": "output vector y : color(r,g,b); color and density(r,g,b,sigma)……."
+    },
+    {
+     "level": 0,
+     "text": "Advantage of INR:"
+    },
+    {
+     "level": 0,
+     "text": "Decoupled to space -> arbitrary spatial resolution"
+    },
+    {
+     "level": 0,
+     "text": "Smooth interpolations to unseen coordinates"
+    },
+    {
+     "level": 0,
+     "text": "Differentiable and generally more compact compared to canonical representations"
+    },
+    {
+     "level": 0,
+     "text": "…"
+    },
+    {
+     "level": 0,
+     "text": "Limits of INR:"
+    },
+    {
+     "level": 0,
+     "text": "Work poorly on complex scenes"
+    },
+    {
+     "level": 0,
+     "text": "…"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s102_img150.png",
+     "left": 8215340,
+     "top": 1787333,
+     "width": 1707150,
+     "height": 558704,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 103,
+   "title": "INR",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Implicit Neural Representations (INR):"
+    },
+    {
+     "level": 0,
+     "text": "A function mapping a coordinate input vector x to an output feature vector y parameterised by neural network weights."
+    },
+    {
+     "level": 0,
+     "text": "Examples of INR:"
+    },
+    {
+     "level": 0,
+     "text": "NeRF and its variants; Audio; Video; Topological representations; Lightfield representations; Implicit geometry; Novelview synthesis; Volumetric scalar fields;"
+    },
+    {
+     "level": 0,
+     "text": "Specail case: Image regression"
+    },
+    {
+     "level": 0,
+     "text": "…"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s102_img150.png",
+     "left": 870198,
+     "top": 1696950,
+     "width": 1397001,
+     "height": 457201,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 104,
+   "title": "INR",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Implicit Neural Representations (INR):"
+    },
+    {
+     "level": 0,
+     "text": "A function mapping a coordinate input vector x to an output feature vector y parameterised by neural network weights."
+    },
+    {
+     "level": 0,
+     "text": "NeRF and its variants:(NeRF)"
+    },
+    {
+     "level": 0,
+     "text": "NeRF represents a scene using a fully-connected (non-convolutional) deep network, whose input is a single continuous 5D coordinate (spatial location (x, y, z) and viewing direction (θ, φ)) and whose output is the volume density and view-dependent emitted radiance at that spatial location."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s102_img150.png",
+     "left": 870198,
+     "top": 1696950,
+     "width": 1397001,
+     "height": 457201,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s104_img151.png",
+     "left": 1053548,
+     "top": 2576111,
+     "width": 8441434,
+     "height": 2748724,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 105,
+   "title": "INR",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Implicit Neural Representations (INR):"
+    },
+    {
+     "level": 0,
+     "text": "A function mapping a coordinate input vector x to an output feature vector y parameterised by neural network weights."
+    },
+    {
+     "level": 0,
+     "text": "Audio:(COIN++)"
+    },
+    {
+     "level": 0,
+     "text": "COIN++ converts a wide range of data modalities to neural networks via optimization and"
+    },
+    {
+     "level": 0,
+     "text": "then stores the parameters of these neural networks as compressed codes for the data."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s102_img150.png",
+     "left": 870198,
+     "top": 1696950,
+     "width": 1397001,
+     "height": 457201,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s105_img152.png",
+     "left": 904571,
+     "top": 2720567,
+     "width": 10288436,
+     "height": 1638529,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 106,
+   "title": "INR",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Implicit Neural Representations (INR):"
+    },
+    {
+     "level": 0,
+     "text": "A function mapping a coordinate input vector x to an output feature vector y parameterised by neural network weights."
+    },
+    {
+     "level": 0,
+     "text": "Video:(NeRV)"
+    },
+    {
+     "level": 0,
+     "text": "NeRV, representing video as neural networks, which consists of multiple convolutional layers, taking the normalized frame index as the input and output the corresponding RGB frame."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s102_img150.png",
+     "left": 870198,
+     "top": 1696950,
+     "width": 1397001,
+     "height": 457201,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s106_img153.png",
+     "left": 1053548,
+     "top": 2745535,
+     "width": 7609299,
+     "height": 2781379,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 107,
+   "title": "INR",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Implicit Neural Representations (INR):"
+    },
+    {
+     "level": 0,
+     "text": "A function mapping a coordinate input vector x to an output feature vector y parameterised by neural network weights."
+    },
+    {
+     "level": 0,
+     "text": "Lightfield representations:(SIGNET)"
+    },
+    {
+     "level": 0,
+     "text": "SIGNET uses a fully-connected neural network to learn the mapping function between each light"
+    },
+    {
+     "level": 0,
+     "text": "fifield pixel’s coordinates and its corresponding color values."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s102_img150.png",
+     "left": 870198,
+     "top": 1696950,
+     "width": 1397001,
+     "height": 457201,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s107_img154.png",
+     "left": 6696364,
+     "top": 1568790,
+     "width": 4171160,
+     "height": 4011316,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 108,
+   "title": "INR",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Implicit Neural Representations (INR):"
+    },
+    {
+     "level": 0,
+     "text": "A function mapping a coordinate input vector x to an output feature vector y parameterised by neural network weights."
+    },
+    {
+     "level": 0,
+     "text": "Image Compression:(INR for Image Compression)"
+    },
+    {
+     "level": 0,
+     "text": "Use Implicit Neural Representation s (INRs) for compression by using the model weights θ as the"
+    },
+    {
+     "level": 0,
+     "text": "representation for an image."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s102_img150.png",
+     "left": 870198,
+     "top": 1696950,
+     "width": 1397001,
+     "height": 457201,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s108_img155.png",
+     "left": 1014534,
+     "top": 2817370,
+     "width": 10178473,
+     "height": 2698615,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 109,
+   "title": "INR",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Implicit Neural Representations (INR):"
+    },
+    {
+     "level": 0,
+     "text": "A function mapping a coordinate input vector x to an output feature vector y parameterised by neural network weights."
+    },
+    {
+     "level": 0,
+     "text": "Apply of INR:"
+    },
+    {
+     "level": 0,
+     "text": "Super-Resolution(UltraSR)"
+    },
+    {
+     "level": 0,
+     "text": "Since the input high-resolution image coordinates can be any continuous value during the test, an image of any resolution can theoretically be obtained…"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s102_img150.png",
+     "left": 870198,
+     "top": 1696950,
+     "width": 1397001,
+     "height": 457201,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s109_img156.png",
+     "left": 3963710,
+     "top": 2401763,
+     "width": 5723221,
+     "height": 3836707,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s109_img157.png",
+     "left": 8592198,
+     "top": 5827454,
+     "width": 1895140,
+     "height": 647059,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 110,
+   "title": "INR",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Implicit Neural Representations (INR):"
+    },
+    {
+     "level": 0,
+     "text": "A function mapping a coordinate input vector x to an output feature vector y parameterised by neural network weights."
+    },
+    {
+     "level": 0,
+     "text": "Apply of INR:"
+    },
+    {
+     "level": 0,
+     "text": "Generative Models:(Generative Models as Distributions of Functions )"
+    },
+    {
+     "level": 0,
+     "text": "By representing data as continuous functions, we can use the same model to learn distributions of images, 3D shapes and climate data, irrespective of any underlying grid or discretization.."
+    },
+    {
+     "level": 0,
+     "text": "Modeling an image with a function with"
+    },
+    {
+     "level": 0,
+     "text": "(right) and without (left) Fourier features."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s102_img150.png",
+     "left": 870198,
+     "top": 1696950,
+     "width": 1397001,
+     "height": 457201,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s110_img158.png",
+     "left": 1053548,
+     "top": 2978251,
+     "width": 3158234,
+     "height": 2586744,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture3/s110_img159.png",
+     "left": 5965655,
+     "top": 2978251,
+     "width": 5172797,
+     "height": 2438740,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 111,
+   "title": "NeRF",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Extension of NeRF:"
+    },
+    {
+     "level": 0,
+     "text": "Speed up: (KiloNeRF)"
+    },
+    {
+     "level": 0,
+     "text": "Instead of representing the entire scene by a single, high-capacity MLP, we represent the scene by thousands of small MLPs. This allows us to render the scene above 2548x faster without loss in visual."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s111_img160.png",
+     "left": 5137651,
+     "top": 896122,
+     "width": 4477326,
+     "height": 4194233,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 112,
+   "title": "NeRF",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Extension of NeRF:"
+    },
+    {
+     "level": 0,
+     "text": "Solve camera pose missalignment:"
+    },
+    {
+     "level": 0,
+     "text": "(BARF)"
+    },
+    {
+     "level": 0,
+     "text": "We present BARF for learning 3D scene representations from imperfect (or even unknown) camera poses by jointly optimizing for registration and reconstruction."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture3/s112_img161.png",
+     "left": 4778667,
+     "top": 896122,
+     "width": 5168737,
+     "height": 4359369,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  }
+ ]
+}

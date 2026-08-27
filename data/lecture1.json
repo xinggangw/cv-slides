@@ -1,0 +1,9631 @@
+{
+ "lecture": 1,
+ "name": "深度学习与计算机视觉简介",
+ "source": "1 - 深度学习与计算机视觉简介.pptx",
+ "slide_width_emu": 9144000,
+ "slide_height_emu": 5143500,
+ "slide_count": 79,
+ "image_count": 479,
+ "slides": [
+  {
+   "index": 1,
+   "title": "《深度学习与计算机视觉》课程简介",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "授课教师：王兴刚"
+    },
+    {
+     "level": 0,
+     "text": "主页：xwcv.github.io"
+    },
+    {
+     "level": 0,
+     "text": "课件内容参考：斯坦福大学 CS231n（已授权）"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 2,
+   "title": "Artificial Intelligence",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 3,
+   "title": "Artificial Intelligence",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Machine Learning"
+    },
+    {
+     "level": 0,
+     "text": "Computer Vision"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s003_img1.png",
+     "left": 412172,
+     "top": 240723,
+     "width": 8319654,
+     "height": 4350328,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 4,
+   "title": "Artificial Intelligence",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Machine Learning"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "Computer Vision"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s004_img2.png",
+     "left": 412172,
+     "top": 240723,
+     "width": 8319654,
+     "height": 4350328,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 5,
+   "title": "This class",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Artificial Intelligence"
+    },
+    {
+     "level": 0,
+     "text": "Machine Learning"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "Computer Vision"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s005_img3.png",
+     "left": 412172,
+     "top": 240723,
+     "width": 8319654,
+     "height": 4350328,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 6,
+   "title": "This class",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Artificial Intelligence"
+    },
+    {
+     "level": 0,
+     "text": "Machine Learning"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "Computer Vision"
+    },
+    {
+     "level": 0,
+     "text": "Natural Language"
+    },
+    {
+     "level": 0,
+     "text": "Processing"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s006_img4.png",
+     "left": 412172,
+     "top": 240723,
+     "width": 8319654,
+     "height": 4350328,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 7,
+   "title": "This class",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Artificial Intelligence"
+    },
+    {
+     "level": 0,
+     "text": "Machine Learning"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "Computer Vision"
+    },
+    {
+     "level": 0,
+     "text": "Natural Language"
+    },
+    {
+     "level": 0,
+     "text": "Speech"
+    },
+    {
+     "level": 0,
+     "text": "Processing"
+    },
+    {
+     "level": 0,
+     "text": "Recognition"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s007_img5.png",
+     "left": 412172,
+     "top": 240723,
+     "width": 8319654,
+     "height": 4350328,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 8,
+   "title": "This class",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Artificial Intelligence"
+    },
+    {
+     "level": 0,
+     "text": "Machine Learning"
+    },
+    {
+     "level": 0,
+     "text": "Robotics"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "Computer Vision"
+    },
+    {
+     "level": 0,
+     "text": "Natural Language"
+    },
+    {
+     "level": 0,
+     "text": "Speech"
+    },
+    {
+     "level": 0,
+     "text": "Processing"
+    },
+    {
+     "level": 0,
+     "text": "Recognition"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s008_img6.png",
+     "left": 271664,
+     "top": 240723,
+     "width": 8460162,
+     "height": 4350328,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 9,
+   "title": "This class",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Mathematics"
+    },
+    {
+     "level": 0,
+     "text": "Artificial Intelligence"
+    },
+    {
+     "level": 0,
+     "text": "Neuroscience"
+    },
+    {
+     "level": 0,
+     "text": "Machine Learning"
+    },
+    {
+     "level": 0,
+     "text": "Robotics"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "Computer Vision"
+    },
+    {
+     "level": 0,
+     "text": "Computer Science"
+    },
+    {
+     "level": 0,
+     "text": "Natural Language"
+    },
+    {
+     "level": 0,
+     "text": "Speech"
+    },
+    {
+     "level": 0,
+     "text": "Processing"
+    },
+    {
+     "level": 0,
+     "text": "Recognition"
+    },
+    {
+     "level": 0,
+     "text": "Psychology"
+    },
+    {
+     "level": 0,
+     "text": "Physics"
+    },
+    {
+     "level": 0,
+     "text": "Biology"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s008_img6.png",
+     "left": 271664,
+     "top": 240723,
+     "width": 8460162,
+     "height": 4350328,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s009_img7.png",
+     "left": 7345680,
+     "top": 2913888,
+     "width": 1798320,
+     "height": 865632,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s009_img8.png",
+     "left": 7559040,
+     "top": 2913888,
+     "width": 1560576,
+     "height": 941832,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s009_img9.png",
+     "left": 1990344,
+     "top": 4130039,
+     "width": 1990344,
+     "height": 862584,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s009_img10.png",
+     "left": 2231136,
+     "top": 4233671,
+     "width": 1508760,
+     "height": 749808,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s009_img11.png",
+     "left": 6772655,
+     "top": 3910583,
+     "width": 1990344,
+     "height": 862584,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s009_img12.png",
+     "left": 6763511,
+     "top": 4014215,
+     "width": 2008631,
+     "height": 749807,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s009_img13.png",
+     "left": 1225295,
+     "top": 33528,
+     "width": 1990343,
+     "height": 865632,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s009_img14.png",
+     "left": 1112519,
+     "top": 140207,
+     "width": 2215896,
+     "height": 746760,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s009_img15.png",
+     "left": 289559,
+     "top": 3910583,
+     "width": 1993392,
+     "height": 865632,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s009_img16.png",
+     "left": 563879,
+     "top": 4014215,
+     "width": 1444752,
+     "height": 749807,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s009_img17.png",
+     "left": 7181088,
+     "top": 670559,
+     "width": 1962911,
+     "height": 862584,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s009_img18.png",
+     "left": 7199376,
+     "top": 819911,
+     "width": 1944624,
+     "height": 640079,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 10,
+   "title": "进化的大爆炸：",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "进化的大爆炸：寒武纪大爆发，公元前530-5.4亿年"
+    },
+    {
+     "level": 0,
+     "text": "This image is licensed under CC-BY 2.5"
+    },
+    {
+     "level": 0,
+     "text": "This image is licensed under CC-BY 3.0"
+    },
+    {
+     "level": 0,
+     "text": "CS231n: Lecture 1 - 13"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    },
+    {
+     "level": 0,
+     "text": "Fei-Fei Li & Ruohan Gao & Yunzhu Li"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s010_img19.jpg",
+     "left": 1241425,
+     "top": 1025798,
+     "width": 3330575,
+     "height": 3439492,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s010_img20.jpg",
+     "left": 5197965,
+     "top": 916555,
+     "width": 2383933,
+     "height": 1787950,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s010_img21.jpg",
+     "left": 5181600,
+     "top": 2920008,
+     "width": 2278856,
+     "height": 1709141,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 11,
+   "title": "",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    },
+    {
+     "level": 0,
+     "text": "14"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s011_img22.jpg",
+     "left": 0,
+     "top": 0,
+     "width": 9144000,
+     "height": 5143499,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s011_img23.png",
+     "left": 12667,
+     "top": 2,
+     "width": 9131332,
+     "height": 2597311,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s011_img24.png",
+     "left": 5689,
+     "top": 2597310,
+     "width": 9138310,
+     "height": 2546189,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 12,
+   "title": "暗盒照相",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Encyclopedia, 18th Century"
+    },
+    {
+     "level": 0,
+     "text": "Gemma Frisius, 1545"
+    },
+    {
+     "level": 0,
+     "text": "This work is in the public domain"
+    },
+    {
+     "level": 0,
+     "text": "Leonardo da Vinci, 16th Century AD"
+    },
+    {
+     "level": 0,
+     "text": "This work is in the public domain"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s012_img25.jpg",
+     "left": 5799677,
+     "top": 1030503,
+     "width": 2081636,
+     "height": 3326031,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s012_img26.jpg",
+     "left": 1140090,
+     "top": 1006030,
+     "width": 3757004,
+     "height": 1947862,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s012_img27.jpg",
+     "left": 1550669,
+     "top": 3213591,
+     "width": 1570816,
+     "height": 1453736,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 13,
+   "title": "Computer Vision is everywhere!",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Left to right:"
+    },
+    {
+     "level": 0,
+     "text": "Image by Roger H Goun is"
+    },
+    {
+     "level": 0,
+     "text": "licensed under CC BY 2.0 Image is CC0 1.0 public domain Image is CC0 1.0 public domain Image is CC0 1.0 public domain"
+    },
+    {
+     "level": 0,
+     "text": "Left to right:"
+    },
+    {
+     "level": 0,
+     "text": "Image is free to use Image is CC0 1.0 public domain"
+    },
+    {
+     "level": 0,
+     "text": "Image by NASA is licensed"
+    },
+    {
+     "level": 0,
+     "text": "under CC BY 2.0"
+    },
+    {
+     "level": 0,
+     "text": "Image is CC0 1.0 public domain"
+    },
+    {
+     "level": 0,
+     "text": "Bottom row, left to right Image is CC0 1.0 public domain"
+    },
+    {
+     "level": 0,
+     "text": "Image by Derek Keats is licensed under CC BY 2.0; changes made"
+    },
+    {
+     "level": 0,
+     "text": "Image is public domain"
+    },
+    {
+     "level": 0,
+     "text": "Image is licensed under CC-BY 2.0; changes made"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s013_img28.jpg",
+     "left": 5392201,
+     "top": 787111,
+     "width": 1323380,
+     "height": 1375145,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s013_img29.jpg",
+     "left": 3319632,
+     "top": 2213679,
+     "width": 1885950,
+     "height": 1151215,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s013_img30.jpg",
+     "left": 6829483,
+     "top": 787111,
+     "width": 1128372,
+     "height": 1376357,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s013_img31.jpg",
+     "left": 3151318,
+     "top": 3429025,
+     "width": 1333903,
+     "height": 1243011,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s013_img32.jpg",
+     "left": 5330316,
+     "top": 2224440,
+     "width": 1529134,
+     "height": 1143078,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s013_img33.jpg",
+     "left": 6959138,
+     "top": 2224440,
+     "width": 998717,
+     "height": 1147385,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s013_img34.jpg",
+     "left": 1186144,
+     "top": 3427884,
+     "width": 1852098,
+     "height": 1235389,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s013_img35.jpg",
+     "left": 4597684,
+     "top": 3429025,
+     "width": 1724908,
+     "height": 1234816,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s013_img36.jpg",
+     "left": 1186144,
+     "top": 787111,
+     "width": 2008755,
+     "height": 1339824,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s013_img37.jpg",
+     "left": 3420644,
+     "top": 831475,
+     "width": 1838559,
+     "height": 1294376,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s013_img38.jpg",
+     "left": 6441469,
+     "top": 3428295,
+     "width": 1516387,
+     "height": 1234978,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s013_img39.jpg",
+     "left": 1186144,
+     "top": 2216453,
+     "width": 1975319,
+     "height": 1126293,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 14,
+   "title": "Where did we come from?",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 15,
+   "title": "Hubel and Wiesel, 1959",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Measure brain activity"
+    },
+    {
+     "level": 0,
+     "text": "Simple cells:"
+    },
+    {
+     "level": 0,
+     "text": "Response to specific rotation and orientation"
+    },
+    {
+     "level": 0,
+     "text": "Complex cells: Response to light orientation and movement, some translation invariance"
+    },
+    {
+     "level": 0,
+     "text": "Response Stimulus"
+    },
+    {
+     "level": 0,
+     "text": "Cat image by CNX OpenStax is licensed under CC BY 4.0; changes made"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "No response"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s015_img40.png",
+     "left": 1130808,
+     "top": 969263,
+     "width": 780288,
+     "height": 1359408,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img41.png",
+     "left": 4326842,
+     "top": 1106620,
+     "width": 914276,
+     "height": 1297517,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img42.png",
+     "left": 3820645,
+     "top": 2920290,
+     "width": 124913,
+     "height": 119082,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img43.png",
+     "left": 3723763,
+     "top": 3611039,
+     "width": 110714,
+     "height": 210425,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img44.png",
+     "left": 3490361,
+     "top": 3678774,
+     "width": 161180,
+     "height": 76200,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img45.png",
+     "left": 5751522,
+     "top": 550481,
+     "width": 76200,
+     "height": 159898,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img46.png",
+     "left": 6441290,
+     "top": 634111,
+     "width": 124913,
+     "height": 119082,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img47.png",
+     "left": 6233989,
+     "top": 834589,
+     "width": 119145,
+     "height": 113631,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img45.png",
+     "left": 7007335,
+     "top": 408213,
+     "width": 76200,
+     "height": 159898,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img44.png",
+     "left": 6704021,
+     "top": 693574,
+     "width": 161179,
+     "height": 76200,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img48.png",
+     "left": 7508923,
+     "top": 645293,
+     "width": 110714,
+     "height": 210423,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img49.png",
+     "left": 7523205,
+     "top": 884948,
+     "width": 76200,
+     "height": 151961,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img49.png",
+     "left": 5751522,
+     "top": 855718,
+     "width": 76200,
+     "height": 151963,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img44.png",
+     "left": 7275521,
+     "top": 713030,
+     "width": 161179,
+     "height": 76200,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img45.png",
+     "left": 7516181,
+     "top": 437330,
+     "width": 76200,
+     "height": 159898,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s015_img50.png",
+     "left": 7675571,
+     "top": 713030,
+     "width": 170234,
+     "height": 76200,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 16,
+   "title": "Larry Roberts, 1963",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "(a) Original picture"
+    },
+    {
+     "level": 0,
+     "text": "(b) Differentiated picture"
+    },
+    {
+     "level": 0,
+     "text": "(c) Feature points selected"
+    },
+    {
+     "level": 0,
+     "text": "Lawrence Gilman Roberts, “Machine Perception of Three-Dimensional Solids”, 1963"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [
+    [
+     [
+      "1959\nHubel & Wiesel",
+      "",
+      "",
+      "1963\nRoberts"
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ]
+    ]
+   ],
+   "images": [
+    {
+     "path": "assets/lecture1/s016_img51.png",
+     "left": 6861047,
+     "top": 2791968,
+     "width": 292607,
+     "height": 292607,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img52.png",
+     "left": 6905381,
+     "top": 2812608,
+     "width": 204782,
+     "height": 204782,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img53.png",
+     "left": 7211567,
+     "top": 2746247,
+     "width": 289559,
+     "height": 289560,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img52.png",
+     "left": 7253585,
+     "top": 2766020,
+     "width": 204782,
+     "height": 204782,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img54.png",
+     "left": 6409943,
+     "top": 856487,
+     "width": 1938527,
+     "height": 2051304,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img55.png",
+     "left": 6318503,
+     "top": 1051559,
+     "width": 344424,
+     "height": 347472,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img56.png",
+     "left": 6365363,
+     "top": 1077799,
+     "width": 249721,
+     "height": 249722,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img57.png",
+     "left": 6464807,
+     "top": 1286255,
+     "width": 344423,
+     "height": 347472,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img58.png",
+     "left": 6511546,
+     "top": 1311513,
+     "width": 249721,
+     "height": 249722,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img59.png",
+     "left": 6245351,
+     "top": 1606295,
+     "width": 347472,
+     "height": 347471,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img60.png",
+     "left": 6293681,
+     "top": 1631923,
+     "width": 249722,
+     "height": 249721,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img61.png",
+     "left": 6245351,
+     "top": 1932431,
+     "width": 347472,
+     "height": 347471,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img62.png",
+     "left": 6293681,
+     "top": 1959100,
+     "width": 249722,
+     "height": 249722,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img63.png",
+     "left": 6211823,
+     "top": 2435351,
+     "width": 344424,
+     "height": 347472,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img64.png",
+     "left": 6259324,
+     "top": 2460569,
+     "width": 249721,
+     "height": 249721,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img65.png",
+     "left": 6245351,
+     "top": 890015,
+     "width": 347472,
+     "height": 344424,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img62.png",
+     "left": 6293681,
+     "top": 914887,
+     "width": 249722,
+     "height": 249721,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img66.png",
+     "left": 7269479,
+     "top": 725423,
+     "width": 344424,
+     "height": 347472,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img67.png",
+     "left": 7316960,
+     "top": 751043,
+     "width": 249721,
+     "height": 249722,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img68.png",
+     "left": 8083295,
+     "top": 2599944,
+     "width": 347472,
+     "height": 344424,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img69.png",
+     "left": 8132918,
+     "top": 2623935,
+     "width": 249721,
+     "height": 249721,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img70.png",
+     "left": 6995159,
+     "top": 768095,
+     "width": 344424,
+     "height": 347472,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img69.png",
+     "left": 7042189,
+     "top": 794260,
+     "width": 249721,
+     "height": 249721,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img71.png",
+     "left": 6608063,
+     "top": 826007,
+     "width": 347472,
+     "height": 347472,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img72.png",
+     "left": 6657727,
+     "top": 851961,
+     "width": 249722,
+     "height": 249722,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img73.png",
+     "left": 7278623,
+     "top": 2292095,
+     "width": 344424,
+     "height": 344424,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img58.png",
+     "left": 7326290,
+     "top": 2315836,
+     "width": 249721,
+     "height": 249721,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img74.png",
+     "left": 7586471,
+     "top": 2392679,
+     "width": 344424,
+     "height": 347472,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img75.png",
+     "left": 7633615,
+     "top": 2418831,
+     "width": 249721,
+     "height": 249722,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img76.png",
+     "left": 7449311,
+     "top": 1072895,
+     "width": 347472,
+     "height": 344424,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img58.png",
+     "left": 7498063,
+     "top": 1096910,
+     "width": 249721,
+     "height": 249722,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img77.png",
+     "left": 6638543,
+     "top": 1719071,
+     "width": 347472,
+     "height": 347471,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img58.png",
+     "left": 6687473,
+     "top": 1745311,
+     "width": 249721,
+     "height": 249721,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img78.png",
+     "left": 6748271,
+     "top": 2057399,
+     "width": 344424,
+     "height": 347472,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img79.png",
+     "left": 6795493,
+     "top": 2083005,
+     "width": 249721,
+     "height": 249722,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img80.png",
+     "left": 6906767,
+     "top": 2374391,
+     "width": 347472,
+     "height": 344424,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img75.png",
+     "left": 6955955,
+     "top": 2398450,
+     "width": 249721,
+     "height": 249722,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img81.png",
+     "left": 6534911,
+     "top": 2386584,
+     "width": 344424,
+     "height": 344424,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img58.png",
+     "left": 6582422,
+     "top": 2411077,
+     "width": 249722,
+     "height": 249721,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img82.png",
+     "left": 6507479,
+     "top": 2569463,
+     "width": 344424,
+     "height": 347472,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img67.png",
+     "left": 6554428,
+     "top": 2594843,
+     "width": 249722,
+     "height": 249722,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img83.png",
+     "left": 6784847,
+     "top": 2660903,
+     "width": 347472,
+     "height": 347472,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img79.png",
+     "left": 6833557,
+     "top": 2687544,
+     "width": 249721,
+     "height": 249722,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img84.png",
+     "left": 7720583,
+     "top": 2679191,
+     "width": 347472,
+     "height": 344424,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img67.png",
+     "left": 7768870,
+     "top": 2703851,
+     "width": 249721,
+     "height": 249722,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img85.png",
+     "left": 7802879,
+     "top": 2490216,
+     "width": 347472,
+     "height": 344424,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img60.png",
+     "left": 7852054,
+     "top": 2514568,
+     "width": 249722,
+     "height": 249721,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img86.png",
+     "left": 7266431,
+     "top": 1926335,
+     "width": 347472,
+     "height": 347471,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img67.png",
+     "left": 7316040,
+     "top": 1952128,
+     "width": 249721,
+     "height": 249722,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img87.png",
+     "left": 7296911,
+     "top": 1487423,
+     "width": 347472,
+     "height": 347472,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img88.png",
+     "left": 7345665,
+     "top": 1513928,
+     "width": 249722,
+     "height": 249721,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img89.png",
+     "left": 7632191,
+     "top": 1487423,
+     "width": 347472,
+     "height": 347472,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img90.png",
+     "left": 7681005,
+     "top": 1513928,
+     "width": 249722,
+     "height": 249721,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img91.png",
+     "left": 7927847,
+     "top": 2103120,
+     "width": 347472,
+     "height": 344424,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img92.png",
+     "left": 7977357,
+     "top": 2127801,
+     "width": 249721,
+     "height": 249721,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img54.png",
+     "left": 3526535,
+     "top": 856488,
+     "width": 1938527,
+     "height": 2051304,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s016_img93.png",
+     "left": 481583,
+     "top": 850391,
+     "width": 2279904,
+     "height": 2148839,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 17,
+   "title": "",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "https://dspace.mit.edu/handle/1721.1/6125"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [
+    [
+     [
+      "1959\nHubel & Wiesel",
+      "",
+      "",
+      "1963\nRoberts",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      "",
+      ""
+     ]
+    ]
+   ],
+   "images": [
+    {
+     "path": "assets/lecture1/s017_img94.jpg",
+     "left": 2042407,
+     "top": 150426,
+     "width": 5374744,
+     "height": 4394829,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 18,
+   "title": "2 ½-D sketch",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "3-D model"
+    },
+    {
+     "level": 0,
+     "text": "Input image"
+    },
+    {
+     "level": 0,
+     "text": "Edge image"
+    },
+    {
+     "level": 0,
+     "text": "This image is CC0 1.0 public domain"
+    },
+    {
+     "level": 0,
+     "text": "3-D Model Representation"
+    },
+    {
+     "level": 0,
+     "text": "Input Image"
+    },
+    {
+     "level": 0,
+     "text": "Primal Sketch"
+    },
+    {
+     "level": 0,
+     "text": "2 ½-D"
+    },
+    {
+     "level": 0,
+     "text": "Sketch"
+    },
+    {
+     "level": 0,
+     "text": "3-D models hierarchically organized in terms of surface and volumetric primitives"
+    },
+    {
+     "level": 0,
+     "text": "Perceived intensities"
+    },
+    {
+     "level": 0,
+     "text": "Zero crossings, blobs, edges, bars, ends, virtual lines, groups, curves boundaries"
+    },
+    {
+     "level": 0,
+     "text": "Local surface orientation and discontinuities in depth and in surface orientation"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "Stages of Visual Representation, David Marr, 1970s"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s018_img95.jpg",
+     "left": 329226,
+     "top": 552610,
+     "width": 2419848,
+     "height": 3098200,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s018_img96.jpg",
+     "left": 3137174,
+     "top": 554927,
+     "width": 1384349,
+     "height": 1038261,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s018_img97.jpg",
+     "left": 4694566,
+     "top": 554928,
+     "width": 1381517,
+     "height": 1036137,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s018_img97.jpg",
+     "left": 6305814,
+     "top": 452093,
+     "width": 1381517,
+     "height": 1036137,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s018_img98.png",
+     "left": 7129019,
+     "top": 1259860,
+     "width": 384314,
+     "height": 386233,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s018_img99.png",
+     "left": 8174948,
+     "top": 751158,
+     "width": 726784,
+     "height": 726782,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 19,
+   "title": "Recognition via Parts (1970s)",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Generalized Cylinders, Brooks and Binford, 1979"
+    },
+    {
+     "level": 0,
+     "text": "Pictorial Structures, Fischler and Elshlager, 1973"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s019_img100.png",
+     "left": 5879591,
+     "top": 1078992,
+     "width": 365760,
+     "height": 387096,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img101.png",
+     "left": 5873495,
+     "top": 1075944,
+     "width": 377951,
+     "height": 451103,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img102.png",
+     "left": 5882639,
+     "top": 1554480,
+     "width": 362712,
+     "height": 387096,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img103.png",
+     "left": 6007607,
+     "top": 1365504,
+     "width": 109727,
+     "height": 295656,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img104.png",
+     "left": 5327903,
+     "top": 1530095,
+     "width": 362712,
+     "height": 387095,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img105.png",
+     "left": 5593079,
+     "top": 1664208,
+     "width": 399288,
+     "height": 134112,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img106.png",
+     "left": 6440423,
+     "top": 1520952,
+     "width": 362711,
+     "height": 387096,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img107.png",
+     "left": 6147815,
+     "top": 1664208,
+     "width": 399288,
+     "height": 134112,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img108.png",
+     "left": 4965191,
+     "top": 2148840,
+     "width": 365760,
+     "height": 387095,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img109.png",
+     "left": 5184647,
+     "top": 1770888,
+     "width": 289560,
+     "height": 527304,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img110.png",
+     "left": 6769607,
+     "top": 2039111,
+     "width": 365759,
+     "height": 384048,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img111.png",
+     "left": 6696455,
+     "top": 1697736,
+     "width": 310896,
+     "height": 448056,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img112.png",
+     "left": 5919215,
+     "top": 2148840,
+     "width": 365760,
+     "height": 387095,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img101.png",
+     "left": 5913119,
+     "top": 2148840,
+     "width": 377951,
+     "height": 451104,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img113.png",
+     "left": 6010655,
+     "top": 1828800,
+     "width": 146303,
+     "height": 417575,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img114.png",
+     "left": 5529071,
+     "top": 2767583,
+     "width": 362712,
+     "height": 387095,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img115.png",
+     "left": 5660135,
+     "top": 2383536,
+     "width": 405384,
+     "height": 484631,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img116.png",
+     "left": 6507479,
+     "top": 2767583,
+     "width": 365759,
+     "height": 387095,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img117.png",
+     "left": 6147815,
+     "top": 2374391,
+     "width": 509015,
+     "height": 539495,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img118.png",
+     "left": 5529071,
+     "top": 3538727,
+     "width": 362712,
+     "height": 387096,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img119.png",
+     "left": 5657087,
+     "top": 3054095,
+     "width": 106679,
+     "height": 591311,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img120.png",
+     "left": 6565391,
+     "top": 3538727,
+     "width": 365759,
+     "height": 387096,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img121.png",
+     "left": 6669023,
+     "top": 3054095,
+     "width": 134111,
+     "height": 591311,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img122.png",
+     "left": 2407920,
+     "top": 1447799,
+     "width": 731519,
+     "height": 1100327,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img123.png",
+     "left": 2407920,
+     "top": 2468879,
+     "width": 292607,
+     "height": 1164336,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img124.png",
+     "left": 2843784,
+     "top": 2471927,
+     "width": 292607,
+     "height": 1164336,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img125.png",
+     "left": 2538984,
+     "top": 950975,
+     "width": 475488,
+     "height": 704088,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img126.png",
+     "left": 3072384,
+     "top": 1697735,
+     "width": 502919,
+     "height": 905256,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img127.png",
+     "left": 3118166,
+     "top": 1720450,
+     "width": 209523,
+     "height": 77382,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img128.png",
+     "left": 1959864,
+     "top": 1697735,
+     "width": 521207,
+     "height": 905256,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s019_img129.png",
+     "left": 2228094,
+     "top": 1721678,
+     "width": 207714,
+     "height": 81493,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 20,
+   "title": "Recognition via Edge Detection (1980s)",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "John Canny, 1986"
+    },
+    {
+     "level": 0,
+     "text": "David Lowe, 1987"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "Image is CC0 1.0 public domain"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s020_img130.jpg",
+     "left": 403097,
+     "top": 777480,
+     "width": 4053399,
+     "height": 2702265,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s020_img131.png",
+     "left": 4572000,
+     "top": 777480,
+     "width": 4053399,
+     "height": 2702265,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 21,
+   "title": "Arriving at an “AI winter”",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Enthusiasm (and funding!) for AI research dwindled"
+    },
+    {
+     "level": 0,
+     "text": "”Expert Systems” failed to deliver on their promises"
+    },
+    {
+     "level": 0,
+     "text": "But subfields of AI continues to grow"
+    },
+    {
+     "level": 0,
+     "text": "- Computer vision, NLP, robotics, compbio, etc."
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "Left Image is CC BY 3.0"
+    },
+    {
+     "level": 0,
+     "text": "Middl Image is public Right Image is CC-BY 2.0; changes made domain"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 22,
+   "title": "Visual recognition is a fundamental task for visual intelligence",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s022_img132.jpg",
+     "left": 685800,
+     "top": 3181350,
+     "width": 1808830,
+     "height": 1470279,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s022_img133.png",
+     "left": 3580070,
+     "top": 3183199,
+     "width": 1108168,
+     "height": 1468430,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s022_img134.jpg",
+     "left": 4674900,
+     "top": 3908447,
+     "width": 1104900,
+     "height": 736600,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s022_img135.jpg",
+     "left": 4684970,
+     "top": 3174232,
+     "width": 1104900,
+     "height": 736599,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s022_img136.jpg",
+     "left": 6816426,
+     "top": 2534493,
+     "width": 1995324,
+     "height": 1034451,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s022_img137.jpg",
+     "left": 6801078,
+     "top": 3568945,
+     "width": 1996674,
+     "height": 1100969,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 23,
+   "title": "Recognition via Grouping (1990s)",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "Normalized Cuts, Shi and Malik, 1997"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "Right Image is CC-BY 2.0; changes made"
+    },
+    {
+     "level": 0,
+     "text": "Left Image is CC BY 3.0"
+    },
+    {
+     "level": 0,
+     "text": "Middl Image is public domain"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s023_img138.jpg",
+     "left": 1747100,
+     "top": 692480,
+     "width": 1993200,
+     "height": 1494899,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s023_img139.png",
+     "left": 1760617,
+     "top": 2187018,
+     "width": 4238345,
+     "height": 1495080,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s023_img140.jpg",
+     "left": 3740301,
+     "top": 692298,
+     "width": 2252206,
+     "height": 1494900,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s023_img141.jpg",
+     "left": 6021282,
+     "top": 684241,
+     "width": 941277,
+     "height": 1494718,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s023_img142.png",
+     "left": 6021282,
+     "top": 2209318,
+     "width": 941277,
+     "height": 1472600,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 24,
+   "title": "Recognition via Matching (2000s)",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Image is public domain"
+    },
+    {
+     "level": 0,
+     "text": "SIFT, David Lowe, 1999"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "1999"
+    },
+    {
+     "level": 0,
+     "text": "SIFT"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s024_img143.jpg",
+     "left": 4901064,
+     "top": 1185340,
+     "width": 2777426,
+     "height": 2082267,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img144.png",
+     "left": 6184391,
+     "top": 2447544,
+     "width": 128015,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img145.png",
+     "left": 6166103,
+     "top": 2154936,
+     "width": 128015,
+     "height": 152400,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img146.png",
+     "left": 6242303,
+     "top": 2008632,
+     "width": 128015,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img147.png",
+     "left": 6333744,
+     "top": 2426208,
+     "width": 128015,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img148.png",
+     "left": 6379464,
+     "top": 2011680,
+     "width": 124967,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img149.png",
+     "left": 6547103,
+     "top": 2493263,
+     "width": 124968,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img150.png",
+     "left": 6531864,
+     "top": 1917191,
+     "width": 128016,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img151.png",
+     "left": 6608064,
+     "top": 2234183,
+     "width": 124968,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img152.png",
+     "left": 6729984,
+     "top": 2569463,
+     "width": 128016,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img153.png",
+     "left": 6452615,
+     "top": 2206752,
+     "width": 128015,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img154.png",
+     "left": 6742176,
+     "top": 2200655,
+     "width": 128016,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img155.png",
+     "left": 6888479,
+     "top": 2206752,
+     "width": 128016,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img156.png",
+     "left": 6885432,
+     "top": 1923287,
+     "width": 124968,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img157.jpg",
+     "left": 1558768,
+     "top": 1185340,
+     "width": 2743201,
+     "height": 2057401,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img158.png",
+     "left": 2542032,
+     "top": 2221991,
+     "width": 124968,
+     "height": 152400,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img159.png",
+     "left": 2575560,
+     "top": 2075688,
+     "width": 128016,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img160.png",
+     "left": 2596896,
+     "top": 1990344,
+     "width": 124968,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img161.png",
+     "left": 2770632,
+     "top": 1990344,
+     "width": 124968,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img162.png",
+     "left": 2734055,
+     "top": 2200655,
+     "width": 128016,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img163.png",
+     "left": 2941319,
+     "top": 2221991,
+     "width": 128016,
+     "height": 152400,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img164.png",
+     "left": 2999232,
+     "top": 2106168,
+     "width": 124968,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img165.png",
+     "left": 2883408,
+     "top": 2106168,
+     "width": 128016,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img166.png",
+     "left": 2941319,
+     "top": 1962912,
+     "width": 128016,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img167.png",
+     "left": 3112008,
+     "top": 2075688,
+     "width": 128016,
+     "height": 152400,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img168.png",
+     "left": 3227832,
+     "top": 2075688,
+     "width": 124968,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img169.png",
+     "left": 3188208,
+     "top": 1965959,
+     "width": 128016,
+     "height": 152400,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img170.png",
+     "left": 3090672,
+     "top": 2200655,
+     "width": 128016,
+     "height": 149351,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img171.png",
+     "left": 3264408,
+     "top": 2097024,
+     "width": 3733799,
+     "height": 231648,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img172.png",
+     "left": 3200400,
+     "top": 1944623,
+     "width": 3779520,
+     "height": 146304,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img173.png",
+     "left": 3121152,
+     "top": 2221991,
+     "width": 3706367,
+     "height": 475488,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img174.png",
+     "left": 3142488,
+     "top": 2084832,
+     "width": 3569208,
+     "height": 268224,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img175.png",
+     "left": 2980944,
+     "top": 2243327,
+     "width": 3663696,
+     "height": 371856,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img176.png",
+     "left": 2886455,
+     "top": 2130552,
+     "width": 3666744,
+     "height": 198119,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img177.png",
+     "left": 2971800,
+     "top": 1941576,
+     "width": 3672840,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img178.png",
+     "left": 2773680,
+     "top": 2218944,
+     "width": 3657600,
+     "height": 332231,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img179.png",
+     "left": 2804160,
+     "top": 2017775,
+     "width": 3685032,
+     "height": 109728,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img180.png",
+     "left": 2578608,
+     "top": 2252472,
+     "width": 3703320,
+     "height": 316992,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img181.png",
+     "left": 2578608,
+     "top": 2103119,
+     "width": 3688079,
+     "height": 176783,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s024_img182.png",
+     "left": 2901696,
+     "top": 2029968,
+     "width": 3438144,
+     "height": 128016,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 25,
+   "title": "Face Detection",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Viola and Jones, 2001"
+    },
+    {
+     "level": 0,
+     "text": "One of the first successful applications of machine learning to vision"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [
+    [
+     [
+      "1959",
+      "",
+      "1963",
+      "",
+      "1970s",
+      "",
+      "1979",
+      "",
+      "1986",
+      "",
+      "1997",
+      "",
+      "1999",
+      "",
+      "2001"
+     ],
+     [
+      "Hubel & Wiesel",
+      "",
+      "Roberts",
+      "",
+      "David Marr",
+      "",
+      "Gen. Cylinders",
+      "",
+      "Canny",
+      "",
+      "Norm. Cuts",
+      "",
+      "SIFT",
+      "",
+      "V&J"
+     ]
+    ]
+   ],
+   "images": [
+    {
+     "path": "assets/lecture1/s025_img183.jpg",
+     "left": 3543300,
+     "top": 198079,
+     "width": 4975551,
+     "height": 3491524,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 26,
+   "title": "PASCAL Visual Object Challenge",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Image is CC0 1.0 public domain"
+    },
+    {
+     "level": 0,
+     "text": "Train"
+    },
+    {
+     "level": 0,
+     "text": "Person"
+    },
+    {
+     "level": 0,
+     "text": "Airplane"
+    },
+    {
+     "level": 0,
+     "text": "Image is CC0 1.0 public domain"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "2001"
+    },
+    {
+     "level": 0,
+     "text": "V&J"
+    },
+    {
+     "level": 0,
+     "text": "1999"
+    },
+    {
+     "level": 0,
+     "text": "SIFT"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "2004, 2007"
+    },
+    {
+     "level": 0,
+     "text": "Caltech101; PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s026_img184.jpg",
+     "left": 7124809,
+     "top": 1124150,
+     "width": 1627442,
+     "height": 2307037,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s026_img185.jpg",
+     "left": 5288663,
+     "top": 1135294,
+     "width": 1781869,
+     "height": 1191625,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s026_img186.jpg",
+     "left": 5288663,
+     "top": 2359238,
+     "width": 1762324,
+     "height": 1071949,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s026_img187.png",
+     "left": 5300472,
+     "top": 2493263,
+     "width": 1725168,
+     "height": 783336,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s026_img188.png",
+     "left": 5702808,
+     "top": 1395983,
+     "width": 1411224,
+     "height": 789432,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s026_img189.png",
+     "left": 7147559,
+     "top": 1362455,
+     "width": 1557527,
+     "height": 2130552,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s026_img190.jpg",
+     "left": 647521,
+     "top": 283695,
+     "width": 3939989,
+     "height": 3397170,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 27,
+   "title": "Perceptron",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Frank Rosenblatt, ~1957"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "2001"
+    },
+    {
+     "level": 0,
+     "text": "V&J"
+    },
+    {
+     "level": 0,
+     "text": "1999"
+    },
+    {
+     "level": 0,
+     "text": "SIFT"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "2004, 2007"
+    },
+    {
+     "level": 0,
+     "text": "Caltech101;"
+    },
+    {
+     "level": 0,
+     "text": "PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "1958"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s027_img191.jpg",
+     "left": 5639517,
+     "top": 116297,
+     "width": 2993457,
+     "height": 3676176,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s027_img192.jpg",
+     "left": 827359,
+     "top": 2251215,
+     "width": 3179935,
+     "height": 1430299,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s027_img193.jpg",
+     "left": 905433,
+     "top": 577290,
+     "width": 2907571,
+     "height": 1505676,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 28,
+   "title": "Minsky and Papert, 1969",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "y"
+    },
+    {
+     "level": 0,
+     "text": "x"
+    },
+    {
+     "level": 0,
+     "text": "Showed that Perceptrons could not learn the XOR function"
+    },
+    {
+     "level": 0,
+     "text": "Caused a lot of disillusionment in the field"
+    },
+    {
+     "level": 0,
+     "text": "2001"
+    },
+    {
+     "level": 0,
+     "text": "V&J"
+    },
+    {
+     "level": 0,
+     "text": "2004, 2007"
+    },
+    {
+     "level": 0,
+     "text": "Caltech101;"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "1999"
+    },
+    {
+     "level": 0,
+     "text": "SIFT"
+    },
+    {
+     "level": 0,
+     "text": "PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "1958"
+    },
+    {
+     "level": 0,
+     "text": "Perceptron"
+    },
+    {
+     "level": 0,
+     "text": "1969"
+    },
+    {
+     "level": 0,
+     "text": "Minsky & Papert"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [
+    [
+     [
+      "X",
+      "Y",
+      "F(x,y)"
+     ],
+     [
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "1",
+      "1"
+     ],
+     [
+      "1",
+      "0",
+      "1"
+     ],
+     [
+      "1",
+      "1",
+      "0"
+     ]
+    ]
+   ],
+   "images": [
+    {
+     "path": "assets/lecture1/s028_img194.jpg",
+     "left": 5853221,
+     "top": 369401,
+     "width": 2214543,
+     "height": 3318489,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s028_img195.png",
+     "left": 2962070,
+     "top": 2456180,
+     "width": 239713,
+     "height": 239713,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s028_img196.png",
+     "left": 3929000,
+     "top": 2456180,
+     "width": 239713,
+     "height": 239713,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s028_img197.png",
+     "left": 2959101,
+     "top": 1482421,
+     "width": 239713,
+     "height": 239713,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s028_img198.png",
+     "left": 3929000,
+     "top": 1482421,
+     "width": 239713,
+     "height": 239713,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 29,
+   "title": "Neocognitron: Fukushima, 1980",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Computational model the visual system, directly inspired by Hubel and Wiesel’s hierarchy of complex and simple cells"
+    },
+    {
+     "level": 0,
+     "text": "Interleaved simple cells (convolution) and complex cells (pooling)"
+    },
+    {
+     "level": 0,
+     "text": "No practical training algorithm"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "2001"
+    },
+    {
+     "level": 0,
+     "text": "V&J"
+    },
+    {
+     "level": 0,
+     "text": "1999"
+    },
+    {
+     "level": 0,
+     "text": "SIFT"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "2004, 2007"
+    },
+    {
+     "level": 0,
+     "text": "Caltech101;"
+    },
+    {
+     "level": 0,
+     "text": "PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "1958"
+    },
+    {
+     "level": 0,
+     "text": "Perceptron"
+    },
+    {
+     "level": 0,
+     "text": "1980"
+    },
+    {
+     "level": 0,
+     "text": "Neocognitron"
+    },
+    {
+     "level": 0,
+     "text": "1969"
+    },
+    {
+     "level": 0,
+     "text": "Minsky & Papert"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s029_img199.png",
+     "left": 7714807,
+     "top": 2744889,
+     "width": 190125,
+     "height": 246483,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img199.png",
+     "left": 7708656,
+     "top": 1392879,
+     "width": 190125,
+     "height": 246483,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img200.png",
+     "left": 7757449,
+     "top": 2794770,
+     "width": 105286,
+     "height": 146718,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img201.png",
+     "left": 7751074,
+     "top": 1442763,
+     "width": 105286,
+     "height": 146718,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img202.png",
+     "left": 6627536,
+     "top": 1383555,
+     "width": 130624,
+     "height": 163932,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img202.png",
+     "left": 6627536,
+     "top": 2746336,
+     "width": 130624,
+     "height": 163932,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img203.png",
+     "left": 5921689,
+     "top": 1383555,
+     "width": 130624,
+     "height": 163932,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img203.png",
+     "left": 5921689,
+     "top": 2709803,
+     "width": 130624,
+     "height": 163932,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img204.png",
+     "left": 4835094,
+     "top": 1711548,
+     "width": 163426,
+     "height": 218314,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img205.png",
+     "left": 7357113,
+     "top": 2768753,
+     "width": 130624,
+     "height": 163932,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img206.png",
+     "left": 7333383,
+     "top": 1444990,
+     "width": 130624,
+     "height": 163932,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img207.png",
+     "left": 7328218,
+     "top": 1410732,
+     "width": 130624,
+     "height": 163932,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img208.png",
+     "left": 7357023,
+     "top": 2760618,
+     "width": 130624,
+     "height": 163932,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img209.png",
+     "left": 8238893,
+     "top": 2744889,
+     "width": 190125,
+     "height": 246483,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s029_img210.png",
+     "left": 8244349,
+     "top": 1433434,
+     "width": 190125,
+     "height": 246483,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 30,
+   "title": "Backprop: Rumelhart, Hinton, and Williams, 1986",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Introduced backpropagation for computing gradients in neural networks"
+    },
+    {
+     "level": 0,
+     "text": "Successfully trained perceptrons with multiple layers"
+    },
+    {
+     "level": 0,
+     "text": "recognizable math"
+    },
+    {
+     "level": 0,
+     "text": "Illustration of Rumelhart et al., 1986 by Lane McIntosh, copyright CS231n 2017"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "2001"
+    },
+    {
+     "level": 0,
+     "text": "V&J"
+    },
+    {
+     "level": 0,
+     "text": "1999"
+    },
+    {
+     "level": 0,
+     "text": "SIFT"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "2004, 2007"
+    },
+    {
+     "level": 0,
+     "text": "Caltech101;"
+    },
+    {
+     "level": 0,
+     "text": "PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "1958"
+    },
+    {
+     "level": 0,
+     "text": "Perceptron"
+    },
+    {
+     "level": 0,
+     "text": "1980"
+    },
+    {
+     "level": 0,
+     "text": "Neocognitron"
+    },
+    {
+     "level": 0,
+     "text": "1969"
+    },
+    {
+     "level": 0,
+     "text": "Minsky & Papert"
+    },
+    {
+     "level": 0,
+     "text": "1985"
+    },
+    {
+     "level": 0,
+     "text": "Backprop"
+    },
+    {
+     "level": 0,
+     "text": "CS231n: Lecture 1 -"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s030_img211.png",
+     "left": 2938272,
+     "top": 1036319,
+     "width": 4721352,
+     "height": 2630423,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 31,
+   "title": "Convolutional Networks: LeCun et al, 1998",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Applied backprop algorithm to a Neocognitron-like architecture Learned to recognize handwritten digits"
+    },
+    {
+     "level": 0,
+     "text": "Was deployed in a commercial system by NEC, processed handwritten checks Very similar to our modern convolutional networks!"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "2001"
+    },
+    {
+     "level": 0,
+     "text": "V&J"
+    },
+    {
+     "level": 0,
+     "text": "1999"
+    },
+    {
+     "level": 0,
+     "text": "SIFT"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "2004, 2007"
+    },
+    {
+     "level": 0,
+     "text": "Caltech101; PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "1958"
+    },
+    {
+     "level": 0,
+     "text": "Perceptron"
+    },
+    {
+     "level": 0,
+     "text": "1980"
+    },
+    {
+     "level": 0,
+     "text": "Neocognitron"
+    },
+    {
+     "level": 0,
+     "text": "1998"
+    },
+    {
+     "level": 0,
+     "text": "LeNet"
+    },
+    {
+     "level": 0,
+     "text": "1969"
+    },
+    {
+     "level": 0,
+     "text": "Minsky & Papert"
+    },
+    {
+     "level": 0,
+     "text": "1985"
+    },
+    {
+     "level": 0,
+     "text": "Backprop"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "39"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s031_img212.png",
+     "left": 1557527,
+     "top": 835152,
+     "width": 6028944,
+     "height": 1834896,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 32,
+   "title": "2000s: “Deep Learning”",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "People tried to train neural networks that were deeper and deeper"
+    },
+    {
+     "level": 0,
+     "text": "Not a mainstream research topic at this time"
+    },
+    {
+     "level": 0,
+     "text": "Hinton and Salakhutdinov, 2006 Bengio et al, 2007"
+    },
+    {
+     "level": 0,
+     "text": "Lee et al, 2009"
+    },
+    {
+     "level": 0,
+     "text": "Glorot and Bengio, 2010"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "2001"
+    },
+    {
+     "level": 0,
+     "text": "V&J"
+    },
+    {
+     "level": 0,
+     "text": "1999"
+    },
+    {
+     "level": 0,
+     "text": "SIFT"
+    },
+    {
+     "level": 0,
+     "text": "2007"
+    },
+    {
+     "level": 0,
+     "text": "PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "1958"
+    },
+    {
+     "level": 0,
+     "text": "Perceptron"
+    },
+    {
+     "level": 0,
+     "text": "1980"
+    },
+    {
+     "level": 0,
+     "text": "Neocognitron"
+    },
+    {
+     "level": 0,
+     "text": "1998"
+    },
+    {
+     "level": 0,
+     "text": "LeNet"
+    },
+    {
+     "level": 0,
+     "text": "1969"
+    },
+    {
+     "level": 0,
+     "text": "Minsky & Papert"
+    },
+    {
+     "level": 0,
+     "text": "1985"
+    },
+    {
+     "level": 0,
+     "text": "Backprop"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s032_img213.png",
+     "left": 4215384,
+     "top": 170687,
+     "width": 4791456,
+     "height": 3474720,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 33,
+   "title": "2000s: “Deep Learning”",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "People tried to train neural networks that were deeper and deeper"
+    },
+    {
+     "level": 0,
+     "text": "Not a mainstream research topic at this time"
+    },
+    {
+     "level": 0,
+     "text": "No good dataset to work on"
+    },
+    {
+     "level": 0,
+     "text": "Hinton and Salakhutdinov, 2006 Bengio et al, 2007"
+    },
+    {
+     "level": 0,
+     "text": "Lee et al, 2009"
+    },
+    {
+     "level": 0,
+     "text": "Glorot and Bengio, 2010"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "2001"
+    },
+    {
+     "level": 0,
+     "text": "V&J"
+    },
+    {
+     "level": 0,
+     "text": "1999"
+    },
+    {
+     "level": 0,
+     "text": "SIFT"
+    },
+    {
+     "level": 0,
+     "text": "2007"
+    },
+    {
+     "level": 0,
+     "text": "PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "1958"
+    },
+    {
+     "level": 0,
+     "text": "Perceptron"
+    },
+    {
+     "level": 0,
+     "text": "1980"
+    },
+    {
+     "level": 0,
+     "text": "Neocognitron"
+    },
+    {
+     "level": 0,
+     "text": "1998"
+    },
+    {
+     "level": 0,
+     "text": "LeNet"
+    },
+    {
+     "level": 0,
+     "text": "1969"
+    },
+    {
+     "level": 0,
+     "text": "Minsky & Papert"
+    },
+    {
+     "level": 0,
+     "text": "1985"
+    },
+    {
+     "level": 0,
+     "text": "Backprop"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s032_img213.png",
+     "left": 4215384,
+     "top": 170687,
+     "width": 4791456,
+     "height": 3474720,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 34,
+   "title": "The Image Classification Challenge: 1,000 object classes",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Output:"
+    },
+    {
+     "level": 0,
+     "text": "Scale T-shirt"
+    },
+    {
+     "level": 0,
+     "text": "Steel drum Drumstick Mud turtle"
+    },
+    {
+     "level": 0,
+     "text": "1,431,167 images"
+    },
+    {
+     "level": 0,
+     "text": "Deng et al, 2009 Russakovsky et al. IJCV 2015"
+    },
+    {
+     "level": 0,
+     "text": "PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "1958"
+    },
+    {
+     "level": 0,
+     "text": "Perceptron"
+    },
+    {
+     "level": 0,
+     "text": "1980"
+    },
+    {
+     "level": 0,
+     "text": "Neocognitron"
+    },
+    {
+     "level": 0,
+     "text": "1969"
+    },
+    {
+     "level": 0,
+     "text": "Minsky & Papert"
+    },
+    {
+     "level": 0,
+     "text": "1985"
+    },
+    {
+     "level": 0,
+     "text": "Backprop"
+    },
+    {
+     "level": 0,
+     "text": "CS231n: Lecture 1 -"
+    },
+    {
+     "level": 0,
+     "text": "1998"
+    },
+    {
+     "level": 0,
+     "text": "LeNet"
+    },
+    {
+     "level": 0,
+     "text": "34"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [
+    [
+     [
+      "1959",
+      "",
+      "1963",
+      "",
+      "1970s",
+      "",
+      "1979",
+      "",
+      "1986",
+      "",
+      "1997",
+      "",
+      "1999",
+      "",
+      "2001",
+      "2004, 2007",
+      "2009"
+     ],
+     [
+      "Hubel & Wiesel",
+      "",
+      "Roberts",
+      "",
+      "David Marr",
+      "",
+      "Gen. Cylinders",
+      "",
+      "Canny",
+      "",
+      "Norm. Cuts",
+      "",
+      "SIFT",
+      "",
+      "V&J",
+      "Caltech101;",
+      "ImageNet"
+     ]
+    ]
+   ],
+   "images": [
+    {
+     "path": "assets/lecture1/s034_img214.png",
+     "left": 0,
+     "top": 4742688,
+     "width": 9144000,
+     "height": 27431,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s034_img215.jpg",
+     "left": 0,
+     "top": 0,
+     "width": 9144000,
+     "height": 3756469,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s034_img216.jpg",
+     "left": 431749,
+     "top": 181341,
+     "width": 8280499,
+     "height": 555893,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s034_img217.jpg",
+     "left": 5600700,
+     "top": 1496724,
+     "width": 1857025,
+     "height": 1392768,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 35,
+   "title": "",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "1958"
+    },
+    {
+     "level": 0,
+     "text": "Perceptron"
+    },
+    {
+     "level": 0,
+     "text": "1980"
+    },
+    {
+     "level": 0,
+     "text": "Neocognitron"
+    },
+    {
+     "level": 0,
+     "text": "1969"
+    },
+    {
+     "level": 0,
+     "text": "Minsky & Papert"
+    },
+    {
+     "level": 0,
+     "text": "1985"
+    },
+    {
+     "level": 0,
+     "text": "Backprop"
+    },
+    {
+     "level": 0,
+     "text": "CS231n: Lecture 1 -"
+    },
+    {
+     "level": 0,
+     "text": "1998"
+    },
+    {
+     "level": 0,
+     "text": "LeNet"
+    },
+    {
+     "level": 0,
+     "text": "35"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [
+    [
+     [
+      "1959",
+      "",
+      "1963",
+      "",
+      "1970s",
+      "",
+      "1979",
+      "",
+      "1986",
+      "",
+      "1997",
+      "",
+      "1999",
+      "",
+      "2001",
+      "2004, 2007",
+      "2009"
+     ],
+     [
+      "Hubel & Wiesel",
+      "",
+      "Roberts",
+      "",
+      "David Marr",
+      "",
+      "Gen. Cylinders",
+      "",
+      "Canny",
+      "",
+      "Norm. Cuts",
+      "",
+      "SIFT",
+      "",
+      "V&J",
+      "Caltech101;",
+      "ImageNet"
+     ]
+    ]
+   ],
+   "images": [
+    {
+     "path": "assets/lecture1/s034_img214.png",
+     "left": 0,
+     "top": 4742688,
+     "width": 9144000,
+     "height": 27431,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s034_img215.jpg",
+     "left": 0,
+     "top": 0,
+     "width": 9144000,
+     "height": 3756469,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s034_img216.jpg",
+     "left": 431749,
+     "top": 181341,
+     "width": 8280499,
+     "height": 555893,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s035_img218.png",
+     "left": 1879328,
+     "top": 886796,
+     "width": 6051137,
+     "height": 2720112,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 36,
+   "title": "AlexNet, 2012",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "2001"
+    },
+    {
+     "level": 0,
+     "text": "V&J"
+    },
+    {
+     "level": 0,
+     "text": "1999"
+    },
+    {
+     "level": 0,
+     "text": "SIFT"
+    },
+    {
+     "level": 0,
+     "text": "2009"
+    },
+    {
+     "level": 0,
+     "text": "ImageNet"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "2004, 2007"
+    },
+    {
+     "level": 0,
+     "text": "Caltech101; PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "1958"
+    },
+    {
+     "level": 0,
+     "text": "Perceptron"
+    },
+    {
+     "level": 0,
+     "text": "1980"
+    },
+    {
+     "level": 0,
+     "text": "Neocognitron"
+    },
+    {
+     "level": 0,
+     "text": "2012"
+    },
+    {
+     "level": 0,
+     "text": "AlexNet"
+    },
+    {
+     "level": 0,
+     "text": "1998"
+    },
+    {
+     "level": 0,
+     "text": "LeNet"
+    },
+    {
+     "level": 0,
+     "text": "1969"
+    },
+    {
+     "level": 0,
+     "text": "Minsky & Papert"
+    },
+    {
+     "level": 0,
+     "text": "1985"
+    },
+    {
+     "level": 0,
+     "text": "Backprop"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "44"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s034_img215.jpg",
+     "left": 0,
+     "top": 0,
+     "width": 9144000,
+     "height": 3756469,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s034_img216.jpg",
+     "left": 431749,
+     "top": 181341,
+     "width": 8280499,
+     "height": 555893,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s035_img218.png",
+     "left": 1879328,
+     "top": 886796,
+     "width": 6051137,
+     "height": 2720112,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 37,
+   "title": "AlexNet: Deep Learning Goes Mainstream",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "Krizhevsky, Sutskever, and Hinton, NeurIPS 2012"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "2001"
+    },
+    {
+     "level": 0,
+     "text": "V&J"
+    },
+    {
+     "level": 0,
+     "text": "1999"
+    },
+    {
+     "level": 0,
+     "text": "SIFT"
+    },
+    {
+     "level": 0,
+     "text": "2009"
+    },
+    {
+     "level": 0,
+     "text": "ImageNet"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "2004, 2007"
+    },
+    {
+     "level": 0,
+     "text": "Caltech101; PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "1958"
+    },
+    {
+     "level": 0,
+     "text": "Perceptron"
+    },
+    {
+     "level": 0,
+     "text": "1980"
+    },
+    {
+     "level": 0,
+     "text": "Neocognitron"
+    },
+    {
+     "level": 0,
+     "text": "2012"
+    },
+    {
+     "level": 0,
+     "text": "AlexNet"
+    },
+    {
+     "level": 0,
+     "text": "1998"
+    },
+    {
+     "level": 0,
+     "text": "LeNet"
+    },
+    {
+     "level": 0,
+     "text": "1969"
+    },
+    {
+     "level": 0,
+     "text": "Minsky & Papert"
+    },
+    {
+     "level": 0,
+     "text": "1985"
+    },
+    {
+     "level": 0,
+     "text": "Backprop"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s037_img219.jpg",
+     "left": 966136,
+     "top": 1226231,
+     "width": 7232040,
+     "height": 2275248,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 38,
+   "title": "AlexNet vs. Neocognitron: 32 years apart",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "2001"
+    },
+    {
+     "level": 0,
+     "text": "V&J"
+    },
+    {
+     "level": 0,
+     "text": "1999"
+    },
+    {
+     "level": 0,
+     "text": "SIFT"
+    },
+    {
+     "level": 0,
+     "text": "2009"
+    },
+    {
+     "level": 0,
+     "text": "ImageNet"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "2004, 2007"
+    },
+    {
+     "level": 0,
+     "text": "Caltech101; PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "1958"
+    },
+    {
+     "level": 0,
+     "text": "Perceptron"
+    },
+    {
+     "level": 0,
+     "text": "1980"
+    },
+    {
+     "level": 0,
+     "text": "Neocognitron"
+    },
+    {
+     "level": 0,
+     "text": "2012"
+    },
+    {
+     "level": 0,
+     "text": "AlexNet"
+    },
+    {
+     "level": 0,
+     "text": "1998"
+    },
+    {
+     "level": 0,
+     "text": "LeNet"
+    },
+    {
+     "level": 0,
+     "text": "1969"
+    },
+    {
+     "level": 0,
+     "text": "Minsky & Papert"
+    },
+    {
+     "level": 0,
+     "text": "1985"
+    },
+    {
+     "level": 0,
+     "text": "Backprop"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s038_img220.png",
+     "left": 254753,
+     "top": 1328490,
+     "width": 2982350,
+     "height": 1834375,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s037_img219.jpg",
+     "left": 4058473,
+     "top": 1468943,
+     "width": 4980111,
+     "height": 1566777,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 39,
+   "title": "2012 to Present: Deep Learning Explosion",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "CVPR Papers"
+    },
+    {
+     "level": 0,
+     "text": "8000"
+    },
+    {
+     "level": 0,
+     "text": "6000"
+    },
+    {
+     "level": 0,
+     "text": "4000"
+    },
+    {
+     "level": 0,
+     "text": "2000"
+    },
+    {
+     "level": 0,
+     "text": "0"
+    },
+    {
+     "level": 0,
+     "text": "Subm…"
+    },
+    {
+     "level": 0,
+     "text": "Acce…"
+    },
+    {
+     "level": 0,
+     "text": "1985 1990 1995 2000 2005 2010 2015 2020"
+    },
+    {
+     "level": 0,
+     "text": "Publications at top Computer Vision conference"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "arXiv papers per month (source)"
+    },
+    {
+     "level": 0,
+     "text": "1963"
+    },
+    {
+     "level": 0,
+     "text": "Roberts"
+    },
+    {
+     "level": 0,
+     "text": "1970s"
+    },
+    {
+     "level": 0,
+     "text": "David Marr"
+    },
+    {
+     "level": 0,
+     "text": "1979"
+    },
+    {
+     "level": 0,
+     "text": "Gen. Cylinders"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Canny"
+    },
+    {
+     "level": 0,
+     "text": "1997"
+    },
+    {
+     "level": 0,
+     "text": "Norm. Cuts"
+    },
+    {
+     "level": 0,
+     "text": "2001"
+    },
+    {
+     "level": 0,
+     "text": "V&J"
+    },
+    {
+     "level": 0,
+     "text": "1999"
+    },
+    {
+     "level": 0,
+     "text": "SIFT"
+    },
+    {
+     "level": 0,
+     "text": "2009"
+    },
+    {
+     "level": 0,
+     "text": "ImageNet"
+    },
+    {
+     "level": 0,
+     "text": "1959"
+    },
+    {
+     "level": 0,
+     "text": "Hubel & Wiesel"
+    },
+    {
+     "level": 0,
+     "text": "2004, 2007"
+    },
+    {
+     "level": 0,
+     "text": "Caltech101; PASCAL"
+    },
+    {
+     "level": 0,
+     "text": "AI Winter"
+    },
+    {
+     "level": 0,
+     "text": "1958"
+    },
+    {
+     "level": 0,
+     "text": "Perceptron"
+    },
+    {
+     "level": 0,
+     "text": "1980"
+    },
+    {
+     "level": 0,
+     "text": "Neocognitron"
+    },
+    {
+     "level": 0,
+     "text": "2012"
+    },
+    {
+     "level": 0,
+     "text": "AlexNet"
+    },
+    {
+     "level": 0,
+     "text": "1998"
+    },
+    {
+     "level": 0,
+     "text": "LeNet"
+    },
+    {
+     "level": 0,
+     "text": "1969"
+    },
+    {
+     "level": 0,
+     "text": "Minsky & Papert"
+    },
+    {
+     "level": 0,
+     "text": "1985"
+    },
+    {
+     "level": 0,
+     "text": "Backprop"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s039_img221.png",
+     "left": 2358961,
+     "top": 1557147,
+     "width": 1880997,
+     "height": 1243965,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s039_img222.png",
+     "left": 1161097,
+     "top": 2669666,
+     "width": 384429,
+     "height": 107061,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s039_img223.png",
+     "left": 1161097,
+     "top": 2721483,
+     "width": 384429,
+     "height": 88773,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s039_img224.png",
+     "left": 653161,
+     "top": 1874329,
+     "width": 243840,
+     "height": 82677,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s039_img225.png",
+     "left": 653161,
+     "top": 2136457,
+     "width": 243840,
+     "height": 82677,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s039_img226.jpg",
+     "left": 5037675,
+     "top": 880604,
+     "width": 3573184,
+     "height": 2313957,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 40,
+   "title": "2012 to Present: Deep Learning is Everywhere",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Year 2012"
+    },
+    {
+     "level": 0,
+     "text": "SuperVision"
+    },
+    {
+     "level": 0,
+     "text": "Year 2010"
+    },
+    {
+     "level": 0,
+     "text": "NEC-UIUC"
+    },
+    {
+     "level": 0,
+     "text": "Year 2014"
+    },
+    {
+     "level": 0,
+     "text": "GoogLeNet"
+    },
+    {
+     "level": 0,
+     "text": "Pooling Convoluti on Softmax Other"
+    },
+    {
+     "level": 0,
+     "text": "Year 2015"
+    },
+    {
+     "level": 0,
+     "text": "MSRA"
+    },
+    {
+     "level": 0,
+     "text": "VGG"
+    },
+    {
+     "level": 0,
+     "text": "Image"
+    },
+    {
+     "level": 0,
+     "text": "Dense descriptor grid: HOG, LBP"
+    },
+    {
+     "level": 0,
+     "text": "Coding: local coordinate, super-vector"
+    },
+    {
+     "level": 0,
+     "text": "Pooling, SPM"
+    },
+    {
+     "level": 0,
+     "text": "Linear SVM"
+    },
+    {
+     "level": 0,
+     "text": "fc-4096 fc-4096"
+    },
+    {
+     "level": 0,
+     "text": "fc-1000 softmax"
+    },
+    {
+     "level": 0,
+     "text": "[Krizhevsky NIPS 2012]"
+    },
+    {
+     "level": 0,
+     "text": "[Lin CVPR 2011]"
+    },
+    {
+     "level": 0,
+     "text": "[Szegedy arxiv 2014] [Simonyan arxiv 2014]"
+    },
+    {
+     "level": 0,
+     "text": "[He ICCV 2015]"
+    },
+    {
+     "level": 0,
+     "text": "Figure copyright Alex Krizhevsky, Ilya"
+    },
+    {
+     "level": 0,
+     "text": "Figures copyright Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton, 2012. Reproduced with permission."
+    },
+    {
+     "level": 0,
+     "text": "Lion image by Swissfrog is"
+    },
+    {
+     "level": 0,
+     "text": "licensed under CC BY 3.0"
+    },
+    {
+     "level": 0,
+     "text": "Sutskever, and Geoffrey Hinton, 2012. Reproduced with permission."
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [
+    [
+     [
+      "conv-64"
+     ],
+     [
+      "conv-64"
+     ],
+     [
+      "maxpool"
+     ]
+    ],
+    [
+     [
+      "conv-"
+     ],
+     [
+      "c1o2n8v-\n128"
+     ],
+     [
+      "maxpool"
+     ]
+    ],
+    [
+     [
+      "conv-"
+     ],
+     [
+      "c2o5n6v-\n256"
+     ],
+     [
+      "maxpool"
+     ],
+     [
+      "conv-\nc5o1n2v-"
+     ],
+     [
+      "512"
+     ],
+     [
+      "maxpool"
+     ]
+    ],
+    [
+     [
+      "conv-"
+     ],
+     [
+      "c5o1n2v-\n512"
+     ],
+     [
+      "maxpool"
+     ]
+    ]
+   ],
+   "images": [
+    {
+     "path": "assets/lecture1/s040_img227.jpg",
+     "left": 2837738,
+     "top": 1599945,
+     "width": 733361,
+     "height": 2377636,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img228.png",
+     "left": 3995927,
+     "top": 777239,
+     "width": 88391,
+     "height": 3934967,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img229.png",
+     "left": 2529839,
+     "top": 777239,
+     "width": 85343,
+     "height": 3864864,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img230.png",
+     "left": 6431279,
+     "top": 816863,
+     "width": 85344,
+     "height": 3931920,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img231.jpg",
+     "left": 1500864,
+     "top": 1408051,
+     "width": 734890,
+     "height": 489619,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img232.png",
+     "left": 1837592,
+     "top": 1885950,
+     "width": 76200,
+     "height": 209152,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img233.png",
+     "left": 1836914,
+     "top": 2382486,
+     "width": 76198,
+     "height": 173532,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img234.png",
+     "left": 1837107,
+     "top": 2819170,
+     "width": 76198,
+     "height": 190058,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img235.png",
+     "left": 1840078,
+     "top": 3272179,
+     "width": 76182,
+     "height": 188821,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img236.png",
+     "left": 4864608,
+     "top": 1545336,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img237.png",
+     "left": 4910179,
+     "top": 1568273,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img238.png",
+     "left": 4864608,
+     "top": 1618488,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img239.png",
+     "left": 4910179,
+     "top": 1643095,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img240.png",
+     "left": 4864608,
+     "top": 1691640,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img237.png",
+     "left": 4910179,
+     "top": 1716231,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img241.png",
+     "left": 4864608,
+     "top": 1767840,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4910179,
+     "top": 1790903,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img243.png",
+     "left": 4864608,
+     "top": 1840992,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img244.png",
+     "left": 4910179,
+     "top": 1864436,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img245.png",
+     "left": 4864608,
+     "top": 1914144,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img246.png",
+     "left": 4910179,
+     "top": 1937969,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img247.png",
+     "left": 4864608,
+     "top": 1987295,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img239.png",
+     "left": 4909596,
+     "top": 2010600,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img248.png",
+     "left": 4754880,
+     "top": 2057400,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img249.png",
+     "left": 4800227,
+     "top": 2081679,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img250.png",
+     "left": 4828031,
+     "top": 2057400,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4875357,
+     "top": 2081679,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img251.png",
+     "left": 4904231,
+     "top": 2057400,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img252.png",
+     "left": 4950486,
+     "top": 2081679,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img253.png",
+     "left": 4754880,
+     "top": 2133600,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4800541,
+     "top": 2156537,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img254.png",
+     "left": 4828031,
+     "top": 2133600,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4875672,
+     "top": 2156537,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img255.png",
+     "left": 4901183,
+     "top": 2130552,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4947841,
+     "top": 2155099,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img256.png",
+     "left": 4977383,
+     "top": 2130552,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 5022970,
+     "top": 2155099,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img257.png",
+     "left": 4864608,
+     "top": 2203704,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img258.png",
+     "left": 4910179,
+     "top": 2227355,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img259.png",
+     "left": 4751831,
+     "top": 2276855,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img239.png",
+     "left": 4798871,
+     "top": 2300950,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img260.png",
+     "left": 4828031,
+     "top": 2276855,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img261.png",
+     "left": 4874000,
+     "top": 2300950,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img262.png",
+     "left": 4904231,
+     "top": 2276855,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img261.png",
+     "left": 4949130,
+     "top": 2300950,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img263.png",
+     "left": 4751831,
+     "top": 2353055,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4799186,
+     "top": 2375808,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img264.png",
+     "left": 4828031,
+     "top": 2353055,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img252.png",
+     "left": 4874315,
+     "top": 2375808,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img265.png",
+     "left": 4901183,
+     "top": 2350008,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img266.png",
+     "left": 4946484,
+     "top": 2374370,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img267.png",
+     "left": 4974336,
+     "top": 2350008,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img268.png",
+     "left": 5021614,
+     "top": 2374370,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img269.png",
+     "left": 4861559,
+     "top": 2423160,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img246.png",
+     "left": 4908822,
+     "top": 2446625,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img270.png",
+     "left": 4751831,
+     "top": 2490216,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img249.png",
+     "left": 4798871,
+     "top": 2513845,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img271.png",
+     "left": 4828031,
+     "top": 2490216,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img252.png",
+     "left": 4874000,
+     "top": 2513845,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img272.png",
+     "left": 4904231,
+     "top": 2490216,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img252.png",
+     "left": 4949130,
+     "top": 2513845,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img273.png",
+     "left": 4751831,
+     "top": 2566416,
+     "width": 161544,
+     "height": 158495,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4799186,
+     "top": 2588703,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img274.png",
+     "left": 4828031,
+     "top": 2566416,
+     "width": 161544,
+     "height": 158495,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img252.png",
+     "left": 4874315,
+     "top": 2588703,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img275.png",
+     "left": 4901183,
+     "top": 2563368,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img276.png",
+     "left": 4946484,
+     "top": 2587264,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img277.png",
+     "left": 4974336,
+     "top": 2563368,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img278.png",
+     "left": 5021614,
+     "top": 2587264,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img279.png",
+     "left": 4861559,
+     "top": 2636519,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img237.png",
+     "left": 4908822,
+     "top": 2659519,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img280.png",
+     "left": 4788408,
+     "top": 2712719,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img281.png",
+     "left": 4835212,
+     "top": 2736405,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img282.png",
+     "left": 4864608,
+     "top": 2712719,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img283.png",
+     "left": 4910341,
+     "top": 2736405,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img284.png",
+     "left": 4937760,
+     "top": 2712719,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img283.png",
+     "left": 4985471,
+     "top": 2736405,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img285.png",
+     "left": 4715255,
+     "top": 2712719,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img286.png",
+     "left": 4760083,
+     "top": 2737467,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img287.png",
+     "left": 4718304,
+     "top": 2791968,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img252.png",
+     "left": 4763418,
+     "top": 2814844,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img288.png",
+     "left": 4791455,
+     "top": 2791968,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4838547,
+     "top": 2814844,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img289.png",
+     "left": 4864608,
+     "top": 2791968,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img252.png",
+     "left": 4912071,
+     "top": 2814844,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img290.png",
+     "left": 4940808,
+     "top": 2791968,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4987201,
+     "top": 2814844,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img291.png",
+     "left": 5017008,
+     "top": 2791968,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img244.png",
+     "left": 5062330,
+     "top": 2816617,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img292.png",
+     "left": 4718304,
+     "top": 2865119,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img283.png",
+     "left": 4763320,
+     "top": 2888683,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img293.png",
+     "left": 4715255,
+     "top": 2938272,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img283.png",
+     "left": 4762164,
+     "top": 2962687,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img294.png",
+     "left": 4715255,
+     "top": 3014472,
+     "width": 161544,
+     "height": 158495,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img295.png",
+     "left": 4761830,
+     "top": 3036727,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img296.png",
+     "left": 4715255,
+     "top": 3087624,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img246.png",
+     "left": 4760676,
+     "top": 3110731,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img297.png",
+     "left": 4904231,
+     "top": 2868168,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img246.png",
+     "left": 4951387,
+     "top": 2891049,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img298.png",
+     "left": 4794504,
+     "top": 2935224,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img299.png",
+     "left": 4841435,
+     "top": 2958269,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img300.png",
+     "left": 4870704,
+     "top": 2935224,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img252.png",
+     "left": 4916566,
+     "top": 2958269,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img301.png",
+     "left": 4946903,
+     "top": 2935224,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4991694,
+     "top": 2958269,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img302.png",
+     "left": 4794504,
+     "top": 3008375,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img266.png",
+     "left": 4841749,
+     "top": 3033128,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img303.png",
+     "left": 4870704,
+     "top": 3008375,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img268.png",
+     "left": 4916879,
+     "top": 3033128,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img304.png",
+     "left": 4943855,
+     "top": 3008375,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4989048,
+     "top": 3031689,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img305.png",
+     "left": 5017008,
+     "top": 3008375,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img252.png",
+     "left": 5064178,
+     "top": 3031689,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img306.png",
+     "left": 4904231,
+     "top": 3078480,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img237.png",
+     "left": 4951387,
+     "top": 3101296,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img307.png",
+     "left": 4794504,
+     "top": 3151632,
+     "width": 161544,
+     "height": 158495,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img308.png",
+     "left": 4841273,
+     "top": 3173768,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img309.png",
+     "left": 4870704,
+     "top": 3151632,
+     "width": 161544,
+     "height": 158495,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img310.png",
+     "left": 4916403,
+     "top": 3173768,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img311.png",
+     "left": 4943855,
+     "top": 3151632,
+     "width": 161544,
+     "height": 158495,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img244.png",
+     "left": 4991531,
+     "top": 3173768,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img312.png",
+     "left": 4797551,
+     "top": 3227831,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img268.png",
+     "left": 4844607,
+     "top": 3252207,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img313.png",
+     "left": 4870704,
+     "top": 3227831,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img266.png",
+     "left": 4918132,
+     "top": 3252207,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img314.png",
+     "left": 4946903,
+     "top": 3227831,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img268.png",
+     "left": 4993261,
+     "top": 3252207,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img315.png",
+     "left": 5023103,
+     "top": 3230880,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img316.png",
+     "left": 5068392,
+     "top": 3253978,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img317.png",
+     "left": 4910327,
+     "top": 3297936,
+     "width": 161544,
+     "height": 158495,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img318.png",
+     "left": 4957447,
+     "top": 3320375,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img319.png",
+     "left": 4837176,
+     "top": 3374136,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img320.png",
+     "left": 4883837,
+     "top": 3397261,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img321.png",
+     "left": 4913376,
+     "top": 3374136,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img278.png",
+     "left": 4958966,
+     "top": 3397261,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img322.png",
+     "left": 4986527,
+     "top": 3374136,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img276.png",
+     "left": 5034097,
+     "top": 3397261,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img323.png",
+     "left": 4760976,
+     "top": 3374136,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img249.png",
+     "left": 4808707,
+     "top": 3398323,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img324.png",
+     "left": 4767072,
+     "top": 3453384,
+     "width": 158496,
+     "height": 158495,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img252.png",
+     "left": 4812042,
+     "top": 3475700,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img325.png",
+     "left": 4840223,
+     "top": 3453384,
+     "width": 161544,
+     "height": 158495,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4887173,
+     "top": 3475700,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img326.png",
+     "left": 4913376,
+     "top": 3453384,
+     "width": 161544,
+     "height": 158495,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4960697,
+     "top": 3475700,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img327.png",
+     "left": 4989575,
+     "top": 3453384,
+     "width": 161544,
+     "height": 158495,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img252.png",
+     "left": 5035825,
+     "top": 3475700,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img328.png",
+     "left": 5065775,
+     "top": 3453384,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img266.png",
+     "left": 5110956,
+     "top": 3477473,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img329.png",
+     "left": 4767072,
+     "top": 3526536,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img316.png",
+     "left": 4811943,
+     "top": 3549538,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img330.png",
+     "left": 4764023,
+     "top": 3599687,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img283.png",
+     "left": 4810789,
+     "top": 3623542,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img331.png",
+     "left": 4764023,
+     "top": 3672840,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img332.png",
+     "left": 4810456,
+     "top": 3697582,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img333.png",
+     "left": 4764023,
+     "top": 3749039,
+     "width": 158496,
+     "height": 158496,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img246.png",
+     "left": 4809300,
+     "top": 3771587,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img334.png",
+     "left": 4953000,
+     "top": 3529584,
+     "width": 161544,
+     "height": 158496,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img246.png",
+     "left": 5000011,
+     "top": 3551905,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img335.png",
+     "left": 4843272,
+     "top": 3596640,
+     "width": 161544,
+     "height": 158496,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img249.png",
+     "left": 4890060,
+     "top": 3619125,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img336.png",
+     "left": 4919472,
+     "top": 3596640,
+     "width": 161544,
+     "height": 158496,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4965189,
+     "top": 3619125,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img337.png",
+     "left": 4992624,
+     "top": 3596640,
+     "width": 161544,
+     "height": 158496,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img252.png",
+     "left": 5040320,
+     "top": 3619125,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img338.png",
+     "left": 4843272,
+     "top": 3669791,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4890374,
+     "top": 3693984,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img339.png",
+     "left": 4919472,
+     "top": 3669791,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4965504,
+     "top": 3693984,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img340.png",
+     "left": 4992624,
+     "top": 3669791,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img244.png",
+     "left": 5037673,
+     "top": 3692545,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img341.png",
+     "left": 5065775,
+     "top": 3669791,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img244.png",
+     "left": 5112804,
+     "top": 3692545,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img342.png",
+     "left": 4953000,
+     "top": 3739895,
+     "width": 161544,
+     "height": 158496,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img258.png",
+     "left": 5000011,
+     "top": 3762151,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img343.png",
+     "left": 4843272,
+     "top": 3809999,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img249.png",
+     "left": 4889896,
+     "top": 3834622,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img344.png",
+     "left": 4919472,
+     "top": 3809999,
+     "width": 158496,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4965026,
+     "top": 3834622,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img345.png",
+     "left": 4992624,
+     "top": 3809999,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img252.png",
+     "left": 5040157,
+     "top": 3834622,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img346.png",
+     "left": 4846319,
+     "top": 3889247,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img268.png",
+     "left": 4893232,
+     "top": 3913063,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img347.png",
+     "left": 4919472,
+     "top": 3889247,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 4966756,
+     "top": 3913063,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img348.png",
+     "left": 4995672,
+     "top": 3889247,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img242.png",
+     "left": 5041887,
+     "top": 3913063,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img349.png",
+     "left": 5071872,
+     "top": 3892295,
+     "width": 158496,
+     "height": 158496,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img261.png",
+     "left": 5117015,
+     "top": 3914834,
+     "width": 68169,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img350.png",
+     "left": 4956047,
+     "top": 3959351,
+     "width": 161544,
+     "height": 158496,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img258.png",
+     "left": 5003590,
+     "top": 3981230,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img351.png",
+     "left": 4956047,
+     "top": 4032503,
+     "width": 161544,
+     "height": 158496,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img352.png",
+     "left": 5001741,
+     "top": 4054504,
+     "width": 68169,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img353.png",
+     "left": 4953000,
+     "top": 4181855,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img237.png",
+     "left": 4999111,
+     "top": 4206486,
+     "width": 68168,
+     "height": 68168,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img354.png",
+     "left": 4953000,
+     "top": 4108703,
+     "width": 161544,
+     "height": 161544,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img283.png",
+     "left": 5000223,
+     "top": 4132629,
+     "width": 68168,
+     "height": 68169,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img355.png",
+     "left": 4114800,
+     "top": 1554480,
+     "width": 176784,
+     "height": 176784,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img356.png",
+     "left": 4160700,
+     "top": 1578891,
+     "width": 83435,
+     "height": 83436,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img357.png",
+     "left": 4155937,
+     "top": 1574129,
+     "width": 92961,
+     "height": 92961,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img358.png",
+     "left": 4114800,
+     "top": 1673352,
+     "width": 176784,
+     "height": 176784,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img359.png",
+     "left": 4160700,
+     "top": 1696631,
+     "width": 83435,
+     "height": 83435,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img360.png",
+     "left": 4155937,
+     "top": 1691868,
+     "width": 92961,
+     "height": 92961,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img361.png",
+     "left": 4114800,
+     "top": 1795272,
+     "width": 176784,
+     "height": 176783,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img362.png",
+     "left": 4161454,
+     "top": 1818384,
+     "width": 83436,
+     "height": 83436,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img363.png",
+     "left": 4156692,
+     "top": 1813622,
+     "width": 92961,
+     "height": 92961,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img364.png",
+     "left": 4123944,
+     "top": 1923287,
+     "width": 161544,
+     "height": 158495,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img365.png",
+     "left": 4171372,
+     "top": 1945873,
+     "width": 67927,
+     "height": 67927,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img366.png",
+     "left": 4166609,
+     "top": 1941111,
+     "width": 77452,
+     "height": 77452,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img367.png",
+     "left": 7150607,
+     "top": 1395983,
+     "width": 429768,
+     "height": 268224,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img368.png",
+     "left": 7153655,
+     "top": 1572767,
+     "width": 432816,
+     "height": 268224,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img369.png",
+     "left": 7153655,
+     "top": 1743455,
+     "width": 432816,
+     "height": 265176,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img370.png",
+     "left": 7159751,
+     "top": 1911095,
+     "width": 429768,
+     "height": 271271,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img371.png",
+     "left": 7147560,
+     "top": 2084831,
+     "width": 432816,
+     "height": 268224,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img372.png",
+     "left": 7153655,
+     "top": 2258567,
+     "width": 429768,
+     "height": 271272,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img373.png",
+     "left": 7153655,
+     "top": 2438400,
+     "width": 429768,
+     "height": 259080,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img374.png",
+     "left": 7156704,
+     "top": 2602991,
+     "width": 429768,
+     "height": 271272,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img375.png",
+     "left": 7159751,
+     "top": 2782824,
+     "width": 429768,
+     "height": 271271,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img376.png",
+     "left": 7162800,
+     "top": 2959608,
+     "width": 432816,
+     "height": 268224,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img377.png",
+     "left": 7162800,
+     "top": 3130295,
+     "width": 429768,
+     "height": 265175,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img378.png",
+     "left": 7168895,
+     "top": 3300983,
+     "width": 429768,
+     "height": 268223,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img379.png",
+     "left": 7156704,
+     "top": 3471672,
+     "width": 429768,
+     "height": 268223,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img380.png",
+     "left": 7162800,
+     "top": 3648455,
+     "width": 429768,
+     "height": 268224,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img381.png",
+     "left": 7159751,
+     "top": 3825239,
+     "width": 432816,
+     "height": 259079,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s040_img382.png",
+     "left": 7165848,
+     "top": 3989831,
+     "width": 429768,
+     "height": 271272,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 41,
+   "title": "2012 to Present: Deep Learning is Everywhere",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Image Classification Image Retrieval"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "Figures copyright Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton, 2012. Reproduced with permission."
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s041_img383.png",
+     "left": 313943,
+     "top": 1155191,
+     "width": 8485632,
+     "height": 3313176,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 42,
+   "title": "2012 to Present: Deep Learning is Everywhere",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Object Detection Image Segmentation"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "Ren, He, Girshick, and Sun, 2015"
+    },
+    {
+     "level": 0,
+     "text": "Fabaret et al, 2012"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s042_img384.png",
+     "left": 158495,
+     "top": 1225295,
+     "width": 3998976,
+     "height": 2980944,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s042_img385.png",
+     "left": 4489703,
+     "top": 1225295,
+     "width": 4495800,
+     "height": 2980944,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 43,
+   "title": "2012 to Present: Deep Learning is Everywhere",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Video Classification"
+    },
+    {
+     "level": 0,
+     "text": "Activity Recognition"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "Simonyan et al, 2014"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s043_img386.png",
+     "left": 30480,
+     "top": 2042160,
+     "width": 4718304,
+     "height": 1636776,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s043_img387.png",
+     "left": 4977384,
+     "top": 1770888,
+     "width": 3989832,
+     "height": 2081784,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 44,
+   "title": "2012 to Present: Deep Learning is Everywhere",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Pose Recognition (Toshev and Szegedy, 2014)"
+    },
+    {
+     "level": 0,
+     "text": "Playing Atari games (Guo et al, 2014)"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s044_img388.png",
+     "left": 484631,
+     "top": 1182624,
+     "width": 8174735,
+     "height": 1371600,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s044_img389.png",
+     "left": 268224,
+     "top": 3047999,
+     "width": 4468368,
+     "height": 1395984,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s044_img390.png",
+     "left": 4946903,
+     "top": 3047999,
+     "width": 3569207,
+     "height": 1560575,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 45,
+   "title": "2012 to Present: Deep Learning is Everywhere",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Medical Imaging"
+    },
+    {
+     "level": 0,
+     "text": "Whale recognition"
+    },
+    {
+     "level": 0,
+     "text": "Levy et al, 2016 Figure reproduced with permission"
+    },
+    {
+     "level": 0,
+     "text": "Galaxy Classification"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "Kaggle Challenge"
+    },
+    {
+     "level": 0,
+     "text": "Dieleman et al, 2014"
+    },
+    {
+     "level": 0,
+     "text": "From left to right: public domain by NASA, usage permitted by"
+    },
+    {
+     "level": 0,
+     "text": "This image by Christin Khan is in the public domain and"
+    },
+    {
+     "level": 0,
+     "text": "ESA/Hubble, public domain by NASA, and public domain."
+    },
+    {
+     "level": 0,
+     "text": "originally came from the U.S. NOAA."
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s045_img391.png",
+     "left": 481583,
+     "top": 1097280,
+     "width": 4364735,
+     "height": 1853183,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s045_img392.png",
+     "left": 432816,
+     "top": 3575303,
+     "width": 4450080,
+     "height": 905256,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s045_img393.png",
+     "left": 5324855,
+     "top": 1304543,
+     "width": 3386328,
+     "height": 3148584,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 46,
+   "title": "2012 to Present: Deep Learning is Everywhere",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "A white teddy bear sitting in the grass"
+    },
+    {
+     "level": 0,
+     "text": "A man in a baseball uniform throwing a ball"
+    },
+    {
+     "level": 0,
+     "text": "A woman is holding a cat in her hand"
+    },
+    {
+     "level": 0,
+     "text": "Image Captioning"
+    },
+    {
+     "level": 0,
+     "text": "Vinyals et al, 2015 Karpathy and Fei-Fei,"
+    },
+    {
+     "level": 0,
+     "text": "2015"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "All images are CC0 Public domain:"
+    },
+    {
+     "level": 0,
+     "text": "https://pixabay.com/en/luggage-antique-cat-1643010/"
+    },
+    {
+     "level": 0,
+     "text": "https://pixabay.com/en/teddy-plush-bears-cute-teddy-bear-1623436/ https://pixabay.com/en/surf-wave-summer-sport-litoral-1668716/"
+    },
+    {
+     "level": 0,
+     "text": "https://pixabay.com/en/woman-female-model-portrait-adult-983967/ https://pixabay.com/en/handstand-lake-meditation-496008/"
+    },
+    {
+     "level": 0,
+     "text": "https://pixabay.com/en/baseball-player-shortstop-infield-1045263/"
+    },
+    {
+     "level": 0,
+     "text": "A man riding a wave on top of a surfboard"
+    },
+    {
+     "level": 0,
+     "text": "A cat sitting on a suitcase on the floor"
+    },
+    {
+     "level": 0,
+     "text": "A woman standing on a beach holding a surfboard"
+    },
+    {
+     "level": 0,
+     "text": "Captions generated by Justin Johnson using Neuraltalk2"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s046_img394.png",
+     "left": 1972055,
+     "top": 786383,
+     "width": 2136647,
+     "height": 1423415,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s046_img395.png",
+     "left": 2240279,
+     "top": 2822447,
+     "width": 1722120,
+     "height": 1292352,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s046_img396.png",
+     "left": 4361688,
+     "top": 816863,
+     "width": 2045208,
+     "height": 1362456,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s046_img397.png",
+     "left": 4459223,
+     "top": 2819399,
+     "width": 1761744,
+     "height": 1292352,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s046_img398.png",
+     "left": 6595871,
+     "top": 786383,
+     "width": 2100072,
+     "height": 1399032,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s046_img399.png",
+     "left": 7165847,
+     "top": 2834639,
+     "width": 859536,
+     "height": 1295399,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 47,
+   "title": "2012 to Present: Deep Learning is Everywhere",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Results:"
+    },
+    {
+     "level": 0,
+     "text": "spatial, comparative, asymmetrical, verb, prepositional"
+    },
+    {
+     "level": 0,
+     "text": "taller than"
+    },
+    {
+     "level": 0,
+     "text": "person"
+    },
+    {
+     "level": 0,
+     "text": "left of"
+    },
+    {
+     "level": 0,
+     "text": "wear"
+    },
+    {
+     "level": 0,
+     "text": "on"
+    },
+    {
+     "level": 0,
+     "text": "shirt"
+    },
+    {
+     "level": 0,
+     "text": "snow ski"
+    },
+    {
+     "level": 0,
+     "text": "Krishna*, Lu*, Bernstein, Fei-Fei, ECCV 2016"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s047_img400.png",
+     "left": 277368,
+     "top": 801623,
+     "width": 3240023,
+     "height": 3785616,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 48,
+   "title": "",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "Original image is CC0 public domain"
+    },
+    {
+     "level": 0,
+     "text": "Starry Night and Tree Roots by Van Gogh are in the public domain Bokeh image is in the public domain"
+    },
+    {
+     "level": 0,
+     "text": "Stylized images copyright Justin Johnson, 2017;"
+    },
+    {
+     "level": 0,
+     "text": "reproduced with permission"
+    },
+    {
+     "level": 0,
+     "text": "Mordvinsev et al, 2015 Gatys et al, 2016"
+    },
+    {
+     "level": 0,
+     "text": "Figures copyright Justin Johnson, 2015. Reproduced with permission. Generated using the Inceptionism approach from a blog post by Google Research."
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s048_img401.png",
+     "left": 79247,
+     "top": 88392,
+     "width": 4081272,
+     "height": 4593335,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s048_img402.png",
+     "left": 4163568,
+     "top": 88392,
+     "width": 4873752,
+     "height": 1828799,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s048_img403.png",
+     "left": 6592824,
+     "top": 1914143,
+     "width": 2438400,
+     "height": 1828800,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s048_img404.png",
+     "left": 7528559,
+     "top": 3486911,
+     "width": 1423416,
+     "height": 697992,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s048_img405.png",
+     "left": 4157471,
+     "top": 1914143,
+     "width": 2438400,
+     "height": 1828800,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s048_img406.png",
+     "left": 5483351,
+     "top": 3486911,
+     "width": 1051559,
+     "height": 697992,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 49,
+   "title": "2012 to Present: Deep Learning is Everywhere",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "Karras et al, “Progressive Growing of GANs for Improved Quality, Stability, and Variation”, ICLR 2018"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s049_img407.png",
+     "left": 657586,
+     "top": 825500,
+     "width": 7828826,
+     "height": 3492500,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 50,
+   "title": "2012 to Present: Deep Learning is Everywhere",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "Ramesh et al, “DALL·E: Creating Images from Text”, 2021. https://openai.com/blog/dall-e/"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s050_img408.jpg",
+     "left": 226327,
+     "top": 1002323,
+     "width": 8691344,
+     "height": 3270737,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 51,
+   "title": "2012 to Present: Deep Learning is Everywhere",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "Ramesh et al, “DALL·E: Creating Images from Text”, 2021. https://openai.com/blog/dall-e/"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s051_img409.jpg",
+     "left": 266734,
+     "top": 1002323,
+     "width": 8610531,
+     "height": 3270737,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 52,
+   "title": "",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "C4-Aopr-23mputation"
+    },
+    {
+     "level": 0,
+     "text": "Data"
+    },
+    {
+     "level": 0,
+     "text": "Algorithms"
+    },
+    {
+     "level": 0,
+     "text": "60"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s052_img410.png",
+     "left": 6089903,
+     "top": 0,
+     "width": 3054096,
+     "height": 5141975,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s052_img411.png",
+     "left": 0,
+     "top": 0,
+     "width": 3054096,
+     "height": 5141975,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s052_img412.png",
+     "left": 3195657,
+     "top": 261169,
+     "width": 2752911,
+     "height": 3847979,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 53,
+   "title": "GFLOP per Dollar",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "CPU GPU (FP32)"
+    },
+    {
+     "level": 0,
+     "text": "RTX 3080"
+    },
+    {
+     "level": 0,
+     "text": "50"
+    },
+    {
+     "level": 0,
+     "text": "40"
+    },
+    {
+     "level": 0,
+     "text": "30"
+    },
+    {
+     "level": 0,
+     "text": "20"
+    },
+    {
+     "level": 0,
+     "text": "10"
+    },
+    {
+     "level": 0,
+     "text": "0"
+    },
+    {
+     "level": 0,
+     "text": "RTX 309"
+    },
+    {
+     "level": 0,
+     "text": "0"
+    },
+    {
+     "level": 0,
+     "text": "Dee"
+    },
+    {
+     "level": 0,
+     "text": "p Learnin"
+    },
+    {
+     "level": 0,
+     "text": "g Explosio"
+    },
+    {
+     "level": 0,
+     "text": "n"
+    },
+    {
+     "level": 0,
+     "text": "GT"
+    },
+    {
+     "level": 0,
+     "text": "X 1080"
+    },
+    {
+     "level": 0,
+     "text": "Ti"
+    },
+    {
+     "level": 0,
+     "text": "RTX 2080"
+    },
+    {
+     "level": 0,
+     "text": "GeForce"
+    },
+    {
+     "level": 0,
+     "text": "GTX 580"
+    },
+    {
+     "level": 0,
+     "text": "(AlexNet"
+    },
+    {
+     "level": 0,
+     "text": "Ti"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "GeForce 8800 GTX"
+    },
+    {
+     "level": 0,
+     "text": ")"
+    },
+    {
+     "level": 0,
+     "text": "Jan-04 Jul-05 Jan-07 Jul-08 Jan-10 Jul-11 Jan-13 Jul-14 Jan-16 Jul-17 Jan-19 Jul-20"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s053_img413.png",
+     "left": 1337818,
+     "top": 3790928,
+     "width": 3085084,
+     "height": 481342,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img414.png",
+     "left": 4516881,
+     "top": 4116314,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img415.png",
+     "left": 4782058,
+     "top": 4058402,
+     "width": 253492,
+     "height": 198628,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img416.png",
+     "left": 5196585,
+     "top": 4049258,
+     "width": 256540,
+     "height": 186436,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img417.png",
+     "left": 6104890,
+     "top": 4055354,
+     "width": 140716,
+     "height": 189484,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img418.png",
+     "left": 6409690,
+     "top": 4049258,
+     "width": 140716,
+     "height": 146812,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img419.png",
+     "left": 4754626,
+     "top": 3713979,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img420.png",
+     "left": 4961890,
+     "top": 3753603,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img421.png",
+     "left": 5355081,
+     "top": 3573771,
+     "width": 140716,
+     "height": 259588,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img422.png",
+     "left": 5577585,
+     "top": 3677403,
+     "width": 235204,
+     "height": 271780,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img423.png",
+     "left": 6120129,
+     "top": 3329931,
+     "width": 159004,
+     "height": 219964,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img424.png",
+     "left": 6470649,
+     "top": 3332979,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img425.png",
+     "left": 6205473,
+     "top": 3686547,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img425.png",
+     "left": 6510273,
+     "top": 3659115,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img426.png",
+     "left": 7171690,
+     "top": 3433563,
+     "width": 174244,
+     "height": 323596,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img427.png",
+     "left": 7299706,
+     "top": 3872474,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img424.png",
+     "left": 8095233,
+     "top": 2336283,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img424.png",
+     "left": 8076945,
+     "top": 1885179,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img420.png",
+     "left": 8086090,
+     "top": 2881875,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img428.png",
+     "left": 3294634,
+     "top": 1054353,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img420.png",
+     "left": 4318761,
+     "top": 1054353,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 54,
+   "title": "GFLOP per Dollar",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "CPU GPU (FP32) GPU (Tensor Core)"
+    },
+    {
+     "level": 0,
+     "text": "Recent GPUs have"
+    },
+    {
+     "level": 0,
+     "text": "200"
+    },
+    {
+     "level": 0,
+     "text": "“Tensor Cores”:"
+    },
+    {
+     "level": 0,
+     "text": "Special hardware"
+    },
+    {
+     "level": 0,
+     "text": "150"
+    },
+    {
+     "level": 0,
+     "text": "eep lea"
+    },
+    {
+     "level": 0,
+     "text": "for d"
+    },
+    {
+     "level": 0,
+     "text": "rning"
+    },
+    {
+     "level": 0,
+     "text": "!"
+    },
+    {
+     "level": 0,
+     "text": "100"
+    },
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "50"
+    },
+    {
+     "level": 0,
+     "text": "0"
+    },
+    {
+     "level": 0,
+     "text": "Jan-04 Jul-05 Jan-07 Jul-08 Jan-10 Jul-11 Jan-13 Jul-14 Jan-16 Jul-17 Jan-19 Jul-20"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s054_img429.png",
+     "left": 1453642,
+     "top": 4052306,
+     "width": 3039364,
+     "height": 223012,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s054_img430.png",
+     "left": 4583937,
+     "top": 4128506,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s054_img431.png",
+     "left": 6144514,
+     "top": 3933434,
+     "width": 841756,
+     "height": 335788,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s054_img432.png",
+     "left": 7196073,
+     "top": 3960866,
+     "width": 265684,
+     "height": 247396,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s054_img433.png",
+     "left": 8086089,
+     "top": 3570723,
+     "width": 155956,
+     "height": 390652,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s054_img434.png",
+     "left": 6845554,
+     "top": 3646923,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s054_img434.png",
+     "left": 7226553,
+     "top": 2537451,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s054_img435.png",
+     "left": 7196073,
+     "top": 2735571,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s054_img434.png",
+     "left": 7202170,
+     "top": 2970267,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s054_img434.png",
+     "left": 7321041,
+     "top": 3445755,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s054_img435.png",
+     "left": 8101329,
+     "top": 2345427,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s054_img436.png",
+     "left": 8086089,
+     "top": 1888227,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s054_img437.png",
+     "left": 8095234,
+     "top": 2884923,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img428.png",
+     "left": 1804161,
+     "top": 1054353,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s053_img425.png",
+     "left": 2916682,
+     "top": 1054353,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s054_img436.png",
+     "left": 4919217,
+     "top": 1054353,
+     "width": 140716,
+     "height": 140716,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 55,
+   "title": "AI’s Explosive Growth & Impact",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Startups Developing AI Systems"
+    },
+    {
+     "level": 0,
+     "text": "Source: Crunchbase, VentureSource, Sand Hill Econometrics"
+    },
+    {
+     "level": 0,
+     "text": "Number of attendance At AI conferences"
+    },
+    {
+     "level": 0,
+     "text": "Source: The Gradient"
+    },
+    {
+     "level": 0,
+     "text": "Enterprise Application AI Revenue"
+    },
+    {
+     "level": 0,
+     "text": "Source: Statista"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s055_img438.png",
+     "left": 6245352,
+     "top": 1862327,
+     "width": 2535935,
+     "height": 1505712,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s055_img439.png",
+     "left": 3179064,
+     "top": 1825751,
+     "width": 2755392,
+     "height": 1591056,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s055_img440.jpg",
+     "left": 270100,
+     "top": 1711934,
+     "width": 3188210,
+     "height": 1654303,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 56,
+   "title": "Deep Learning Basics",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Image Classification: A core task in Computer Vision"
+    },
+    {
+     "level": 0,
+     "text": "cat"
+    },
+    {
+     "level": 0,
+     "text": "This image by Nikita is licensed under CC-BY 2.0"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s056_img441.png",
+     "left": 3679190,
+     "top": 2799831,
+     "width": 105500,
+     "height": 81980,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s056_img442.jpg",
+     "left": 638736,
+     "top": 1679904,
+     "width": 1678267,
+     "height": 2327415,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 57,
+   "title": "Deep Learning Basics",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Image Classification: A core task in Computer Vision"
+    },
+    {
+     "level": 0,
+     "text": "cat"
+    },
+    {
+     "level": 0,
+     "text": "Linear Classifier"
+    },
+    {
+     "level": 0,
+     "text": "This image by Nikita is licensed under CC-BY 2.0"
+    },
+    {
+     "level": 0,
+     "text": "Lecture 1 -"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s056_img441.png",
+     "left": 3679190,
+     "top": 2799831,
+     "width": 105500,
+     "height": 81980,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s056_img442.jpg",
+     "left": 638736,
+     "top": 1679904,
+     "width": 1678267,
+     "height": 2327415,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s057_img443.png",
+     "left": 5453037,
+     "top": 1753376,
+     "width": 2277799,
+     "height": 2174891,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 58,
+   "title": "Deep Learning Basics",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Image Classification: A core task in Computer Vision"
+    },
+    {
+     "level": 0,
+     "text": "cat"
+    },
+    {
+     "level": 0,
+     "text": "Regularization & Optimization"
+    },
+    {
+     "level": 0,
+     "text": "This image by Nikita is licensed under CC-BY 2.0"
+    },
+    {
+     "level": 0,
+     "text": "Lecture 1 -"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s056_img441.png",
+     "left": 3679190,
+     "top": 2799831,
+     "width": 105500,
+     "height": 81980,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s056_img442.jpg",
+     "left": 638736,
+     "top": 1679904,
+     "width": 1678267,
+     "height": 2327415,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s058_img444.jpg",
+     "left": 4754123,
+     "top": 1747575,
+     "width": 3751140,
+     "height": 2186492,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 59,
+   "title": "Deep Learning Basics",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Image Classification: A core task in Computer Vision"
+    },
+    {
+     "level": 0,
+     "text": "cat"
+    },
+    {
+     "level": 0,
+     "text": "Neural Networks"
+    },
+    {
+     "level": 0,
+     "text": "This image by Nikita is licensed under CC-BY 2.0"
+    },
+    {
+     "level": 0,
+     "text": "Lecture 1 -"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s056_img441.png",
+     "left": 3679190,
+     "top": 2799831,
+     "width": 105500,
+     "height": 81980,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s056_img442.jpg",
+     "left": 638736,
+     "top": 1679904,
+     "width": 1678267,
+     "height": 2327415,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s059_img445.jpg",
+     "left": 5113459,
+     "top": 1772773,
+     "width": 3573339,
+     "height": 2161293,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 60,
+   "title": "Perceiving and Understanding the Visual World",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Tasks"
+    },
+    {
+     "level": 0,
+     "text": "Models"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 61,
+   "title": "Tasks Beyond Image Classification",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Semantic Segmentation"
+    },
+    {
+     "level": 0,
+     "text": "Object Detection"
+    },
+    {
+     "level": 0,
+     "text": "Instance Segmentation"
+    },
+    {
+     "level": 0,
+     "text": "Classification"
+    },
+    {
+     "level": 0,
+     "text": "GRASS, CAT, TREE, SKY"
+    },
+    {
+     "level": 0,
+     "text": "CAT"
+    },
+    {
+     "level": 0,
+     "text": "DOG, DOG, CAT"
+    },
+    {
+     "level": 0,
+     "text": "Multiple Object"
+    },
+    {
+     "level": 0,
+     "text": "No spatial extent"
+    },
+    {
+     "level": 0,
+     "text": "No objects, just pixels"
+    },
+    {
+     "level": 0,
+     "text": "This image is CC0 public domain"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s061_img446.jpg",
+     "left": 68174,
+     "top": 1701038,
+     "width": 2093698,
+     "height": 1812298,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s061_img447.png",
+     "left": 4637775,
+     "top": 1743174,
+     "width": 2093699,
+     "height": 1798499,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s061_img448.jpg",
+     "left": 6917425,
+     "top": 1743174,
+     "width": 2106875,
+     "height": 1812298,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s061_img446.jpg",
+     "left": 2301184,
+     "top": 1697874,
+     "width": 2137939,
+     "height": 1818612,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 62,
+   "title": "Tasks Beyond Image Classification",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Video Classification"
+    },
+    {
+     "level": 0,
+     "text": "Visualization & Understanding"
+    },
+    {
+     "level": 0,
+     "text": "Multimodal Video Understanding"
+    },
+    {
+     "level": 0,
+     "text": "Running? Jumping?"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s062_img449.jpg",
+     "left": 304017,
+     "top": 1731708,
+     "width": 2547256,
+     "height": 2220555,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s062_img450.jpg",
+     "left": 3225604,
+     "top": 4147625,
+     "width": 2896724,
+     "height": 402113,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s062_img451.jpg",
+     "left": 3400337,
+     "top": 1713899,
+     "width": 2547257,
+     "height": 2256173,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s062_img452.jpg",
+     "left": 6477801,
+     "top": 1686835,
+     "width": 2269604,
+     "height": 2926079,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 63,
+   "title": "Models Beyond Multi-Layer Perceptron",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Illustration of LeCun et al. 1998 from CS231n 2017 Lecture 1"
+    },
+    {
+     "level": 0,
+     "text": "Convolutional neural network"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s063_img453.png",
+     "left": 54350,
+     "top": 1113225,
+     "width": 8839200,
+     "height": 2688210,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 64,
+   "title": "Models Beyond Multi-Layer Perceptron",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Recurrent neural network"
+    },
+    {
+     "level": 0,
+     "text": "Attention mechanism / Transformers"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s064_img454.png",
+     "left": 747149,
+     "top": 1029058,
+     "width": 2864613,
+     "height": 1397149,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s064_img455.jpg",
+     "left": 5395832,
+     "top": 954987,
+     "width": 2441292,
+     "height": 3330805,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s064_img456.jpg",
+     "left": 697849,
+     "top": 2602788,
+     "width": 2789498,
+     "height": 1743436,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 65,
+   "title": "Beyond 2D Recognition: Self-supervised Learning",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s065_img457.png",
+     "left": 576942,
+     "top": 1096036,
+     "width": 6677039,
+     "height": 3338519,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 66,
+   "title": "Beyond 2D Recognition: Generative Modeling",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "“Teddy bears working on new AI research underwater with 1990s technology”"
+    },
+    {
+     "level": 0,
+     "text": "DALL-E 2"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s066_img458.jpg",
+     "left": 546100,
+     "top": 1158422,
+     "width": 3174999,
+     "height": 3174999,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 67,
+   "title": "Beyond 2D Recognition: Generative Modeling",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Style Transfer"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s067_img459.jpg",
+     "left": 358899,
+     "top": 1463040,
+     "width": 4213100,
+     "height": 2217418,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s067_img460.jpg",
+     "left": 4713278,
+     "top": 1463040,
+     "width": 4213677,
+     "height": 2217418,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 68,
+   "title": "Beyond 2D Recognition: 3D Vision",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Choy et al., 3D-R2N2: Recurrent Reconstruction Neural Network (2016)"
+    },
+    {
+     "level": 0,
+     "text": "Gkioxari et al., “Mesh R-CNN”, ICCV 2019"
+    },
+    {
+     "level": 0,
+     "text": "Zhou et al., 3D Shape Generation and Completion through Point-Voxel Diffusion (2021)"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s068_img461.jpg",
+     "left": 766010,
+     "top": 1005102,
+     "width": 1262982,
+     "height": 1452703,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s068_img462.jpg",
+     "left": 2615325,
+     "top": 1202724,
+     "width": 961861,
+     "height": 1250418,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s068_img463.png",
+     "left": 5961165,
+     "top": 958752,
+     "width": 2480438,
+     "height": 3357490,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s068_img464.jpg",
+     "left": 474662,
+     "top": 3085798,
+     "width": 4911440,
+     "height": 1161865,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 69,
+   "title": "Beyond 2D Recognition: Embodied Intelligence",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Mandlekar and Xu et al., Learning to Generalize Across Long-Horizon Tasks from Human Demonstrations (2020)"
+    },
+    {
+     "level": 0,
+     "text": "Li et al., BEHAVIOR-1K: A Benchmark for Embodied AI with 1,000 Everyday Activities and Realistic Simulation (2022)"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s069_img465.jpg",
+     "left": 5358524,
+     "top": 1271334,
+     "width": 3551371,
+     "height": 2600831,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s069_img466.jpg",
+     "left": 234103,
+     "top": 1271334,
+     "width": 4696266,
+     "height": 2600831,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 70,
+   "title": "Despite the successes, computer vision still has a long way to go",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 71,
+   "title": "Computer Vision Can Cause Harm",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Harmful Stereotypes Affect people’s lives"
+    },
+    {
+     "level": 0,
+     "text": "Barocas et al, “The Problem With Bias: Allocative Versus Representational Harms in Machine Learning”, SIGCIS 2017 Kate Crawford, “The Trouble with Bias”, NeurIPS 2017 Keynote"
+    },
+    {
+     "level": 0,
+     "text": "Source: https://twitter.com/jackyalcine/status/615329515909156865 (2015)"
+    },
+    {
+     "level": 0,
+     "text": "Source: https://www.washingtonpost.com/technology/2019/10/22/ai-hiring-face-scanning-algorithm-increasingly-decides-whether-you-deserve-job/"
+    },
+    {
+     "level": 0,
+     "text": "https://www.hirevue.com/platform/online-video-interviewing-software"
+    },
+    {
+     "level": 0,
+     "text": "Example Credit: Timnit Gebru"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s071_img467.jpg",
+     "left": 265224,
+     "top": 1186762,
+     "width": 3893419,
+     "height": 3078855,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s071_img468.jpg",
+     "left": 4339769,
+     "top": 1290763,
+     "width": 4600741,
+     "height": 1052078,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s071_img469.png",
+     "left": 5491665,
+     "top": 2315157,
+     "width": 3652334,
+     "height": 2140811,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 72,
+   "title": "Computer Vision Can Save Lives",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Slide inspiration: Justin Johnson"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s072_img470.jpg",
+     "left": 1143000,
+     "top": 590550,
+     "width": 7346950,
+     "height": 4137324,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 73,
+   "title": "And there is a lot we don’t know how to do",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Slide inspiration: Andrej Karpathy"
+    },
+    {
+     "level": 0,
+     "text": "This image is copyright-free United States government work"
+    },
+    {
+     "level": 0,
+     "text": "https://fedandfit.com/wp- content/uploads/2020/06/summer-activities- for-kids_optimized-scaled.jpeg"
+    },
+    {
+     "level": 0,
+     "text": "4-Apr-23"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s073_img471.jpg",
+     "left": 4800600,
+     "top": 1352550,
+     "width": 4060687,
+     "height": 2707124,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s073_img472.jpg",
+     "left": 447261,
+     "top": 1356248,
+     "width": 4060687,
+     "height": 2707681,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 74,
+   "title": "2018 Turing Award for deep learning",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "most prestigious technical award, is given for major contributions of lasting importance to computing."
+    },
+    {
+     "level": 0,
+     "text": "Yann LeCun"
+    },
+    {
+     "level": 0,
+     "text": "Jeffrey Hinton"
+    },
+    {
+     "level": 0,
+     "text": "Yoshua Bengio"
+    },
+    {
+     "level": 0,
+     "text": "This image is CC0 public domain"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s074_img473.jpg",
+     "left": 5641999,
+     "top": 1057875,
+     "width": 2350274,
+     "height": 3412726,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s074_img474.jpg",
+     "left": 359925,
+     "top": 1057876,
+     "width": 2350282,
+     "height": 3412725,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s074_img475.jpg",
+     "left": 3000975,
+     "top": 1057875,
+     "width": 2350251,
+     "height": 3412726,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 75,
+   "title": "Top Conferences & Journals",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Top conferences: CVPR, ICCV, ECCV, NeurIPS, ICLR etc"
+    },
+    {
+     "level": 0,
+     "text": "Top journals: IEEE TPAMI, IJCV, Nature Machine Intelligence etc"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 76,
+   "title": "",
+   "bullets": [
+    {
+     "level": 0,
+     "text": ">9k submissions, 2,360 accepted papers"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s076_img476.jpg",
+     "left": 260597,
+     "top": 377615,
+     "width": 3955353,
+     "height": 1949094,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s076_img477.jpg",
+     "left": 567112,
+     "top": 2472980,
+     "width": 3363942,
+     "height": 2056206,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture1/s076_img478.jpg",
+     "left": 4571922,
+     "top": 1330893,
+     "width": 4154466,
+     "height": 1368625,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 77,
+   "title": "Optional textbook resources",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Deep Learning"
+    },
+    {
+     "level": 1,
+     "text": "by Goodfellow, Bengio, and Courville"
+    },
+    {
+     "level": 1,
+     "text": "Here is a free version"
+    },
+    {
+     "level": 0,
+     "text": "Mathematics of deep learning"
+    },
+    {
+     "level": 1,
+     "text": "Chapters 5, 6 7 are useful to understand vector calculus and continuous optimization"
+    },
+    {
+     "level": 1,
+     "text": "Free online version"
+    },
+    {
+     "level": 0,
+     "text": "Dive into deep learning"
+    },
+    {
+     "level": 1,
+     "text": "An interactive deep learning book with code, math, and discussions, based on the NumPy interface."
+    },
+    {
+     "level": 1,
+     "text": "Free online version"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 78,
+   "title": "Learning objectives",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Formalize computer vision applications into tasks"
+    },
+    {
+     "level": 0,
+     "text": "Formalize inputs and outputs for vision-related problems"
+    },
+    {
+     "level": 0,
+     "text": "Understand what data and computational requirements you need to train a model"
+    },
+    {
+     "level": 0,
+     "text": "Develop and train vision models"
+    },
+    {
+     "level": 0,
+     "text": "Learn to code, debug, and train convolutional neural networks."
+    },
+    {
+     "level": 0,
+     "text": "Learn how to use software frameworks like PyTorch and TensorFlow"
+    },
+    {
+     "level": 0,
+     "text": "Gain an understanding of where the field is and where it is headed"
+    },
+    {
+     "level": 0,
+     "text": "What new research has come out in the last 0-5 years?"
+    },
+    {
+     "level": 0,
+     "text": "What are open research challenges?"
+    },
+    {
+     "level": 0,
+     "text": "What ethical and societal considerations should we consider before deployment?"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 79,
+   "title": "Syllabus & grading",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "1-2周，王兴刚"
+    },
+    {
+     "level": 0,
+     "text": "3-6周，廖振宇"
+    },
+    {
+     "level": 0,
+     "text": "7-8周，闫增强"
+    },
+    {
+     "level": 0,
+     "text": "32课时："
+    },
+    {
+     "level": 0,
+     "text": "60% 开卷考试"
+    },
+    {
+     "level": 0,
+     "text": "40% 平时成绩（2-4个项目（coding + presentation），考勤，课堂表现等）"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture1/s079_img479.png",
+     "left": 3505200,
+     "top": -19050,
+     "width": 5656141,
+     "height": 5143500,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  }
+ ]
+}

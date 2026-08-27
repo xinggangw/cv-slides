@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 1 讲 深度学习与计算机视觉简介 — 深度学习与计算机视觉</title>
+<link rel="stylesheet" href="css/slides.css?v=20260827">
+</head>
+<body>
+<div id="viewport">
+  <div id="stage">
+
+<!-- ========== 01 封面 ========== -->
+<section class="slide" data-layout="cover">
+  <div class="kicker">Deep Learning &amp; Computer Vision</div>
+  <h1 class="cover-title">第 1 讲<br>深度学习与计算机视觉简介</h1>
+  <div class="cover-sub">授课教师：王兴刚 · 华中科技大学<br>课件内容参考：斯坦福大学 CS231n（已授权）</div>
+  <div class="cover-lecture">
+    <span class="tag">课程导论</span>
+    <span class="tag neutral">xwcv.github.io</span>
+  </div>
+</section>
+
+<!-- ========== 本讲学习结果 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 导览</span><span class="meta-page">02</span></div>
+  <div class="kicker">Learning Outcomes</div>
+  <h2 class="slide-title">学完这讲，你应该能完成这些事</h2>
+  <div class="slide-body">
+    <ul class="bullets">
+      <li>用自己的话说明计算机视觉、机器学习和深度学习的关系</li>
+      <li>看到一个应用需求时，先写清<strong>输入、输出、数据单位和评价指标</strong></li>
+      <li>解释视觉方法为什么从人工规则逐步转向数据驱动学习</li>
+      <li>区分训练集、验证集和测试集，识别常见的数据泄漏</li>
+      <li>说明测试集成绩与真实部署效果之间为什么可能存在差距</li>
+    </ul>
+    <div class="keypoint warm"><div>本讲不要求记住所有年份。更重要的是能说明：<strong>当时遇到了什么问题，新的方法解决了哪一部分，又留下了什么限制</strong>。</div></div>
+  </div>
+</section>
+
+<!-- ========== 02 section 01 学科定位 ========== -->
+<section class="slide" data-layout="section">
+  <div class="section-num">01</div>
+  <div class="section-title">学科定位</div>
+  <div class="section-sub">计算机视觉、机器学习和深度学习是什么关系？</div>
+</section>
+
+<!-- ========== 03 Venn 关系图（自绘 SVG） ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 1 讲 · 学科定位</span><span class="meta-page">03</span></div>
+  <h2 class="slide-title">本课程在学科版图中的<span class="em">位置</span></h2>
+  <div class="full-media">
+    <svg viewBox="0 0 1000 440" width="980" height="432" style="max-width:100%;height:auto" role="img" aria-label="AI、机器学习、深度学习与计算机视觉的关系图">
+      <!-- 人工智能：大容器 -->
+      <rect x="30" y="45" width="940" height="380" rx="24" fill="none" stroke="#22222a" stroke-width="2.5"/>
+      <text x="500" y="86" font-size="24" text-anchor="middle" fill="#22222a" font-weight="700">人工智能（AI）</text>
+      <!-- 机器学习 ⊂ AI -->
+      <ellipse cx="640" cy="250" rx="240" ry="115" fill="#e8eefb" fill-opacity="0.45" stroke="#2456d6" stroke-width="2.5"/>
+      <text x="640" y="163" font-size="21" text-anchor="middle" fill="#2456d6" font-weight="600">机器学习</text>
+      <!-- 深度学习 ⊂ 机器学习 -->
+      <ellipse cx="660" cy="275" rx="160" ry="75" fill="#2456d6" fill-opacity="0.08" stroke="#2456d6" stroke-width="2.5"/>
+      <text x="700" y="337" font-size="21" text-anchor="middle" fill="#2456d6" font-weight="600">深度学习</text>
+      <!-- 计算机视觉：与深度学习相交 -->
+      <ellipse cx="410" cy="250" rx="220" ry="105" fill="#c2521e" fill-opacity="0.06" stroke="#c2521e" stroke-width="2.5"/>
+      <text x="268" y="255" font-size="21" text-anchor="middle" fill="#c2521e" font-weight="600">计算机视觉</text>
+      <!-- 本课程 = 深度学习 ∩ 计算机视觉（透镜交集区） -->
+      <ellipse cx="565" cy="270" rx="55" ry="38" fill="#2456d6" fill-opacity="0.16" stroke="#2456d6" stroke-width="2" stroke-dasharray="5 4"/>
+      <text x="565" y="266" font-size="17" text-anchor="middle" fill="#2456d6" font-weight="700">本课程</text>
+      <text x="565" y="286" font-size="12" text-anchor="middle" fill="#2456d6">DL × CV</text>
+      <!-- AI 家族的其他方向 -->
+      <ellipse cx="205" cy="112" rx="95" ry="30" fill="none" stroke="#9a9aa4" stroke-width="1.6" stroke-dasharray="6 4"/>
+      <text x="205" y="118" font-size="15" text-anchor="middle" fill="#6b6b76">自然语言处理</text>
+      <ellipse cx="850" cy="105" rx="88" ry="30" fill="none" stroke="#9a9aa4" stroke-width="1.6" stroke-dasharray="6 4"/>
+      <text x="850" y="111" font-size="15" text-anchor="middle" fill="#6b6b76">语音识别</text>
+      <ellipse cx="845" cy="388" rx="90" ry="28" fill="none" stroke="#9a9aa4" stroke-width="1.6" stroke-dasharray="6 4"/>
+      <text x="845" y="394" font-size="15" text-anchor="middle" fill="#6b6b76">机器人学</text>
+    </svg>
+  </div>
+  <div class="caption">深度学习 ⊂ 机器学习 ⊂ 人工智能；深度学习与计算机视觉的交集，就是本课程的主战场。</div>
+</section>
+
+<!-- ========== 04 两个定义 ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 1 讲 · 学科定位</span><span class="meta-page">04</span></div>
+  <h2 class="slide-title">两个关键词，两个定义</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">什么是计算机视觉？</div>
+      <ul class="bullets">
+        <li>让机器从图像与视频中<strong>理解世界</strong></li>
+        <li>核心难题：跨越<span class="hl2">像素</span>与<span class="hl2">语义</span>的鸿沟——像素只是一堆数字，而我们要的是“这是一只猫”</li>
+        <li>典型任务：分类、检测、分割、重建、生成</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">什么是深度学习？</div>
+      <ul class="bullets">
+        <li>用<strong>多层神经网络</strong>从数据中学习表示</li>
+        <li>告别手工特征：<strong>端到端</strong>联合优化——从原始像素直接到答案，中间特征也由网络自己学</li>
+        <li>性能随数据与算力规模持续增长</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint"><div>记住：这门课的两块基石——视觉要跨越<strong>像素 → 语义</strong>的鸿沟，深度学习的武器是<strong>从数据中端到端地学习特征</strong>。</div></div>
+</section>
+
+<!-- ========== 05 学科交叉 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 学科定位</span><span class="meta-page">05</span></div>
+  <div class="kicker">Interdisciplinary</div>
+  <h2 class="slide-title">一门高度<span class="em">交叉</span>的学科</h2>
+  <div class="slide-body">
+    <p class="lead">深度学习与计算机视觉站在多个学科的交汇处，也从每个学科汲取养分。</p>
+    <ul class="bullets">
+      <li><strong>数学</strong>：优化、概率与线性代数是算法的语言</li>
+      <li><strong>神经科学</strong>：视觉皮层的层级结构启发了卷积网络</li>
+      <li><strong>心理学 / 认知科学</strong>：人类如何感知与理解场景</li>
+      <li><strong>计算机科学</strong>：GPU 并行计算与大规模工程系统</li>
+      <li><strong>物理与工程</strong>：成像原理、传感器与机器人本体</li>
+    </ul>
+  </div>
+  <div class="keypoint warm"><div>注意：神经科学的启发是<strong>设计思想层面</strong>的——卷积网络并不是人脑的复制品，不要按字面去类比。</div></div>
+</section>
+
+<!-- ========== 06 小结 01 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 学科定位</span><span class="meta-page">06</span></div>
+  <div class="kicker">Summary</div>
+  <h2 class="slide-title">本章小结：<span class="em">学科定位</span></h2>
+  <div class="card-grid" data-cols="3">
+    <div class="mini-card">
+      <div class="mc-no">01</div>
+      <div class="mc-title">学科版图</div>
+      <p>人工智能 ⊃ 机器学习 ⊃ 深度学习；本课程位于<strong>深度学习 × 计算机视觉</strong>的交集。</p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">02</div>
+      <div class="mc-title">两个定义</div>
+      <p>计算机视觉：跨越<strong>像素到语义</strong>的鸿沟；深度学习：多层网络、端到端地从数据中学习特征。</p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">03</div>
+      <div class="mc-title">交叉学科</div>
+      <p>数学提供语言，神经科学提供灵感，心理学提供问题，工程与算力提供实现的手段。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 07 section 02 为什么是视觉 ========== -->
+<section class="slide" data-layout="section">
+  <div class="section-num">02</div>
+  <div class="section-title">为什么是视觉？</div>
+  <div class="section-sub">为什么机器需要视觉？图像为什么又难以理解？</div>
+</section>
+
+<!-- ========== 08 寒武纪大爆发 ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 为什么是视觉</span><span class="meta-page">08</span></div>
+  <h2 class="slide-title">视觉的出现，曾引发生命大爆发</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>约 5.4 亿年前的<strong>寒武纪大爆发</strong>：动物门类在地质尺度上“突然”激增</li>
+        <li>一种假说（Andrew Parker）：<strong>眼睛的诞生</strong>触发了捕食与躲避的军备竞赛</li>
+        <li>视觉从被动感光，变为主动的生存工具</li>
+        <li>自此成为生物<strong>最重要的感知通道</strong></li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture1/s010_img19.jpg" alt="寒武纪三叶虫化石" style="max-height:380px">
+      <div class="caption">寒武纪化石：那时，眼睛刚刚登上演化舞台</div>
+    </div>
+  </div>
+  <div class="keypoint"><div>记住：Parker 的“光开关”假说——<strong>视觉的出现</strong>让捕食与躲避成为可能，点燃了物种多样性的大爆发。</div></div>
+  <div class="src-note" style="right:170px">图源：Stanford CS231n Lecture 1（CC-BY 授权）</div>
+</section>
+
+<!-- ========== 09 眼睛无处不在 ========== -->
+<section class="slide" data-layout="gallery">
+  <div class="slide-meta"><span>第 1 讲 · 为什么是视觉</span><span class="meta-page">09</span></div>
+  <h2 class="slide-title">演化反复“发明”了眼睛</h2>
+  <div class="gallery-grid" data-cols="2">
+    <figure>
+      <img src="assets/lecture1/s011_img23.png" alt="章鱼与昆虫的眼睛">
+      <figcaption>章鱼（左）与昆虫复眼（右）：截然不同的设计</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/lecture1/s011_img24.png" alt="变色龙与人类的眼睛">
+      <figcaption>变色龙（左）与人类（右）：各自精妙的光学系统</figcaption>
+    </figure>
+  </div>
+  <div class="src-note" style="right:170px">图源：Stanford CS231n Lecture 1</div>
+</section>
+
+<!-- ========== 10 让机器看懂世界 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 为什么是视觉</span><span class="meta-page">10</span></div>
+  <div class="kicker">Why Computer Vision</div>
+  <h2 class="slide-title">计算机视觉：让机器<span class="em">看懂</span>世界</h2>
+  <div class="slide-body">
+    <p class="lead">视觉是人类获取信息的主通道——大脑皮层约一半参与视觉处理，每秒约千万比特的视觉信息进入人眼。</p>
+    <ul class="bullets">
+      <li>目标：从像素出发，重建对世界的<strong>语义理解</strong></li>
+      <li>摄像头无处不在：手机、安防、汽车、无人机、火星车</li>
+      <li>典型应用：刷脸支付、医学影像、自动驾驶、工业质检</li>
+      <li>互联网每天新增海量图像与视频，远超人工处理能力 <span class="tag">必须自动化</span></li>
+    </ul>
+  </div>
+  <div class="keypoint"><div>记住：视觉是<strong>带宽最高的感知通道</strong>；数据规模决定了“看懂世界”必须自动化——这正是计算机视觉存在的理由。</div></div>
+</section>
+
+<!-- ========== 11 小结 02 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 为什么是视觉</span><span class="meta-page">11</span></div>
+  <div class="kicker">Summary</div>
+  <h2 class="slide-title">本章小结：<span class="em">为什么是视觉</span></h2>
+  <div class="card-grid" data-cols="3">
+    <div class="mini-card">
+      <div class="mc-no">01</div>
+      <div class="mc-title">视觉驱动演化</div>
+      <p>“光开关”假说：眼睛的出现可能触发了<strong>寒武纪生命大爆发</strong>——视觉是生存竞争的硬需求。</p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">02</div>
+      <div class="mc-title">收敛演化</div>
+      <p>章鱼、昆虫、人类<strong>独立演化</strong>出截然不同的眼睛——好设计会被反复“发明”。</p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">03</div>
+      <div class="mc-title">机器为什么需要视觉</div>
+      <p>人类信息主通道 + 摄像头无处不在 + 图像数据远超人工处理能力 ⇒ 理解必须<strong>自动化</strong>。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 12 section 03 简史 ========== -->
+<section class="slide" data-layout="section">
+  <div class="section-num">03</div>
+  <div class="section-title">计算机视觉简史</div>
+  <div class="section-sub">视觉方法为什么从规则和几何走向数据学习？</div>
+</section>
+
+<!-- ========== 13 Hubel & Wiesel（自绘 SVG） ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 计算机视觉简史</span><span class="meta-page">13</span></div>
+  <h2 class="slide-title">1959 · Hubel &amp; Wiesel：视觉皮层如何工作</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>在猫视皮层插入电极，记录神经元对光条刺激的响应</li>
+        <li><strong>简单细胞</strong>：只对特定<strong>朝向、位置</strong>的边缘放电</li>
+        <li><strong>复杂细胞</strong>：响应朝向与运动，具有一定平移不变性</li>
+        <li>视觉是<strong>分层、由简单到复杂</strong>的处理过程</li>
+        <li>1981 年诺贝尔生理学或医学奖</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <svg viewBox="0 0 560 400" width="520" height="372" style="max-width:100%;height:auto" role="img" aria-label="视皮层简单细胞的朝向选择性示意">
+        <!-- 刺激 -->
+        <text x="90" y="30" font-size="16" text-anchor="middle" fill="#6b6b76">刺激（光条朝向）</text>
+        <g transform="translate(30,55)"><rect width="120" height="70" fill="#f4f2ec" stroke="#e3e1da"/><line x1="25" y1="55" x2="95" y2="15" stroke="#22222a" stroke-width="7"/></g>
+        <g transform="translate(30,145)"><rect width="120" height="70" fill="#f4f2ec" stroke="#e3e1da"/><line x1="25" y1="15" x2="95" y2="55" stroke="#22222a" stroke-width="7"/></g>
+        <g transform="translate(30,235)"><rect width="120" height="70" fill="#f4f2ec" stroke="#e3e1da"/><line x1="60" y1="12" x2="60" y2="58" stroke="#22222a" stroke-width="7"/></g>
+        <!-- 箭头 -->
+        <line x1="165" y1="90" x2="225" y2="170" stroke="#9a9aa4" stroke-width="2" marker-end="url(#arr)"/>
+        <line x1="165" y1="180" x2="225" y2="180" stroke="#9a9aa4" stroke-width="2" marker-end="url(#arr)"/>
+        <line x1="165" y1="270" x2="225" y2="195" stroke="#9a9aa4" stroke-width="2" marker-end="url(#arr)"/>
+        <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#9a9aa4" stroke-width="1.5"/></marker></defs>
+        <!-- 响应曲线 -->
+        <text x="370" y="30" font-size="16" text-anchor="middle" fill="#6b6b76">神经元发放率</text>
+        <line x1="245" y1="320" x2="520" y2="320" stroke="#22222a" stroke-width="2"/>
+        <line x1="245" y1="320" x2="245" y2="55" stroke="#22222a" stroke-width="2"/>
+        <path d="M245 315 Q 300 310 340 220 T 435 90 Q 470 55 520 70" fill="none" stroke="#2456d6" stroke-width="3.5"/>
+        <circle cx="440" cy="86" r="6" fill="#2456d6"/>
+        <text x="445" y="70" font-size="14" text-anchor="middle" fill="#2456d6">最佳朝向</text>
+        <text x="382" y="350" font-size="15" text-anchor="middle" fill="#6b6b76">光条朝向 →</text>
+        <text x="120" y="350" font-size="15" fill="#6b6b76">换朝向 ≈ 几乎无响应</text>
+      </svg>
+      <div class="caption">简单细胞的“朝向选择性”：只对自己偏好的方向强烈放电</div>
+    </div>
+  </div>
+  <div class="keypoint"><div>记住：视皮层<strong>“由简单到复杂”的层级组织</strong>，是日后 CNN 层级特征提取的思想源头。</div></div>
+</section>
+
+<!-- ========== 14 Larry Roberts（自绘 SVG） ========== -->
+<section class="slide flip" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 计算机视觉简史</span><span class="meta-page">14</span></div>
+  <h2 class="slide-title">1963 · Larry Roberts：从“积木世界”开始</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>公认的<strong>第一篇计算机视觉博士论文</strong>（MIT）</li>
+        <li>《Machine Perception of Three-Dimensional Solids》</li>
+        <li>从图像中提取<strong>边缘与角点</strong>，推断三维立体结构</li>
+        <li>先简化世界（积木），再谈理解世界</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <svg viewBox="0 0 560 360" width="520" height="334" style="max-width:100%;height:auto" role="img" aria-label="积木世界：实体、边缘、角点">
+        <text x="90" y="28" font-size="16" text-anchor="middle" fill="#6b6b76">(a) 原始图像</text>
+        <g transform="translate(30,55)">
+          <polygon points="60,25 130,25 150,110 80,110" fill="#c9c9cf" stroke="#8a8a92" stroke-width="1.5"/>
+          <polygon points="20,60 60,25 80,110 40,110" fill="#9d9da6" stroke="#8a8a92" stroke-width="1.5"/>
+        </g>
+        <text x="290" y="28" font-size="16" text-anchor="middle" fill="#6b6b76">(b) 边缘图</text>
+        <g transform="translate(230,55)" fill="none" stroke="#2456d6" stroke-width="2.5">
+          <polyline points="60,25 130,25 150,110 80,110 60,25"/>
+          <polyline points="20,60 60,25"/>
+          <polyline points="20,60 40,110 80,110"/>
+        </g>
+        <text x="480" y="28" font-size="16" text-anchor="middle" fill="#6b6b76">(c) 特征点</text>
+        <g transform="translate(420,55)" fill="none" stroke="#b9b9c0" stroke-width="1.5">
+          <polyline points="60,25 130,25 150,110 80,110 60,25"/>
+          <polyline points="20,60 60,25"/><polyline points="20,60 40,110 80,110"/>
+        </g>
+        <g fill="#c2521e">
+          <circle cx="470" cy="80" r="6"/><circle cx="540" cy="80" r="6"/><circle cx="552" cy="165" r="6"/>
+          <circle cx="490" cy="165" r="6"/><circle cx="430" cy="115" r="6"/><circle cx="450" cy="165" r="6"/>
+        </g>
+        <text x="280" y="340" font-size="15" text-anchor="middle" fill="#6b6b76">实体 → 边缘 → 角点：把图像压缩为结构</text>
+      </svg>
+      <div class="caption">Roberts 的积木世界：从像素到几何结构的第一步</div>
+    </div>
+  </div>
+  <div class="src-note" style="right:170px">图改绘自 Roberts 博士论文（MIT, 1963）</div>
+</section>
+
+<!-- ========== 15 David Marr 分层表示（自绘 SVG） ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 1 讲 · 计算机视觉简史</span><span class="meta-page">15</span></div>
+  <h2 class="slide-title">1970s · David Marr：视觉的<span class="em">分层表示</span></h2>
+  <div class="full-media">
+    <svg viewBox="0 0 1080 380" width="1020" height="360" style="max-width:100%;height:auto" role="img" aria-label="Marr 视觉表示的四个阶段">
+      <defs><marker id="arr2" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#2456d6" stroke-width="2"/></marker></defs>
+      <g>
+        <rect x="20" y="60" width="220" height="240" rx="10" fill="#ffffff" stroke="#e3e1da" stroke-width="2"/>
+        <text x="130" y="100" font-size="20" text-anchor="middle" font-weight="700" fill="#22222a">输入图像</text>
+        <rect x="70" y="130" width="120" height="90" fill="#f4f2ec" stroke="#c9c9cf"/>
+        <circle cx="130" cy="175" r="26" fill="#9d9da6"/>
+        <text x="130" y="255" font-size="15" text-anchor="middle" fill="#6b6b76">感知的灰度强度</text>
+      </g>
+      <line x1="248" y1="180" x2="288" y2="180" stroke="#2456d6" stroke-width="3" marker-end="url(#arr2)"/>
+      <g>
+        <rect x="296" y="60" width="220" height="240" rx="10" fill="#ffffff" stroke="#e3e1da" stroke-width="2"/>
+        <text x="406" y="100" font-size="20" text-anchor="middle" font-weight="700" fill="#22222a">基元素描</text>
+        <rect x="346" y="130" width="120" height="90" fill="#f4f2ec" stroke="#c9c9cf"/>
+        <circle cx="406" cy="175" r="26" fill="none" stroke="#2456d6" stroke-width="3"/>
+        <line x1="352" y1="140" x2="460" y2="140" stroke="#2456d6" stroke-width="2"/>
+        <line x1="352" y1="212" x2="460" y2="212" stroke="#2456d6" stroke-width="2"/>
+        <text x="406" y="255" font-size="15" text-anchor="middle" fill="#6b6b76">边缘、条纹、端点、边界</text>
+      </g>
+      <line x1="524" y1="180" x2="564" y2="180" stroke="#2456d6" stroke-width="3" marker-end="url(#arr2)"/>
+      <g>
+        <rect x="572" y="60" width="220" height="240" rx="10" fill="#ffffff" stroke="#e3e1da" stroke-width="2"/>
+        <text x="682" y="100" font-size="20" text-anchor="middle" font-weight="700" fill="#22222a">2½-D 简图</text>
+        <rect x="622" y="130" width="120" height="90" fill="#f4f2ec" stroke="#c9c9cf"/>
+        <circle cx="682" cy="175" r="26" fill="#2456d6" opacity="0.25"/>
+        <g stroke="#2456d6" stroke-width="1.8"><line x1="682" y1="175" x2="660" y2="155"/><line x1="682" y1="175" x2="706" y2="152"/><line x1="682" y1="175" x2="700" y2="196"/><line x1="682" y1="175" x2="655" y2="190"/></g>
+        <text x="682" y="255" font-size="15" text-anchor="middle" fill="#6b6b76">深度与表面朝向</text>
+      </g>
+      <line x1="800" y1="180" x2="840" y2="180" stroke="#2456d6" stroke-width="3" marker-end="url(#arr2)"/>
+      <g>
+        <rect x="848" y="60" width="220" height="240" rx="10" fill="#ffffff" stroke="#e3e1da" stroke-width="2"/>
+        <text x="958" y="100" font-size="20" text-anchor="middle" font-weight="700" fill="#22222a">3-D 模型</text>
+        <circle cx="958" cy="175" r="38" fill="#9d9da6"/>
+        <ellipse cx="946" cy="160" rx="14" ry="10" fill="#d5d5db"/>
+        <text x="958" y="255" font-size="15" text-anchor="middle" fill="#6b6b76">以体积基元层级组织</text>
+      </g>
+      <text x="540" y="345" font-size="17" text-anchor="middle" fill="#6b6b76">David Marr《Vision》：计算视觉的奠基性框架——表示先于算法</text>
+    </svg>
+  </div>
+  <div class="caption">“要理解视觉，先回答：我们在计算什么、用什么表示。”</div>
+  <div class="keypoint"><div>记住：Marr 的三层追问——<strong>计算什么、为什么这样计算、如何实现</strong>；先想清楚“表示”，再谈算法。</div></div>
+</section>
+
+<!-- ========== 16 Viola-Jones 人脸检测 ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 计算机视觉简史</span><span class="meta-page">16</span></div>
+  <h2 class="slide-title">2001 · Viola-Jones：人脸检测走向实用</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>积分图 + Haar 特征 + <strong>AdaBoost 级联</strong>分类器</li>
+        <li>首个<strong>实时</strong>人脸检测系统，后被装进千万台相机</li>
+        <li>机器学习在视觉领域的<strong>第一个大规模成功应用</strong></li>
+        <li>但特征仍是手工设计的——上限清晰可见</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture1/s025_img183.jpg" alt="Viola-Jones 人脸检测示例" style="max-height:380px">
+      <div class="caption">Viola &amp; Jones, 2001：实时框出每一张人脸</div>
+    </div>
+  </div>
+  <div class="keypoint"><div>记住：<strong>积分图 + Haar 特征 + AdaBoost 级联</strong>三件套，让人脸检测第一次做到实时。</div></div>
+  <div class="src-note" style="right:170px">图源：Viola &amp; Jones, CVPR 2001（CS231n 课件）</div>
+</section>
+
+<!-- ========== 17 手工特征时代与 AI 寒冬 ========== -->
+<section class="slide dense" data-layout="two-col">
+  <div class="slide-meta"><span>第 1 讲 · 计算机视觉简史</span><span class="meta-page">17</span></div>
+  <h2 class="slide-title">手工特征的黄金时代，与两次“AI 寒冬”</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">手工设计特征（1970s–2000s）</div>
+      <ul class="bullets">
+        <li>1973 图结构：按部件及其空间关系识别物体</li>
+        <li>1986 <strong>Canny</strong> 边缘检测；1997 归一化割</li>
+        <li>1999 <strong>SIFT</strong>：局部特征匹配（David Lowe）</li>
+        <li>数据集竞赛：Caltech-101、PASCAL VOC</li>
+        <li>范式：手工特征 + SVM / Boosting 浅层分类器</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">AI 寒冬的教训</div>
+      <ul class="bullets">
+        <li>专家系统未能兑现承诺，经费与热情骤减</li>
+        <li>但视觉、语音、NLP 等子领域仍在生长</li>
+        <li>瓶颈逐渐清晰：<strong>特征靠人设计，泛化能力差</strong></li>
+        <li>出路：让机器自己学习特征 <span class="tag">表示学习</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint warm"><div>注意：手工特征时代的瓶颈不在分类器，而在<strong>特征本身</strong>——靠人设计的特征泛化有上限，这正是深度学习要解决的问题。</div></div>
+</section>
+
+<!-- ========== 18 小结 03 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 计算机视觉简史</span><span class="meta-page">18</span></div>
+  <div class="kicker">Summary</div>
+  <h2 class="slide-title">本章小结：<span class="em">计算机视觉简史</span></h2>
+  <div class="card-grid" data-cols="2">
+    <div class="mini-card">
+      <div class="mc-no">01</div>
+      <div class="mc-title">神经科学的起点（1959）</div>
+      <p>Hubel &amp; Wiesel 发现视皮层简单 / 复杂细胞——视觉是<strong>分层、由简单到复杂</strong>的处理过程。</p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">02</div>
+      <div class="mc-title">从积木世界到计算框架</div>
+      <p>1963 Roberts 从边缘与角点推断三维结构；Marr 提出<strong>表示先于算法</strong>的视觉分层框架。</p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">03</div>
+      <div class="mc-title">手工特征的黄金时代</div>
+      <p>Canny 边缘、SIFT 局部特征、归一化割、Viola-Jones 实时人脸检测，搭配 SVM / Boosting 浅层分类器。</p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">04</div>
+      <div class="mc-title">瓶颈与出路</div>
+      <p>特征靠人设计、泛化有限；AI 寒冬的教训指向同一条出路——<strong>让机器自己学习特征</strong>（表示学习）。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 19 section 04 神经网络之路 ========== -->
+<section class="slide" data-layout="section">
+  <div class="section-num">04</div>
+  <div class="section-title">神经网络之路</div>
+  <div class="section-sub">神经网络怎样从错误中调整参数，并逐步学会识别？</div>
+</section>
+
+<!-- ========== 20 感知机（自绘 SVG） ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 神经网络之路</span><span class="meta-page">20</span></div>
+  <h2 class="slide-title">1958 · 感知机：可以学习的机器</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>Frank Rosenblatt 提出<strong>感知机</strong>（Perceptron）</li>
+        <li>线性加权求和 + 阈值激活：y = sign(Σ w<sub>i</sub>x<sub>i</sub> + b)</li>
+        <li>人话版：每个输入乘一个“重要性权重”，加总超过门槛就“点火”输出 1</li>
+        <li>权重可通过<strong>感知机学习规则</strong>从数据自动调整</li>
+        <li>还造出了硬件 Mark I——用电机驱动电位器调权</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <svg viewBox="0 0 560 360" width="520" height="334" style="max-width:100%;height:auto" role="img" aria-label="感知机结构示意">
+        <defs><marker id="arr3" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="none" stroke="#9a9aa4" stroke-width="1.5"/></marker></defs>
+        <g font-size="16" fill="#22222a">
+          <circle cx="60" cy="70" r="18" fill="#e8eefb" stroke="#2456d6" stroke-width="2"/><text x="60" y="76" text-anchor="middle">x₁</text>
+          <circle cx="60" cy="150" r="18" fill="#e8eefb" stroke="#2456d6" stroke-width="2"/><text x="60" y="156" text-anchor="middle">x₂</text>
+          <circle cx="60" cy="230" r="18" fill="#e8eefb" stroke="#2456d6" stroke-width="2"/><text x="60" y="236" text-anchor="middle">x₃</text>
+          <circle cx="60" cy="300" r="18" fill="#e8eefb" stroke="#2456d6" stroke-width="2"/><text x="60" y="306" text-anchor="middle">xₙ</text>
+        </g>
+        <line x1="78" y1="70" x2="228" y2="165" stroke="#9a9aa4" stroke-width="2" marker-end="url(#arr3)"/>
+        <line x1="78" y1="150" x2="228" y2="178" stroke="#9a9aa4" stroke-width="2" marker-end="url(#arr3)"/>
+        <line x1="78" y1="230" x2="228" y2="192" stroke="#9a9aa4" stroke-width="2" marker-end="url(#arr3)"/>
+        <line x1="78" y1="300" x2="228" y2="200" stroke="#9a9aa4" stroke-width="2" marker-end="url(#arr3)"/>
+        <g font-size="15" fill="#6b6b76">
+          <text x="140" y="105">w₁</text><text x="140" y="160">w₂</text><text x="140" y="215">w₃</text><text x="140" y="268">wₙ</text>
+        </g>
+        <circle cx="270" cy="185" r="42" fill="#ffffff" stroke="#22222a" stroke-width="2.5"/>
+        <text x="270" y="192" font-size="26" text-anchor="middle" fill="#22222a">Σ</text>
+        <rect x="345" y="155" width="110" height="60" rx="8" fill="#fbece4" stroke="#c2521e" stroke-width="2"/>
+        <text x="400" y="192" font-size="16" text-anchor="middle" fill="#c2521e">阈值激活</text>
+        <line x1="312" y1="185" x2="343" y2="185" stroke="#9a9aa4" stroke-width="2" marker-end="url(#arr3)"/>
+        <line x1="455" y1="185" x2="510" y2="185" stroke="#9a9aa4" stroke-width="2" marker-end="url(#arr3)"/>
+        <text x="525" y="192" font-size="18" fill="#22222a">y</text>
+        <text x="280" y="335" font-size="15" text-anchor="middle" fill="#6b6b76">单个“神经元”：加权和 → 非线性 → 输出</text>
+      </svg>
+      <div class="caption">感知机：第一个能从数据中学习的“神经元”模型</div>
+    </div>
+  </div>
+  <div class="keypoint"><div>记住：感知机是<strong>第一个可学习的模型</strong>，但本质上仍是线性分类器——这也注定了它的能力边界。</div></div>
+</section>
+
+<!-- ========== 21 XOR 困境（自绘 SVG） ========== -->
+<section class="slide flip" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 神经网络之路</span><span class="meta-page">21</span></div>
+  <h2 class="slide-title">1969 · Minsky &amp; Papert：XOR 困境</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>《Perceptrons》证明：单层感知机<strong>无法表示 XOR</strong></li>
+        <li>XOR 不是线性可分的——没有任何一条直线能分开两类</li>
+        <li>一书引发对整个神经网络路线的质疑</li>
+        <li>研究经费枯竭，迎来<strong>第一次神经网络寒冬</strong></li>
+        <li>出路（当时已隐约可见）：<strong>多层网络 + 学习算法</strong></li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <svg viewBox="0 0 480 380" width="440" height="348" style="max-width:100%;height:auto" role="img" aria-label="XOR 线性不可分示意">
+        <line x1="80" y1="320" x2="420" y2="320" stroke="#22222a" stroke-width="2"/>
+        <line x1="80" y1="320" x2="80" y2="40" stroke="#22222a" stroke-width="2"/>
+        <text x="410" y="345" font-size="15" fill="#6b6b76">x₁</text>
+        <text x="55" y="50" font-size="15" fill="#6b6b76">x₂</text>
+        <!-- 类别 A: (0,0) (1,1) 蓝；类别 B: (0,1)(1,0) 橙 -->
+        <circle cx="140" cy="270" r="16" fill="#2456d6"/>
+        <circle cx="360" cy="90" r="16" fill="#2456d6"/>
+        <circle cx="140" cy="90" r="16" fill="#c2521e"/>
+        <circle cx="360" cy="270" r="16" fill="#c2521e"/>
+        <line x1="100" y1="320" x2="400" y2="60" stroke="#9a9aa4" stroke-width="2" stroke-dasharray="8 6"/>
+        <line x1="100" y1="180" x2="400" y2="180" stroke="#9a9aa4" stroke-width="2" stroke-dasharray="8 6"/>
+        <text x="250" y="365" font-size="15" text-anchor="middle" fill="#6b6b76">任何一条直线都会分错至少一类</text>
+      </svg>
+      <div class="caption">XOR：单层线性模型的能力边界</div>
+    </div>
+  </div>
+  <div class="keypoint warm"><div>注意：XOR 困境否定的是<strong>单层</strong>感知机，而不是神经网络本身——多层网络可以表示 XOR，当时缺的只是训练算法。</div></div>
+</section>
+
+<!-- ========== 22 Neocognitron ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 神经网络之路</span><span class="meta-page">22</span></div>
+  <h2 class="slide-title">1980 · Neocognitron：CNN 的雏形</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>福岛邦彦（Kunihiko Fukushima）直接受 Hubel-Wiesel 启发</li>
+        <li><strong>简单细胞层（卷积）</strong>与<strong>复杂细胞层（池化）</strong>交替堆叠</li>
+        <li>层级化、局部连接、平移不变——现代 CNN 的思想都在</li>
+        <li>遗憾：缺少<strong>有效的训练算法</strong>，权重无法端到端学习</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture1/s038_img220.png" alt="Neocognitron 网络结构">
+      <div class="caption">Neocognitron（Fukushima, 1980）：层级交替的特征提取结构</div>
+    </div>
+  </div>
+  <div class="src-note" style="right:170px">图源：Fukushima, Biological Cybernetics, 1980</div>
+</section>
+
+<!-- ========== 23 反向传播 ========== -->
+<section class="slide flip" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 神经网络之路</span><span class="meta-page">23</span></div>
+  <h2 class="slide-title">1986 · 反向传播：多层网络可以训练了</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>Rumelhart、Hinton &amp; Williams 推广<strong>反向传播</strong></li>
+        <li>用<strong>链式法则</strong>高效计算每层参数的梯度</li>
+        <li>∂E/∂w<sub>ji</sub> = (∂E/∂o<sub>j</sub>)·(∂o<sub>j</sub>/∂w<sub>ji</sub>)</li>
+        <li>人话版：把输出端的误差，沿来路逐层“分摊”回每一个参数</li>
+        <li>多层感知机从此可以有效训练，XOR 不再是障碍</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture1/s030_img211.png" alt="反向传播网络示意">
+      <div class="caption">误差沿网络反向逐层传播（Rumelhart et al., 1986）</div>
+    </div>
+  </div>
+  <div class="keypoint"><div>记住：反向传播 = <strong>链式法则</strong>的高效实现——梯度沿网络反向复用计算，深层网络从此训得动。</div></div>
+  <div class="src-note" style="right:170px">图源：Rumelhart et al., Nature, 1986</div>
+</section>
+
+<!-- ========== 24 LeNet ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 神经网络之路</span><span class="meta-page">24</span></div>
+  <h2 class="slide-title">1998 · LeNet：卷积网络第一次商用</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>Yann LeCun 把<strong>反向传播</strong>装进类 Neocognitron 结构</li>
+        <li>卷积 + 下采样 + 全连接：识别手写数字</li>
+        <li>部署于银行系统，自动读取<strong>手写支票</strong></li>
+        <li>结构与现代 CNN 几乎一致——只缺规模</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture1/s031_img212.png" alt="LeNet 网络结构">
+      <div class="caption">LeNet（LeCun et al., 1998）：卷积—下采样—全连接</div>
+    </div>
+  </div>
+  <div class="src-note" style="right:170px">图源：LeCun et al., Proceedings of the IEEE, 1998</div>
+</section>
+
+<!-- ========== 25 statement：算法就绪 ========== -->
+<section class="slide" data-layout="statement">
+  <div class="statement-text">2000 年代：算法已经就绪，<br>但<span class="em">数据</span>与<span class="em">算力</span>还没有。</div>
+  <div class="statement-sub">深层网络难以训练、没有大数据集、GPU 尚未登场——神经网络仍是冷门方向</div>
+</section>
+
+<!-- ========== 26 ImageNet ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 神经网络之路</span><span class="meta-page">26</span></div>
+  <h2 class="slide-title">2009 · ImageNet：把“数据”补上</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>李飞飞团队：互联网规模图像数据集（Deng et al., 2009）</li>
+        <li>ILSVRC 竞赛：<strong>1000 类、约 143 万张图像</strong></li>
+        <li>任务：给定图像，输出最可能的 5 个类别（Top-5）</li>
+        <li>右图的正确答案：钢鼓（Steel drum）</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture1/s034_img217.jpg" alt="ILSVRC 示例图像" style="max-height:380px">
+      <div class="caption">ILSVRC 样例：模型需从 1000 个类别中选中“钢鼓”</div>
+    </div>
+  </div>
+  <div class="keypoint"><div>记住：<strong>Top-5 错误率</strong>——模型给出的前 5 个猜测都不含正确答案才算错，这是 ILSVRC 的标准评测指标。</div></div>
+  <div class="src-note" style="right:170px">图源：Deng et al., CVPR 2009 / ILSVRC</div>
+</section>
+
+<!-- ========== 27 ILSVRC 错误率 ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 1 讲 · 神经网络之路</span><span class="meta-page">27</span></div>
+  <h2 class="slide-title">2012 · <span class="em">AlexNet 时刻</span>：错误率断崖式下降</h2>
+  <div class="full-media">
+    <img src="assets/lecture1/s035_img218.png" alt="ILSVRC 历年冠军 Top-5 错误率">
+  </div>
+  <div class="caption">ILSVRC 历年冠军 Top-5 错误率：2012 年 AlexNet 将 25.8% 一举压到 16.4%，2015 年 ResNet（3.6%）已低于人类水平（约 5.1%）</div>
+  <div class="src-note" style="right:170px">数据来源：ILSVRC 历年冠军成绩（Russakovsky et al., IJCV 2015）</div>
+</section>
+
+<!-- ========== 28 AlexNet ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 神经网络之路</span><span class="meta-page">28</span></div>
+  <h2 class="slide-title">AlexNet：深度学习走向主流</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>Krizhevsky、Sutskever &amp; Hinton，NeurIPS 2012</li>
+        <li>8 层可学习层（5 卷积 + 3 全连接）、6000 万参数，<strong>GPU 训练</strong></li>
+        <li>关键技术：ReLU 激活、Dropout、数据增强</li>
+        <li>领先第二名约 10 个百分点——整个领域随之转向</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture1/s037_img219.jpg" alt="AlexNet 网络结构" style="max-height:380px">
+      <div class="caption">AlexNet（2012）：LeNet 的“放大版”，结构思想一脉相承</div>
+    </div>
+  </div>
+  <div class="keypoint"><div>记住：AlexNet 的领先靠的是<strong>整体系统</strong>——ReLU、Dropout、数据增强与 GPU 工程，缺一不可。</div></div>
+  <div class="src-note" style="right:170px">图源：Krizhevsky et al., NeurIPS 2012</div>
+</section>
+
+<!-- ========== 29 AlexNet vs Neocognitron ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 1 讲 · 神经网络之路</span><span class="meta-page">29</span></div>
+  <h2 class="slide-title">Neocognitron 与 AlexNet：相隔 32 年的呼应</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">1980 · Neocognitron</div>
+      <figure>
+        <img src="assets/lecture1/s038_img220.png" alt="Neocognitron 结构" style="max-height:270px">
+        <figcaption>层级卷积结构有了，但没有训练算法</figcaption>
+      </figure>
+    </div>
+    <div class="col">
+      <div class="col-title">2012 · AlexNet</div>
+      <figure>
+        <img src="assets/lecture1/s037_img219.jpg" alt="AlexNet 结构" style="max-height:270px">
+        <figcaption>结构 + 反向传播 + 大数据 + GPU = 爆发</figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="keypoint"><div>记住：思想常常<strong>先于条件</strong>——Neocognitron 等了 32 年，直到数据、算力与训练算法齐备。</div></div>
+</section>
+
+<!-- ========== 30 小结 04 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 神经网络之路</span><span class="meta-page">30</span></div>
+  <div class="kicker">Summary</div>
+  <h2 class="slide-title">本章小结：<span class="em">神经网络之路</span></h2>
+  <div class="card-grid" data-cols="2">
+    <div class="mini-card">
+      <div class="mc-no">01</div>
+      <div class="mc-title">感知机与 XOR（1958 / 1969）</div>
+      <p>感知机首次实现“从数据学习”；Minsky 证明<strong>单层模型无法表示 XOR</strong>——线性模型的边界引发第一次寒冬。</p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">02</div>
+      <div class="mc-title">反向传播（1986）</div>
+      <p>用<strong>链式法则</strong>高效分摊误差、计算梯度，多层网络从此可以有效训练。</p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">03</div>
+      <div class="mc-title">CNN 的诞生（1980 / 1998）</div>
+      <p>Neocognitron 提出层级卷积结构；LeNet 用<strong>反向传播训练卷积网络</strong>并在银行商用。</p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">04</div>
+      <div class="mc-title">AlexNet 时刻（2009 / 2012）</div>
+      <p>ImageNet 补齐数据短板；AlexNet 借 <strong>GPU</strong> 把 ILSVRC 错误率从 25.8% 打到 16.4%，深度学习走向主流。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 31 section 05 深度学习时代 ========== -->
+<section class="slide" data-layout="section">
+  <div class="section-num">05</div>
+  <div class="section-title">深度学习时代</div>
+  <div class="section-sub">为什么 2012 年之后，视觉模型的效果提升得更快？</div>
+</section>
+
+<!-- ========== 32 爆发三要素 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 深度学习时代</span><span class="meta-page">32</span></div>
+  <div class="kicker">Why Now</div>
+  <h2 class="slide-title">2012 年之后，数据、算力和算法终于同时够用</h2>
+  <div class="slide-body">
+    <p class="lead">同样的算法思想沉睡了二十年——改变的是数据、算力与工程成熟度。</p>
+    <ul class="bullets">
+      <li><strong>数据</strong>：互联网图像 + ImageNet 等大规模标注数据集</li>
+      <li><strong>算力</strong>：GPU 让矩阵运算提速数十倍，单位算力成本持续下降</li>
+      <li><strong>算法</strong>：反向传播 + CNN 积累多年，ReLU/Dropout 等工程细节成熟</li>
+      <li>论文数量指数增长：CVPR 投稿十年翻数倍，arXiv 月增数千篇</li>
+      <li>产业跟进：AI 创业公司、会议规模与企业营收全面爆发</li>
+    </ul>
+  </div>
+  <div class="keypoint"><div>记住：深度学习的爆发不是某个算法的单点胜利，而是<strong>数据、算力、算法</strong>三条曲线在 2012 年前后的交汇。</div></div>
+</section>
+
+<!-- ========== 33 理解世界：识别任务 ========== -->
+<section class="slide" data-layout="gallery">
+  <div class="slide-meta"><span>第 1 讲 · 深度学习时代</span><span class="meta-page">33</span></div>
+  <h2 class="slide-title">理解世界：识别任务全面突破</h2>
+  <div class="gallery-grid" data-cols="3">
+    <figure>
+      <img src="assets/lecture1/s061_img446.jpg" alt="图像分类">
+      <figcaption>图像分类：“猫”</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/lecture1/s061_img447.png" alt="目标检测">
+      <figcaption>目标检测：狗、狗、猫</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/lecture1/s046_img394.png" alt="图像描述生成">
+      <figcaption>图像描述：“一只白色泰迪熊坐在草地上”</figcaption>
+    </figure>
+  </div>
+  <div class="src-note" style="right:170px">图源：CS231n；图像描述示例出自 Vinyals et al., CVPR 2015</div>
+</section>
+
+<!-- ========== 34 创造世界：生成模型 ========== -->
+<section class="slide" data-layout="gallery">
+  <div class="slide-meta"><span>第 1 讲 · 深度学习时代</span><span class="meta-page">34</span></div>
+  <h2 class="slide-title">创造世界：从理解到<span class="em">生成</span></h2>
+  <div class="gallery-grid" data-cols="3">
+    <figure>
+      <img src="assets/lecture1/s049_img407.png" alt="GAN 生成的人脸">
+      <figcaption>GAN：不存在的人（Karras et al., 2018）</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/lecture1/s050_img408.jpg" alt="DALL·E 牛油果椅子">
+      <figcaption>DALL·E：文字生成图像（2021）</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/lecture1/s066_img458.jpg" alt="DALL·E 2 泰迪熊">
+      <figcaption>DALL·E 2：“泰迪熊在水下做 AI 研究”（2022）</figcaption>
+    </figure>
+  </div>
+  <div class="src-note" style="right:170px">图源：Karras et al., ICLR 2018；Ramesh et al., ICML 2021 &amp; arXiv 2022</div>
+</section>
+
+<!-- ========== 35 图像生成新范式（2023–2025） ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 深度学习时代</span><span class="meta-page">35</span></div>
+  <div class="kicker">Text-to-Image 2023–2025</div>
+  <h2 class="slide-title">图像生成新范式：从“听得懂话”到<span class="em">融入大模型</span></h2>
+  <div class="slide-body">
+    <p class="lead">DALL·E 2 之后的两年，文生图完成两次换代——先是提示词跟随大幅变好，随后被收编进多模态大模型。</p>
+    <ul class="bullets">
+      <li><strong>2023.10 DALL·E 3</strong>（OpenAI）：与 ChatGPT 深度集成，长提示词跟随能力大幅提升</li>
+      <li><strong>2024 Stable Diffusion 3</strong>（Stability AI）：扩散 Transformer（MMDiT）+ 整流流（rectified flow）</li>
+      <li><strong>2024.08 FLUX.1</strong>（Black Forest Labs）：约 12B 参数整流流 Transformer，开放权重成为社区新底座</li>
+      <li><strong>2025.03 GPT-4o 原生图像生成</strong>（OpenAI）：画图成为大模型内置能力，可对话式反复修改</li>
+    </ul>
+  </div>
+  <div class="keypoint"><div>记住：技术主线是<strong>扩散模型 → 扩散 Transformer + 整流流</strong>；产品主线是<strong>独立工具 → 大模型原生能力</strong>。</div></div>
+  <div class="src-note" style="right:170px">出处：OpenAI / Stability AI / Black Forest Labs 官方发布；Esser et al., ICML 2024</div>
+</section>
+
+<!-- ========== 36 视频生成与世界模型时间线（自绘 SVG） ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 1 讲 · 深度学习时代</span><span class="meta-page">36</span></div>
+  <h2 class="slide-title">从图像到视频：<span class="em">世界模型</span>登场（2024–2026）</h2>
+  <div class="full-media">
+    <svg viewBox="0 0 1080 380" width="1020" height="360" style="max-width:100%;height:auto" role="img" aria-label="视频生成与世界模型大事时间线（2024-2026）">
+      <defs><marker id="arr4" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#22222a" stroke-width="2"/></marker></defs>
+      <line x1="40" y1="200" x2="1052" y2="200" stroke="#22222a" stroke-width="2.5" marker-end="url(#arr4)"/>
+      <circle cx="90" cy="200" r="7" fill="#2456d6"/>
+      <text x="90" y="128" font-size="17" text-anchor="middle" font-weight="700" fill="#22222a">2024.02</text>
+      <text x="90" y="152" font-size="15" text-anchor="middle" fill="#2456d6" font-weight="600">Sora 演示</text>
+      <text x="90" y="172" font-size="14" text-anchor="middle" fill="#6b6b76">OpenAI</text>
+      <circle cx="235" cy="200" r="7" fill="#2456d6"/>
+      <text x="235" y="252" font-size="17" text-anchor="middle" font-weight="700" fill="#22222a">2024.06</text>
+      <text x="235" y="276" font-size="15" text-anchor="middle" fill="#2456d6" font-weight="600">可灵（快手）</text>
+      <text x="235" y="296" font-size="14" text-anchor="middle" fill="#6b6b76">Gen-3（Runway）</text>
+      <circle cx="380" cy="200" r="7" fill="#2456d6"/>
+      <text x="380" y="128" font-size="17" text-anchor="middle" font-weight="700" fill="#22222a">2024.12</text>
+      <text x="380" y="152" font-size="15" text-anchor="middle" fill="#2456d6" font-weight="600">Sora 开放使用</text>
+      <text x="380" y="172" font-size="14" text-anchor="middle" fill="#6b6b76">Veo 2（Google）</text>
+      <circle cx="525" cy="200" r="7" fill="#2456d6"/>
+      <text x="525" y="252" font-size="17" text-anchor="middle" font-weight="700" fill="#22222a">2025.05</text>
+      <text x="525" y="276" font-size="15" text-anchor="middle" fill="#2456d6" font-weight="600">Veo 3</text>
+      <text x="525" y="296" font-size="14" text-anchor="middle" fill="#6b6b76">原生音画同步</text>
+      <circle cx="670" cy="200" r="7" fill="#2456d6"/>
+      <text x="670" y="128" font-size="17" text-anchor="middle" font-weight="700" fill="#22222a">2025.08</text>
+      <text x="670" y="152" font-size="15" text-anchor="middle" fill="#2456d6" font-weight="600">Genie 3（DeepMind）</text>
+      <text x="670" y="172" font-size="14" text-anchor="middle" fill="#6b6b76">实时可交互世界模型</text>
+      <circle cx="815" cy="200" r="7" fill="#2456d6"/>
+      <text x="815" y="252" font-size="17" text-anchor="middle" font-weight="700" fill="#22222a">2025.09</text>
+      <text x="815" y="276" font-size="15" text-anchor="middle" fill="#2456d6" font-weight="600">Sora 2</text>
+      <text x="815" y="296" font-size="14" text-anchor="middle" fill="#6b6b76">音画一体</text>
+      <circle cx="960" cy="200" r="7" fill="#c2521e"/>
+      <text x="960" y="128" font-size="17" text-anchor="middle" font-weight="700" fill="#22222a">2026.04</text>
+      <text x="960" y="152" font-size="15" text-anchor="middle" fill="#c2521e" font-weight="600">Sora 产品关停</text>
+      <text x="960" y="172" font-size="14" text-anchor="middle" fill="#6b6b76">竞赛白热化</text>
+      <text x="545" y="352" font-size="16" text-anchor="middle" fill="#6b6b76">两年间：从“演示惊艳”到日常工具，生成模型开始学习物理规律</text>
+    </svg>
+  </div>
+  <div class="caption">视频生成大事记：Sora 点燃赛道，可灵、Veo 快速跟进，Genie 3 把“生成视频”变成“生成可交互世界”</div>
+  <div class="keypoint"><div>记住：能预测“世界接下来会发生什么”的生成模型，就是<strong>世界模型</strong>的雏形——它通往仿真训练与具身智能。</div></div>
+  <div class="src-note" style="right:170px">出处：OpenAI、快手、Runway、Google DeepMind 官方发布（2024–2026）</div>
+</section>
+
+<!-- ========== 37 小结 05 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 深度学习时代</span><span class="meta-page">37</span></div>
+  <div class="kicker">Summary</div>
+  <h2 class="slide-title">本章小结：<span class="em">深度学习时代</span></h2>
+  <div class="card-grid" data-cols="3">
+    <div class="mini-card">
+      <div class="mc-no">01</div>
+      <div class="mc-title">爆发三要素</div>
+      <p><strong>数据</strong>（ImageNet）、<strong>算力</strong>（GPU）、<strong>算法</strong>（BP + CNN + 工程细节）同时到位，缺一不可。</p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">02</div>
+      <div class="mc-title">理解世界</div>
+      <p>分类、检测、分割、图像描述等<strong>识别任务</strong>全面突破，并从论文走向产业落地。</p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">03</div>
+      <div class="mc-title">创造世界</div>
+      <p>GAN 与文生图开启 <strong>AIGC</strong>；2024 年起<strong>视频生成</strong>（Sora / 可灵 / Veo）与<strong>世界模型</strong>（Genie 3）接棒。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 38 section 06 课程地图 ========== -->
+<section class="slide" data-layout="section">
+  <div class="section-num">06</div>
+  <div class="section-title">课程地图</div>
+  <div class="section-sub">面对一个视觉问题，应该先把哪些事情说清楚？</div>
+</section>
+
+<!-- ========== 39 任务地图 × 模型地图 ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 1 讲 · 课程地图</span><span class="meta-page">39</span></div>
+  <h2 class="slide-title">课程中的任务与模型</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">任务（Tasks）</div>
+      <ul class="bullets">
+        <li>图像分类：整张图 → 类别（入门任务）</li>
+        <li>目标检测 / 语义分割 / 实例分割</li>
+        <li>视频理解与多模态理解</li>
+        <li>视觉定位、跟踪、三维重建</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">模型（Models）</div>
+      <ul class="bullets">
+        <li>多层感知机（MLP）：一切的起点</li>
+        <li>卷积网络（CNN）：视觉的主力架构</li>
+        <li>循环网络（RNN / LSTM）：序列建模</li>
+        <li>注意力机制 / <strong>Transformer</strong>：当前主流</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint"><div><strong>任务定义输出形式，模型决定如何逼近</strong>；先弄清输入、输出和评价方式，再选择模型。</div></div>
+</section>
+
+<!-- ========== 实验基础：数据划分 ========== -->
+<section class="slide" data-layout="table">
+  <div class="slide-meta"><span>第 1 讲 · 课程地图</span><span class="meta-page">40</span></div>
+  <h2 class="slide-title">训练集、验证集、测试集各自回答什么问题？</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>数据划分</th><th>用途</th><th>不能做什么</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>训练集</strong></td><td>计算损失并更新模型参数</td><td>不能用训练误差代替泛化能力</td></tr>
+        <tr><td><strong>验证集</strong></td><td>选择超参数、训练轮数和模型版本</td><td>反复调参后，不能再把它当作独立测试</td></tr>
+        <tr><td><strong>测试集</strong></td><td>在方案确定后，估计最终泛化性能</td><td>不能参与模型选择或数据预处理设计</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="keypoint warm"><div>同一患者、同一视频或同一地点的高度相似样本，应按<strong>主体或来源整体划分</strong>；随机拆帧很容易造成数据泄漏。</div></div>
+  <div class="src-note" style="right:170px">依据：Goodfellow, Bengio &amp; Courville, Deep Learning, Ch. 5、7, 2016</div>
+</section>
+
+<!-- ========== 实验基础：任务与指标 ========== -->
+<section class="slide dense" data-layout="table">
+  <div class="slide-meta"><span>第 1 讲 · 课程地图</span><span class="meta-page">41</span></div>
+  <h2 class="slide-title">不同视觉任务，需要不同的评价指标</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>任务</th><th>模型输出</th><th>常用指标</th><th>指标主要衡量什么</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>图像分类</td><td>类别或类别概率</td><td>Accuracy；Precision / Recall / F1</td><td>类别是否判断正确；类别不均衡时需分别看查准率与查全率</td></tr>
+        <tr><td>目标检测</td><td>类别 + 边界框</td><td>IoU；AP / mAP</td><td>定位与分类是否同时正确</td></tr>
+        <tr><td>语义分割</td><td>逐像素类别</td><td>mIoU；Dice</td><td>预测区域与真实区域的重叠程度</td></tr>
+        <tr><td>深度 / 位姿</td><td>连续几何量</td><td>绝对或相对误差；角度 / 平移误差</td><td>几何估计离真实值有多远</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="keypoint"><div>不存在适用于所有任务的单一“准确率”。评价协议必须与<strong>输出形式、类别分布和实际错误代价</strong>一致。</div></div>
+  <div class="src-note" style="right:170px">依据：PASCAL VOC evaluation；COCO evaluation；DeepLab (Chen et al., 2017)</div>
+</section>
+
+<!-- ========== 实验基础：分布变化 ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 1 讲 · 课程地图</span><span class="meta-page">42</span></div>
+  <h2 class="slide-title">测试集成绩高，不等于真实环境中可靠</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">标准测试通常假设</div>
+      <ul class="bullets">
+        <li>训练数据与测试数据来自相近分布</li>
+        <li>类别定义、采集设备和场景较稳定</li>
+        <li>模型没有利用数据中的偶然线索</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">部署前还要检查</div>
+      <ul class="bullets">
+        <li>换医院、相机、天气或时间后是否退化</li>
+        <li>不同人群、地点和长尾类别上的表现</li>
+        <li>模型依据的是目标本身，还是背景、水印等<strong>捷径特征</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint warm"><div>真实数据分布会变化。除同分布测试外，应报告<strong>分组结果、跨域结果或分布外测试</strong>，并检查典型失败样例。</div></div>
+  <div class="src-note" style="right:170px">依据：Geirhos et al., Nature Machine Intelligence 2020；Koh et al., WILDS, ICML 2021</div>
+</section>
+
+<!-- ========== 研究案例：GenDSA-V2 ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 1 讲 · 从实验到真实世界</span><span class="meta-page">43</span></div>
+  <div class="kicker">Research Case · HUST-VL</div>
+  <h2 class="slide-title">案例：医学模型的价值，最后要由患者结果回答</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">研究先解决什么问题？</div>
+      <ul class="bullets">
+        <li>数字减影血管造影（DSA）能显示血管，但检查会带来电离辐射</li>
+        <li>GenDSA-V2 用生成式多帧模型改善低剂量采集得到的 DSA 序列</li>
+        <li>模型开发使用来自 70 家中心、46,829 名患者的超过 500 万幅图像</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">怎样证明它真的有用？</div>
+      <ul class="bullets">
+        <li>前瞻性随机对照试验纳入 <strong>1,068</strong> 名患者</li>
+        <li>主要结局不是图像相似度，而是患者接受的<strong>辐射剂量</strong></li>
+        <li>空气比释动能由 457.4±407.4 mGy 降至 151.3±125.1 mGy；手术时间达到非劣效，组间并发症发生率相近</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint warm"><div>离线图像质量只是中间证据。进入医疗场景后，还需要前瞻性试验，同时检查临床效率与安全性，才能回答“患者是否真正获益”。</div></div>
+  <div class="src-note" style="right:170px">Xu et al., Nature Medicine, 2026 · nature.com/articles/s41591-025-04042-6</div>
+</section>
+
+<!-- ========== 课堂练习：定义一个视觉问题 ========== -->
+<section class="slide dense" data-layout="table">
+  <div class="slide-meta"><span>第 1 讲 · 课程地图</span><span class="meta-page">44</span></div>
+  <div class="kicker">Class Exercise</div>
+  <h2 class="slide-title">案例：怎样把“自动检查零件”变成可训练的问题？</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>要先问的问题</th><th>一个可执行的回答</th><th>回答不清会怎样</th></tr></thead>
+      <tbody>
+        <tr><td>输入是什么？</td><td>固定工位拍摄的零件图像</td><td>设备、视角和分辨率不断变化</td></tr>
+        <tr><td>输出是什么？</td><td>是否有缺陷；必要时再给缺陷位置</td><td>把分类、检测和分割混为一谈</td></tr>
+        <tr><td>样本怎样划分？</td><td>按生产批次和时间划分训练、验证、测试集</td><td>同批次近重复图像泄漏到测试集</td></tr>
+        <tr><td>主要指标是什么？</td><td>先保证危险缺陷的 Recall，再看误报率</td><td>总体 Accuracy 很高，却漏掉少数缺陷</td></tr>
+        <tr><td>怎样验证部署效果？</td><td>在新批次、新设备和难例上单独测试</td><td>实验室结果无法代表生产线</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="keypoint"><div>先不用讨论模型。请同桌用一分钟检查：这五个问题是否已经足以决定<strong>要收什么数据、训练什么输出、怎样判断成功</strong>？</div></div>
+</section>
+
+<!-- ========== 40 超越二维识别 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 课程地图</span><span class="meta-page">40</span></div>
+  <div class="kicker">Frontiers</div>
+  <h2 class="slide-title">超越二维识别：活跃的前沿方向</h2>
+  <div class="slide-body">
+    <p class="lead">这些方向将在课程后半段与大家见面，也是当前研究的热土。</p>
+    <ul class="bullets">
+      <li><strong>多模态大模型</strong>：视觉成为通用智能的原生模态 <span class="tag">GPT-4o 类</span></li>
+      <li><strong>自监督学习</strong>：无需人工标注，从数据自身构造监督信号 <span class="tag">表征学习</span></li>
+      <li><strong>生成模型</strong>：文生图 → 视频生成 → 世界模型 <span class="tag warm">AIGC</span></li>
+      <li><strong>三维视觉</strong>：从二维图像重建三维结构与场景</li>
+      <li><strong>具身智能</strong>：VLA 模型让机器人在真实环境中感知、决策与行动</li>
+    </ul>
+  </div>
+  <div class="keypoint"><div>记住：前沿方向的共同趋势——<strong>减少对人工标注的依赖</strong>（自监督），并走向三维与具身的真实世界。</div></div>
+</section>
+
+<!-- ========== 41 多模态大模型 ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 1 讲 · 课程地图</span><span class="meta-page">41</span></div>
+  <h2 class="slide-title">多模态大模型：视觉成为<span class="em">通用智能</span>的入口</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">代表系统（2024–2026）</div>
+      <ul class="bullets">
+        <li><strong>2024.05 GPT-4o</strong>（OpenAI）：端到端“omni”模型，文本 / 图像 / 音频统一训练</li>
+        <li><strong>Gemini 2 → 3</strong>（Google DeepMind）：原生多模态 + 长上下文 + 推理</li>
+        <li><strong>开源阵营</strong>：Qwen2.5-VL、InternVL 等快速跟进，能力逼近闭源</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">能力跃迁</div>
+      <ul class="bullets">
+        <li>看图理解 → <strong>视觉推理</strong>（“先想后答”）</li>
+        <li>读懂屏幕 → 操作电脑与手机的 <strong>GUI 智能体</strong></li>
+        <li>理解与生成统一：一个模型既<strong>看图</strong>又<strong>画图</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint"><div>记住：视觉不再是外挂的独立模块，而是通用模型的<strong>原生模态</strong>——本课程的表征学习正是它的地基。</div></div>
+  <div class="src-note" style="right:170px">出处：OpenAI GPT-4o System Card, 2024；Google DeepMind / Qwen 官方发布</div>
+</section>
+
+<!-- ========== 42 具身智能热潮（自绘 SVG） ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 课程地图</span><span class="meta-page">42</span></div>
+  <h2 class="slide-title">具身智能热潮：VLA 模型走向<span class="em">真实世界</span></h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li><strong>2024.10 π0</strong>（Physical Intelligence）：通用机器人基础模型，跨本体完成叠衣、打包等任务</li>
+        <li><strong>2025.03 GR00T N1</strong>（NVIDIA）：首个开源人形机器人基础模型，“双系统”架构</li>
+        <li><strong>2025.03 Gemini Robotics</strong>（Google DeepMind）：把 Gemini 的多模态推理装进机器人</li>
+        <li>产业侧：人形机器人融资与量产升温，“具身智能”成为国家层面的热词</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <svg viewBox="0 0 560 340" width="520" height="316" style="max-width:100%;height:auto" role="img" aria-label="VLA 模型：图像与语言指令输入，输出机器人动作">
+        <defs><marker id="arr5" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="none" stroke="#2456d6" stroke-width="1.8"/></marker></defs>
+        <!-- 输入：相机图像 -->
+        <rect x="20" y="50" width="130" height="100" rx="10" fill="#ffffff" stroke="#e3e1da" stroke-width="2"/>
+        <rect x="34" y="66" width="102" height="68" fill="#f4f2ec" stroke="#c9c9cf"/>
+        <circle cx="58" cy="84" r="9" fill="#c2521e" opacity="0.7"/>
+        <polyline points="34,134 66,104 92,124 112,96 136,134" fill="none" stroke="#2456d6" stroke-width="2.5"/>
+        <text x="85" y="172" font-size="14" text-anchor="middle" fill="#6b6b76">相机图像</text>
+        <!-- 输入：语言指令 -->
+        <rect x="20" y="200" width="130" height="80" rx="10" fill="#ffffff" stroke="#e3e1da" stroke-width="2"/>
+        <text x="85" y="232" font-size="14" text-anchor="middle" fill="#22222a">“把杯子放到</text>
+        <text x="85" y="252" font-size="14" text-anchor="middle" fill="#22222a">盘子上”</text>
+        <text x="85" y="302" font-size="14" text-anchor="middle" fill="#6b6b76">语言指令</text>
+        <!-- 箭头到 VLA -->
+        <line x1="155" y1="100" x2="215" y2="150" stroke="#2456d6" stroke-width="2.5" marker-end="url(#arr5)"/>
+        <line x1="155" y1="240" x2="215" y2="190" stroke="#2456d6" stroke-width="2.5" marker-end="url(#arr5)"/>
+        <!-- VLA 模型 -->
+        <rect x="220" y="110" width="140" height="120" rx="12" fill="#e8eefb" stroke="#2456d6" stroke-width="2.5"/>
+        <text x="290" y="158" font-size="20" text-anchor="middle" font-weight="700" fill="#2456d6">VLA 模型</text>
+        <text x="290" y="184" font-size="14" text-anchor="middle" fill="#22222a">视觉·语言·动作</text>
+        <text x="290" y="204" font-size="13" text-anchor="middle" fill="#6b6b76">端到端基础模型</text>
+        <!-- 箭头到动作 -->
+        <line x1="365" y1="170" x2="415" y2="170" stroke="#2456d6" stroke-width="2.5" marker-end="url(#arr5)"/>
+        <!-- 机械臂 -->
+        <rect x="455" y="255" width="70" height="16" rx="4" fill="#9d9da6"/>
+        <line x1="490" y1="255" x2="490" y2="195" stroke="#22222a" stroke-width="6"/>
+        <line x1="490" y1="195" x2="445" y2="150" stroke="#22222a" stroke-width="6"/>
+        <line x1="445" y1="150" x2="470" y2="118" stroke="#22222a" stroke-width="5"/>
+        <path d="M470 118 l 12 -10 M470 118 l 16 2" stroke="#c2521e" stroke-width="4" fill="none"/>
+        <circle cx="490" cy="195" r="7" fill="#2456d6"/>
+        <circle cx="445" cy="150" r="7" fill="#2456d6"/>
+        <text x="478" y="310" font-size="14" text-anchor="middle" fill="#6b6b76">动作序列 → 执行</text>
+      </svg>
+      <div class="caption">VLA：图像 + 语言指令 → 机器人动作，端到端打通感知与行动</div>
+    </div>
+  </div>
+  <div class="keypoint"><div>记住：<strong>VLA（视觉-语言-动作）</strong>模型把感知、理解与行动端到端打通——视觉是机器人的“眼睛与小脑”。</div></div>
+  <div class="src-note" style="right:170px">出处：Black et al., arXiv 2024（π0）；Bjorck et al., arXiv 2025（GR00T N1）；Google DeepMind, 2025</div>
+</section>
+
+<!-- ========== 43 section 07 影响与课程信息 ========== -->
+<section class="slide" data-layout="section">
+  <div class="section-num">07</div>
+  <div class="section-title">影响、责任与课程安排</div>
+  <div class="section-sub">模型进入真实世界后，哪些风险不能只靠准确率回答？</div>
+</section>
+
+<!-- ========== 44 双刃剑 ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 1 讲 · 影响与责任</span><span class="meta-page">44</span></div>
+  <h2 class="slide-title">计算机视觉是一把双刃剑</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">它可能造成伤害</div>
+      <ul class="bullets">
+        <li>训练数据中的偏见会放大刻板印象</li>
+        <li>人脸识别被用于歧视性的招聘与监控</li>
+        <li>生成技术可能被滥用于伪造与欺诈</li>
+        <li>部署前必须评估伦理与社会影响</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">它也在拯救生命</div>
+      <ul class="bullets">
+        <li>医学影像：更早发现肿瘤与病变</li>
+        <li>自动驾驶与辅助驾驶：减少交通事故</li>
+        <li>无障碍技术：为视障人士“讲述”世界</li>
+        <li>遥感与生态监测：保护濒危物种</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint warm"><div>注意：伦理评估不是“部署前的附加题”——<strong>数据偏见与滥用风险</strong>必须在系统设计阶段就被纳入考量。</div></div>
+</section>
+
+<!-- ========== 45 2024 诺贝尔奖之年 ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 1 讲 · 影响与责任</span><span class="meta-page">45</span></div>
+  <h2 class="slide-title">2024：AI 的<span class="em">“诺贝尔奖之年”</span></h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">物理学奖（2024.10.8）</div>
+      <ul class="bullets">
+        <li><strong>John Hopfield &amp; Geoffrey Hinton</strong></li>
+        <li>表彰“使基于人工神经网络的机器学习成为可能的基础性发现与发明”</li>
+        <li>Hopfield 网络（1982）、玻尔兹曼机（1985）是深度学习的源头之一</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">化学奖（2024.10.9）</div>
+      <ul class="bullets">
+        <li><strong>David Baker</strong>：计算蛋白质设计</li>
+        <li><strong>Demis Hassabis &amp; John Jumper</strong>（DeepMind）：AlphaFold 解决 50 年难题——蛋白质结构预测</li>
+        <li>补充：2024 图灵奖授予 <strong>Barto &amp; Sutton</strong>（强化学习，2025.3 公布）</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint"><div>记住：<strong>AI for Science</strong> 已从口号变成最高科学荣誉——深度学习正在重塑科学研究的方式。</div></div>
+  <div class="src-note" style="right:170px">出处：NobelPrize.org（2024 物理 / 化学奖公告）；ACM 官方公告（2025.3）</div>
+</section>
+
+<!-- ========== 46 生成时代的新议题 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 影响与责任</span><span class="meta-page">46</span></div>
+  <div class="kicker">Governance</div>
+  <h2 class="slide-title">生成时代的新议题：<span class="em">真伪、标识与规则</span></h2>
+  <div class="slide-body">
+    <p class="lead">当生成内容以假乱真、唾手可得，治理开始补课。</p>
+    <ul class="bullets">
+      <li><strong>深度伪造泛滥</strong>：人脸、语音、视频伪造的检测与取证成为研究热点</li>
+      <li><strong>欧盟《AI 法案》</strong>（2024.8 生效）：全球首部综合 AI 立法，按风险分级监管，分阶段实施至 2027</li>
+      <li><strong>中国《人工智能生成合成内容标识办法》</strong>（2025.3 发布、9.1 施行）：AI 生成内容必须“亮明身份”</li>
+      <li>能耗、版权与就业冲击的讨论持续升温</li>
+    </ul>
+  </div>
+  <div class="keypoint warm"><div>注意：能力跑在规则前面是常态——<strong>鉴别技术、内容标识与立法</strong>都在“事后补课”，设计阶段就应纳入考量。</div></div>
+  <div class="src-note" style="right:170px">出处：Regulation (EU) 2024/1689；国家网信办等四部门公告（2025）</div>
+</section>
+
+<!-- ========== 47 statement：仍有许多未知 ========== -->
+<section class="slide" data-layout="statement">
+  <div class="statement-text">仍然有很多事情，<br>我们<span class="em">还不知道</span>怎么做。</div>
+  <div class="statement-sub">理解画面中的社会关系、常识推理、小样本学习——这正是研究的乐趣所在</div>
+</section>
+
+<!-- ========== 48 图灵奖 ========== -->
+<section class="slide" data-layout="gallery">
+  <div class="slide-meta"><span>第 1 讲 · 影响与责任</span><span class="meta-page">48</span></div>
+  <h2 class="slide-title">2018 图灵奖：深度学习的三位奠基人</h2>
+  <div class="gallery-grid" data-cols="3">
+    <figure>
+      <img src="assets/lecture1/s074_img474.jpg" alt="Geoffrey Hinton">
+      <figcaption>Geoffrey Hinton</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/lecture1/s074_img475.jpg" alt="Yoshua Bengio">
+      <figcaption>Yoshua Bengio</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/lecture1/s074_img473.jpg" alt="Yann LeCun">
+      <figcaption>Yann LeCun</figcaption>
+    </figure>
+  </div>
+  <div class="src-note" style="right:170px">图源：ACM A.M. Turing Award（公共领域 / CC0 照片）</div>
+</section>
+
+<!-- ========== 49 学习目标与考核 ========== -->
+<section class="slide dense" data-layout="two-col">
+  <div class="slide-meta"><span>第 1 讲 · 课程安排</span><span class="meta-page">49</span></div>
+  <h2 class="slide-title">学习目标与考核方式</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">学习目标</div>
+      <ul class="bullets">
+        <li><strong>任务形式化</strong>：把视觉应用拆解为任务——明确输入、输出与数据需求</li>
+        <li><strong>数学技术</strong>：理解损失函数、梯度与优化背后的数学原理</li>
+        <li><strong>模型架构</strong>：掌握 CNN、Transformer 等主流架构的设计思想</li>
+        <li><strong>学习概念</strong>：区分监督 / 迁移 / 自监督等学习范式的适用场景</li>
+        <li><strong>动手实践</strong>：用 PyTorch 开发并训练视觉模型，善用 AI agent 辅助完成项目任务</li>
+        <li><strong>前沿视野</strong>：了解领域现状与近五年的前沿进展</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">考核（32 课时）</div>
+      <ul class="bullets">
+        <li><strong>60%</strong> 开卷考试</li>
+        <li><strong>40%</strong> 平时成绩：2–4 个项目（coding + presentation）、考勤与课堂表现</li>
+        <li>参考教材：《Deep Learning》（Goodfellow et al.，有免费版）、《动手学深度学习》</li>
+        <li>学术共同体：CVPR / ICCV / ECCV / NeurIPS / ICLR；TPAMI / IJCV</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 50 教学大纲 ========== -->
+<section class="slide dense" data-layout="table">
+  <div class="slide-meta"><span>第 1 讲 · 课程安排</span><span class="meta-page">50</span></div>
+  <h2 class="slide-title">教学大纲：8 周 × 16 讲</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>周次</th><th>内容</th><th>主讲</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="num">1</td><td>深度学习与计算机视觉简介；深度学习典型工作：从 AlexNet 到 ChatGPT I</td><td>王兴刚</td></tr>
+        <tr><td class="num">2</td><td>从 AlexNet 到 ChatGPT II；从浅层到深度的表征学习</td><td>王兴刚</td></tr>
+        <tr><td class="num">3</td><td>ML models, loss function, optimization（上 / 下）</td><td>廖振宇</td></tr>
+        <tr><td class="num">4</td><td>神经网络与深度学习：BP、训练与优化（上 / 下）</td><td>廖振宇</td></tr>
+        <tr><td class="num">5</td><td>监督表征学习：CNN（上 / 下）</td><td>廖振宇</td></tr>
+        <tr><td class="num">6</td><td>无监督表征学习：GAN、随机矩阵（上 / 下）</td><td>廖振宇</td></tr>
+        <tr><td class="num">7</td><td>Transformer；Image segmentation</td><td>闫增强</td></tr>
+        <tr><td class="num">8</td><td>DLCV Applications（上 / 下）</td><td>闫增强</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ========== 51 全讲总结 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 全讲总结</span><span class="meta-page">51</span></div>
+  <div class="kicker">Summary</div>
+  <h2 class="slide-title">关掉课件，你能把这些问题讲给同学听吗？</h2>
+  <div class="slide-body">
+    <ul class="bullets">
+      <li>计算机视觉与深度学习是什么关系？为什么二者不能画成简单的包含关系？</li>
+      <li>同一张猫的图像对人很容易，对机器为什么困难？请从像素和语义的差别解释。</li>
+      <li>视觉方法为什么从手工规则逐步转向特征学习？请说出旧方法的一项优势和一项限制。</li>
+      <li>数据、算力和算法怎样共同促成 AlexNet 的突破？少了其中一项会发生什么？</li>
+      <li>给出一个视觉应用，说明它的输入、输出、数据划分、主要指标和部署测试。</li>
+      <li>为什么测试集成绩高仍可能无法安全部署？请举出一种分布变化或捷径特征。</li>
+    </ul>
+    <div class="keypoint warm"><div>答题时不要只报模型名。每个回答至少包含一个<strong>具体例子</strong>，并说清楚方法解决了什么、没有解决什么。</div></div>
+  </div>
+</section>
+
+<!-- ========== 52 参考文献（一） ========== -->
+<section class="slide refs" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 参考文献</span><span class="meta-page">52</span></div>
+  <h2 class="slide-title">参考文献（一）：神经科学奠基与手工特征时代</h2>
+  <div class="kicker">视觉的神经科学与认知基础</div>
+  <ol class="ref-list cols-2" style="flex:none">
+    <li><span class="ref-title">In the Blink of an Eye</span>. <span class="ref-venue">Andrew Parker. Perseus Publishing, 2003.</span></li>
+    <li><span class="ref-title">Receptive Fields of Single Neurones in the Cat's Striate Cortex</span>. <span class="ref-venue">Hubel &amp; Wiesel. The Journal of Physiology, 1959.</span></li>
+    <li><span class="ref-title">Machine Perception of Three-Dimensional Solids</span>. <span class="ref-venue">Lawrence G. Roberts. MIT 博士论文, 1963.</span></li>
+    <li><span class="ref-title">Vision: A Computational Investigation into the Human Representation and Processing of Visual Information</span>. <span class="ref-venue">David Marr. W. H. Freeman, 1982.</span></li>
+  </ol>
+  <div class="kicker">手工特征与浅层学习时代</div>
+  <ol class="ref-list cols-2" start="5" style="flex:none">
+    <li><span class="ref-title">The Representation and Matching of Pictorial Structures</span>. <span class="ref-venue">Fischler &amp; Elschlager. IEEE Transactions on Computers, 1973.</span></li>
+    <li><span class="ref-title">A Computational Approach to Edge Detection</span>. <span class="ref-venue">John Canny. IEEE TPAMI, 1986.</span></li>
+    <li><span class="ref-title">A Decision-Theoretic Generalization of On-Line Learning and an Application to Boosting</span>. <span class="ref-venue">Freund &amp; Schapire. Journal of Computer and System Sciences, 1997.</span></li>
+    <li><span class="ref-title">Normalized Cuts and Image Segmentation</span>. <span class="ref-venue">Shi &amp; Malik. CVPR 1997；期刊版 IEEE TPAMI, 2000.</span></li>
+    <li><span class="ref-title">Object Recognition from Local Scale-Invariant Features</span>. <span class="ref-venue">David G. Lowe. ICCV, 1999.</span></li>
+    <li><span class="ref-title">Rapid Object Detection Using a Boosted Cascade of Simple Features</span>. <span class="ref-venue">Viola &amp; Jones. CVPR, 2001.</span></li>
+  </ol>
+</section>
+
+<!-- ========== 53 参考文献（二） ========== -->
+<section class="slide refs" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 参考文献</span><span class="meta-page">53</span></div>
+  <h2 class="slide-title">参考文献（二）：数据集竞赛与神经网络之路</h2>
+  <div class="kicker">视觉数据集与评测竞赛</div>
+  <ol class="ref-list cols-2" start="11" style="flex:none">
+    <li><span class="ref-title">Learning Generative Visual Models from Few Training Examples: An Incremental Bayesian Approach Tested on 101 Object Categories</span>. <span class="ref-venue">Fei-Fei, Fergus &amp; Perona. CVPR Workshops, 2004.</span></li>
+    <li><span class="ref-title">The PASCAL Visual Object Classes (VOC) Challenge</span>. <span class="ref-venue">Everingham et al. IJCV, 2010.</span></li>
+    <li><span class="ref-title">ImageNet: A Large-Scale Hierarchical Image Database</span>. <span class="ref-venue">Deng et al. CVPR, 2009.</span></li>
+    <li><span class="ref-title">ImageNet Large Scale Visual Recognition Challenge</span>. <span class="ref-venue">Russakovsky et al. IJCV, 2015.</span></li>
+  </ol>
+  <div class="kicker">从感知机到卷积网络</div>
+  <ol class="ref-list cols-2" start="15" style="flex:none">
+    <li><span class="ref-title">The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain</span>. <span class="ref-venue">Frank Rosenblatt. Psychological Review, 1958.</span></li>
+    <li><span class="ref-title">Perceptrons: An Introduction to Computational Geometry</span>. <span class="ref-venue">Minsky &amp; Papert. MIT Press, 1969.</span></li>
+    <li><span class="ref-title">Neocognitron: A Self-Organizing Neural Network Model for a Mechanism of Pattern Recognition Unaffected by Shift in Position</span>. <span class="ref-venue">Kunihiko Fukushima. Biological Cybernetics, 1980.</span></li>
+    <li><span class="ref-title">Learning Representations by Back-Propagating Errors</span>. <span class="ref-venue">Rumelhart, Hinton &amp; Williams. Nature, 1986.</span></li>
+    <li><span class="ref-title">Gradient-Based Learning Applied to Document Recognition</span>. <span class="ref-venue">LeCun, Bottou, Bengio &amp; Haffner. Proceedings of the IEEE, 1998.</span></li>
+  </ol>
+</section>
+
+<!-- ========== 54 参考文献（三） ========== -->
+<section class="slide refs" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 参考文献</span><span class="meta-page">54</span></div>
+  <h2 class="slide-title">参考文献（三）：深度学习爆发、生成前沿与教材</h2>
+  <div class="kicker">深度学习爆发</div>
+  <ol class="ref-list" start="20" style="flex:none">
+    <li><span class="ref-title">ImageNet Classification with Deep Convolutional Neural Networks</span>. <span class="ref-venue">Krizhevsky, Sutskever &amp; Hinton. NeurIPS (NIPS), 2012.</span></li>
+    <li><span class="ref-title">Deep Residual Learning for Image Recognition</span>. <span class="ref-venue">He, Zhang, Ren &amp; Sun. CVPR, 2016.</span></li>
+  </ol>
+  <div class="kicker">生成模型与多模态前沿</div>
+  <ol class="ref-list" start="22" style="flex:none">
+    <li><span class="ref-title">Generative Adversarial Nets</span>. <span class="ref-venue">Goodfellow et al. NeurIPS (NIPS), 2014.</span></li>
+    <li><span class="ref-title">Show and Tell: A Neural Image Caption Generator</span>. <span class="ref-venue">Vinyals, Toshev, Bengio &amp; Erhan. CVPR, 2015.</span></li>
+    <li><span class="ref-title">Attention Is All You Need</span>. <span class="ref-venue">Vaswani et al. NeurIPS (NIPS), 2017.</span></li>
+    <li><span class="ref-title">Progressive Growing of GANs for Improved Quality, Stability, and Variation</span>. <span class="ref-venue">Karras, Aila, Laine &amp; Lehtinen. ICLR, 2018.</span></li>
+    <li><span class="ref-title">Zero-Shot Text-to-Image Generation</span>. <span class="ref-venue">Ramesh et al. ICML, 2021.</span></li>
+    <li><span class="ref-title">Hierarchical Text-Conditional Image Generation with CLIP Latents</span>. <span class="ref-venue">Ramesh, Dhariwal, Nichol, Chu &amp; Chen. arXiv:2204.06125, 2022.</span></li>
+  </ol>
+  <div class="kicker">教材与参考书</div>
+  <ol class="ref-list" start="28" style="flex:none">
+    <li><span class="ref-title">Deep Learning</span>. <span class="ref-venue">Goodfellow, Bengio &amp; Courville. MIT Press, 2016（官网免费开放）.</span></li>
+    <li><span class="ref-title">Dive into Deep Learning（《动手学深度学习》）</span>. <span class="ref-venue">Zhang, Lipton, Li &amp; Smola. Cambridge University Press, 2023；中文版：人民邮电出版社.</span></li>
+  </ol>
+</section>
+
+<!-- ========== 55 参考文献（四） ========== -->
+<section class="slide refs" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 参考文献</span><span class="meta-page">55</span></div>
+  <h2 class="slide-title">参考文献（四）：生成与多模态新进展</h2>
+  <div class="kicker">2023–2026 · 图像 / 视频生成与多模态大模型</div>
+  <ol class="ref-list" start="30" style="flex:none">
+    <li><span class="ref-title">Improving Image Generation with Better Captions（DALL·E 3 技术报告）</span>. <span class="ref-venue">Betker et al. OpenAI, 2023.</span></li>
+    <li><span class="ref-title">Scaling Rectified Flow Transformers for High-Resolution Image Synthesis（Stable Diffusion 3）</span>. <span class="ref-venue">Esser et al. ICML, 2024.</span></li>
+    <li><span class="ref-title">FLUX.1: Open-Weights State-of-the-Art Text-to-Image Generation</span>. <span class="ref-venue">Black Forest Labs, 2024.</span></li>
+    <li><span class="ref-title">Video Generation Models as World Simulators（Sora 技术报告）</span>. <span class="ref-venue">OpenAI, 2024.</span></li>
+    <li><span class="ref-title">可灵（Kling）视频生成大模型</span>. <span class="ref-venue">快手， 2024. klingai.com.</span></li>
+    <li><span class="ref-title">Veo 3: 原生音画同步的视频生成模型</span>. <span class="ref-venue">Google DeepMind, 2025.</span></li>
+    <li><span class="ref-title">Genie 3: A New Frontier for World Models</span>. <span class="ref-venue">Parker-Holder &amp; Fruchter. Google DeepMind, 2025.</span></li>
+    <li><span class="ref-title">GPT-4o System Card</span>. <span class="ref-venue">OpenAI. arXiv:2410.21276, 2024.</span></li>
+  </ol>
+</section>
+
+<!-- ========== 56 参考文献（五） ========== -->
+<section class="slide refs" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 参考文献</span><span class="meta-page">56</span></div>
+  <h2 class="slide-title">参考文献（五）：具身智能、奖项与治理</h2>
+  <div class="kicker">2024–2026 · VLA 模型 / 学术荣誉 / AI 治理</div>
+  <ol class="ref-list" start="38" style="flex:none">
+    <li><span class="ref-title">π0: A Vision-Language-Action Flow Model for General Robot Control</span>. <span class="ref-venue">Black et al., Physical Intelligence. arXiv:2410.24164, 2024.</span></li>
+    <li><span class="ref-title">GR00T N1: An Open Foundation Model for Generalist Humanoid Robots</span>. <span class="ref-venue">Bjorck et al., NVIDIA. arXiv:2503.14734, 2025.</span></li>
+    <li><span class="ref-title">Gemini Robotics: Bringing AI into the Physical World</span>. <span class="ref-venue">Gemini Robotics Team, Google DeepMind. arXiv:2503.20020, 2025.</span></li>
+    <li><span class="ref-title">Artificial intelligence–enabled low-dose digital subtraction angiography: a randomized controlled trial</span>. <span class="ref-venue">Xu et al. Nature Medicine, 2026.</span></li>
+    <li><span class="ref-title">The Nobel Prize in Physics 2024（Hopfield &amp; Hinton）</span>. <span class="ref-venue">The Royal Swedish Academy of Sciences, 2024.</span></li>
+    <li><span class="ref-title">The Nobel Prize in Chemistry 2024（Baker, Hassabis &amp; Jumper）</span>. <span class="ref-venue">The Royal Swedish Academy of Sciences, 2024.</span></li>
+    <li><span class="ref-title">2024 ACM A.M. Turing Award（Barto &amp; Sutton，强化学习）</span>. <span class="ref-venue">ACM, 2025.</span></li>
+    <li><span class="ref-title">Regulation (EU) 2024/1689 — Artificial Intelligence Act</span>. <span class="ref-venue">Official Journal of the European Union, 2024.</span></li>
+    <li><span class="ref-title">《人工智能生成合成内容标识办法》</span>. <span class="ref-venue">国家网信办等四部门， 2025 年 3 月发布、9 月 1 日施行.</span></li>
+  </ol>
+</section>
+
+<!-- ========== 57 结语 ========== -->
+<section class="slide" data-layout="statement">
+  <div class="statement-text">计算机视觉从<span class="em">像素</span>出发，<br>学习识别、理解并生成视觉内容。</div>
+  <div class="statement-sub">下一讲：为什么 AlexNet 之后，深度学习一路走到大模型</div>
+</section>
+
+  </div><!-- /#stage -->
+</div><!-- /#viewport -->
+
+<div id="pager"></div>
+<div id="progress-track"><div id="progress"></div></div>
+<script src="js/slides.js?v=20260827b"></script>
+</body>
+</html>

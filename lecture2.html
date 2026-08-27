@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 2 讲 从 AlexNet 到 ChatGPT — 深度学习与计算机视觉</title>
+<link rel="stylesheet" href="css/slides.css?v=20260827">
+</head>
+<body>
+<div id="viewport">
+  <div id="stage">
+
+<!-- ========== 01 封面 ========== -->
+<section class="slide" data-layout="cover">
+  <div class="kicker">Deep Learning &amp; Computer Vision</div>
+  <h1 class="cover-title">第 2 讲<br>从 AlexNet 到 ChatGPT</h1>
+  <div class="cover-sub">授课教师：王兴刚 · 华中科技大学 电信学院<br>From AlexNet to ChatGPT and Beyond</div>
+  <div class="cover-lecture">
+    <span class="tag">深度学习发展史</span>
+    <span class="tag neutral">xwcv.github.io</span>
+  </div>
+</section>
+
+<!-- ========== 02 本讲导览 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 导览</span><span class="meta-page">02</span></div>
+  <div class="kicker">Overview</div>
+  <h2 class="slide-title">本讲关注：神经网络如何从低谷走到大模型</h2>
+  <div class="slide-body">
+    <p class="lead">从 1986 年的反向传播，到 2012 年的 AlexNet 时刻，再到 2022 年的 ChatGPT——理解深度学习如何一步步改变世界。</p>
+    <ul class="bullets">
+      <li>概念奠基：人工智能 → 机器学习 → 深度学习</li>
+      <li>历史脉络：神经网络的三起两落 <span class="tag">1986 BP</span> <span class="tag">2006 DBN</span> <span class="tag">2012 AlexNet</span></li>
+      <li>核心模型：卷积神经网络与深度革命 <span class="tag warm">ResNet</span></li>
+      <li>视觉应用：检测、分割、生成全面重塑</li>
+      <li>大模型时代：注意力、扩散生成、对齐与能力边界 <span class="tag warm">ChatGPT</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 本讲学习结果 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 导览</span><span class="meta-page">03</span></div>
+  <div class="kicker">Learning Outcomes</div>
+  <h2 class="slide-title">学完这讲，你应该能解释模型如何学习</h2>
+  <div class="slide-body">
+    <ul class="bullets">
+      <li>把一次训练迭代讲清楚：模型做出预测，损失衡量误差，反向传播计算梯度，优化器更新参数</li>
+      <li>说明卷积为什么适合图像，以及局部连接和权重共享带来了什么</li>
+      <li>比较 CNN 与 Transformer 的归纳偏置、数据需求和计算特点</li>
+      <li>解释自注意力、扩散生成、指令微调与偏好对齐各自解决什么问题</li>
+      <li>面对模型输出，知道哪些结果需要检索、工具或人工复核</li>
+    </ul>
+    <div class="keypoint"><div>判断是否真正理解的方法很简单：不说“端到端”“涌现”这类术语，也能把<strong>输入、计算、输出和限制</strong>讲明白。</div></div>
+  </div>
+</section>
+
+<!-- ========== 03 section 01 ========== -->
+<section class="slide" data-layout="section">
+  <div class="section-num">01</div>
+  <div class="section-title">概念奠基</div>
+  <div class="section-sub">机器学习与普通程序的差别在哪里？</div>
+</section>
+
+<!-- ========== 04 金句：AI is the new electricity ========== -->
+<section class="slide" data-layout="statement">
+  <div class="statement-text">Just as electricity transformed industry after industry<br>100 years ago, AI will do the same.<br><span class="em">AI is the new electricity.</span></div>
+  <div class="statement-sub">—— Andrew Ng（吴恩达），2017</div>
+</section>
+
+<!-- ========== 05 AI / ML / DL 包含关系（自绘 SVG） ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 2 讲 · 概念奠基</span><span class="meta-page">05</span></div>
+  <h2 class="slide-title">人工智能 ⊃ 机器学习 ⊃ <span class="em">深度学习</span></h2>
+  <div class="full-media">
+    <svg viewBox="0 0 1000 420" width="960" height="404" style="max-width:100%;height:auto" role="img" aria-label="人工智能、机器学习、深度学习的包含关系">
+      <rect x="30" y="30" width="940" height="360" rx="18" fill="#f1efe9" stroke="#9a9aa4" stroke-width="2"/>
+      <text x="70" y="80" font-size="26" font-weight="700" fill="#22222a" font-family="sans-serif">人工智能（1956 —）</text>
+      <text x="70" y="110" font-size="16" fill="#6b6b76" font-family="sans-serif">让机器拥有智能：搜索、规划、专家系统、学习……</text>
+      <rect x="230" y="130" width="700" height="230" rx="16" fill="#e8eefb" stroke="#2456d6" stroke-width="2"/>
+      <text x="270" y="178" font-size="24" font-weight="700" fill="#2456d6" font-family="sans-serif">机器学习（1980s —）</text>
+      <text x="270" y="206" font-size="15" fill="#4a4a55" font-family="sans-serif">从数据中学习规律，而非手写规则</text>
+      <rect x="430" y="222" width="460" height="120" rx="14" fill="#fbece4" stroke="#c2521e" stroke-width="2.5"/>
+      <text x="468" y="270" font-size="24" font-weight="700" fill="#c2521e" font-family="sans-serif">深度学习（2012 爆发）</text>
+      <text x="468" y="298" font-size="15" fill="#8a4a28" font-family="sans-serif">用深层神经网络自动学习表示</text>
+      <text x="468" y="322" font-size="15" fill="#8a4a28" font-family="sans-serif">CNN · RNN · Transformer</text>
+    </svg>
+  </div>
+  <div class="caption">每一层都是上一层的子集：深度学习是当前人工智能浪潮的核心引擎。</div>
+</section>
+
+<!-- ========== 06 语义鸿沟（自绘 SVG） ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 概念奠基</span><span class="meta-page">06</span></div>
+  <h2 class="slide-title">核心挑战：<span class="em">语义鸿沟</span></h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>计算机看到的图像：<strong>一个巨大的数字矩阵</strong></li>
+        <li>人类看到的图像：猫、狗、场景、故事</li>
+        <li>像素与语义之间的鸿沟，是视觉的根本难题</li>
+        <li>视角、光照、遮挡、形变 → 同类图像像素差异巨大</li>
+        <li>跨越鸿沟的关键：<strong>学习好的特征表示</strong></li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <svg viewBox="0 0 560 400" style="max-width:100%;height:auto" role="img" aria-label="像素矩阵到语义的鸿沟">
+        <g font-family="monospace" font-size="13" fill="#4a4a55">
+          <rect x="20" y="40" width="240" height="240" fill="#fff" stroke="#9a9aa4"/>
+          <line x1="20" y1="70" x2="260" y2="70" stroke="#d8d5cb"/><line x1="20" y1="100" x2="260" y2="100" stroke="#d8d5cb"/><line x1="20" y1="130" x2="260" y2="130" stroke="#d8d5cb"/><line x1="20" y1="160" x2="260" y2="160" stroke="#d8d5cb"/><line x1="20" y1="190" x2="260" y2="190" stroke="#d8d5cb"/><line x1="20" y1="220" x2="260" y2="220" stroke="#d8d5cb"/><line x1="20" y1="250" x2="260" y2="250" stroke="#d8d5cb"/>
+          <line x1="50" y1="40" x2="50" y2="280" stroke="#d8d5cb"/><line x1="80" y1="40" x2="80" y2="280" stroke="#d8d5cb"/><line x1="110" y1="40" x2="110" y2="280" stroke="#d8d5cb"/><line x1="140" y1="40" x2="140" y2="280" stroke="#d8d5cb"/><line x1="170" y1="40" x2="170" y2="280" stroke="#d8d5cb"/><line x1="200" y1="40" x2="200" y2="280" stroke="#d8d5cb"/><line x1="230" y1="40" x2="230" y2="280" stroke="#d8d5cb"/>
+          <text x="26" y="62">120</text><text x="56" y="62">87</text><text x="86" y="62">95</text><text x="116" y="62">101</text><text x="146" y="62">…</text>
+          <text x="26" y="92">132</text><text x="56" y="92">90</text><text x="86" y="92">88</text><text x="116" y="92">97</text><text x="146" y="92">…</text>
+          <text x="26" y="122">128</text><text x="56" y="122">92</text><text x="86" y="122">91</text><text x="116" y="122">99</text><text x="146" y="122">…</text>
+          <text x="26" y="152">…</text><text x="56" y="152">…</text><text x="86" y="152">…</text><text x="116" y="152">…</text><text x="146" y="152">…</text>
+        </g>
+        <text x="140" y="320" font-size="16" text-anchor="middle" fill="#6b6b76" font-family="sans-serif">64 × 64 × 3 的数字矩阵</text>
+        <defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#c2521e"/></marker></defs>
+        <path d="M300 160 L400 160" stroke="#c2521e" stroke-width="4" marker-end="url(#arr)"/>
+        <text x="350" y="140" font-size="17" text-anchor="middle" fill="#c2521e" font-weight="700" font-family="sans-serif">语义鸿沟</text>
+        <circle cx="480" cy="160" r="70" fill="#e8eefb" stroke="#2456d6" stroke-width="2.5"/>
+        <text x="480" y="152" font-size="34" text-anchor="middle" fill="#2456d6" font-weight="700" font-family="sans-serif">猫</text>
+        <text x="480" y="182" font-size="18" text-anchor="middle" fill="#2456d6" font-family="sans-serif">cat: 0.92</text>
+        <text x="480" y="320" font-size="16" text-anchor="middle" fill="#6b6b76" font-family="sans-serif">人类感知的语义</text>
+      </svg>
+    </div>
+  </div>
+  <div class="keypoint"><div>跨越语义鸿沟的关键，是让机器<strong>自动学习好的特征表示</strong>，而不是靠人手工设计。</div></div>
+</section>
+
+<!-- ========== 07 传统机器学习 vs 深度学习 ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 2 讲 · 概念奠基</span><span class="meta-page">07</span></div>
+  <h2 class="slide-title">传统机器学习 vs. 深度学习</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">传统机器学习：人工特征工程</div>
+      <ul class="bullets">
+        <li>输入 → <strong>手工特征</strong> → 分类器 → 输出</li>
+        <li>图像特征：SIFT、HOG、Gabor</li>
+        <li>语音特征：MFCC、Filter Bank</li>
+        <li>分类器：SVM、Boosting、决策树</li>
+        <li>性能瓶颈在特征，特征设计靠专家经验</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">深度学习：表示学习</div>
+      <ul class="bullets">
+        <li>输入 → <strong>端到端学习</strong> → 输出</li>
+        <li>特征与分类器联合优化，自动从数据中学出</li>
+        <li>层次化表示：边缘 → 部件 → 物体</li>
+        <li>性能随数据与算力规模持续增长</li>
+        <li>代表模型：CNN、RNN/LSTM、Transformer</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint"><div>深度学习的本质：<strong>特征不再人工设计，而是与分类器一起从数据中端到端学出来</strong>。</div></div>
+</section>
+
+<!-- ========== 08 深度学习三巨头 ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 概念奠基</span><span class="meta-page">08</span></div>
+  <h2 class="slide-title">深度学习三巨头</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li><strong>2018 年 ACM 图灵奖</strong>授予 Bengio、Hinton、LeCun</li>
+        <li>表彰他们在深度神经网络概念与工程上的奠基性贡献</li>
+        <li>Hinton 再获 <strong>2024 年诺贝尔物理学奖</strong>（与 John Hopfield 共享）</li>
+        <li>LeCun：卷积神经网络之父（LeNet）</li>
+        <li>Bengio：表示学习与神经语言模型先驱</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture2/s011_img11.png" alt="深度学习三巨头：Bengio、Hinton、LeCun">
+      <div class="caption">Yoshua Bengio · Geoffrey Hinton · Yann LeCun</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 本章小结 01 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 概念奠基</span><span class="meta-page">09</span></div>
+  <div class="kicker">Chapter Summary</div>
+  <h2 class="slide-title">本章小结：概念奠基</h2>
+  <div class="card-grid" data-cols="2">
+    <div class="mini-card"><div class="mc-no">01</div><div class="mc-title">AI ⊃ ML ⊃ DL</div><p>人工智能是让机器拥有智能的总目标；机器学习用<strong>数据</strong>代替手写规则；深度学习用深层神经网络自动学习<strong>表示</strong>。</p></div>
+    <div class="mini-card"><div class="mc-no">02</div><div class="mc-title">语义鸿沟</div><p>计算机看到像素矩阵，人类看到语义；视角、光照、遮挡让同类图像像素差异巨大。跨越鸿沟靠<strong>学习好的特征表示</strong>。</p></div>
+    <div class="mini-card"><div class="mc-no">03</div><div class="mc-title">特征工程 → 表示学习</div><p>传统方法：手工特征（SIFT/HOG）+ 分类器，瓶颈在特征；深度学习：<strong>端到端联合优化</strong>，性能随数据与算力持续增长。</p></div>
+    <div class="mini-card"><div class="mc-no">04</div><div class="mc-title">奠基者</div><p>Bengio、Hinton、LeCun 获 <strong>2018 年图灵奖</strong>；Hinton 再获 <strong>2024 年诺贝尔物理学奖</strong>。</p></div>
+  </div>
+</section>
+
+<!-- ========== 09 section 02 ========== -->
+<section class="slide" data-layout="section">
+  <div class="section-num">02</div>
+  <div class="section-title">历史脉络</div>
+  <div class="section-sub">同一种基本思想为什么会经历低谷和复兴？</div>
+</section>
+
+<!-- ========== 10 发展时间线 ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 2 讲 · 历史脉络</span><span class="meta-page">11</span></div>
+  <h2 class="slide-title">八十年演进：从<span class="em">电子脑</span>到 <span class="em">ChatGPT</span></h2>
+  <div class="full-media">
+    <img src="assets/lecture2/s013_img13.png" alt="神经网络发展时间线 1943-2022" style="border:none;box-shadow:none">
+  </div>
+  <div class="caption">1943 McCulloch &amp; Pitts 神经元模型 → 1958 感知机 → 1986 反向传播 → 2006 深度置信网络 → 2012 AlexNet → 2017 Transformer → 2022 ChatGPT。</div>
+</section>
+
+<!-- ========== 11 神经元模型（自绘 SVG） ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 历史脉络</span><span class="meta-page">12</span></div>
+  <h2 class="slide-title">人工神经元：加权求和 + 非线性</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>灵感来自生物神经元：树突输入、轴突输出</li>
+        <li>输出 = 激活函数（加权和）：g(<strong>x</strong>) = f(Σ w<sub>i</sub>x<sub>i</sub> + b)</li>
+        <li>权重 w 是<strong>可学习的参数</strong></li>
+        <li>单个神经元是线性分类器；多层堆叠获得强大表达能力</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <svg viewBox="0 0 560 400" style="max-width:100%;height:auto" role="img" aria-label="人工神经元模型">
+        <g font-family="sans-serif">
+          <circle cx="80" cy="90" r="26" fill="#e8eefb" stroke="#2456d6" stroke-width="2"/>
+          <circle cx="80" cy="200" r="26" fill="#e8eefb" stroke="#2456d6" stroke-width="2"/>
+          <circle cx="80" cy="310" r="26" fill="#e8eefb" stroke="#2456d6" stroke-width="2"/>
+          <text x="80" y="97" font-size="18" text-anchor="middle" fill="#2456d6">x₁</text>
+          <text x="80" y="207" font-size="18" text-anchor="middle" fill="#2456d6">x₂</text>
+          <text x="80" y="317" font-size="18" text-anchor="middle" fill="#2456d6">x₃</text>
+          <line x1="106" y1="90" x2="284" y2="185" stroke="#9a9aa4" stroke-width="2"/>
+          <line x1="106" y1="200" x2="284" y2="200" stroke="#9a9aa4" stroke-width="2"/>
+          <line x1="106" y1="310" x2="284" y2="215" stroke="#9a9aa4" stroke-width="2"/>
+          <text x="170" y="120" font-size="16" fill="#6b6b76">w₁</text>
+          <text x="190" y="190" font-size="16" fill="#6b6b76">w₂</text>
+          <text x="170" y="290" font-size="16" fill="#6b6b76">w₃</text>
+          <circle cx="320" cy="200" r="38" fill="#fff" stroke="#22222a" stroke-width="2.5"/>
+          <text x="320" y="208" font-size="26" text-anchor="middle" fill="#22222a">Σ</text>
+          <defs><marker id="arr2" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#22222a"/></marker></defs>
+          <line x1="358" y1="200" x2="412" y2="200" stroke="#22222a" stroke-width="2" marker-end="url(#arr2)"/>
+          <rect x="416" y="172" width="56" height="56" rx="10" fill="#fbece4" stroke="#c2521e" stroke-width="2.5"/>
+          <text x="444" y="207" font-size="22" text-anchor="middle" fill="#c2521e" font-style="italic">f</text>
+          <line x1="472" y1="200" x2="516" y2="200" stroke="#22222a" stroke-width="2" marker-end="url(#arr2)"/>
+          <text x="528" y="207" font-size="20" fill="#22222a">y</text>
+          <text x="280" y="370" font-size="17" text-anchor="middle" fill="#4a4a55">g(x) = f ( wᵀx + b )</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="keypoint"><div>神经元 = <strong>加权求和 + 非线性激活</strong>；权重 w 就是网络要从数据中学习的参数，b 是偏置。</div></div>
+</section>
+
+<!-- ========== 12 激活函数（自绘 SVG） ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 2 讲 · 历史脉络</span><span class="meta-page">13</span></div>
+  <h2 class="slide-title">激活函数：非线性的来源</h2>
+  <div class="full-media">
+    <svg viewBox="0 0 1000 400" width="960" height="384" style="max-width:100%;height:auto" role="img" aria-label="Sigmoid、tanh、ReLU 激活函数曲线">
+      <g font-family="sans-serif">
+        <text x="180" y="40" font-size="22" font-weight="700" fill="#22222a" text-anchor="middle">Sigmoid</text>
+        <text x="180" y="66" font-size="16" fill="#6b6b76" text-anchor="middle">σ(x) = 1 / (1 + e⁻ˣ)</text>
+        <line x1="50" y1="240" x2="310" y2="240" stroke="#9a9aa4"/><line x1="180" y1="90" x2="180" y2="260" stroke="#9a9aa4"/>
+        <path d="M50 232 C 120 232, 130 230, 155 225 C 175 218, 175 140, 205 132 C 230 126, 245 124, 310 122" fill="none" stroke="#2456d6" stroke-width="3.5"/>
+        <text x="180" y="300" font-size="14" fill="#c2521e" text-anchor="middle">两端饱和 → 梯度消失</text>
+        <text x="510" y="40" font-size="22" font-weight="700" fill="#22222a" text-anchor="middle">tanh</text>
+        <text x="510" y="66" font-size="16" fill="#6b6b76" text-anchor="middle">值域 (−1, 1)，零中心</text>
+        <line x1="380" y1="180" x2="640" y2="180" stroke="#9a9aa4"/><line x1="510" y1="90" x2="510" y2="260" stroke="#9a9aa4"/>
+        <path d="M380 232 C 450 232, 460 230, 485 220 C 505 205, 505 150, 535 138 C 560 128, 575 126, 640 124" fill="none" stroke="#2456d6" stroke-width="3.5"/>
+        <text x="510" y="300" font-size="14" fill="#c2521e" text-anchor="middle">同样存在饱和区</text>
+        <text x="830" y="40" font-size="22" font-weight="700" fill="#22222a" text-anchor="middle">ReLU</text>
+        <text x="830" y="66" font-size="16" fill="#6b6b76" text-anchor="middle">f(x) = max(0, x)</text>
+        <line x1="710" y1="240" x2="950" y2="240" stroke="#9a9aa4"/><line x1="830" y1="90" x2="830" y2="260" stroke="#9a9aa4"/>
+        <path d="M710 240 L830 240 L950 100" fill="none" stroke="#c2521e" stroke-width="3.5"/>
+        <text x="830" y="300" font-size="14" fill="#2456d6" text-anchor="middle" font-weight="600">正区间梯度恒为 1，深网络训练利器</text>
+      </g>
+    </svg>
+  </div>
+  <div class="caption">没有非线性激活，多层网络等价于单层线性变换；ReLU 及其变体（Leaky ReLU、PReLU、ELU）是现代网络的默认选择。</div>
+</section>
+
+<!-- ========== 13 损失函数与梯度下降 ========== -->
+<section class="slide" data-layout="code">
+  <div class="slide-meta"><span>第 2 讲 · 历史脉络</span><span class="meta-page">14</span></div>
+  <h2 class="slide-title">训练 = 最小化损失函数</h2>
+  <div class="code-body">
+    <div class="formula-block">L = (1/m) &Sigma;<sub>i</sub> ( ŷ<sub>i</sub> &minus; y<sub>i</sub> )&sup2;<span style="color:var(--muted);font-size:16px">　均方误差（MSE）：衡量预测与真值的差距</span></div>
+    <div class="code-block"><span class="cm"># 梯度下降：沿损失函数的负梯度方向迭代更新参数</span>
+<span class="kw">while</span> <span class="kw">True</span>:
+    grad = evaluate_gradient(loss_fn, data, weights)
+    weights -= step_size * grad   <span class="cm"># w ← w − η · ∂L/∂w</span></div>
+    <div class="code-block"><span class="cm"># 反向传播（Backpropagation）= 用链式法则高效算出每一层的 ∂L/∂w</span>
+<span class="cm"># 前向算预测 → 计算损失 → 反向传梯度 → 更新权重</span></div>
+    <div class="keypoint"><div>训练神经网络 = <strong>梯度下降</strong>负责更新参数 + <strong>反向传播</strong>负责高效算梯度，二者缺一不可。</div></div>
+  </div>
+</section>
+
+<!-- ========== 课堂检查：一次训练迭代 ========== -->
+<section class="slide" data-layout="table">
+  <div class="slide-meta"><span>第 2 讲 · 历史脉络</span><span class="meta-page">16</span></div>
+  <div class="kicker">One Training Step</div>
+  <h2 class="slide-title">一次训练迭代中，哪些量发生了变化？</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>计算</th><th>这一阶段在回答什么</th><th>发生变化的量</th></tr></thead>
+      <tbody>
+        <tr><td><strong>前向计算</strong></td><td>当前参数会给出什么预测？</td><td>激活值和预测结果；参数暂时不变</td></tr>
+        <tr><td><strong>计算损失</strong></td><td>预测与目标相差多少？</td><td>得到一个用于优化的标量</td></tr>
+        <tr><td><strong>反向传播</strong></td><td>每个参数对误差负有多大责任？</td><td>得到各参数的梯度；参数仍未更新</td></tr>
+        <tr><td><strong>优化器更新</strong></td><td>参数应向哪个方向移动多少？</td><td>权重发生小幅变化</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="keypoint warm"><div>常见误解：反向传播本身不更新参数，它只负责计算梯度；真正改动权重的是 SGD、Adam 等<strong>优化器</strong>。</div></div>
+</section>
+
+<!-- ========== 14 1986 反向传播 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 历史脉络</span><span class="meta-page">15</span></div>
+  <div class="kicker">1986 · Nature</div>
+  <h2 class="slide-title">第一次浪潮：<span class="em">反向传播</span>让多层网络可训练</h2>
+  <div class="slide-body">
+    <p class="lead">Rumelhart、Hinton &amp; Williams 在《Nature》推广反向传播算法，多层感知机（MLP）由此兴起。</p>
+    <ul class="bullets">
+      <li>链式法则逐层回传误差，高效计算所有参数的梯度</li>
+      <li>多层网络可解决单层感知机无法解决的 <strong>XOR 问题</strong>等非线性问题</li>
+      <li>理论上：含一个隐藏层的网络即可逼近任意连续函数（万能逼近定理）</li>
+      <li>神经网络一度被视为通用的学习机器，与生物神经系统遥相呼应</li>
+    </ul>
+    <div class="keypoint warm"><div>反向传播的思想可追溯至更早，Rumelhart、Hinton &amp; Williams 1986 年《Nature》论文的功绩是让它<strong>真正普及</strong>开来。</div></div>
+  </div>
+</section>
+
+<!-- ========== 15 第一次低谷 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 历史脉络</span><span class="meta-page">16</span></div>
+  <div class="kicker">1995 — 2006</div>
+  <h2 class="slide-title">低谷十年：神经网络为何被放弃？</h2>
+  <div class="slide-body">
+    <ul class="bullets">
+      <li><strong>难训练</strong>：Sigmoid 饱和导致深层网络梯度消失</li>
+      <li><strong>算力不足</strong>：CPU 时代无法支撑大规模训练</li>
+      <li><strong>数据太少</strong>：小训练集上深网络严重过拟合</li>
+      <li>实际效果不佳，学术界转向更稳妥的方法</li>
+    </ul>
+    <p class="lead" style="margin-top:22px">同期主流：<span class="tag">SVM（1995）</span> <span class="tag">Boosting</span> <span class="tag">决策树</span> <span class="tag">KNN</span> —— 扁平结构 + 手工特征（GMM-HMM、SIFT、LBP、HOG），一个任务一套方法。</p>
+  </div>
+</section>
+
+<!-- ========== 16 2006 复兴三要素 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 历史脉络</span><span class="meta-page">17</span></div>
+  <div class="kicker">2006 · Science</div>
+  <h2 class="slide-title">第二次浪潮的起点：深度置信网络</h2>
+  <div class="slide-body">
+    <p class="lead">2006 年 Hinton 在《Science》提出深度置信网络（DBN），用无监督逐层预训练破解深网络训练难题。</p>
+    <ul class="bullets">
+      <li><strong>算法</strong>：逐层预训练，以及更好的归一化、非线性、Dropout 设计</li>
+      <li><strong>算力</strong>：GPU 与多核系统让矩阵运算成百上千倍提速</li>
+      <li><strong>数据</strong>：互联网时代带来大规模数据库 —— Big Data！</li>
+      <li>算法 × 算力 × 数据三要素共振，深度学习时代开启</li>
+    </ul>
+    <div class="keypoint"><div>深度学习的复兴 = <strong>算法 × 算力 × 数据</strong> 三要素共振——这个框架贯穿全讲，也解释了大模型时代。</div></div>
+  </div>
+</section>
+
+<!-- ========== 17 语音识别突破 ========== -->
+<section class="slide" data-layout="table">
+  <div class="slide-meta"><span>第 2 讲 · 历史脉络</span><span class="meta-page">18</span></div>
+  <h2 class="slide-title">2011：深度网络率先刷新语音识别纪录</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>任务</th><th class="num">训练数据（小时）</th><th class="num">DNN-HMM 错误率</th><th class="num">GMM-HMM（同数据）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Switchboard（测试集 1）</td><td class="num">309</td><td class="num"><strong>18.5</strong></td><td class="num">27.4</td></tr>
+        <tr><td>Switchboard（测试集 2）</td><td class="num">309</td><td class="num"><strong>16.1</strong></td><td class="num">23.6</td></tr>
+        <tr><td>English Broadcast News</td><td class="num">50</td><td class="num"><strong>17.5</strong></td><td class="num">18.8</td></tr>
+        <tr><td>Bing Voice Search（句错误率）</td><td class="num">24</td><td class="num"><strong>30.4</strong></td><td class="num">36.2</td></tr>
+        <tr><td>YouTube</td><td class="num">1,400</td><td class="num"><strong>47.6</strong></td><td class="num">52.3</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="caption" style="margin-top:14px">Dahl、Yu、Deng、Acero 等（微软研究院，2011–2012）：在同等数据下，DNN-HMM 全面大幅优于统治语音界数十年的 GMM-HMM。</div>
+</section>
+
+<!-- ========== 18 ImageNet ========== -->
+<section class="slide flip" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 历史脉络</span><span class="meta-page">19</span></div>
+  <h2 class="slide-title">ImageNet：为深度学习备好「燃料」</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>李飞飞团队 2009 年发布的大规模视觉数据库</li>
+        <li>超过 <strong>1400 万张</strong>人工标注图像、2 万多个类别</li>
+        <li>ILSVRC 挑战赛：1000 类、约 128 万张训练图像</li>
+        <li>在数据稀缺的年代，ImageNet 是训练深网络的前提</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture2/s023_img27.png" alt="ImageNet 1000 类示例图墙">
+      <div class="caption">ILSVRC 需要识别的 1000 个物体类别</div>
+    </div>
+  </div>
+  <div class="src-note" style="right:112px">图源：Deng et al., ImageNet, CVPR 2009 / image-net.org</div>
+</section>
+
+<!-- ========== 19 2012 AlexNet 时刻 ========== -->
+<section class="slide" data-layout="table">
+  <div class="slide-meta"><span>第 2 讲 · 历史脉络</span><span class="meta-page">20</span></div>
+  <h2 class="slide-title">2012：<span class="em">AlexNet 时刻</span></h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>名次</th><th>队伍</th><th class="num">Top-5 错误率</th><th>方法</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="num">1</td><td><strong>U. Toronto（AlexNet）</strong></td><td class="num"><strong>15.3%</strong></td><td>深度卷积网络（2 块 GPU）</td></tr>
+        <tr><td class="num">2</td><td>U. Tokyo</td><td class="num">26.2%</td><td>手工特征 + 学习模型</td></tr>
+        <tr><td class="num">3</td><td>U. Oxford</td><td class="num">27.0%</td><td>手工特征 + 学习模型</td></tr>
+        <tr><td class="num">4</td><td>Xerox / INRIA</td><td class="num">27.1%</td><td>手工特征 + 学习模型</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="caption" style="margin-top:14px">Krizhevsky, Sutskever &amp; Hinton（NeurIPS 2012）：错误率一举甩开亚军 10.8 个百分点，整个领域为之震动——此后 ILSVRC 冠军全部被深度学习包揽。</div>
+</section>
+
+<!-- ========== 20 连锁反应 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 历史脉络</span><span class="meta-page">21</span></div>
+  <h2 class="slide-title">连锁反应：从学术界到工业界</h2>
+  <div class="slide-body">
+    <ul class="bullets">
+      <li><strong>2013</strong>：Google 与百度相继上线基于深度学习的视觉搜索引擎</li>
+      <li>Google：「测试集上平均精度翻倍……把学术实验室的前沿成果直接上线，只用了六个多月」</li>
+      <li><strong>2014</strong>：DeepID 系列在 LFW 人脸验证取得 <strong>99.15%</strong> 准确率（DeepID2），<strong>首次超越人类表现</strong>（汤晓鸥团队，NeurIPS 2014）</li>
+      <li>计算机视觉的全线任务开始被深度网络改写</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 本章小结 02 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 历史脉络</span><span class="meta-page">22</span></div>
+  <div class="kicker">Chapter Summary</div>
+  <h2 class="slide-title">本章小结：神经网络的三起两落</h2>
+  <div class="card-grid" data-cols="2">
+    <div class="mini-card"><div class="mc-no">01</div><div class="mc-title">第一次浪潮：反向传播</div><p>1986 年 Rumelhart、Hinton &amp; Williams 推广 <strong>反向传播</strong>，多层网络可训练；理论上有万能逼近能力。</p></div>
+    <div class="mini-card"><div class="mc-no">02</div><div class="mc-title">低谷的教训</div><p>深层网络<strong>梯度消失</strong>、算力不足、数据太少 → 效果不佳；同期 SVM + 手工特征成为主流。</p></div>
+    <div class="mini-card"><div class="mc-no">03</div><div class="mc-title">第二次浪潮：2006 重启</div><p>Hinton 的深度置信网络用<strong>逐层预训练</strong>破解训练难题；算法 × 算力 × 数据开始共振，语音识别率先突破。</p></div>
+    <div class="mini-card"><div class="mc-no">04</div><div class="mc-title">2012：AlexNet 时刻</div><p>ImageNet 备好数据燃料，AlexNet 以 <strong>15.3%</strong> Top-5 错误率夺冠、甩开亚军 10.8 个百分点，深度革命正式爆发。</p></div>
+  </div>
+</section>
+
+<!-- ========== 21 section 03 ========== -->
+<section class="slide" data-layout="section">
+  <div class="section-num">03</div>
+  <div class="section-title">卷积神经网络</div>
+  <div class="section-sub">卷积为什么适合图像？网络加深后为什么更难训练？</div>
+</section>
+
+<!-- ========== 22 CNN 思想源流 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 卷积神经网络</span><span class="meta-page">24</span></div>
+  <h2 class="slide-title">CNN 的思想源流</h2>
+  <div class="slide-body">
+    <ul class="bullets">
+      <li><strong>1980 · Neocognitron</strong>（Fukushima）：受视觉皮层启发的层次化模型
+        <ul>
+          <li>简单细胞提特征、复杂细胞做池化——CNN 的思想雏形</li>
+        </ul>
+      </li>
+      <li><strong>1998 · LeNet-5</strong>（LeCun 等）：基于梯度的学习成功用于银行支票数字识别
+        <ul>
+          <li>卷积 + 下采样 + 全连接的经典结构</li>
+        </ul>
+      </li>
+      <li><strong>2012 · AlexNet</strong>：同样的思想 + 大数据 + GPU = 历史性爆发</li>
+      <li>启示：好思想需要等待数据与算力的时代</li>
+    </ul>
+    <div class="keypoint"><div>CNN 的思想 1980 年就有雏形；<strong>AlexNet 的爆发 = 老思想 + 大数据 + GPU</strong> 的时代共振。</div></div>
+  </div>
+</section>
+
+<!-- ========== 23 卷积层工作原理（自绘 SVG） ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 2 讲 · 卷积神经网络</span><span class="meta-page">25</span></div>
+  <h2 class="slide-title">卷积层：卷积核在图像上滑动</h2>
+  <div class="full-media">
+    <svg viewBox="0 0 1000 400" width="980" height="392" style="max-width:100%;height:auto" role="img" aria-label="卷积运算示意">
+      <g font-family="sans-serif">
+        <!-- 输入 7x7 -->
+        <g stroke="#9a9aa4" fill="#fff">
+          <rect x="60" y="60" width="252" height="252"/>
+          <line x1="96" y1="60" x2="96" y2="312"/><line x1="132" y1="60" x2="132" y2="312"/><line x1="168" y1="60" x2="168" y2="312"/><line x1="204" y1="60" x2="204" y2="312"/><line x1="240" y1="60" x2="240" y2="312"/><line x1="276" y1="60" x2="276" y2="312"/>
+          <line x1="60" y1="96" x2="312" y2="96"/><line x1="60" y1="132" x2="312" y2="132"/><line x1="60" y1="168" x2="312" y2="168"/><line x1="60" y1="204" x2="312" y2="204"/><line x1="60" y1="240" x2="312" y2="240"/><line x1="60" y1="276" x2="312" y2="276"/>
+        </g>
+        <rect x="96" y="96" width="108" height="108" fill="#2456d6" opacity="0.18" stroke="#2456d6" stroke-width="3"/>
+        <rect x="204" y="204" width="108" height="108" fill="none" stroke="#c2521e" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="186" y="350" font-size="17" text-anchor="middle" fill="#4a4a55">输入图像 7 × 7（卷积核 3 × 3 逐位置滑动）</text>
+        <!-- 卷积核 -->
+        <g stroke="#2456d6" fill="#e8eefb" stroke-width="1.5">
+          <rect x="420" y="80" width="30" height="30"/><rect x="450" y="80" width="30" height="30"/><rect x="480" y="80" width="30" height="30"/>
+          <rect x="420" y="110" width="30" height="30"/><rect x="450" y="110" width="30" height="30"/><rect x="480" y="110" width="30" height="30"/>
+          <rect x="420" y="140" width="30" height="30"/><rect x="450" y="140" width="30" height="30"/><rect x="480" y="140" width="30" height="30"/>
+        </g>
+        <text x="465" y="200" font-size="17" text-anchor="middle" fill="#2456d6">卷积核 w（3 × 3）</text>
+        <text x="465" y="226" font-size="15" text-anchor="middle" fill="#6b6b76">与局部区域做点积 wᵀx + b</text>
+        <!-- 箭头 -->
+        <defs><marker id="arr3" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#22222a"/></marker></defs>
+        <path d="M540 186 L610 186" stroke="#22222a" stroke-width="3" marker-end="url(#arr3)"/>
+        <!-- 输出 5x5 -->
+        <g stroke="#9a9aa4" fill="#fff">
+          <rect x="650" y="76" width="220" height="220"/>
+          <line x1="694" y1="76" x2="694" y2="296"/><line x1="738" y1="76" x2="738" y2="296"/><line x1="782" y1="76" x2="782" y2="296"/><line x1="826" y1="76" x2="826" y2="296"/>
+          <line x1="650" y1="120" x2="870" y2="120"/><line x1="650" y1="164" x2="870" y2="164"/><line x1="650" y1="208" x2="870" y2="208"/><line x1="650" y1="252" x2="870" y2="252"/>
+        </g>
+        <rect x="694" y="120" width="44" height="44" fill="#2456d6" opacity="0.55" stroke="#2456d6" stroke-width="2"/>
+        <text x="760" y="350" font-size="17" text-anchor="middle" fill="#4a4a55">输出特征图 5 × 5（activation map）</text>
+      </g>
+    </svg>
+  </div>
+  <div class="caption">每个输出值 = 卷积核与对应局部区域的点积；多个卷积核产生多通道特征图（如 32×32×3 图像 + 6 个 5×5×3 卷积核 → 28×28×6）。</div>
+</section>
+
+<!-- ========== 24 卷积的两个关键思想 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 卷积神经网络</span><span class="meta-page">26</span></div>
+  <h2 class="slide-title">卷积为什么适合图像？</h2>
+  <div class="slide-body">
+    <ul class="bullets">
+      <li><strong>局部连接</strong>：每个神经元只看一小块感受野
+        <ul>
+          <li>图像的局部相关性：邻近像素远比遥远像素相关</li>
+        </ul>
+      </li>
+      <li><strong>权重共享</strong>：同一个卷积核在所有位置复用
+        <ul>
+          <li>平移等变性：猫出现在左上角还是右下角都能检测</li>
+          <li>参数量大幅缩减：5×5×3 核只有 75 个参数，与图像大小无关</li>
+        </ul>
+      </li>
+      <li>对比全连接：1000×1000 图像单层全连接需 10¹² 量级参数，卷积只需数百</li>
+      <li>池化（Pooling）：降采样、扩大感受野、增强平移鲁棒性</li>
+    </ul>
+    <div class="keypoint"><div>记住：<strong>局部连接 + 权重共享</strong> 是卷积层参数高效的根本原因。</div></div>
+  </div>
+</section>
+
+<!-- ========== 25 AlexNet 架构 ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 2 讲 · 卷积神经网络</span><span class="meta-page">27</span></div>
+  <h2 class="slide-title">AlexNet 架构（2012）</h2>
+  <div class="full-media">
+    <img src="assets/lecture2/s030_img37.png" alt="AlexNet 网络结构" style="border:none;box-shadow:none">
+  </div>
+  <div class="caption">5 个卷积层 + 3 个全连接层，约 6000 万参数；输入 224×224×3，输出 1000 类；在 2 块 GPU 上训练约一周；学到的表示可直接迁移到检测、分割、检索等任务。</div>
+  <div class="src-note" style="right:112px">图源：Krizhevsky et al., NeurIPS 2012</div>
+</section>
+
+<!-- ========== 26 AlexNet 关键技术 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 卷积神经网络</span><span class="meta-page">28</span></div>
+  <h2 class="slide-title">AlexNet 为什么能成功？</h2>
+  <div class="slide-body">
+    <p class="lead">Hinton 团队并无丰富的大规模图像分类经验，但他们把当时所有关键要素用到了极致。</p>
+    <ul class="bullets">
+      <li><strong>ReLU 激活</strong>：缓解梯度消失，训练速度数倍于 tanh</li>
+      <li><strong>GPU 训练</strong>：2 块 GTX 580 并行，一周训完 6000 万参数</li>
+      <li><strong>Dropout</strong>：随机丢弃神经元，强力抑制过拟合</li>
+      <li><strong>数据增广</strong>：裁剪、翻转、颜色扰动，扩充有效数据量</li>
+      <li><strong>ImageNet 大数据</strong>：百万级标注图像是这一切的基础</li>
+    </ul>
+    <div class="keypoint"><div>AlexNet 的启示：突破是<strong>算法 + 算力 + 数据 + 工程细节</strong>（ReLU/Dropout/增广）的系统胜利。</div></div>
+  </div>
+</section>
+
+<!-- ========== 27 学到的低层滤波器 ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 2 讲 · 卷积神经网络</span><span class="meta-page">29</span></div>
+  <h2 class="slide-title">网络自己学到了什么？</h2>
+  <div class="full-media">
+    <img src="assets/lecture2/s031_img38.png" alt="AlexNet 第一层学到的 96 个卷积核" style="border:none;box-shadow:none">
+  </div>
+  <div class="caption">AlexNet 第一层 96 个 11×11 卷积核：一半学到频率/方向选择性的边缘检测器（灰度），另一半学到颜色检测器——与生物视觉皮层的简单细胞惊人相似。手工特征时代要精心设计的东西，网络自己学出来了。</div>
+  <div class="src-note" style="right:112px">图源：Krizhevsky et al., NeurIPS 2012</div>
+</section>
+
+<!-- ========== 28 分类结果 ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 卷积神经网络</span><span class="meta-page">30</span></div>
+  <h2 class="slide-title">AlexNet 的 Top-5 预测</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>8 张测试图的 Top-5 预测（柱高 ∝ 概率）</li>
+        <li>正确标签基本都在 Top-5 之内</li>
+        <li>错误也「情有可原」：grille（格栅）vs. convertible（敞篷车）</li>
+        <li>即使物体不在画面中心（螨、豹），依然能识别</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture2/s032_img39.png" alt="AlexNet 在 ImageNet 测试图上的 Top-5 预测结果">
+      <div class="caption">Krizhevsky et al., NeurIPS 2012</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 29 深度革命（自绘 SVG） ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 2 讲 · 卷积神经网络</span><span class="meta-page">31</span></div>
+  <h2 class="slide-title">深度革命（Revolution of Depth）</h2>
+  <div class="full-media">
+    <svg viewBox="0 0 1000 400" width="960" height="384" style="max-width:100%;height:auto" role="img" aria-label="ILSVRC 冠军网络深度与错误率">
+      <g font-family="sans-serif">
+        <line x1="80" y1="340" x2="940" y2="340" stroke="#9a9aa4" stroke-width="2"/>
+        <!-- AlexNet -->
+        <rect x="140" y="321" width="90" height="19" fill="#9db4e8"/>
+        <text x="185" y="300" font-size="16" text-anchor="middle" fill="#22222a">16.4%</text>
+        <text x="185" y="368" font-size="19" font-weight="700" text-anchor="middle" fill="#22222a">AlexNet</text>
+        <text x="185" y="390" font-size="15" text-anchor="middle" fill="#6b6b76">8 层 · 2012</text>
+        <!-- VGG -->
+        <rect x="340" y="295" width="90" height="45" fill="#7d9ce0"/>
+        <text x="385" y="274" font-size="16" text-anchor="middle" fill="#22222a">7.3%</text>
+        <text x="385" y="368" font-size="19" font-weight="700" text-anchor="middle" fill="#22222a">VGG</text>
+        <text x="385" y="390" font-size="15" text-anchor="middle" fill="#6b6b76">19 层 · 2014</text>
+        <!-- GoogLeNet -->
+        <rect x="540" y="288" width="90" height="52" fill="#5b84d8"/>
+        <text x="585" y="267" font-size="16" text-anchor="middle" fill="#22222a">6.7%</text>
+        <text x="585" y="368" font-size="19" font-weight="700" text-anchor="middle" fill="#22222a">GoogLeNet</text>
+        <text x="585" y="390" font-size="15" text-anchor="middle" fill="#6b6b76">22 层 · 2014</text>
+        <!-- ResNet -->
+        <rect x="740" y="30" width="90" height="310" fill="#c2521e"/>
+        <text x="785" y="20" font-size="16" text-anchor="middle" fill="#c2521e" font-weight="700">3.6%</text>
+        <text x="785" y="368" font-size="19" font-weight="700" text-anchor="middle" fill="#c2521e">ResNet</text>
+        <text x="785" y="390" font-size="15" text-anchor="middle" fill="#c2521e">152 层 · 2015</text>
+      </g>
+    </svg>
+  </div>
+  <div class="caption">ILSVRC 冠军的层数（柱高）与 Top-5 错误率（标注）：深度是性能提升的主轴。同期关键技术：PReLU、批归一化（Batch Normalization）、深监督（DSN）等相继出现。</div>
+</section>
+
+<!-- ========== 30 ResNet：退化问题 ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 卷积神经网络</span><span class="meta-page">32</span></div>
+  <h2 class="slide-title">但「简单堆层」遇到了<span class="em">退化问题</span></h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>朴素堆叠的深层网络（plain net）<strong>训练误差反而更高</strong></li>
+        <li>56 层比 20 层差——不是过拟合，是<strong>优化本身失败</strong></li>
+        <li>梯度在深层传播中衰减/失真，网络难以学好</li>
+        <li>问题：如何让 100+ 层的网络可训练？</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture2/s043_img52.png" alt="Plain 网络的退化现象：层数越多训练误差越高">
+      <div class="caption">CIFAR-10 与 ImageNet 上都观察到：过深的 plain 网络训练误差更高（He et al., CVPR 2016）</div>
+    </div>
+  </div>
+  <div class="keypoint warm"><div>退化 ≠ 过拟合：过拟合是训练误差低、测试误差高；退化是<strong>训练误差本身就高</strong>——问题出在优化。</div></div>
+</section>
+
+<!-- ========== 31 残差块（自绘 SVG） ========== -->
+<section class="slide flip" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 卷积神经网络</span><span class="meta-page">33</span></div>
+  <h2 class="slide-title">ResNet 的答案：<span class="em">残差连接</span></h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>不让层直接学 H(x)，改学<strong>残差</strong> F(x) = H(x) − x</li>
+        <li>输出 y = F(x) + <strong>x</strong>：恒等捷径（skip connection）</li>
+        <li>梯度可沿捷径无损回传，深网络不再难优化</li>
+        <li>学不到东西时 F(x)→0，退化为恒等映射——不会更差</li>
+        <li>152 层 ResNet 获 ILSVRC 2015 冠军（3.6%），残差思想成为现代网络标配</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <svg viewBox="0 0 420 470" style="max-width:100%;height:auto;max-height:432px" role="img" aria-label="残差块结构">
+        <g font-family="sans-serif">
+          <rect x="130" y="20" width="140" height="42" rx="8" fill="#fff" stroke="#9a9aa4" stroke-width="2"/>
+          <text x="200" y="47" font-size="17" text-anchor="middle" fill="#22222a">输入 x</text>
+          <rect x="130" y="102" width="140" height="46" rx="8" fill="#e8eefb" stroke="#2456d6" stroke-width="2"/>
+          <text x="200" y="131" font-size="16" text-anchor="middle" fill="#2456d6">卷积 + BN + ReLU</text>
+          <rect x="130" y="188" width="140" height="46" rx="8" fill="#e8eefb" stroke="#2456d6" stroke-width="2"/>
+          <text x="200" y="217" font-size="16" text-anchor="middle" fill="#2456d6">卷积 + BN</text>
+          <circle cx="200" cy="300" r="26" fill="#fbece4" stroke="#c2521e" stroke-width="2.5"/>
+          <text x="200" y="308" font-size="22" text-anchor="middle" fill="#c2521e">⊕</text>
+          <rect x="130" y="366" width="140" height="42" rx="8" fill="#fff" stroke="#9a9aa4" stroke-width="2"/>
+          <text x="200" y="393" font-size="16" text-anchor="middle" fill="#22222a">ReLU → 输出 y</text>
+          <defs><marker id="arr4" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#22222a"/></marker></defs>
+          <line x1="200" y1="62" x2="200" y2="96" stroke="#22222a" stroke-width="2" marker-end="url(#arr4)"/>
+          <line x1="200" y1="148" x2="200" y2="182" stroke="#22222a" stroke-width="2" marker-end="url(#arr4)"/>
+          <line x1="200" y1="234" x2="200" y2="268" stroke="#22222a" stroke-width="2" marker-end="url(#arr4)"/>
+          <line x1="200" y1="326" x2="200" y2="360" stroke="#22222a" stroke-width="2" marker-end="url(#arr4)"/>
+          <path d="M270 41 L340 41 C 390 41 390 300 340 300 L232 300" fill="none" stroke="#c2521e" stroke-width="3" marker-end="url(#arr4)"/>
+          <text x="336" y="340" font-size="14" fill="#c2521e" text-anchor="middle">恒等捷径 x</text>
+          <text x="200" y="450" font-size="19" text-anchor="middle" fill="#22222a">y = F(x) + x</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="keypoint"><div>残差连接 <strong>y = F(x) + x</strong> 让梯度沿恒等捷径无损回传——这是训练百层以上网络的通用钥匙，如今已成为标配。</div></div>
+</section>
+
+<!-- ========== 32 深网络训练工具箱 ========== -->
+<section class="slide toolbox" data-layout="bullets">
+  <style>
+    .toolbox .mini-card svg { height:58px !important; width:auto !important; display:block; margin:0 auto; }
+    .toolbox .mini-card p { font-size:14px; line-height:1.55; }
+    .toolbox .card-grid { gap:14px; }
+  </style>
+  <div class="slide-meta"><span>第 2 讲 · 卷积神经网络</span><span class="meta-page">34</span></div>
+  <div class="kicker">Toolbox</div>
+  <h2 class="slide-title">深网络训练<span class="em">工具箱</span></h2>
+  <p class="lead" style="margin:0 0 10px">残差连接打通梯度通路，再配上这些关键技巧，百层网络才真正可训。</p>
+  <div class="card-grid" data-cols="3">
+    <div class="mini-card">
+      <div class="mc-no">01</div>
+      <div class="mc-title">批归一化 BN</div>
+      <svg viewBox="0 0 200 92" style="width:100%;height:auto" role="img" aria-label="归一化前后分布对比">
+        <line x1="12" y1="72" x2="86" y2="72" stroke="#c9c7bf" stroke-width="1.5"/>
+        <path d="M20,72 C35,72 40,28 60,32 C78,36 76,72 82,72" fill="none" stroke="#9a9aa4" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="49" y="88" font-size="10" text-anchor="middle" fill="#9a9aa4">分布漂移</text>
+        <line x1="90" y1="48" x2="106" y2="48" stroke="#2456d6" stroke-width="2"/>
+        <path d="M104,42 L114,48 L104,54 z" fill="#2456d6"/>
+        <line x1="120" y1="72" x2="194" y2="72" stroke="#c9c7bf" stroke-width="1.5"/>
+        <path d="M128,72 C142,72 148,24 157,24 C166,24 172,72 186,72" fill="none" stroke="#2456d6" stroke-width="2.5"/>
+        <text x="157" y="88" font-size="10" text-anchor="middle" fill="#2456d6">稳定居中</text>
+      </svg>
+      <p>mini-batch 内归一化激活，再学缩放 γ / 平移 β；允许更大学习率、收敛更快。<span style="color:var(--faint)">Ioffe &amp; Szegedy, ICML 2015</span></p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">02</div>
+      <div class="mc-title">PReLU 激活</div>
+      <svg viewBox="0 0 200 92" style="width:100%;height:auto" role="img" aria-label="ReLU 与 PReLU 曲线">
+        <line x1="14" y1="62" x2="190" y2="62" stroke="#c9c7bf" stroke-width="1.5"/>
+        <line x1="100" y1="8" x2="100" y2="76" stroke="#c9c7bf" stroke-width="1.5"/>
+        <polyline points="20,62 100,62 182,10" fill="none" stroke="#9a9aa4" stroke-width="2" stroke-dasharray="4 3"/>
+        <polyline points="20,72 100,62 182,10" fill="none" stroke="#2456d6" stroke-width="2.5"/>
+        <text x="24" y="86" font-size="10" fill="#2456d6">α 可学习</text>
+        <text x="126" y="86" font-size="9" fill="#9a9aa4">虚线 = ReLU</text>
+      </svg>
+      <p>负半轴斜率 α 不再置零、随训练学习，比 ReLU 进一步提升精度。<span style="color:var(--faint)">He et al., ICCV 2015</span></p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">03</div>
+      <div class="mc-title">深监督 DSN</div>
+      <svg viewBox="0 0 200 92" style="width:100%;height:auto" role="img" aria-label="中间层辅助损失">
+        <rect x="14" y="10" width="44" height="15" rx="7" fill="#fbece4" stroke="#c2521e" stroke-width="1.5"/>
+        <text x="36" y="21" font-size="9" text-anchor="middle" fill="#c2521e">辅助 loss</text>
+        <rect x="78" y="10" width="44" height="15" rx="7" fill="#fbece4" stroke="#c2521e" stroke-width="1.5"/>
+        <text x="100" y="21" font-size="9" text-anchor="middle" fill="#c2521e">辅助 loss</text>
+        <rect x="14" y="40" width="44" height="26" rx="6" fill="#e8eefb" stroke="#2456d6" stroke-width="1.8"/>
+        <rect x="78" y="40" width="44" height="26" rx="6" fill="#e8eefb" stroke="#2456d6" stroke-width="1.8"/>
+        <rect x="142" y="40" width="44" height="26" rx="6" fill="#e8eefb" stroke="#2456d6" stroke-width="1.8"/>
+        <line x1="36" y1="40" x2="36" y2="28" stroke="#c2521e" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <line x1="100" y1="40" x2="100" y2="28" stroke="#c2521e" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <line x1="60" y1="53" x2="74" y2="53" stroke="#22222a" stroke-width="2"/>
+        <path d="M72,48 L80,53 L72,58 z" fill="#22222a"/>
+        <line x1="124" y1="53" x2="138" y2="53" stroke="#22222a" stroke-width="2"/>
+        <path d="M136,48 L144,53 L136,58 z" fill="#22222a"/>
+        <text x="100" y="86" font-size="10" text-anchor="middle" fill="#6b6b76">中间层直接接收梯度信号</text>
+      </svg>
+      <p>给中间层加辅助损失，梯度不必长途跋涉回传，缓解梯度消失。<span style="color:var(--faint)">Lee et al., AISTATS 2015</span></p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">04</div>
+      <div class="mc-title">Dropout</div>
+      <svg viewBox="0 0 200 92" style="width:100%;height:auto" role="img" aria-label="随机丢弃神经元">
+        <g stroke="#c9c7bf" stroke-width="1.2">
+          <line x1="52" y1="20" x2="88" y2="46"/><line x1="52" y1="20" x2="88" y2="72"/>
+          <line x1="52" y1="46" x2="88" y2="46"/><line x1="52" y1="46" x2="88" y2="72"/>
+          <line x1="52" y1="72" x2="88" y2="46"/><line x1="52" y1="72" x2="88" y2="72"/>
+          <line x1="112" y1="46" x2="148" y2="20"/><line x1="112" y1="46" x2="148" y2="46"/><line x1="112" y1="46" x2="148" y2="72"/>
+        </g>
+        <g fill="#fff" stroke="#2456d6" stroke-width="1.8">
+          <circle cx="46" cy="20" r="7"/><circle cx="46" cy="46" r="7"/><circle cx="46" cy="72" r="7"/>
+          <circle cx="100" cy="46" r="7"/>
+          <circle cx="154" cy="20" r="7"/><circle cx="154" cy="46" r="7"/><circle cx="154" cy="72" r="7"/>
+        </g>
+        <g stroke="#9a9aa4" stroke-width="1.8" fill="#f4f2ec">
+          <circle cx="100" cy="20" r="7"/><circle cx="100" cy="72" r="7"/>
+        </g>
+        <g stroke="#c2521e" stroke-width="2">
+          <line x1="95" y1="15" x2="105" y2="25"/><line x1="105" y1="15" x2="95" y2="25"/>
+          <line x1="95" y1="67" x2="105" y2="77"/><line x1="105" y1="67" x2="95" y2="77"/>
+        </g>
+      </svg>
+      <p>训练时随机丢弃神经元，测试时等效于大量子网络的集成，抑制过拟合。<span style="color:var(--faint)">Srivastava et al., JMLR 2014</span></p>
+    </div>
+    <div class="mini-card">
+      <div class="mc-no">05</div>
+      <div class="mc-title">精心初始化</div>
+      <svg viewBox="0 0 200 92" style="width:100%;height:auto" role="img" aria-label="激活方差稳定与逐层消失对比">
+        <line x1="14" y1="70" x2="80" y2="70" stroke="#c9c7bf" stroke-width="1.5"/>
+        <rect x="20" y="30" width="10" height="40" fill="#2456d6"/>
+        <rect x="34" y="32" width="10" height="38" fill="#2456d6"/>
+        <rect x="48" y="30" width="10" height="40" fill="#2456d6"/>
+        <rect x="62" y="31" width="10" height="39" fill="#2456d6"/>
+        <text x="47" y="86" font-size="10" text-anchor="middle" fill="#2456d6">方差稳定</text>
+        <line x1="118" y1="70" x2="184" y2="70" stroke="#c9c7bf" stroke-width="1.5"/>
+        <rect x="124" y="30" width="10" height="40" fill="#c9c7bf"/>
+        <rect x="138" y="44" width="10" height="26" fill="#c9c7bf"/>
+        <rect x="152" y="56" width="10" height="14" fill="#c9c7bf"/>
+        <rect x="166" y="65" width="10" height="5" fill="#c9c7bf"/>
+        <text x="151" y="86" font-size="10" text-anchor="middle" fill="#9a9aa4">逐层消失</text>
+      </svg>
+      <p>Xavier / He 初始化按层宽设定权重尺度，保持激活方差稳定。<span style="color:var(--faint)">Glorot &amp; Bengio 2010；He et al. 2015</span></p>
+    </div>
+    <div class="mini-card" style="border-top-color:var(--accent-2)">
+      <div class="mc-no">06</div>
+      <div class="mc-title">组合使用</div>
+      <p style="font-size:16px;line-height:1.9;color:var(--ink)">残差连接保证<strong style="color:var(--accent)">梯度通路</strong>，BN 与初始化稳住<strong style="color:var(--accent)">激活分布</strong>，Dropout 抑制<strong style="color:var(--accent)">过拟合</strong>——百层、千层网络由此可训。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 本章小结 03 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 卷积神经网络</span><span class="meta-page">35</span></div>
+  <div class="kicker">Chapter Summary</div>
+  <h2 class="slide-title">本章小结：卷积神经网络与深度革命</h2>
+  <div class="card-grid" data-cols="2">
+    <div class="mini-card"><div class="mc-no">01</div><div class="mc-title">两大思想</div><p><strong>局部连接</strong>（只看感受野）+ <strong>权重共享</strong>（全图复用同一卷积核）→ 参数高效、平移等变。</p></div>
+    <div class="mini-card"><div class="mc-no">02</div><div class="mc-title">AlexNet 工程配方</div><p><strong>ReLU + GPU + Dropout + 数据增广 + ImageNet</strong>，五个要素把 6000 万参数的网络真正训了出来。</p></div>
+    <div class="mini-card"><div class="mc-no">03</div><div class="mc-title">深度革命</div><p>VGG 19 层 → GoogLeNet 22 层 → ResNet <strong>152 层</strong>；ILSVRC 错误率从 16.4% 一路降到 <strong>3.6%</strong>。</p></div>
+    <div class="mini-card"><div class="mc-no">04</div><div class="mc-title">残差连接</div><p>朴素堆层会遇到<strong>退化</strong>（优化失败而非过拟合）；<strong>y = F(x) + x</strong> 让梯度无损回传，配合 BN、初始化、Dropout 构成训练工具箱。</p></div>
+  </div>
+</section>
+
+<!-- ========== 33 section 04 ========== -->
+<section class="slide" data-layout="section">
+  <div class="section-num">04</div>
+  <div class="section-title">深度学习重塑视觉任务</div>
+  <div class="section-sub">同一套视觉特征如何服务分类、检测和分割？</div>
+</section>
+
+<!-- ========== 34 R-CNN ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 视觉应用</span><span class="meta-page">37</span></div>
+  <h2 class="slide-title">目标检测：R-CNN（2014）</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>提取约 2000 个候选区域 → 逐区域过 CNN 提特征 → SVM 分类</li>
+        <li>PASCAL VOC mAP：33.4%（DPM）→ <strong>53.7%</strong>（R-CNN）</li>
+        <li>「区域 + CNN 特征」范式开启检测深度学习时代</li>
+        <li>后续演进：Fast/Faster R-CNN → 单阶段 YOLO 系列</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture2/s044_img53.png" alt="R-CNN 流程：候选区域、CNN 特征、区域分类">
+      <div class="caption">Girshick et al., CVPR 2014</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 研究案例：Mask Scoring R-CNN ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 2 讲 · 视觉应用</span><span class="meta-page">38</span></div>
+  <div class="kicker">Research Case · HUST-VL</div>
+  <h2 class="slide-title">案例：分类置信度高，不代表掩码画得准</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">原来的评分哪里不对？</div>
+      <ul class="bullets">
+        <li>实例分割既要判断“是什么”，又要给出精确掩码</li>
+        <li>常见做法直接用分类置信度给掩码排序</li>
+        <li>但分类正确的实例，掩码 IoU 仍可能很低；分数与输出质量不匹配</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">Mask Scoring R-CNN 怎样改？</div>
+      <ul class="bullets">
+        <li>增加 MaskIoU head，输入实例特征与预测掩码</li>
+        <li>直接估计预测掩码和真实掩码之间的 IoU</li>
+        <li>用估计质量校准最终掩码分数，使排序更接近实际分割质量</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint"><div>评价一个复杂输出时，置信度应对应我们真正关心的质量。请想一想：检测框、深度图和生成图像分别需要怎样的“质量分数”？</div></div>
+  <div class="src-note" style="right:170px">Huang et al., Mask Scoring R-CNN, CVPR 2019 · github.com/zjhuang22/maskscoring_rcnn</div>
+</section>
+
+<!-- ========== 35 FCN ========== -->
+<section class="slide flip" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 视觉应用</span><span class="meta-page">38</span></div>
+  <h2 class="slide-title">语义分割：全卷积网络 FCN（2015）</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>把分类网络的全连接层改为卷积层（convolutionalization）</li>
+        <li>任意尺寸输入 → 端到端输出逐像素的类别热图</li>
+        <li>跳跃连接融合深层语义与浅层细节</li>
+        <li>PASCAL VOC 相对提升 20%，推理从约 50 秒降到 175 毫秒</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture2/s047_img57.png" alt="FCN：分类网络卷积化得到逐像素热图">
+      <div class="caption">Long, Shelhamer &amp; Darrell, CVPR 2015</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 研究案例：CCNet ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 2 讲 · 视觉应用</span><span class="meta-page">40</span></div>
+  <div class="kicker">Research Case · HUST-VL</div>
+  <h2 class="slide-title">案例：全局上下文很重要，但每个像素都看全图太贵</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">为什么分割需要远处信息？</div>
+      <ul class="bullets">
+        <li>单个局部纹理常有歧义，像素类别要结合物体整体与场景判断</li>
+        <li>全局非局部注意力让每个位置读取所有位置，但显存和计算量随像素数快速增长</li>
+        <li>研究问题因此变成：能否少看一些位置，仍得到全局信息？</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">CCNet 的具体做法</div>
+      <ul class="bullets">
+        <li>一次 criss-cross attention 只读取当前位置所在的<strong>一行和一列</strong></li>
+        <li>重复两次后，任意两个位置都能通过中间位置交换信息</li>
+        <li>论文报告：相较非局部模块，GPU 显存约降至 1/11，计算量减少约 85%</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint warm"><div>在 5×5 网格上任选两个不同行、不同列的位置：你能画出它们经过两次 criss-cross attention 交换信息的路径吗？</div></div>
+  <div class="src-note" style="right:170px">Huang et al., CCNet, ICCV 2019 / TPAMI 2023 · github.com/speedinghzl/CCNet</div>
+</section>
+
+<!-- ========== 36 应用画廊 ========== -->
+<section class="slide" data-layout="gallery">
+  <div class="slide-meta"><span>第 2 讲 · 视觉应用</span><span class="meta-page">39</span></div>
+  <h2 class="slide-title">深度学习改写每一个视觉子领域</h2>
+  <div class="gallery-grid" data-cols="3">
+    <figure>
+      <img src="assets/lecture2/s052_img68.png" alt="图像描述生成：CNN 编码图像，RNN 生成句子">
+      <figcaption>(a) 图像描述：CNN + RNN，Show and Tell（CVPR 2015）</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/lecture2/s053_img70.png" alt="CRNN：卷积特征序列 + 双向 LSTM + CTC 识别场景文字">
+      <figcaption>(b) 场景文字识别：CRNN（TPAMI 2017）</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/lecture2/s054_img72.png" alt="CycleGAN：无配对图像风格迁移">
+      <figcaption>(c) 图像翻译：CycleGAN（ICCV 2017）</figcaption>
+    </figure>
+  </div>
+  <div class="caption" style="margin-top:12px">此外还有：边缘检测（HED）、轮廓检测（DeepContour）、超分辨率（SRCNN）、图像着色——几乎每个子领域都被端到端学习刷新。</div>
+</section>
+
+<!-- ========== 37 AlphaGo ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 超越视觉</span><span class="meta-page">40</span></div>
+  <h2 class="slide-title">AlphaGo：深度网络 + 强化学习（2016）</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>DeepMind 的围棋程序，2016 年 4:1 击败李世石</li>
+        <li><strong>策略网络</strong>：CNN 输入 19×19×48 棋盘特征，输出落子概率分布</li>
+        <li><strong>价值网络</strong>：评估局面胜率，减少搜索深度</li>
+        <li>结合蒙特卡洛树搜索，登上《Nature》封面</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture2/x_alphago.png" alt="AlphaGo 的策略网络与价值网络示意，Nature 封面">
+      <div class="caption">Silver et al., Nature 2016</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 38 超越视觉 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 超越视觉</span><span class="meta-page">41</span></div>
+  <h2 class="slide-title">深度学习的影响力早已超出视觉</h2>
+  <div class="slide-body">
+    <ul class="bullets">
+      <li><strong>强化学习 · 游戏</strong>：DQN 玩 Atari 打砖块达到人类水平；自学玩转 Flappy Bird</li>
+      <li><strong>强化学习 · 导航</strong>：四旋翼无人机视觉自主穿越森林</li>
+      <li><strong>工业节能</strong>：DeepMind 用 AI 优化 Google 数据中心冷却系统，能耗降低 40%（2016）</li>
+      <li><strong>医疗影像</strong>：病理切片细胞分裂检测（ICPR 2012 MITOSIS 竞赛），深度网络以明显优势夺冠，超越全部人工特征方法（Cireşan et al., MICCAI 2013）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 本章小结 04 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 视觉应用</span><span class="meta-page">42</span></div>
+  <div class="kicker">Chapter Summary</div>
+  <h2 class="slide-title">本章小结：深度学习重塑视觉任务</h2>
+  <div class="card-grid" data-cols="2">
+    <div class="mini-card"><div class="mc-no">01</div><div class="mc-title">目标检测：R-CNN 系列</div><p>R-CNN（CVPR 2014）用「候选区域 + CNN 特征」把 VOC mAP 从 33.4% 提到 <strong>53.7%</strong>；后续 Faster R-CNN、YOLO 走向实时。</p></div>
+    <div class="mini-card"><div class="mc-no">02</div><div class="mc-title">语义分割：FCN</div><p>分类网络<strong>全卷积化</strong>，任意尺寸输入、端到端输出逐像素热图（CVPR 2015），成为分割的标准范式。</p></div>
+    <div class="mini-card"><div class="mc-no">03</div><div class="mc-title">子领域全面改写</div><p>图像描述（CNN+RNN）、场景文字识别（CRNN）、图像翻译（CycleGAN）、边缘检测、超分辨率——<strong>端到端学习</strong>刷新每一个子领域。</p></div>
+    <div class="mini-card"><div class="mc-no">04</div><div class="mc-title">超越视觉</div><p>AlphaGo（Nature 2016）= 深度网络 + <strong>强化学习</strong> + 蒙特卡洛树搜索；影响力延伸至语音、游戏、医疗、工业。</p></div>
+  </div>
+</section>
+
+<!-- ========== 39 section 05 ========== -->
+<section class="slide" data-layout="section">
+  <div class="section-num">05</div>
+  <div class="section-title">大模型时代</div>
+  <div class="section-sub">注意力、规模和后训练分别改变了模型的什么能力？</div>
+</section>
+
+<!-- ========== NEW A 从卷积到注意力 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">44</span></div>
+  <div class="kicker">From CNN to Attention</div>
+  <h2 class="slide-title">从卷积到注意力：为什么需要新架构？</h2>
+  <div class="slide-body">
+    <p class="lead">局部连接与权重共享让 CNN 高效利用图像结构，但远距离位置之间通常不能在一层内直接交互。</p>
+    <ul class="bullets">
+      <li><strong>感受野有限</strong>：卷积只看局部，远程依赖要靠层层堆叠间接传递</li>
+      <li>图像越大、对象间关系越全局，「层层传递」就越吃力</li>
+      <li>语言建模的需求更极端：任意两个词之间都可能有直接联系</li>
+      <li><strong>注意力</strong>让每个位置「查询」所有位置，一步建立全局联系</li>
+      <li>2017 年后 Transformer 逐步成为语言建模主流，2020 年起广泛进入视觉</li>
+    </ul>
+    <div class="keypoint"><div>CNN 内置局部性与平移等变先验；注意力可以直接建模全局关系。两者的效果取决于数据规模、计算预算和具体任务。</div></div>
+  </div>
+</section>
+
+<!-- ========== 自注意力如何计算 ========== -->
+<section class="slide" data-layout="code">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">45</span></div>
+  <h2 class="slide-title">自注意力如何让每个位置读取全局信息？</h2>
+  <div class="code-body">
+    <div class="formula-block">Attention(Q,K,V) = softmax(QK<sup>T</sup> / √d<sub>k</sub>)V</div>
+    <div class="code-block"><span class="kw">Q（Query）</span>：当前位置想找什么
+<span class="kw">K（Key）</span>：每个位置提供什么索引
+<span class="kw">V（Value）</span>：每个位置实际传递什么内容
+
+QK<sup>T</sup> → 计算位置之间的相关性
+softmax  → 把相关性变成权重
+加权求和 → 汇聚所有位置的信息</div>
+    <div class="keypoint"><div><strong>多头注意力</strong>在不同子空间并行计算多组关系；由于注意力本身不含顺序，还必须加入位置编码或位置偏置。</div></div>
+  </div>
+  <div class="src-note" style="right:170px">依据：Vaswani et al., Attention Is All You Need, NeurIPS 2017</div>
+</section>
+
+<!-- ========== 课堂检查：注意力直觉 ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">47</span></div>
+  <div class="kicker">Attention in Plain Language</div>
+  <h2 class="slide-title">“它追着球跑”中的“它”应该读取谁的信息？</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">先不用公式解释</div>
+      <ul class="bullets">
+        <li>“它”提出查询：句子里谁可能是我的指代对象？</li>
+        <li>“小狗”“球”“跑”等词提供各自的索引和内容</li>
+        <li>相关性最高的位置获得较大权重，信息被加权汇入“它”的新表示</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">换成图像时</div>
+      <ul class="bullets">
+        <li>每个图像 patch 都可以查询其他 patch</li>
+        <li>物体的一部分可以直接读取远处另一部分的信息</li>
+        <li>位置编码告诉模型各 patch 原来在图像中的位置</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint warm"><div>注意力权重显示模型在这一步如何汇聚信息，但不能自动等同于完整、可靠的因果解释。</div></div>
+</section>
+
+<!-- ========== NEW B Vision Transformer ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">45</span></div>
+  <h2 class="slide-title">Vision Transformer：把图像当句子读（2020）</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>把图像切成 16×16 小块并拉平成向量——图像变成一串<strong>「视觉词元」</strong></li>
+        <li>加上位置编码，直接套用<strong>标准 Transformer 编码器</strong>，几乎不改架构</li>
+        <li>大规模预训练（JFT-300M）下超越 CNN；小数据上则不如 CNN</li>
+        <li><strong>Swin Transformer</strong>（ICCV 2021，Marr Prize）：窗口注意力 + 层级结构，兼容检测、分割等密集预测</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <svg viewBox="0 0 560 330" style="max-width:100%;height:auto" role="img" aria-label="Vision Transformer：图像切块、拉平成 token 序列、过 Transformer 编码器">
+        <g font-family="sans-serif">
+          <g stroke="#9a9aa4" fill="#fff" stroke-width="1.5">
+            <rect x="24" y="100" width="120" height="120" rx="6"/>
+            <line x1="64" y1="100" x2="64" y2="220"/><line x1="104" y1="100" x2="104" y2="220"/>
+            <line x1="24" y1="140" x2="144" y2="140"/><line x1="24" y1="180" x2="144" y2="180"/>
+          </g>
+          <rect x="64" y="140" width="40" height="40" fill="#2456d6" opacity="0.18" stroke="#2456d6" stroke-width="2"/>
+          <text x="84" y="252" font-size="14" text-anchor="middle" fill="#4a4a55">图像切分为 patch</text>
+          <defs><marker id="arrv" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#22222a"/></marker></defs>
+          <line x1="152" y1="160" x2="188" y2="160" stroke="#22222a" stroke-width="2.5" marker-end="url(#arrv)"/>
+          <rect x="196" y="70" width="62" height="26" rx="6" fill="#fbece4" stroke="#c2521e" stroke-width="2"/>
+          <text x="227" y="88" font-size="13" text-anchor="middle" fill="#c2521e" font-weight="700">[CLS]</text>
+          <g fill="#e8eefb" stroke="#2456d6" stroke-width="1.5">
+            <rect x="196" y="104" width="62" height="22" rx="5"/>
+            <rect x="196" y="132" width="62" height="22" rx="5"/>
+            <rect x="196" y="160" width="62" height="22" rx="5"/>
+            <rect x="196" y="216" width="62" height="22" rx="5"/>
+          </g>
+          <text x="227" y="119" font-size="12" text-anchor="middle" fill="#2456d6">patch 1</text>
+          <text x="227" y="147" font-size="12" text-anchor="middle" fill="#2456d6">patch 2</text>
+          <text x="227" y="175" font-size="12" text-anchor="middle" fill="#2456d6">patch 3</text>
+          <text x="227" y="204" font-size="16" text-anchor="middle" fill="#6b6b76">⋮</text>
+          <text x="227" y="231" font-size="12" text-anchor="middle" fill="#2456d6">patch n</text>
+          <text x="227" y="270" font-size="14" text-anchor="middle" fill="#4a4a55">拉平为 token + 位置编码</text>
+          <line x1="266" y1="160" x2="300" y2="160" stroke="#22222a" stroke-width="2.5" marker-end="url(#arrv)"/>
+          <rect x="306" y="110" width="136" height="100" rx="12" fill="#fff" stroke="#22222a" stroke-width="2"/>
+          <text x="374" y="152" font-size="16" text-anchor="middle" fill="#22222a" font-weight="700">Transformer</text>
+          <text x="374" y="176" font-size="16" text-anchor="middle" fill="#22222a" font-weight="700">Encoder ×N</text>
+          <line x1="450" y1="160" x2="480" y2="160" stroke="#22222a" stroke-width="2.5" marker-end="url(#arrv)"/>
+          <rect x="486" y="122" width="64" height="34" rx="8" fill="#e8eefb" stroke="#2456d6" stroke-width="2"/>
+          <text x="518" y="144" font-size="13" text-anchor="middle" fill="#2456d6">MLP 头</text>
+          <rect x="486" y="166" width="64" height="34" rx="8" fill="#fbece4" stroke="#c2521e" stroke-width="2"/>
+          <text x="518" y="188" font-size="14" text-anchor="middle" fill="#c2521e" font-weight="700">类别：猫</text>
+        </g>
+      </svg>
+      <div class="caption">ViT 的工作流：图像 → patch 序列 → Transformer 编码器 → 分类（Dosovitskiy et al., ICLR 2021）</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NEW C CNN vs ViT ========== -->
+<section class="slide" data-layout="table">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">46</span></div>
+  <h2 class="slide-title">CNN vs. ViT：两种视觉范式</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>对比维度</th><th>CNN（ResNet）</th><th>ViT / Swin</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>归纳偏置</td><td><strong>强</strong>：局部性 + 平移等变内置</td><td><strong>弱</strong>：主要靠数据自己学</td></tr>
+        <tr><td>全局建模</td><td>堆层间接扩大感受野</td><td>一层注意力直达任意位置</td></tr>
+        <tr><td>数据需求</td><td>小数据友好</td><td>渴求大规模预训练</td></tr>
+        <tr><td>特征结构</td><td>金字塔（多尺度）</td><td>等宽柱状（Swin 兼顾多尺度）</td></tr>
+        <tr><td>代表模型</td><td>VGG、ResNet</td><td><strong>ViT、Swin</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="keypoint"><div>ViT 表明：在足够规模的预训练下，较弱的视觉归纳偏置也能取得很强结果；在小数据或密集预测中，CNN 与层级式 Transformer 仍各有优势。</div></div>
+</section>
+
+<!-- ========== 40 烹饪比喻 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">47</span></div>
+  <h2 class="slide-title">端到端学习把全部环节放在一起优化</h2>
+  <div class="slide-body" style="display:flex;flex-direction:column;gap:26px;justify-content:center">
+    <div style="display:flex;align-items:center;gap:18px">
+      <div style="flex:none;width:176px">
+        <div style="font-size:19px;font-weight:700;color:var(--ink)">传统烹饪</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:6px;line-height:1.5">去壳 → 腌制 → 裹粉 → 油炸<br>每步独立设计，无法联合优化</div>
+      </div>
+      <div class="cooking-strip">
+        <img src="assets/lecture2/s062_img79.jpeg" alt="去壳鲜虾" style="height:112px;border-radius:8px;border:1px solid var(--line)">
+        <img src="assets/lecture2/s062_img80.jpeg" alt="腌制调味" style="height:112px;border-radius:8px;border:1px solid var(--line)">
+        <img src="assets/lecture2/s062_img81.jpeg" alt="裹粉" style="height:112px;border-radius:8px;border:1px solid var(--line)">
+        <img src="assets/lecture2/s062_img82.jpeg" alt="油炸" style="height:112px;border-radius:8px;border:1px solid var(--line)">
+        <img src="assets/lecture2/s062_img83.jpeg" alt="摆盘成品" style="height:112px;border-radius:8px;border:1px solid var(--line)">
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:18px">
+      <div style="flex:none;width:176px">
+        <div style="font-size:19px;font-weight:700;color:var(--accent)">端到端烹饪</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:6px;line-height:1.5">原料进、成品出<br>全流程一台机器联合完成</div>
+      </div>
+      <div class="cooking-strip">
+        <img src="assets/lecture2/s067_img84.gif" alt="端到端烹饪：原料装填" style="height:112px;border-radius:8px;border:1px solid var(--line)">
+        <img src="assets/lecture2/s067_img85.gif" alt="端到端烹饪：传送" style="height:112px;border-radius:8px;border:1px solid var(--line)">
+        <img src="assets/lecture2/s067_img86.gif" alt="端到端烹饪：发射" style="height:112px;border-radius:8px;border:1px solid var(--line)">
+        <img src="assets/lecture2/s067_img87.gif" alt="端到端烹饪：过火" style="height:112px;border-radius:8px;border:1px solid var(--line)">
+        <img src="assets/lecture2/s067_img88.gif" alt="端到端烹饪：精准落盘" style="height:112px;border-radius:8px;border:1px solid var(--line)">
+      </div>
+    </div>
+  </div>
+  <div class="keypoint"><div>端到端训练会<strong>联合优化所有环节，并直接对齐最终目标</strong>；传统流水线则逐模块独立设计。</div></div>
+  <div class="src-note" style="right:170px">素材：Naiyan Wang「Traditional Cooking vs. End-to-End Cooking」演示</div>
+</section>
+
+<!-- ========== 41 金句 y = f(x) ========== -->
+<section class="slide" data-layout="statement">
+  <div class="statement-text">深度学习把许多任务写成同一个问题：<br>用可训练的网络逼近 <span class="em">y = f(x)</span>。</div>
+  <div class="statement-sub">端到端学习把特征提取和任务目标放在一起优化</div>
+</section>
+
+<!-- ========== 42 涌现 ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">49</span></div>
+  <h2 class="slide-title">“涌现”描述了什么？为什么仍有争议？</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>一些离散评分任务中，较小模型接近随机水平，较大模型的得分明显上升</li>
+        <li>Wei et al.（2022）把这种随规模出现的非连续表现称为<strong>涌现能力</strong></li>
+        <li>后续研究指出，准确率等非连续指标可能放大“突然出现”的观感</li>
+        <li>换用连续指标或更细的模型尺度后，部分能力会呈现更平滑的变化</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture2/x_emergence.png" alt="八个大模型任务上的涌现现象曲线">
+      <div class="caption">8 个 few-shot 任务上的涌现现象（Wei et al., TMLR 2022）</div>
+    </div>
+  </div>
+  <div class="keypoint warm"><div>更稳妥的理解是：涌现描述了某些<strong>评测结果随规模的变化</strong>，并不等于已经证明模型内部发生了明确的相变。</div></div>
+  <div class="src-note" style="right:170px">依据：Wei et al., TMLR 2022；Schaeffer et al., NeurIPS 2023</div>
+</section>
+
+<!-- ========== 研究案例：YOLO-World ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">51</span></div>
+  <div class="kicker">Research Case · HUST-VL</div>
+  <h2 class="slide-title">案例：检测器为什么只能找训练时规定的类别？</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">封闭词表检测器</div>
+      <ul class="bullets">
+        <li>普通 YOLO 的类别集合在训练时固定，例如 COCO 的 80 类</li>
+        <li>换成新的类别名称，分类头没有对应输出</li>
+        <li>重新收集边界框标注并训练，成本高、响应慢</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">YOLO-World 的改法</div>
+      <ul class="bullets">
+        <li>把类别文本作为输入，用图文预训练学习区域与词语的对应关系</li>
+        <li>推理时给出文本提示，检测提示中指定的对象类别</li>
+        <li>论文在 LVIS 报告 35.4 AP、V100 上 52 FPS，兼顾开放词汇能力与实时性</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint"><div>“开放词汇”不是模型自动发现所有未知物体；它仍需要文本提示。真正改变的是类别不再被固定分类头锁死。</div></div>
+  <div class="src-note" style="right:170px">Cheng et al., YOLO-World, CVPR 2024 · github.com/AILab-CVC/YOLO-World</div>
+</section>
+
+<!-- ========== 43 SAM ========== -->
+<section class="slide flip" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">50</span></div>
+  <h2 class="slide-title">视觉基础模型：Segment Anything（2023）</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>Meta AI 的分割基础模型（SAM）：<strong>可提示分割</strong></li>
+        <li>点、框、掩码、文本均可作为提示（prompt）</li>
+        <li>数据引擎自举：1100 万图像、11 亿掩码（SA-1B）</li>
+        <li>统一的 Transformer 框架，强大的零样本泛化</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture2/s073_img95.png" alt="SAM 架构：图像编码器 + 提示编码器 + 掩码解码器">
+      <div class="caption">Kirillov et al., ICCV 2023 · segment-anything.com</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 44 Depth Anything ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">51</span></div>
+  <h2 class="slide-title">Depth Anything：单目深度估计基础模型</h2>
+  <div class="full-media">
+    <img src="assets/lecture2/s074_img97.png" alt="Depth Anything 在任意场景上的深度估计结果">
+  </div>
+  <div class="caption">任意场景零样本深度估计（上：输入图像；下：预测深度图）——「Anything」成为基础模型的命名范式。</div>
+  <div class="src-note" style="right:112px">图源：Yang et al., Depth Anything, CVPR 2024 / depth-anything.github.io</div>
+</section>
+
+<!-- ========== NEW 视觉基础模型新进展（2024） ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">52</span></div>
+  <div class="kicker">2024 · Foundation Models</div>
+  <h2 class="slide-title">视觉基础模型的新进展</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">SAM 2：从图像走向视频（2024.7）</div>
+      <ul class="bullets">
+        <li>Meta 发布，统一<strong>图像与视频</strong>的可提示分割</li>
+        <li>记忆注意力机制跨帧跟踪目标，支持实时视频分割</li>
+        <li>配套 SA-V 数据集：约 5.1 万段视频、64 万+ 掩码轨迹</li>
+        <li>交互分割速度数倍于 SAM，标注成本进一步下降</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">Depth Anything V2（NeurIPS 2024）</div>
+      <ul class="bullets">
+        <li>抛弃人工标注真实图像，改用<strong>合成图像</strong>保证细节精度</li>
+        <li>教师-学生范式：大教师模型为海量真实图像生成<strong>伪标签</strong>，小模型蒸馏学习</li>
+        <li>细节更锐利，小模型比 V1 快 10 倍以上</li>
+        <li>「合成数据 + 伪标签」成为数据引擎新范式</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint"><div>基础模型的趋势：从<strong>单张图像</strong>走向<strong>视频与开放世界</strong>，从人工标注走向<strong>自助数据引擎</strong>。</div></div>
+</section>
+
+<!-- ========== 45 人工智能三要素 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">53</span></div>
+  <h2 class="slide-title">人工智能三要素与规模法则</h2>
+  <div class="slide-body">
+    <p class="lead"><span class="tag">数据</span> <span class="tag">算法</span> <span class="tag">算力</span> 共同影响训练结果；增加其中一项并不保证所有任务都同步改善。</p>
+    <ul class="bullets">
+      <li>数据量之外，还要考虑质量、覆盖范围、重复样本、版权与隐私</li>
+      <li>Scaling Law：在一定条件下，预训练损失随参数、数据和计算量近似按幂律下降</li>
+      <li>规模扩大能带来较稳定的平均改进，但具体能力可能受数据构成、后训练和评测方式影响</li>
+      <li>ChatGPT 还依赖指令数据、人类偏好反馈和部署系统，不是单纯扩大模型</li>
+    </ul>
+    <div class="keypoint warm"><div><strong>数据墙</strong>：高质量公开文本或在 2020 年代末耗尽（Villalobos et al., ICML 2024）——合成数据与推理时计算成为新的增长引擎。</div></div>
+  </div>
+</section>
+
+<!-- ========== 46 ChatGPT ========== -->
+<section class="slide dense" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">54</span></div>
+  <h2 class="slide-title">ChatGPT：规模放大后出现新的对话能力（2022）</h2>
+  <div class="slide-body">
+    <ul class="bullets">
+      <li>GPT = <strong>Generative Pre-trained Transformer</strong>（生成式预训练变换模型）</li>
+      <li>本质上是一个由参数表示的深度神经网络大模型 + 对话式 AI 系统</li>
+      <li>发布 2 个月月活跃用户破 1 亿——史上增长最快的消费者应用
+        <ul>
+          <li>对比：TikTok 用了 9 个月，Instagram 用了 30 个月</li>
+        </ul>
+      </li>
+      <li>把语言模型包装为自然的多轮对话界面，并通过人工反馈改善指令遵循</li>
+      <li>能够完成问答、改写、摘要、代码生成等多种文本任务，但输出仍由概率生成</li>
+      <li>参数中的知识来自训练数据；若没有检索或工具接入，模型不会自动获得最新事实</li>
+      <li>ChatGPT 的影响来自预训练、指令微调、偏好对齐与产品交互的共同作用</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 47 GPT 系列演进 ========== -->
+<section class="slide" data-layout="table">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">55</span></div>
+  <h2 class="slide-title">从 GPT-1 到 ChatGPT：同一架构，持续放大</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>模型</th><th class="num">年份</th><th class="num">参数量</th><th>关键改进</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>GPT-1</td><td class="num">2018</td><td class="num">1.17 亿</td><td>12 层 Transformer；预训练 + 微调范式</td></tr>
+        <tr><td>GPT-2</td><td class="num">2019</td><td class="num">15 亿</td><td>48 层；零样本（zero-shot）能力初显</td></tr>
+        <tr><td>GPT-3</td><td class="num">2020</td><td class="num">1750 亿</td><td>96 层；上下文学习（in-context learning）</td></tr>
+        <tr><td><strong>ChatGPT</strong></td><td class="num">2022</td><td class="num">—</td><td><strong>RLHF</strong>：基于人类反馈的强化学习对齐人类意图</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="caption" style="margin-top:14px">GPT 系列延续解码器式 Transformer；模型规模、训练数据和后训练方法都在变化。此后出现了 Claude、Gemini、Qwen、Llama、DeepSeek、Kimi 等不同技术路线。</div>
+</section>
+
+<!-- ========== ChatGPT 的训练阶段 ========== -->
+<section class="slide dense" data-layout="table">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">56</span></div>
+  <h2 class="slide-title">从语言模型到对话助手，需要哪些训练阶段？</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>阶段</th><th>训练信号</th><th>主要作用</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>预训练</strong></td><td>海量文本中的下一个词元</td><td>学习语言规律、事实关联和通用模式</td></tr>
+        <tr><td><strong>监督式指令微调</strong></td><td>人工编写的“指令—回答”示范</td><td>让模型按任务要求作答，而不只是续写文本</td></tr>
+        <tr><td><strong>偏好对齐</strong></td><td>人类对多个回答的比较排序</td><td>训练偏好或奖励模型，并用 RLHF 等方法改善有用性与安全性</td></tr>
+        <tr><td><strong>部署系统</strong></td><td>系统提示、检索、工具与安全策略</td><td>补充外部知识和行动能力；这些能力不全来自模型参数</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="keypoint warm"><div>“会续写”与“会按要求回答”不是同一能力。模型规模增大本身并不能保证指令遵循，也不能消除事实错误。</div></div>
+  <div class="src-note" style="right:170px">依据：Ouyang et al., NeurIPS 2022；Lewis et al., NeurIPS 2020；Yao et al., ICLR 2023</div>
+</section>
+
+<!-- ========== NEW 推理模型（2024–2025） ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">56</span></div>
+  <div class="kicker">2024–2025 · Reasoning</div>
+  <h2 class="slide-title">推理模型：用「慢思考」换智能</h2>
+  <div class="slide-body">
+    <p class="lead">预训练规模之外开辟新的增长维度——<strong>推理时计算（test-time compute）</strong>：让模型花更长时间「想」，再回答。</p>
+    <ul class="bullets">
+      <li><strong>OpenAI o1</strong>（2024.9）：强化学习训练思维链，数学竞赛（AIME）与科学问答（GPQA）成绩大幅跃升</li>
+      <li><strong>DeepSeek-R1</strong>（2025.1）：R1-Zero 证明<strong>纯强化学习</strong>（不经监督微调）即可涌现自我验证、反思等推理行为；开源权重，2025 年 9 月登上《Nature》</li>
+      <li><strong>OpenAI o3</strong>（2025.4）等后续模型：推理范式结合工具调用，直接面向智能体任务</li>
+      <li>思维链越长往往越准——「回答问题时花多少算力」成为新的 scaling 轴</li>
+    </ul>
+    <div class="keypoint"><div>Scaling 的新维度：从<strong>训练时计算</strong>扩展到<strong>推理时计算</strong>——模型性能的引擎从「预训练有多大」变成「还会想多久」。</div></div>
+  </div>
+</section>
+
+<!-- ========== NEW 国产开源大模型（2024–2025） ========== -->
+<section class="slide" data-layout="table">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">57</span></div>
+  <h2 class="slide-title">国产开源大模型的崛起（2024–2025）</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>模型</th><th class="num">发布时间</th><th>亮点</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>DeepSeek-V3</strong></td><td class="num">2024.12</td><td>671B MoE（每词仅激活 37B）；MLA + 无辅助损失负载均衡；训练仅用 278.8 万 H800 GPU 小时</td></tr>
+        <tr><td><strong>DeepSeek-R1</strong></td><td class="num">2025.01</td><td>开源推理模型，性能对标 o1；极致成本引发全球「DeepSeek 时刻」</td></tr>
+        <tr><td><strong>Qwen3</strong></td><td class="num">2025.04</td><td>旗舰 235B-A22B MoE；思考 / 非思考混合模式；全尺寸开源</td></tr>
+        <tr><td><strong>Kimi K2</strong></td><td class="num">2025.07</td><td>1T 参数 MoE 开源；面向智能体（agentic）任务专项优化</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="caption" style="margin-top:14px">开源权重 + 极致工程效率：2025 年中外大模型差距迅速收窄，开源生态成为中国模型的主战场。</div>
+</section>
+
+<!-- ========== 48 Transformer ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">58</span></div>
+  <h2 class="slide-title">Transformer：统一语言、视觉与多模态的架构（2017）</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>《Attention Is All You Need》：抛弃循环与卷积，<strong>只用注意力</strong></li>
+        <li>自注意力：用 Q、K、V 计算序列内部任意位置间的依赖</li>
+        <li>多头注意力并行捕捉多种关系；天然适配并行计算</li>
+        <li>高度可扩展 → 成为语言、视觉、多模态大模型的统一基座</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture2/s096_img145.png" alt="缩放点积注意力与多头注意力结构">
+      <div class="caption">Vaswani et al., NeurIPS 2017：缩放点积注意力（左）与多头注意力（右）</div>
+    </div>
+  </div>
+  <div class="keypoint"><div>注意力让序列中任意两个位置<strong>直接交互</strong>，并行度高、可扩展性强——这是 Transformer 统一各模态的根本原因。</div></div>
+</section>
+
+<!-- ========== 扩散模型机制 ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">60</span></div>
+  <h2 class="slide-title">扩散模型如何从噪声生成图像？</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">训练时</div>
+      <ul class="bullets">
+        <li>逐步向真实图像加入高斯噪声</li>
+        <li>随机选择一个噪声强度，让网络预测所加噪声或等价目标</li>
+        <li>通过大量样本学习不同噪声水平下的去噪方向</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">生成时</div>
+      <ul class="bullets">
+        <li>从随机噪声开始，多步反向去噪</li>
+        <li>文本编码通过条件机制影响每一步的生成内容</li>
+        <li>Latent Diffusion 在压缩后的潜空间去噪，再由解码器还原图像</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint"><div>扩散模型不是一次“画出”图像，而是学习一个<strong>逐步去噪的生成过程</strong>；潜空间计算降低了高分辨率生成的成本。</div></div>
+  <div class="src-note" style="right:170px">依据：Ho et al., NeurIPS 2020；Rombach et al., CVPR 2022</div>
+</section>
+
+<!-- ========== 49 Stable Diffusion ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">59</span></div>
+  <h2 class="slide-title">AIGC 浪潮：Stable Diffusion 文生图</h2>
+  <div class="full-media">
+    <img src="assets/lecture2/s083_img122.png" alt="Stable Diffusion 的逐步去噪生成过程">
+  </div>
+  <div class="caption">文本编码器理解提示词，UNet 在潜空间逐步去噪（约 50 步），解码器还原成图像。Rombach et al., CVPR 2022；Midjourney 一年内实现千万用户与亿美元营收，随后 Sora、可灵、即梦等视频生成模型相继爆发。</div>
+</section>
+
+<!-- ========== NEW 视频生成与多模态统一（2024–2025） ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">60</span></div>
+  <div class="kicker">2024–2025 · Generation</div>
+  <h2 class="slide-title">视频生成与多模态统一</h2>
+  <div class="slide-body">
+    <ul class="bullets">
+      <li><strong>Sora</strong>（OpenAI，2024.2 演示、2024.12 开放）：文生视频即「世界模拟器」；<strong>Sora 2</strong>（2025.9）实现音画同步，物理一致性大幅提升</li>
+      <li>视频模型集体爆发：<strong>可灵</strong>（快手，2024.6）、即梦、Vidu；Google <strong>Veo 3</strong>（2025.5）首个原生生成音效对白的主流模型</li>
+      <li><strong>GPT-4o</strong>（2024.5，「o」= omni）：文本、图像、音频由同一模型端到端处理；2025 年原生图像生成引发全民创作潮</li>
+      <li>趋势：<strong>理解与生成统一于同一架构</strong>，「全模态」成为旗舰模型标配</li>
+    </ul>
+    <div class="keypoint warm"><div>视频生成 ≠ 真正理解物理世界：物体永存、因果与守恒仍会出错——逼真的生成是<strong>表象</strong>，世界模型才是<strong>目标</strong>。</div></div>
+  </div>
+</section>
+
+<!-- ========== 50 智能体 ========== -->
+<section class="slide flip" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">61</span></div>
+  <h2 class="slide-title">从大模型到智能体（Agentic AI）</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li><strong>AutoGPT</strong>（2023）：把 LLM 的「思考」串联起来，自主拆解并完成目标</li>
+        <li><strong>Generative Agents</strong>（Stanford）：25 个智能体在小镇中模拟可信的人类行为</li>
+        <li><strong>Agentic AI</strong>：Manus、Claude Code、各家 Deep Research</li>
+        <li>大模型从「聊天」走向「做事」</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture2/s090_img137.png" alt="Generative Agents：模拟人类行为的小镇沙盒">
+      <div class="caption">Generative Agents（Park et al., 2023）：25 个智能体的交互沙盒小镇</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 51 VLM / VLA ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">62</span></div>
+  <h2 class="slide-title">走向具身：VLM → VLA</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li><strong>VLM</strong>（如 LLaVA）：视觉编码器 + 投影层 + 大语言模型，看图对话</li>
+        <li><strong>VLA</strong>（视觉-语言-动作模型）：让模型直接输出动作</li>
+        <li>Physical Intelligence <strong>π₀</strong>：预训练 VLM + 动作专家模块</li>
+        <li>互联网规模预训练 + 机器人数据微调 → 叠衣、收纳等灵巧操作</li>
+        <li>模型把视觉输入、语言指令和动作输出放在同一训练过程里</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="assets/lecture2/s093_img140.png" alt="π0 视觉-语言-动作模型框架">
+      <div class="caption">Physical Intelligence π₀：VLM 预训练 + Action Expert（physicalintelligence.company）</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NEW VLA 新进展（2024–2025） ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">63</span></div>
+  <div class="kicker">2024–2025 · Embodied AI</div>
+  <h2 class="slide-title">VLA 新进展：开源、泛化与人形机器人</h2>
+  <div class="slide-body">
+    <ul class="bullets">
+      <li><strong>OpenVLA</strong>（Stanford 等，CoRL 2024）：7B 开源 VLA，基于 Open X-Embodiment 近百万条机器人轨迹训练</li>
+      <li><strong>π₀.₅</strong>（Physical Intelligence，2025.4）：面向开放世界泛化，在从未见过的新家庭中完成长程家务任务</li>
+      <li><strong>GR00T N1</strong>（NVIDIA，2025.3）：开源人形机器人基础模型，「慢系统理解 + 快系统动作」双系统架构</li>
+      <li>格局：<strong>VLM 预训练 + 机器人数据后训练</strong>成为标准范式，开源生态快速成型</li>
+    </ul>
+    <div class="keypoint"><div>VLA 的竞争焦点已从「能不能做」转向<strong>数据规模与开放环境泛化</strong>——这正是 Senna 等工作的赛道。</div></div>
+  </div>
+</section>
+
+<!-- ========== 52 Senna ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">64</span></div>
+  <div class="kicker">Research Case · HUST-VL</div>
+  <h2 class="slide-title">案例：视觉语言模型怎样帮助端到端驾驶？</h2>
+  <div class="full-media">
+    <img src="assets/lecture2/s094_img141.png" alt="Senna：面向规划的驾驶场景理解与端到端规划模型">
+  </div>
+  <div class="caption">Senna-VLM 用面向规划的问题理解驾驶场景，Senna-E2E 根据视觉输入和规划知识预测车辆轨迹。串讲时请区分：语言回答是否合理，与车辆轨迹是否安全，是两个不同的评价问题。</div>
+  <div class="src-note" style="right:170px">Jiang et al., IJCV 2026 · github.com/hustvl/Senna</div>
+</section>
+
+<!-- ========== 能力边界与外部工具 ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">68</span></div>
+  <h2 class="slide-title">大模型会生成答案，不等于答案已经被验证</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">常见限制</div>
+      <ul class="bullets">
+        <li><strong>幻觉</strong>：生成流畅但错误或不存在的事实与引用</li>
+        <li>知识有时间边界，长尾事实和精确数字不稳定</li>
+        <li>提示方式、上下文和采样会影响输出</li>
+        <li>视觉模型也会受分布变化、遮挡和对抗性输入影响</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">常用补救方法</div>
+      <ul class="bullets">
+        <li><strong>检索增强生成（RAG）</strong>：回答前查找外部资料并提供依据</li>
+        <li><strong>工具调用</strong>：用计算器、代码、数据库或传感器执行可检查的操作</li>
+        <li>对高风险结论保留来源、复核步骤和人工确认</li>
+        <li>在目标场景上做独立测试，持续记录失败模式</li>
+      </ul>
+    </div>
+  </div>
+  <div class="keypoint warm"><div>检索和工具能增加可用证据与可执行能力，但<strong>不能自动保证正确</strong>；医疗、法律、安全控制等场景必须保留独立验证。</div></div>
+  <div class="src-note" style="right:170px">依据：Lin et al., TruthfulQA, ACL 2022；Lewis et al., RAG, NeurIPS 2020；Yao et al., ReAct, ICLR 2023</div>
+</section>
+
+<!-- ========== 本章小结 05 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 大模型时代</span><span class="meta-page">65</span></div>
+  <div class="kicker">Chapter Summary</div>
+  <h2 class="slide-title">本章小结：大模型时代</h2>
+  <div class="card-grid" data-cols="2">
+    <div class="mini-card"><div class="mc-no">01</div><div class="mc-title">端到端 + 规模法则</div><p>数据 × 算法 × 算力同时做大，<strong>Scaling Law</strong> 让性能呈幂律提升；数据墙争议下，<strong>推理时计算</strong>成为新维度。</p></div>
+    <div class="mini-card"><div class="mc-no">02</div><div class="mc-title">涌现仍有测量争议</div><p>部分任务的离散指标随规模出现陡升，但连续指标可能更平滑；“涌现”是<strong>评测现象</strong>，并非已确认的相变机制。</p></div>
+    <div class="mini-card"><div class="mc-no">03</div><div class="mc-title">Transformer 与后训练</div><p>自注意力让位置间直接交换信息；<strong>ViT</strong> 将其用于图像。对话助手还需要指令微调和<strong>偏好对齐</strong>，不只是扩大预训练模型。</p></div>
+    <div class="mini-card"><div class="mc-no">04</div><div class="mc-title">生成、行动与可靠性</div><p>扩散模型逐步去噪生成图像；智能体和 VLA 接入外部行动。检索、工具和人工复核用于缓解幻觉，但不能替代独立验证。</p></div>
+  </div>
+</section>
+
+<!-- ========== 53 金句：大道至简 ========== -->
+<section class="slide" data-layout="statement">
+  <div class="statement-text">「被编程为预测下一个词的语言模型，并非某些人以为的巧合；<br>动物包括我们，只是天生试图生存与繁衍，<br>却产生了<span class="em">惊人的复杂与美丽</span>。」</div>
+  <div class="statement-sub">—— Sam Altman，2023.3 · 大道至简：简单的目标 + 巨大的规模 → 智能涌现</div>
+</section>
+
+<!-- ========== 全讲总结 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 总结</span><span class="meta-page">67</span></div>
+  <div class="kicker">Lecture Summary</div>
+  <h2 class="slide-title">关掉课件，你能解释模型为什么有效吗？</h2>
+  <div class="slide-body">
+    <ul class="bullets">
+      <li>一次训练迭代包含哪些计算？反向传播和优化器分别负责什么？</li>
+      <li>卷积的局部连接和权重共享为什么适合图像？它们同时带来了什么限制？</li>
+      <li>残差连接为什么能让更深的网络更容易训练？请不要只回答“防止梯度消失”。</li>
+      <li>分类、检测和分割的输出有什么差别？同一个骨干网络怎样适配这些任务？</li>
+      <li>自注意力如何汇聚信息？ViT 为什么需要图像块和位置编码？</li>
+      <li>预训练、指令微调、偏好对齐、检索和工具调用各自增加了什么能力，又不能保证什么？</li>
+    </ul>
+    <div class="keypoint warm"><div>如果解释中出现“模型自己理解了”“规模大了就涌现”这类跳步，请回到输入、训练信号、计算过程和评测指标，把中间环节补出来。</div></div>
+  </div>
+</section>
+
+<!-- ========== 参考文献（上） ========== -->
+<section class="slide refs dense" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 参考文献</span><span class="meta-page">68</span></div>
+  <div class="kicker">References</div>
+  <h2 class="slide-title">参考文献（上）：历史脉络与卷积网络</h2>
+  <div class="slide-body">
+    <div style="font-size:18px;font-weight:700;color:var(--accent);margin-bottom:8px">一、历史脉络与奠基</div>
+    <ol class="ref-list cols-2" style="font-size:14.5px;line-height:1.62">
+      <li><span class="ref-title">A Logical Calculus of the Ideas Immanent in Nervous Activity</span>. <span class="ref-venue">McCulloch &amp; Pitts. Bulletin of Mathematical Biophysics, 1943.</span></li>
+      <li><span class="ref-title">The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain</span>. <span class="ref-venue">Rosenblatt. Psychological Review, 1958.</span></li>
+      <li><span class="ref-title">Neocognitron: A Self-Organizing Neural Network Model for a Mechanism of Pattern Recognition Unaffected by Shift in Position</span>. <span class="ref-venue">Fukushima. Biological Cybernetics, 1980.</span></li>
+      <li><span class="ref-title">Learning Representations by Back-Propagating Errors</span>. <span class="ref-venue">Rumelhart, Hinton &amp; Williams. Nature, 1986.</span></li>
+      <li><span class="ref-title">Gradient-Based Learning Applied to Document Recognition (LeNet-5)</span>. <span class="ref-venue">LeCun, Bottou, Bengio &amp; Haffner. Proceedings of the IEEE, 1998.</span></li>
+      <li><span class="ref-title">Reducing the Dimensionality of Data with Neural Networks</span>. <span class="ref-venue">Hinton &amp; Salakhutdinov. Science, 2006.</span></li>
+      <li><span class="ref-title">ImageNet: A Large-Scale Hierarchical Image Database</span>. <span class="ref-venue">Deng, Dong, Socher, Li, Li &amp; Fei-Fei. CVPR 2009.</span></li>
+      <li><span class="ref-title">Context-Dependent Pre-Trained Deep Neural Networks for Large-Vocabulary Speech Recognition</span>. <span class="ref-venue">Dahl, Yu, Deng &amp; Acero. IEEE TASLP, 2012.</span></li>
+      <li><span class="ref-title">ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)</span>. <span class="ref-venue">Krizhevsky, Sutskever &amp; Hinton. NeurIPS 2012.</span></li>
+    </ol>
+    <div style="font-size:18px;font-weight:700;color:var(--accent);margin:14px 0 8px">二、卷积网络与深度革命</div>
+    <ol class="ref-list cols-2" start="10" style="font-size:14.5px;line-height:1.62">
+      <li><span class="ref-title">Understanding the Difficulty of Training Deep Feedforward Neural Networks (Xavier 初始化)</span>. <span class="ref-venue">Glorot &amp; Bengio. AISTATS 2010.</span></li>
+      <li><span class="ref-title">Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)</span>. <span class="ref-venue">Simonyan &amp; Zisserman. ICLR 2015.</span></li>
+      <li><span class="ref-title">Going Deeper with Convolutions (GoogLeNet)</span>. <span class="ref-venue">Szegedy et al. CVPR 2015.</span></li>
+      <li><span class="ref-title">Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift</span>. <span class="ref-venue">Ioffe &amp; Szegedy. ICML 2015.</span></li>
+      <li><span class="ref-title">Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification (PReLU)</span>. <span class="ref-venue">He, Zhang, Ren &amp; Sun. ICCV 2015.</span></li>
+      <li><span class="ref-title">Deeply-Supervised Nets (DSN)</span>. <span class="ref-venue">Lee, Xie, Gallagher, Zhang &amp; Tu. AISTATS 2015.</span></li>
+      <li><span class="ref-title">Deep Residual Learning for Image Recognition (ResNet)</span>. <span class="ref-venue">He, Zhang, Ren &amp; Sun. CVPR 2016.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========== 参考文献（下） ========== -->
+<section class="slide refs dense" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 参考文献</span><span class="meta-page">69</span></div>
+  <div class="kicker">References</div>
+  <h2 class="slide-title">参考文献（下）：视觉应用与大模型时代</h2>
+  <div class="slide-body">
+    <div style="font-size:18px;font-weight:700;color:var(--accent);margin-bottom:8px">三、视觉应用与超越视觉</div>
+    <ol class="ref-list cols-2" start="17" style="font-size:13.8px;line-height:1.50">
+      <li><span class="ref-title">Mitosis Detection in Breast Cancer Histology Images with Deep Neural Networks</span>. <span class="ref-venue">Cireşan, Giusti, Gambardella &amp; Schmidhuber. MICCAI 2013.</span></li>
+      <li><span class="ref-title">Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation (R-CNN)</span>. <span class="ref-venue">Girshick, Donahue, Darrell &amp; Malik. CVPR 2014.</span></li>
+      <li><span class="ref-title">Deep Learning Face Representation by Joint Identification-Verification (DeepID2)</span>. <span class="ref-venue">Sun, Chen, Wang &amp; Tang. NeurIPS 2014.</span></li>
+      <li><span class="ref-title">Fully Convolutional Networks for Semantic Segmentation (FCN)</span>. <span class="ref-venue">Long, Shelhamer &amp; Darrell. CVPR 2015.</span></li>
+      <li><span class="ref-title">Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks</span>. <span class="ref-venue">Ren, He, Girshick &amp; Sun. NeurIPS 2015.</span></li>
+      <li><span class="ref-title">Mastering the Game of Go with Deep Neural Networks and Tree Search (AlphaGo)</span>. <span class="ref-venue">Silver et al. Nature, 2016.</span></li>
+      <li><span class="ref-title">An End-to-End Trainable Neural Network for Image-Based Sequence Recognition and Its Application to Scene Text Recognition (CRNN)</span>. <span class="ref-venue">Shi, Bai &amp; Yao. IEEE TPAMI, 2017.</span></li>
+      <li><span class="ref-title">Unpaired Image-to-Image Translation Using Cycle-Consistent Adversarial Networks (CycleGAN)</span>. <span class="ref-venue">Zhu, Park, Isola &amp; Efros. ICCV 2017.</span></li>
+    </ol>
+    <div style="font-size:18px;font-weight:700;color:var(--accent);margin:14px 0 8px">四、大模型时代</div>
+    <ol class="ref-list cols-2" start="25" style="font-size:13.8px;line-height:1.50">
+      <li><span class="ref-title">Attention Is All You Need (Transformer)</span>. <span class="ref-venue">Vaswani et al. NeurIPS 2017.</span></li>
+      <li><span class="ref-title">Language Models Are Few-Shot Learners (GPT-3)</span>. <span class="ref-venue">Brown et al. NeurIPS 2020.</span></li>
+      <li><span class="ref-title">Training Language Models to Follow Instructions with Human Feedback (InstructGPT / RLHF)</span>. <span class="ref-venue">Ouyang et al. NeurIPS 2022.</span></li>
+      <li><span class="ref-title">Emergent Abilities of Large Language Models</span>. <span class="ref-venue">Wei et al. TMLR 2022.</span></li>
+      <li><span class="ref-title">High-Resolution Image Synthesis with Latent Diffusion Models (Stable Diffusion)</span>. <span class="ref-venue">Rombach, Blattmann, Lorenz, Esser &amp; Ommer. CVPR 2022.</span></li>
+      <li><span class="ref-title">Segment Anything (SAM)</span>. <span class="ref-venue">Kirillov et al. ICCV 2023.</span></li>
+      <li><span class="ref-title">Generative Agents: Interactive Simulacra of Human Behavior</span>. <span class="ref-venue">Park, O'Brien, Cai, Morris, Liang &amp; Bernstein. UIST 2023.</span></li>
+      <li><span class="ref-title">Depth Anything: Unleashing the Power of Large-Scale Unlabeled Data</span>. <span class="ref-venue">Yang, Kang, Huang, Xu, Feng &amp; Zhao. CVPR 2024.</span></li>
+      <li><span class="ref-title">π₀: A Vision-Language-Action Flow Model for General Robot Control</span>. <span class="ref-venue">Black et al. arXiv:2410.24164, 2024.</span></li>
+      <li><span class="ref-title">Senna: Bridging Large Vision-Language Models and End-to-End Autonomous Driving</span>. <span class="ref-venue">Jiang et al. IJCV 2026.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========== 参考文献（续） ========== -->
+<section class="slide refs dense" data-layout="bullets">
+  <div class="slide-meta"><span>第 2 讲 · 参考文献</span><span class="meta-page">70</span></div>
+  <div class="kicker">References</div>
+  <h2 class="slide-title">参考文献（续）：视觉 Transformer 与最新进展</h2>
+  <div class="slide-body">
+    <div style="font-size:18px;font-weight:700;color:var(--accent);margin-bottom:8px">五、视觉 Transformer（2021）</div>
+    <ol class="ref-list cols-2" start="35" style="font-size:14.5px;line-height:1.62">
+      <li><span class="ref-title">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT)</span>. <span class="ref-venue">Dosovitskiy et al. ICLR 2021.</span></li>
+      <li><span class="ref-title">Swin Transformer: Hierarchical Vision Transformer Using Shifted Windows</span>. <span class="ref-venue">Liu, Lin, Cao, Hu, Wei, Zhang, Lin &amp; Guo. ICCV 2021.</span></li>
+    </ol>
+    <div style="font-size:18px;font-weight:700;color:var(--accent);margin:14px 0 8px">六、最新进展（2024–2026）</div>
+    <ol class="ref-list cols-2" start="37" style="font-size:14.5px;line-height:1.62">
+      <li><span class="ref-title">SAM 2: Segment Anything in Images and Videos</span>. <span class="ref-venue">Ravi et al. arXiv:2408.00714, 2024.</span></li>
+      <li><span class="ref-title">Depth Anything V2</span>. <span class="ref-venue">Yang, Kang, Huang, Zhao, Xu, Feng &amp; Zhao. NeurIPS 2024.</span></li>
+      <li><span class="ref-title">Video Generation Models as World Simulators (Sora)</span>. <span class="ref-venue">Brooks et al. OpenAI Technical Report, 2024.</span></li>
+      <li><span class="ref-title">DeepSeek-V3 Technical Report</span>. <span class="ref-venue">DeepSeek-AI (Liu et al.). arXiv:2412.19437, 2024.</span></li>
+      <li><span class="ref-title">DeepSeek-R1 Incentivizes Reasoning in LLMs Through Reinforcement Learning</span>. <span class="ref-venue">DeepSeek-AI (Guo et al.). Nature 645:633–638, 2025.</span></li>
+      <li><span class="ref-title">Qwen3 Technical Report</span>. <span class="ref-venue">Qwen Team (Yang et al.). arXiv:2505.09388, 2025.</span></li>
+      <li><span class="ref-title">Kimi K2: Open Agentic Intelligence</span>. <span class="ref-venue">Kimi Team. arXiv:2507.20534, 2025.</span></li>
+      <li><span class="ref-title">OpenVLA: An Open-Source Vision-Language-Action Model</span>. <span class="ref-venue">Kim et al. CoRL 2024.</span></li>
+      <li><span class="ref-title">π₀.₅: A Vision-Language-Action Model with Open-World Generalization</span>. <span class="ref-venue">Physical Intelligence (Black et al.). arXiv:2504.16054, 2025.</span></li>
+      <li><span class="ref-title">GR00T N1: An Open Foundation Model for Generalist Humanoid Robots</span>. <span class="ref-venue">NVIDIA. arXiv:2503.14734, 2025.</span></li>
+      <li><span class="ref-title">Position: Will We Run Out of Data? Limits of LLM Scaling Based on Human-Generated Data</span>. <span class="ref-venue">Villalobos, Ho, Sevilla, Besiroglu, Heim &amp; Hobbhahn. ICML 2024.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========== 55 致谢 ========== -->
+<section class="slide" data-layout="statement">
+  <div class="statement-text">从 AlexNet 到大模型，<br>变化的不只是规模，还有<span class="em">可学习的问题范围</span>。</div>
+  <div class="statement-sub">问题与讨论 · xwcv.github.io</div>
+</section>
+
+  </div><!-- /#stage -->
+</div><!-- /#viewport -->
+
+<div id="pager"></div>
+<div id="progress-track"><div id="progress"></div></div>
+<script src="js/slides.js?v=20260827b"></script>
+</body>
+</html>

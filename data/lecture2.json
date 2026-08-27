@@ -1,0 +1,3934 @@
+{
+ "lecture": 2,
+ "name": "从 AlexNet 到 ChatGPT",
+ "source": "2 - 从AlexNet到ChatGPT.pptx",
+ "slide_width_emu": 12192000,
+ "slide_height_emu": 6858000,
+ "slide_count": 98,
+ "image_count": 146,
+ "slides": [
+  {
+   "index": 1,
+   "title": "From AlexNet to ChatGPT and beyond",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "王兴刚"
+    },
+    {
+     "level": 0,
+     "text": "华中科技大学 电信学院"
+    },
+    {
+     "level": 0,
+     "text": "https://faculty.hust.edu.cn/xwang"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 2,
+   "title": "人工智能改变人类生活",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "自动化：解放人类生产力，让人类从事更具创造性的活动"
+    },
+    {
+     "level": 0,
+     "text": "高效率：发现复杂模式"
+    },
+    {
+     "level": 0,
+     "text": "个性化：提升满意度和忠诚度"
+    },
+    {
+     "level": 0,
+     "text": "医疗健康：分析复杂医疗数据"
+    },
+    {
+     "level": 0,
+     "text": "教育：高质量因材施教"
+    },
+    {
+     "level": 0,
+     "text": "安全：实时监测和防范异常"
+    },
+    {
+     "level": 0,
+     "text": "科学发现：分析复杂数据得到新发现"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s002_img1.png",
+     "left": 5797550,
+     "top": 0,
+     "width": 6358759,
+     "height": 6858000,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 3,
+   "title": "AI is the New Electricity",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "10 Mar 2017"
+    },
+    {
+     "level": 0,
+     "text": "“Whatever industry you work in, AI will probably transform it. Just as may be about 100 years ago Electricity transformed industry after industry. Everything from transportation to communications, manufacturing, healthcare was transformed with devise of electricity. I think that today we see a surprisingly clear path for AI to transform all of these industries. So I actually hope that whatever industry you are in, you’ll figure out how to leverage AI, because I think it will create new winners and losers in almost every category.”"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s003_img2.jpeg",
+     "left": 8995386,
+     "top": 2682472,
+     "width": 1651265,
+     "height": 2200628,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 4,
+   "title": "AI -> Machine Learning -> Deep Learning",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s004_img3.png",
+     "left": 2060132,
+     "top": 1434033,
+     "width": 8071735,
+     "height": 5134521,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 5,
+   "title": "What is machine learning",
+   "bullets": [],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": [
+    {
+     "kind": "PLACEHOLDER (14)",
+     "name": "what is machine learning",
+     "detail": "无可提取文字"
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "title": "The semantic gap problem",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s006_img4.png",
+     "left": 954314,
+     "top": 2748333,
+     "width": 4271200,
+     "height": 2375292,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s006_img5.png",
+     "left": 6256286,
+     "top": 2402702,
+     "width": 5572227,
+     "height": 3066554,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 7,
+   "title": "Feature Engineering",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Image features"
+    },
+    {
+     "level": 1,
+     "text": "HOG, SIFT, Gabor"
+    },
+    {
+     "level": 0,
+     "text": "Speech features"
+    },
+    {
+     "level": 1,
+     "text": "MFCC, Filter banks"
+    },
+    {
+     "level": 0,
+     "text": "Text features"
+    },
+    {
+     "level": 1,
+     "text": "Term freq."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s007_img6.png",
+     "left": 1830128,
+     "top": 1710203,
+     "width": 8096250,
+     "height": 2228850,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s007_img7.jpeg",
+     "left": 2283950,
+     "top": 4180500,
+     "width": 3994120,
+     "height": 2013899,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 8,
+   "title": "Feature learning / Representation Learning",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "PCA, LDA, Sparse representation, CNN, LSTM etc"
+    },
+    {
+     "level": 0,
+     "text": "Deep"
+    },
+    {
+     "level": 0,
+     "text": "Shallow"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s008_img8.png",
+     "left": 2443287,
+     "top": 3527168,
+     "width": 7457143,
+     "height": 2095238,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 9,
+   "title": "Traditional machine learning vs deep learning",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "https://www.xenonstack.com/blog/static/public/uploads/media/machine-learning-vs-deep-learning.png"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s009_img9.png",
+     "left": 2396671,
+     "top": 2121947,
+     "width": 6890920,
+     "height": 3360939,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 10,
+   "title": "深度学习",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "在AI中起着关键作用"
+    },
+    {
+     "level": 0,
+     "text": "使得机器能够完成复杂任务"
+    },
+    {
+     "level": 0,
+     "text": "深度学习从模拟人类的大脑的角度出发"
+    },
+    {
+     "level": 0,
+     "text": "深度学习可以复用特征，通过层次堆叠组合来实现超强表达能力"
+    },
+    {
+     "level": 0,
+     "text": "能够学习大量数据，会随着数据的增多而成长"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s010_img10.png",
+     "left": 6481401,
+     "top": 2026102,
+     "width": 5521715,
+     "height": 3430602,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 11,
+   "title": "深度学习三巨头",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "2018年，ACM（国际计算机学会）决定将计算机领域的最高奖项图灵奖颁给Yoshua Bengio、Yann LeCun 和 Geoffrey Hinton，以表彰他们在计算机深度学习领域的贡献。"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s011_img11.png",
+     "left": 918889,
+     "top": 2128370,
+     "width": 6381797,
+     "height": 3524276,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 12,
+   "title": "",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s012_img12.png",
+     "left": 0,
+     "top": 565337,
+     "width": 12192000,
+     "height": 5727325,
+     "rot": 0.0
+    }
+   ],
+   "notes": "Minsky and Papert show that a perceptron can't solve the XOR problem. This contributed to the first AI winter, resulting in funding cuts for neural networks. However, now we know that a multilayer perceptron can solve the XOR problem easily.\nWhether Minsky knew or not, it was definitely known to Rosenblatt, as he published those results in his really pioneering report - Principles of Neurodynamics: Perceptrons and the Theory of Brain Mechanisms, published in 1961.\nA large majority of academic and industry experts are simply unaware of the \"depth\" of Rosenblatt's publication on perceptrons, where he not only proved that 3-layer perceptrons (which he called elementary) are universal (check theorem 1 in section 5.2), but where he also provided results on convergence (check theorem 4 in section 5.5) and a statistical mechanics analysis of their generalization capabilities (check chapter 6 for the foundational theory, and figure 13 and 14 for an application of it, following the analysis in section 7.1.2).\nIt is simply unfortunate that Rosenblatt accidentally died soon after Minsky and Papert's not-so-pioneering 1969 book was published. I believe its misleading influence has regressed AI research for several decades.\nIf only Rosenblatt lived longer and made his presence stronger in academia, we would not be handing out Turing awards in AI to those who on critical scrutiny are objectively undeserving of it.",
+   "skipped": []
+  },
+  {
+   "index": 13,
+   "title": "",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s013_img13.png",
+     "left": 1039131,
+     "top": 1190511,
+     "width": 9871106,
+     "height": 4716803,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 14,
+   "title": "Solve general learning problems",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Neural network"
+    },
+    {
+     "level": 0,
+     "text": "Back propagation"
+    },
+    {
+     "level": 0,
+     "text": "Nature"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Tied with biological system"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s014_img14.png",
+     "left": 3339003,
+     "top": 392794,
+     "width": 762000,
+     "height": 1011238,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 15,
+   "title": "g(x)",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Neural network"
+    },
+    {
+     "level": 0,
+     "text": "Back propagation"
+    },
+    {
+     "level": 0,
+     "text": "Nature"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "w1"
+    },
+    {
+     "level": 0,
+     "text": "w3"
+    },
+    {
+     "level": 0,
+     "text": "w2"
+    },
+    {
+     "level": 0,
+     "text": "f(net)"
+    },
+    {
+     "level": 0,
+     "text": "x1"
+    },
+    {
+     "level": 0,
+     "text": "x2"
+    },
+    {
+     "level": 0,
+     "text": "x3"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s014_img14.png",
+     "left": 3418432,
+     "top": 318767,
+     "width": 762000,
+     "height": 1011238,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s015_img15.png",
+     "left": 4943872,
+     "top": 4259822,
+     "width": 3312368,
+     "height": 753354,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s015_img16.png",
+     "left": 8184232,
+     "top": 2369816,
+     "width": 2133600,
+     "height": 1419225,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s015_img17.png",
+     "left": 4943872,
+     "top": 5229200,
+     "width": 1912828,
+     "height": 1440160,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s015_img18.png",
+     "left": 6928709,
+     "top": 5208425,
+     "width": 2344101,
+     "height": 1460936,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 16,
+   "title": "",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s016_img19.png",
+     "left": 838200,
+     "top": 864509,
+     "width": 10530136,
+     "height": 5312454,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 17,
+   "title": "Loss function",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s017_img20.jpeg",
+     "left": 2385229,
+     "top": 2315255,
+     "width": 7642446,
+     "height": 2227490,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 18,
+   "title": "Gradient descent",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s018_img21.png",
+     "left": 1546882,
+     "top": 1586140,
+     "width": 8963182,
+     "height": 4522844,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 19,
+   "title": "Solve general learning problems",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Neural network"
+    },
+    {
+     "level": 0,
+     "text": "Back propagation"
+    },
+    {
+     "level": 0,
+     "text": "Nature"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Tied with biological system"
+    },
+    {
+     "level": 0,
+     "text": "But it is given up…"
+    },
+    {
+     "level": 0,
+     "text": "Hard to train"
+    },
+    {
+     "level": 0,
+     "text": "Insufficient computational resources"
+    },
+    {
+     "level": 0,
+     "text": "Small training sets"
+    },
+    {
+     "level": 0,
+     "text": "Does not work well"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s014_img14.png",
+     "left": 3526277,
+     "top": 285105,
+     "width": 762000,
+     "height": 1011238,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 20,
+   "title": "SVM",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Neural network"
+    },
+    {
+     "level": 0,
+     "text": "Back propagation"
+    },
+    {
+     "level": 0,
+     "text": "Nature"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Boosting"
+    },
+    {
+     "level": 0,
+     "text": "Decision tree"
+    },
+    {
+     "level": 0,
+     "text": "KNN"
+    },
+    {
+     "level": 0,
+     "text": "…"
+    },
+    {
+     "level": 0,
+     "text": "Flat structures"
+    },
+    {
+     "level": 0,
+     "text": "Loose tie with biological systems"
+    },
+    {
+     "level": 0,
+     "text": "Specific methods for specific tasks"
+    },
+    {
+     "level": 1,
+     "text": "Hand crafted features (GMM-HMM, SIFT, LBP, HOG)"
+    },
+    {
+     "level": 0,
+     "text": "Kruger et al. TPAMI’13"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s020_img22.png",
+     "left": 5133976,
+     "top": 4494214,
+     "width": 3395663,
+     "height": 2016125,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s014_img14.png",
+     "left": 3509208,
+     "top": 307553,
+     "width": 762000,
+     "height": 1011238,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 21,
+   "title": "Unsupervised & Layer-wised pre-training",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Neural network"
+    },
+    {
+     "level": 0,
+     "text": "Back propagation"
+    },
+    {
+     "level": 0,
+     "text": "Deep belief net"
+    },
+    {
+     "level": 0,
+     "text": "Science"
+    },
+    {
+     "level": 0,
+     "text": "Nature"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "Better designs for modeling and training (normalization, nonlinearity, dropout)"
+    },
+    {
+     "level": 0,
+     "text": "New development of computer architectures"
+    },
+    {
+     "level": 1,
+     "text": "GPU"
+    },
+    {
+     "level": 1,
+     "text": "Multi-core computer systems"
+    },
+    {
+     "level": 0,
+     "text": "Large scale databases"
+    },
+    {
+     "level": 0,
+     "text": "…"
+    },
+    {
+     "level": 0,
+     "text": "Big Data !"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s014_img14.png",
+     "left": 4656138,
+     "top": 333375,
+     "width": 762000,
+     "height": 1011238,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 22,
+   "title": "Solve general learning problems",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Neural network"
+    },
+    {
+     "level": 0,
+     "text": "Back propagation"
+    },
+    {
+     "level": 0,
+     "text": "Deep belief net"
+    },
+    {
+     "level": 0,
+     "text": "Science"
+    },
+    {
+     "level": 0,
+     "text": "Speech"
+    },
+    {
+     "level": 0,
+     "text": "Nature"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "2011"
+    },
+    {
+     "level": 0,
+     "text": "deep learning results"
+    },
+    {
+     "level": 0,
+     "text": "Tied with biological system"
+    },
+    {
+     "level": 0,
+     "text": "But it is given up…"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s022_img23.png",
+     "left": 7391400,
+     "top": 5848421,
+     "width": 1406111,
+     "height": 857179,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s022_img24.png",
+     "left": 228600,
+     "top": 6096000,
+     "width": 7172325,
+     "height": 643760,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s022_img25.png",
+     "left": 2051720,
+     "top": 2924944,
+     "width": 5195888,
+     "height": 2650067,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s022_img26.png",
+     "left": 6335714,
+     "top": 908050,
+     "width": 623887,
+     "height": 381000,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 23,
+   "title": "ImageNet",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Fei-Fei Li"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s023_img27.png",
+     "left": 3848891,
+     "top": 1269649,
+     "width": 7588368,
+     "height": 5074229,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s023_img28.png",
+     "left": 894897,
+     "top": 2291896,
+     "width": 2457904,
+     "height": 2457904,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 24,
+   "title": "Neural network",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Back propagation"
+    },
+    {
+     "level": 0,
+     "text": "Deep belief net"
+    },
+    {
+     "level": 0,
+     "text": "Science"
+    },
+    {
+     "level": 0,
+     "text": "Speech"
+    },
+    {
+     "level": 0,
+     "text": "Nature"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "2011"
+    },
+    {
+     "level": 0,
+     "text": "2012"
+    },
+    {
+     "level": 0,
+     "text": "Object recognition over 1,000,000 images and 1,000 categories (2 GPU)"
+    },
+    {
+     "level": 0,
+     "text": "A. Krizhevsky, L. Sutskever, and G. E. Hinton, “ImageNet Classification with Deep Convolutional Neural Networks,” NIPS, 2012."
+    }
+   ],
+   "tables": [
+    [
+     [
+      "Rank",
+      "Name",
+      "Error rate",
+      "Description"
+     ],
+     [
+      "1",
+      "U. Toronto",
+      "0.15315",
+      "Deep learning"
+     ],
+     [
+      "2",
+      "U. Tokyo",
+      "0.26172",
+      "Hand-crafted features and learning models.\nBottleneck."
+     ],
+     [
+      "3",
+      "U. Oxford",
+      "0.26979",
+      ""
+     ],
+     [
+      "4",
+      "Xerox/INRIA",
+      "0.27058",
+      ""
+     ]
+    ]
+   ],
+   "images": [
+    {
+     "path": "assets/lecture2/s022_img26.png",
+     "left": 6335714,
+     "top": 908050,
+     "width": 623887,
+     "height": 381000,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s024_img29.jpeg",
+     "left": 7824788,
+     "top": 765175,
+     "width": 1295400,
+     "height": 177800,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s014_img14.png",
+     "left": 9191625,
+     "top": 549276,
+     "width": 596900,
+     "height": 792163,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 25,
+   "title": "Neural network",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Back propagation"
+    },
+    {
+     "level": 0,
+     "text": "Deep belief net"
+    },
+    {
+     "level": 0,
+     "text": "Science"
+    },
+    {
+     "level": 0,
+     "text": "Speech"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "2011"
+    },
+    {
+     "level": 0,
+     "text": "2012"
+    },
+    {
+     "level": 0,
+     "text": "Google and Baidu announced their deep learning based visual search engines (2013)"
+    },
+    {
+     "level": 1,
+     "text": "Google"
+    },
+    {
+     "level": 2,
+     "text": "“on our test set we saw double the average precision when compared to other approaches we had tried. We acquired the rights to the technology and went full speed ahead adapting it to run at large scale on Google’s computers. We took cutting edge research straight out of an academic research lab and launched it, in just a little over six months.”"
+    },
+    {
+     "level": 1,
+     "text": "Baidu"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s022_img26.png",
+     "left": 6335714,
+     "top": 908050,
+     "width": 623887,
+     "height": 381000,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s025_img30.png",
+     "left": 7112000,
+     "top": 280988,
+     "width": 1062038,
+     "height": 381000,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s025_img31.png",
+     "left": 7188200,
+     "top": -15875,
+     "width": 2209800,
+     "height": 373063,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s024_img29.jpeg",
+     "left": 7824788,
+     "top": 765175,
+     "width": 1295400,
+     "height": 177800,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 26,
+   "title": "Neural network",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Back propagation"
+    },
+    {
+     "level": 0,
+     "text": "Deep belief net"
+    },
+    {
+     "level": 0,
+     "text": "Science"
+    },
+    {
+     "level": 0,
+     "text": "Face recognition"
+    },
+    {
+     "level": 0,
+     "text": "Speech"
+    },
+    {
+     "level": 0,
+     "text": "2006"
+    },
+    {
+     "level": 0,
+     "text": "1986"
+    },
+    {
+     "level": 0,
+     "text": "2011"
+    },
+    {
+     "level": 0,
+     "text": "2012"
+    },
+    {
+     "level": 0,
+     "text": "2014"
+    },
+    {
+     "level": 0,
+     "text": "Deep learning achieves 99.53% face verification accuracy on Labeled Faces in the Wild (LFW), higher than human performance"
+    },
+    {
+     "level": 0,
+     "text": "Y. Sun, X. Wang, and X. Tang. Deep Learning Face Representation by Joint Identification-Verification. NIPS, 2014."
+    },
+    {
+     "level": 0,
+     "text": "Y. Sun, X. Wang, and X. Tang. Deeply learned face representations are sparse, selective, and robust. CVPR, 2015."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s022_img26.png",
+     "left": 6335714,
+     "top": 908050,
+     "width": 623887,
+     "height": 381000,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s025_img30.png",
+     "left": 7112000,
+     "top": 280988,
+     "width": 1062038,
+     "height": 381000,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s025_img31.png",
+     "left": 7188200,
+     "top": -15875,
+     "width": 2209800,
+     "height": 373063,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s024_img29.jpeg",
+     "left": 7824788,
+     "top": 765175,
+     "width": 1295400,
+     "height": 177800,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 27,
+   "title": "Convolution neural networks",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Huazhong University of Science and Technology"
+    },
+    {
+     "level": 0,
+     "text": "27"
+    },
+    {
+     "level": 0,
+     "text": "(source: sourcedexter)"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s027_img32.gif",
+     "left": 2001009,
+     "top": 1600200,
+     "width": 8424678,
+     "height": 4738882,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 28,
+   "title": "Convolutional Layer",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "(source: Andrej Karpathy)"
+    },
+    {
+     "level": 0,
+     "text": "28"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s028_img33.png",
+     "left": 2941920,
+     "top": 2152187,
+     "width": 6542857,
+     "height": 3028571,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 29,
+   "title": "Convolutional Layer",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "(source: Andrej Karpathy)"
+    },
+    {
+     "level": 0,
+     "text": "29"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s029_img34.png",
+     "left": 2133599,
+     "top": 1591965,
+     "width": 4812604,
+     "height": 2560668,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s029_img35.gif",
+     "left": 7849868,
+     "top": 1763782,
+     "width": 2423431,
+     "height": 2754737,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s029_img36.png",
+     "left": 2140684,
+     "top": 4003807,
+     "width": 4885714,
+     "height": 2609524,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 30,
+   "title": "Deep CNN for image classification",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Hinton group’s groundbreaking work on ImageNet"
+    },
+    {
+     "level": 1,
+     "text": "They did not have much experience on general image classification on ImageNet"
+    },
+    {
+     "level": 1,
+     "text": "It took one week to train the network with 60 Million parameters"
+    },
+    {
+     "level": 1,
+     "text": "The learned feature representations are effective on other datasets (e.g. Pascal VOC) and other tasks (object detection, segmentation, tracking, and image retrieval)"
+    },
+    {
+     "level": 0,
+     "text": "30"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s030_img37.png",
+     "left": 1742541,
+     "top": 3677582,
+     "width": 8388424,
+     "height": 2499381,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 31,
+   "title": "96 learned low-level filters",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "31"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s031_img38.png",
+     "left": 1721443,
+     "top": 2204865,
+     "width": 8722065,
+     "height": 3454127,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 32,
+   "title": "Image classification result",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "32"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s032_img39.png",
+     "left": 3138816,
+     "top": 1523239,
+     "width": 6048727,
+     "height": 4977446,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 33,
+   "title": "",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "33"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s033_img40.png",
+     "left": 1371300,
+     "top": 1027906,
+     "width": 9140995,
+     "height": 4611632,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 34,
+   "title": "",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "34"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s034_img41.png",
+     "left": 1563565,
+     "top": 1040363,
+     "width": 9064870,
+     "height": 4573227,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 35,
+   "title": "AlexNet",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Large-scale pretraining"
+    },
+    {
+     "level": 0,
+     "text": "Serving as a good feature extractor"
+    },
+    {
+     "level": 0,
+     "text": "35"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s030_img37.png",
+     "left": 222176,
+     "top": 2677033,
+     "width": 8388424,
+     "height": 2499381,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 36,
+   "title": "GoogleNet",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "36"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s036_img42.jpeg",
+     "left": 3837603,
+     "top": 1347966,
+     "width": 8141495,
+     "height": 3456118,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s036_img43.png",
+     "left": 953131,
+     "top": 3781975,
+     "width": 4724400,
+     "height": 2190750,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 37,
+   "title": "SPP-net: SPM in CNN",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "ILSVRC 2014 CLS Results:"
+    },
+    {
+     "level": 1,
+     "text": "7-conv SPP-net, 10-view 10.95%"
+    },
+    {
+     "level": 1,
+     "text": "multiple SPP-nets 8.06%"
+    },
+    {
+     "level": 0,
+     "text": "37"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s037_img44.png",
+     "left": 899821,
+     "top": 2426689,
+     "width": 6858129,
+     "height": 3149210,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 38,
+   "title": "Parametric Rectified Linear Unit (PReLU)",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "38"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s038_img45.png",
+     "left": 838200,
+     "top": 2588325,
+     "width": 5000625,
+     "height": 2714625,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s038_img46.png",
+     "left": 6609052,
+     "top": 3080766,
+     "width": 4136973,
+     "height": 1885505,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 39,
+   "title": "Mitigate covariate shift via batch normalization",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "39"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s039_img47.png",
+     "left": 2264984,
+     "top": 1862965,
+     "width": 7998408,
+     "height": 4493385,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 40,
+   "title": "Deeply-Supervised Nets (DSN)",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "40"
+    },
+    {
+     "level": 0,
+     "text": "Deeply-Supervised Nets, Chen-Yu Lee*, Saining Xie*, Patrick Gallagher, Zhengyou Zhang, Zhuowen Tu"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s040_img48.png",
+     "left": 3852935,
+     "top": 1851337,
+     "width": 4371975,
+     "height": 4143375,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 41,
+   "title": "Deeply-Supervised Nets (DSN)",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "41"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s041_img49.png",
+     "left": 2179011,
+     "top": 2115076,
+     "width": 7366779,
+     "height": 3938674,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 42,
+   "title": "Deep Residual Network",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Huazhong University of Science and Technology"
+    },
+    {
+     "level": 0,
+     "text": "42"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s042_img50.png",
+     "left": 1524000,
+     "top": 1623966,
+     "width": 9144000,
+     "height": 5156745,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 43,
+   "title": "Deep Residual Network",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "A Residual block"
+    },
+    {
+     "level": 0,
+     "text": "43"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s043_img51.png",
+     "left": 8145081,
+     "top": 1930267,
+     "width": 2547125,
+     "height": 4839536,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s043_img52.png",
+     "left": 1217784,
+     "top": 2370294,
+     "width": 6749864,
+     "height": 3094749,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 44,
+   "title": "Region CNN (R-CNN)",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s044_img53.png",
+     "left": 2200275,
+     "top": 1803595,
+     "width": 7791450,
+     "height": 2628900,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s044_img54.png",
+     "left": 1933601,
+     "top": 4696366,
+     "width": 8058125,
+     "height": 1344175,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 45,
+   "title": "Learning Hierarchical Features for Scene Labeling",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "45"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s045_img55.png",
+     "left": 967542,
+     "top": 2227943,
+     "width": 10114712,
+     "height": 3389085,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 46,
+   "title": "Learning Hierarchical Features for Scene Labeling",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "46"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s046_img56.png",
+     "left": 2123652,
+     "top": 1756713,
+     "width": 8201577,
+     "height": 4166930,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 47,
+   "title": "Fully Convolutional Networks",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "47"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s047_img57.png",
+     "left": 3113447,
+     "top": 1583243,
+     "width": 4943475,
+     "height": 2781300,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s047_img58.png",
+     "left": 1728817,
+     "top": 4536220,
+     "width": 8481990,
+     "height": 2002692,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 48,
+   "title": "Fully Convolutional Networks",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Huazhong University of Science and Technology"
+    },
+    {
+     "level": 0,
+     "text": "48"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s048_img59.png",
+     "left": 905356,
+     "top": 2803067,
+     "width": 5438775,
+     "height": 2171700,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s048_img60.png",
+     "left": 7754132,
+     "top": 2391674,
+     "width": 3302830,
+     "height": 2994487,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 49,
+   "title": "DeepContour",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s049_img61.png",
+     "left": 1187985,
+     "top": 1530542,
+     "width": 4081846,
+     "height": 1770121,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s049_img62.png",
+     "left": 1024368,
+     "top": 3607501,
+     "width": 9558596,
+     "height": 3025743,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s049_img63.png",
+     "left": 7601662,
+     "top": 810384,
+     "width": 3053541,
+     "height": 2797117,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 50,
+   "title": "Holistically-Nested Edge Detection",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "50"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s050_img64.png",
+     "left": 429204,
+     "top": 1941286,
+     "width": 5512300,
+     "height": 3762829,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s050_img65.png",
+     "left": 6860821,
+     "top": 2075272,
+     "width": 4568275,
+     "height": 3494855,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 51,
+   "title": "Deep learning for image super-resolution",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "51"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s051_img66.png",
+     "left": 6864101,
+     "top": 1607700,
+     "width": 3334575,
+     "height": 5124130,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s051_img67.png",
+     "left": 1399292,
+     "top": 2001044,
+     "width": 4200525,
+     "height": 4000500,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 52,
+   "title": "Images to Text",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "52"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s052_img68.png",
+     "left": 2025070,
+     "top": 3953718,
+     "width": 8335690,
+     "height": 2394062,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s052_img69.png",
+     "left": 3561928,
+     "top": 1500334,
+     "width": 5606153,
+     "height": 2273997,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 53,
+   "title": "CRNN: Scene Text Recognition",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Huazhong University of Science and Technology"
+    },
+    {
+     "level": 0,
+     "text": "53"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s053_img70.png",
+     "left": 2178691,
+     "top": 1623966,
+     "width": 4486275,
+     "height": 4943475,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s053_img71.png",
+     "left": 7248150,
+     "top": 3067002,
+     "width": 2952750,
+     "height": 2057400,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 54,
+   "title": "Cycle GAN",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "https://github.com/junyanz/CycleGAN"
+    },
+    {
+     "level": 0,
+     "text": "54"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s054_img72.png",
+     "left": 1524000,
+     "top": 1633599,
+     "width": 9144000,
+     "height": 4200211,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 55,
+   "title": "Colorization",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Huazhong University of Science and Technology"
+    },
+    {
+     "level": 0,
+     "text": "55"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s055_img73.tiff",
+     "left": 1542433,
+     "top": 1619153,
+     "width": 9144000,
+     "height": 4229100,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 56,
+   "title": "AlphaGo",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Huazhong University of Science and Technology"
+    },
+    {
+     "level": 0,
+     "text": "56"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s056_img74.png",
+     "left": 2142822,
+     "top": 2046420,
+     "width": 8147226,
+     "height": 4110275,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 57,
+   "title": "AlphaGo",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Huazhong University of Science and Technology"
+    },
+    {
+     "level": 0,
+     "text": "57"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s057_img75.png",
+     "left": 1790700,
+     "top": 1738433,
+     "width": 8788246,
+     "height": 4433670,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 58,
+   "title": "Reinforcement learning: Game",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Huazhong University of Science and Technology"
+    },
+    {
+     "level": 0,
+     "text": "58"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": [
+    {
+     "kind": "PLACEHOLDER (14)",
+     "name": "breakout.mp4",
+     "detail": "无可提取文字"
+    },
+    {
+     "kind": "MEDIA (16)",
+     "name": "flappy.mp4",
+     "detail": "无可提取文字"
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "title": "Reinforcement learning: Navigation",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Quadcopter Navigation in the Forest"
+    },
+    {
+     "level": 0,
+     "text": "Huazhong University of Science and Technology"
+    },
+    {
+     "level": 0,
+     "text": "59"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": [
+    {
+     "kind": "PLACEHOLDER (14)",
+     "name": "drone.mp4",
+     "detail": "无可提取文字"
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "title": "DeepMind AI Reduces Google Data Centre Cooling Bill by 40%",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Dynamic environments like data centers make it difficult to operate optimally for several reasons:"
+    },
+    {
+     "level": 0,
+     "text": "The equipment, how we operate that equipment, and the environment interact with each other in complex, nonlinear ways. Traditional formula-based engineering and human intuition often do not capture these interactions."
+    },
+    {
+     "level": 0,
+     "text": "The system cannot adapt quickly to internal or external changes (like the weather). This is because we cannot come up with rules and heuristics for every operating scenario."
+    },
+    {
+     "level": 0,
+     "text": "Each data center has a unique architecture and environment. A custom-tuned model for one system may not be applicable to another. Therefore, a general intelligence framework is needed to understand the data centre’s interactions."
+    },
+    {
+     "level": 0,
+     "text": "Wednesday, 20 July 2016"
+    },
+    {
+     "level": 0,
+     "text": "https://deepmind.com/blog/deepmind-ai-reduces-google-data-centre-cooling-bill-40/"
+    },
+    {
+     "level": 0,
+     "text": "60"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s060_img76.png",
+     "left": 2124353,
+     "top": 1516698,
+     "width": 7936465,
+     "height": 921720,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 61,
+   "title": "",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Huazhong University of Science and Technology"
+    },
+    {
+     "level": 0,
+     "text": "61"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s061_img77.png",
+     "left": 2057401,
+     "top": 1600310,
+     "width": 4881375,
+     "height": 5039106,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s061_img78.png",
+     "left": 7009814,
+     "top": 2852926,
+     "width": 3530727,
+     "height": 1920429,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 62,
+   "title": "Traditional Cooking",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Courtesy: Naiyan Wang"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s062_img79.jpeg",
+     "left": 1711849,
+     "top": 1912006,
+     "width": 2309685,
+     "height": 1732264,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img80.jpeg",
+     "left": 3671359,
+     "top": 4528415,
+     "width": 1341120,
+     "height": 1005840,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img81.jpeg",
+     "left": 5252261,
+     "top": 2773084,
+     "width": 1345773,
+     "height": 1009331,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img82.jpeg",
+     "left": 7084488,
+     "top": 4600337,
+     "width": 1341120,
+     "height": 1005840,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img83.jpeg",
+     "left": 8931725,
+     "top": 2780795,
+     "width": 1341120,
+     "height": 1005840,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 63,
+   "title": "Traditional Cooking",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Courtesy: Naiyan Wang"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s062_img79.jpeg",
+     "left": 1987105,
+     "top": 2711538,
+     "width": 1374252,
+     "height": 1030689,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img80.jpeg",
+     "left": 3033124,
+     "top": 4600337,
+     "width": 2485573,
+     "height": 1864180,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img81.jpeg",
+     "left": 5252261,
+     "top": 2773084,
+     "width": 1345773,
+     "height": 1009331,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img82.jpeg",
+     "left": 7084488,
+     "top": 4600337,
+     "width": 1341120,
+     "height": 1005840,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img83.jpeg",
+     "left": 8931725,
+     "top": 2780795,
+     "width": 1341120,
+     "height": 1005840,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 64,
+   "title": "Traditional Cooking",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Courtesy: Naiyan Wang"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s062_img79.jpeg",
+     "left": 1987105,
+     "top": 2713626,
+     "width": 1425052,
+     "height": 1068789,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img80.jpeg",
+     "left": 3671359,
+     "top": 4528415,
+     "width": 1341120,
+     "height": 1005840,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img81.jpeg",
+     "left": 4767540,
+     "top": 1854200,
+     "width": 2517365,
+     "height": 1888026,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img82.jpeg",
+     "left": 7084488,
+     "top": 4600337,
+     "width": 1341120,
+     "height": 1005840,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img83.jpeg",
+     "left": 8931725,
+     "top": 2780795,
+     "width": 1341120,
+     "height": 1005840,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 65,
+   "title": "Traditional Cooking",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Courtesy: Naiyan Wang"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s062_img79.jpeg",
+     "left": 1987106,
+     "top": 2700994,
+     "width": 1441895,
+     "height": 1081421,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img80.jpeg",
+     "left": 3671359,
+     "top": 4528415,
+     "width": 1341120,
+     "height": 1005840,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img81.jpeg",
+     "left": 5252261,
+     "top": 2773084,
+     "width": 1345773,
+     "height": 1009331,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img82.jpeg",
+     "left": 6474880,
+     "top": 4518303,
+     "width": 2560336,
+     "height": 1920252,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img83.jpeg",
+     "left": 8931725,
+     "top": 2780795,
+     "width": 1341120,
+     "height": 1005840,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 66,
+   "title": "Traditional Cooking",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Courtesy: Naiyan Wang"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s062_img79.jpeg",
+     "left": 1987106,
+     "top": 2700994,
+     "width": 1441895,
+     "height": 1081421,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img80.jpeg",
+     "left": 3671359,
+     "top": 4528415,
+     "width": 1341120,
+     "height": 1005840,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img81.jpeg",
+     "left": 5252261,
+     "top": 2773084,
+     "width": 1345773,
+     "height": 1009331,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img82.jpeg",
+     "left": 6987747,
+     "top": 4547971,
+     "width": 1354603,
+     "height": 1015952,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s062_img83.jpeg",
+     "left": 8232662,
+     "top": 2057401,
+     "width": 2340024,
+     "height": 1755018,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 67,
+   "title": "End to End Cooking",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Courtesy: Naiyan Wang"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s067_img84.gif",
+     "left": 1813521,
+     "top": 2267424,
+     "width": 2438399,
+     "height": 1371600,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s067_img85.gif",
+     "left": 3454446,
+     "top": 4695555,
+     "width": 2446020,
+     "height": 1371600,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s067_img86.gif",
+     "left": 5035173,
+     "top": 2246709,
+     "width": 2440983,
+     "height": 1371600,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s067_img87.gif",
+     "left": 6951052,
+     "top": 4695555,
+     "width": 2438399,
+     "height": 1371600,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s067_img88.gif",
+     "left": 8104694,
+     "top": 2199876,
+     "width": 2440983,
+     "height": 1371600,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 68,
+   "title": "y = f(x)",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Deep neural networks"
+    },
+    {
+     "level": 0,
+     "text": "68"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 69,
+   "title": "智能的涌现",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s069_img89.png",
+     "left": 2569140,
+     "top": 1753659,
+     "width": 6720003,
+     "height": 4739216,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 70,
+   "title": "涌现",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "https://arxiv.org/pdf/2206.07682.pdf"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s070_img90.png",
+     "left": 301171,
+     "top": 1690688,
+     "width": 4807858,
+     "height": 4801249,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s070_img91.png",
+     "left": 5478430,
+     "top": 862434,
+     "width": 6412399,
+     "height": 5684611,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 71,
+   "title": "detectron2",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s071_img92.png",
+     "left": 606808,
+     "top": 1773691,
+     "width": 5227935,
+     "height": 4403272,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s071_img93.png",
+     "left": 6049219,
+     "top": 783772,
+     "width": 5958995,
+     "height": 5393192,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 72,
+   "title": "Segment Anything",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "https://segment-anything.com/"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s072_img94.png",
+     "left": 1955426,
+     "top": 1690688,
+     "width": 8402379,
+     "height": 4450289,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 73,
+   "title": "segment anything",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "How & why segment anything work?"
+    },
+    {
+     "level": 1,
+     "text": "11 million images and 1.1 billion masks"
+    },
+    {
+     "level": 1,
+     "text": "An unified and simple transformer framework"
+    },
+    {
+     "level": 1,
+     "text": "Strong zero-shot performance"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s073_img95.png",
+     "left": 2407414,
+     "top": 4527538,
+     "width": 8062971,
+     "height": 1685937,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s073_img96.png",
+     "left": 7808101,
+     "top": 1572525,
+     "width": 3907649,
+     "height": 2636623,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 74,
+   "title": "Depth anything",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "https://depth-anything.github.io/"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s074_img97.png",
+     "left": 0,
+     "top": 2391543,
+     "width": 12192000,
+     "height": 2403778,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 75,
+   "title": "人工智能三要素",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "当数据、模型大小、算力提升到一个相当大的规模情况下，深度学习模型可能会产生涌现现象"
+    },
+    {
+     "level": 0,
+     "text": "深度学习"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s075_img98.png",
+     "left": 473640,
+     "top": 2129506,
+     "width": 7746775,
+     "height": 3705236,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 76,
+   "title": "ChatGPT首次实现了语言智能的智慧涌现",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "ChatGPT：专注于对话生成的语言模型，通过 OpenAl 的新模型生成一些语义答案，利用网页应用形式与用户对话互动，实现简单聊天、信息咨询、撰写诗词作文、修改代码等。ChatGPT本质上是一个由参数表示的深度神经网络大模型，是一个对话式AI系统。虽然大模型技术已有五年，仅这次引起世界轰动，是因为ChatGPT首次实现了语言智能的智慧涌现!"
+    },
+    {
+     "level": 0,
+     "text": "GPT是Generative Pre-trained Transformer（生成式预训练变换模型）的缩写。"
+    },
+    {
+     "level": 0,
+     "text": "根据UBS发布的研究报告显示，ChatGPT在1月份的月活跃用户数已达1亿，成为史上用户数增长最快的消费者应用"
+    },
+    {
+     "level": 0,
+     "text": "5大突破"
+    },
+    {
+     "level": 0,
+     "text": "海量信息的全量在线记忆"
+    },
+    {
+     "level": 0,
+     "text": "任意任务的对话式理解"
+    },
+    {
+     "level": 0,
+     "text": "复杂逻辑的思维链推理"
+    },
+    {
+     "level": 0,
+     "text": "多角色多风格长文本生成"
+    },
+    {
+     "level": 0,
+     "text": "即时新知识学习与进化"
+    }
+   ],
+   "tables": [
+    [
+     [
+      "54个月"
+     ]
+    ],
+    [
+     [
+      "42个月"
+     ]
+    ],
+    [
+     [
+      "2个月"
+     ]
+    ],
+    [
+     [
+      "54个月"
+     ]
+    ],
+    [
+     [
+      "90个月"
+     ]
+    ],
+    [
+     [
+      "9个月"
+     ]
+    ],
+    [
+     [
+      "30个月"
+     ]
+    ]
+   ],
+   "images": [
+    {
+     "path": "assets/lecture2/s076_img99.png",
+     "left": 10470174,
+     "top": 2671933,
+     "width": 956576,
+     "height": 956576,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s076_img100.png",
+     "left": 8709574,
+     "top": 1698033,
+     "width": 1137894,
+     "height": 640067,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s076_img101.png",
+     "left": 9423313,
+     "top": 2890715,
+     "width": 976439,
+     "height": 549249,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s076_img102.png",
+     "left": 10229890,
+     "top": 1679199,
+     "width": 718553,
+     "height": 696620,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s076_img103.png",
+     "left": 7733578,
+     "top": 1758904,
+     "width": 802500,
+     "height": 555701,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s076_img104.jpeg",
+     "left": 7457607,
+     "top": 2847878,
+     "width": 718553,
+     "height": 561124,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s076_img105.jpeg",
+     "left": 8599338,
+     "top": 2847878,
+     "width": 529107,
+     "height": 634923,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 77,
+   "title": "ChatGPT背后的公司--OpenAI",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "2019年7月"
+    },
+    {
+     "level": 0,
+     "text": "2020年6月"
+    },
+    {
+     "level": 0,
+     "text": "2020年9月"
+    },
+    {
+     "level": 0,
+     "text": "2019年3月"
+    },
+    {
+     "level": 0,
+     "text": "ChatGPT是由OpenAI团队研发创造， OpenAI是由创业家埃隆·马斯克等人于2015年在旧金山创立的一家非盈利的AI研究公司，拥有多位硅谷重量级人物的资金支持，启动资金高达10亿美金； OpenAI的创立目标是与其它机构合作进行AI的相关研究，并开放研究成果以促进AI技术的发展"
+    },
+    {
+     "level": 0,
+     "text": "OpenAI发展的里程碑"
+    },
+    {
+     "level": 0,
+     "text": "OpenAI宣布从”非盈"
+    },
+    {
+     "level": 0,
+     "text": "利 “性质过度到”封"
+    },
+    {
+     "level": 0,
+     "text": "顶盈利“性质，利润"
+    },
+    {
+     "level": 0,
+     "text": "上限为任何投资的100"
+    },
+    {
+     "level": 0,
+     "text": "倍"
+    },
+    {
+     "level": 0,
+     "text": "微软向OpenAI投资了"
+    },
+    {
+     "level": 0,
+     "text": "10亿美金，并获得了"
+    },
+    {
+     "level": 0,
+     "text": "OpenAI技术的商业化"
+    },
+    {
+     "level": 0,
+     "text": "授权。从此OpenAI的一些技术开始出现在微软的产品和业务上"
+    },
+    {
+     "level": 0,
+     "text": "OpenAI发布了OpenAI API ，这是OpenAI第"
+    },
+    {
+     "level": 0,
+     "text": "一个商业化产品， OpenAI正式开始了商"
+    },
+    {
+     "level": 0,
+     "text": "业化运作"
+    },
+    {
+     "level": 0,
+     "text": "OpenAI授权微软使用"
+    },
+    {
+     "level": 0,
+     "text": "GPT-3模型，微软成"
+    },
+    {
+     "level": 0,
+     "text": "为全球首个享用GPT-3能力的公司"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s077_img106.jpeg",
+     "left": 755681,
+     "top": 4928672,
+     "width": 2791460,
+     "height": 1341677,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 78,
+   "title": "ChatGPT是生成式人工智能技术( AIGC )浪潮的一部分",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "1950年，艾伦·图灵提出"
+    },
+    {
+     "level": 0,
+     "text": "著名的“图灵测试”， 给"
+    },
+    {
+     "level": 0,
+     "text": "出判断机器是否具有“智"
+    },
+    {
+     "level": 0,
+     "text": "能”的方法"
+    },
+    {
+     "level": 0,
+     "text": "2014年， Lan J. Goodfellow 提出生成式对抗网络GAN"
+    },
+    {
+     "level": 0,
+     "text": "2018年，英伟达发布"
+    },
+    {
+     "level": 0,
+     "text": "StyleGAN模型用于自动生成"
+    },
+    {
+     "level": 0,
+     "text": "高质量图片"
+    },
+    {
+     "level": 0,
+     "text": "2019年， DeepMind发布"
+    },
+    {
+     "level": 0,
+     "text": "DVD-GAN模型用于生成连续"
+    },
+    {
+     "level": 0,
+     "text": "性视频"
+    },
+    {
+     "level": 0,
+     "text": "2007年， 世界上 第一部完全由人 工智能创作的小"
+    },
+    {
+     "level": 0,
+     "text": "说《1 The Road》 问世"
+    },
+    {
+     "level": 0,
+     "text": "1966年， 世界第一"
+    },
+    {
+     "level": 0,
+     "text": "款可人机对话机器"
+    },
+    {
+     "level": 0,
+     "text": "人“Eliza”问世"
+    },
+    {
+     "level": 0,
+     "text": "80年代中期， IBM"
+    },
+    {
+     "level": 0,
+     "text": "创造语音控制打字"
+    },
+    {
+     "level": 0,
+     "text": "机 “Tangora”"
+    },
+    {
+     "level": 0,
+     "text": "AIGC典型 事件"
+    },
+    {
+     "level": 0,
+     "text": "2012年，微软展"
+    },
+    {
+     "level": 0,
+     "text": "示全自动同声传"
+    },
+    {
+     "level": 0,
+     "text": "译系统 ，可将英文"
+    },
+    {
+     "level": 0,
+     "text": "语音自动翻译成中"
+    },
+    {
+     "level": 0,
+     "text": "文语音"
+    },
+    {
+     "level": 0,
+     "text": "2022年， OpenAI发布"
+    },
+    {
+     "level": 0,
+     "text": "ChatGPT模型用于生成自然能"
+    },
+    {
+     "level": 0,
+     "text": "语言文本"
+    },
+    {
+     "level": 0,
+     "text": "AIGC发展 特点"
+    },
+    {
+     "level": 0,
+     "text": "AIGC从实验性向实用性转变，受"
+    },
+    {
+     "level": 0,
+     "text": "限于算法瓶颈，无法直接进行内"
+    },
+    {
+     "level": 0,
+     "text": "容生成"
+    },
+    {
+     "level": 0,
+     "text": "深度学习算法不断迭代，人工智能生成内容 百花齐放"
+    },
+    {
+     "level": 0,
+     "text": "受限于技术水平， AIGC仅限于小 范围实验"
+    },
+    {
+     "level": 0,
+     "text": "人工智能总 体阶段"
+    },
+    {
+     "level": 0,
+     "text": "沉淀积累阶段"
+    },
+    {
+     "level": 0,
+     "text": "( 20世纪90年代-21世纪10年代 中期)"
+    },
+    {
+     "level": 0,
+     "text": "早期萌芽阶段 ( 20世纪50年代-90年代中期)"
+    },
+    {
+     "level": 0,
+     "text": "快速发展阶段 ( 21世纪10年代中期-至今)"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s078_img107.png",
+     "left": 1737189,
+     "top": 5428371,
+     "width": 9505019,
+     "height": 228600,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s078_img108.jpeg",
+     "left": 4652940,
+     "top": 1727727,
+     "width": 1171752,
+     "height": 1542185,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s078_img109.png",
+     "left": 7427297,
+     "top": 3037283,
+     "width": 1359441,
+     "height": 677299,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s078_img110.jpeg",
+     "left": 1880277,
+     "top": 2839180,
+     "width": 1099024,
+     "height": 743999,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s078_img111.jpeg",
+     "left": 4688331,
+     "top": 3769954,
+     "width": 1164724,
+     "height": 698839,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s078_img112.jpeg",
+     "left": 7561071,
+     "top": 3812559,
+     "width": 1143051,
+     "height": 614408,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s078_img113.jpeg",
+     "left": 7671815,
+     "top": 1680382,
+     "width": 921664,
+     "height": 630767,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s078_img114.jpeg",
+     "left": 1897717,
+     "top": 3956340,
+     "width": 1057977,
+     "height": 497891,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s078_img115.png",
+     "left": 1690741,
+     "top": 1649055,
+     "width": 101651,
+     "height": 4585715,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s078_img116.jpeg",
+     "left": 7779172,
+     "top": 2399303,
+     "width": 765453,
+     "height": 570720,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s078_img117.jpeg",
+     "left": 2070268,
+     "top": 1738343,
+     "width": 509252,
+     "height": 744000,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 79,
+   "title": "ChatGPT是在GPT基础上进一步开发的自然语言处理模型",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "GPT模型是一种自然语言处理( NLP )模型，使用多层变换器(Transformer)来预测下一个单词的概率"
+    },
+    {
+     "level": 0,
+     "text": "79"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s079_img118.png",
+     "left": 2092819,
+     "top": 2358713,
+     "width": 7721838,
+     "height": 3953187,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 80,
+   "title": "More LLMs",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Close source"
+    },
+    {
+     "level": 1,
+     "text": "OpenAI ChatGPT"
+    },
+    {
+     "level": 1,
+     "text": "Google Genini"
+    },
+    {
+     "level": 1,
+     "text": "Anthropic Claude"
+    },
+    {
+     "level": 1,
+     "text": "xAI Gork"
+    },
+    {
+     "level": 1,
+     "text": "Doubao"
+    },
+    {
+     "level": 1,
+     "text": "vivo BuleLLM"
+    },
+    {
+     "level": 0,
+     "text": "Open source"
+    },
+    {
+     "level": 1,
+     "text": "Alibaba Qwen"
+    },
+    {
+     "level": 1,
+     "text": "Mistral"
+    },
+    {
+     "level": 1,
+     "text": "Meta Llama"
+    },
+    {
+     "level": 1,
+     "text": "Zhipu ChatGLM"
+    },
+    {
+     "level": 1,
+     "text": "DeepSeek"
+    },
+    {
+     "level": 1,
+     "text": "Tencent Hunyuan"
+    },
+    {
+     "level": 1,
+     "text": "Kimi"
+    },
+    {
+     "level": 1,
+     "text": "Meituan Longcat"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 81,
+   "title": "AIGC – stable diffusion",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "https://huggingface.co/spaces/stabilityai/stable-diffusion"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s081_img119.png",
+     "left": 0,
+     "top": 1558366,
+     "width": 12192000,
+     "height": 363403,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s081_img120.png",
+     "left": 2194689,
+     "top": 2056706,
+     "width": 7177911,
+     "height": 4496193,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 82,
+   "title": "AIGC – stable diffusion",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s082_img121.png",
+     "left": 891676,
+     "top": 1825625,
+     "width": 10478136,
+     "height": 4351338,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 83,
+   "title": "AIGC – stable diffusion",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s083_img122.png",
+     "left": 1587500,
+     "top": 1690688,
+     "width": 9017000,
+     "height": 4716294,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 84,
+   "title": "AIGC – stable diffusion - midjourney",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Midjourney：AIGC现象级应用，一年实现1000万用户和1亿美元营收"
+    },
+    {
+     "level": 0,
+     "text": "Midjourney 是自筹资金的独立研究室，目前开发了同名文生图模型及应用，产品搭载在 Discord 中，用户通过与 Midjourney bot 进行对话式交互，提交 Prompt（文本提示词）来快速获得想要的图片。"
+    },
+    {
+     "level": 0,
+     "text": "https://36kr.com/p/2142532409572864"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s084_img123.png",
+     "left": 1298575,
+     "top": 2304718,
+     "width": 6778625,
+     "height": 3885156,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 85,
+   "title": "AIGC – stable diffusion - midjourney",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s085_img124.png",
+     "left": 850900,
+     "top": 2226469,
+     "width": 3549650,
+     "height": 3549650,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s085_img125.png",
+     "left": 4565650,
+     "top": 2226469,
+     "width": 3549650,
+     "height": 3549650,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s085_img126.png",
+     "left": 8280400,
+     "top": 2226469,
+     "width": 3549650,
+     "height": 3549650,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 86,
+   "title": "AIGC – stable diffusion - midjourney",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s086_img127.png",
+     "left": 1071036,
+     "top": 4151900,
+     "width": 2232692,
+     "height": 2160000,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s086_img128.png",
+     "left": 3497122,
+     "top": 4151900,
+     "width": 2090635,
+     "height": 2160000,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s086_img129.png",
+     "left": 5781151,
+     "top": 4151900,
+     "width": 1627013,
+     "height": 2160000,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s086_img130.png",
+     "left": 7601558,
+     "top": 4151900,
+     "width": 1627013,
+     "height": 2160000,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s086_img131.png",
+     "left": 1371734,
+     "top": 1913587,
+     "width": 2916560,
+     "height": 1945217,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s086_img131.png",
+     "left": 4637720,
+     "top": 1913587,
+     "width": 2916560,
+     "height": 1945217,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s086_img132.png",
+     "left": 8048624,
+     "top": 1913587,
+     "width": 2917826,
+     "height": 1945217,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s086_img133.png",
+     "left": 9421967,
+     "top": 4151900,
+     "width": 1627013,
+     "height": 2160000,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 87,
+   "title": "GPT4+MidJourney V5",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "https://mp.weixin.qq.com/s/3vNPYZebadb9LwMnUag-RQ"
+    },
+    {
+     "level": 0,
+     "text": "先把《阿房宫赋》的内容发给GPT，让他总结出其中描写阿房宫的诗句"
+    },
+    {
+     "level": 0,
+     "text": "让GPT根据对《阿房宫赋》的诗句的理解描述出不同场景"
+    },
+    {
+     "level": 0,
+     "text": "告诉GPT有关于生成Midjourney生成图片提示语的规则"
+    },
+    {
+     "level": 0,
+     "text": "将GPT生成的提示语粘贴到Midjourney中进行绘图"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s087_img134.png",
+     "left": 224609,
+     "top": 1825625,
+     "width": 3667941,
+     "height": 4050781,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s087_img135.png",
+     "left": 7937476,
+     "top": 1758565,
+     "width": 4254524,
+     "height": 4418397,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 88,
+   "title": "More Image and Video Generation Models and Platforms",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Kling (https://www.klingai.com/cn/)"
+    },
+    {
+     "level": 0,
+     "text": "Hailuo AI by MiniMax Inc (https://hailuoai.video/)"
+    },
+    {
+     "level": 0,
+     "text": "Wan by Alibaba (https://wan.video/)"
+    },
+    {
+     "level": 0,
+     "text": "QwenImage by Alibaba (https://github.com/QwenLM/Qwen-Image)"
+    },
+    {
+     "level": 0,
+     "text": "SeeDance (https://seed.bytedance.com/en/seedance)"
+    },
+    {
+     "level": 0,
+     "text": "SD Models by https://stability.ai/"
+    },
+    {
+     "level": 0,
+     "text": "Sora by OpenAI"
+    },
+    {
+     "level": 0,
+     "text": "Nano Banana by Google"
+    },
+    {
+     "level": 0,
+     "text": "Flux"
+    },
+    {
+     "level": 0,
+     "text": "Ltx-video"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 89,
+   "title": "AutoGPT",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Auto-GPT is an experimental open-source application showcasing the capabilities of the GPT-4 language model. This program, driven by GPT-4, chains together LLM \"thoughts\", to autonomously achieve whatever goal you set. As one of the first examples of GPT-4 running fully autonomously, Auto-GPT pushes the boundaries of what is possible with AI."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s089_img136.png",
+     "left": 6051550,
+     "top": 1466850,
+     "width": 6100423,
+     "height": 4302263,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 90,
+   "title": "Generative Agent",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "generative agents--computational software agents that simulate believable human behavior."
+    },
+    {
+     "level": 0,
+     "text": "We instantiate generative agents to populate an interactive sandbox environment inspired by The Sims, where end users can interact with a small town of twenty five agents using natural language."
+    },
+    {
+     "level": 0,
+     "text": "By fusing large language models with computational, interactive agents, this work introduces architectural and interaction patterns for enabling believable simulations of human behavior."
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s090_img137.png",
+     "left": 6648450,
+     "top": 2380263,
+     "width": 5473700,
+     "height": 2944627,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 91,
+   "title": "Agentic AI",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Manus"
+    },
+    {
+     "level": 0,
+     "text": "Claude Code"
+    },
+    {
+     "level": 0,
+     "text": "Deep Research by Genini, ChatGPT, Doubao & Qwen"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 92,
+   "title": "Vision Language Models (VLM)",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s092_img138.png",
+     "left": 7022119,
+     "top": 1999229,
+     "width": 4443977,
+     "height": 3618398,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s092_img139.png",
+     "left": 725904,
+     "top": 2771476,
+     "width": 5975684,
+     "height": 1947236,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 93,
+   "title": "Vision Language Action Models (VLA)",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Physical Intelligence π0"
+    },
+    {
+     "level": 0,
+     "text": "https://www.physicalintelligence.company/blog/pi0"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s093_img140.png",
+     "left": 2238815,
+     "top": 1690688,
+     "width": 7882811,
+     "height": 4487045,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 94,
+   "title": "Vision Language Action Models (VLA)",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "https://github.com/hustvl/senna"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s094_img141.png",
+     "left": 1437523,
+     "top": 1568618,
+     "width": 9316953,
+     "height": 4650318,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 95,
+   "title": "大道至简",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "被编程为预测下一个单词的语言模型是正确的，但这并不是某些人认为的巧合。"
+    },
+    {
+     "level": 0,
+     "text": "动物，包括我们，只是天生就试图生存和繁殖，但它却产生了惊人的复杂和美丽的东西。"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s095_img142.png",
+     "left": 634460,
+     "top": 2240371,
+     "width": 8049252,
+     "height": 3369138,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 96,
+   "title": "大道至简",
+   "bullets": [],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s096_img143.png",
+     "left": 7509958,
+     "top": 1994252,
+     "width": 3178763,
+     "height": 4498623,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s096_img144.png",
+     "left": 2192923,
+     "top": 1690688,
+     "width": 4651956,
+     "height": 1774491,
+     "rot": 0.0
+    },
+    {
+     "path": "assets/lecture2/s096_img145.png",
+     "left": 1998373,
+     "top": 3910224,
+     "width": 5041056,
+     "height": 2763603,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 97,
+   "title": "New archs: Mamba",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces"
+    }
+   ],
+   "tables": [],
+   "images": [
+    {
+     "path": "assets/lecture2/s097_img146.png",
+     "left": 1858226,
+     "top": 2865248,
+     "width": 8056484,
+     "height": 2976666,
+     "rot": 0.0
+    }
+   ],
+   "notes": "",
+   "skipped": []
+  },
+  {
+   "index": 98,
+   "title": "Thanks for your attention!",
+   "bullets": [
+    {
+     "level": 0,
+     "text": "Thanks for your attention!QAhttps://xwcv.github.io"
+    },
+    {
+     "level": 0,
+     "text": "Huazhong University of Science and Technology"
+    },
+    {
+     "level": 0,
+     "text": "98"
+    }
+   ],
+   "tables": [],
+   "images": [],
+   "notes": "Thanks a lot for your attention!",
+   "skipped": []
+  }
+ ]
+}

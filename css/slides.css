@@ -1,0 +1,564 @@
+/* ==========================================================================
+   slides.css — 浅色学术 Keynote 风幻灯片设计系统
+   画布：1280 x 720，JS 等比缩放居中；页面结构见 demo.html
+   每页：<section class="slide" data-layout="...">
+   ========================================================================== */
+
+:root {
+  /* 色板：米白纸面 + 深墨色正文 + 学术蓝强调 + 暖橙点缀 */
+  --paper:      #fbfaf7;
+  --paper-deep: #e9e7e1;   /* 画布外过渡色 */
+  --card:       #ffffff;
+  --ink:        #22222a;
+  --muted:      #62626d;
+  --faint:      #858590;
+  --line:       #dedbd3;
+  --accent:     #1f55d5;
+  --accent-soft:#edf2ff;   /* 强调色的浅底 */
+  --accent-2:   #c2521e;   /* 暖橙点缀（克制使用） */
+
+  --font-zh: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+             "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-en: -apple-system, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  --font-mono: "SF Mono", "Menlo", "Consolas", "Courier New", monospace;
+
+  --pad-x: 64px;
+  --pad-y: 56px;
+  --radius: 10px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  background: var(--paper-deep);
+  color: var(--ink);
+  font-family: var(--font-zh);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* --------------------------------------------------------------------------
+   舞台与缩放（JS 计算 scale 写入 #stage 的 transform）
+   -------------------------------------------------------------------------- */
+#viewport {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+#stage {
+  width: 1280px; height: 720px;
+  position: relative;
+  flex: none;
+  transform-origin: center center;
+}
+
+/* --------------------------------------------------------------------------
+   幻灯片通用
+   -------------------------------------------------------------------------- */
+.slide {
+  position: absolute; inset: 0;
+  display: none;
+  flex-direction: column;
+  padding: var(--pad-y) var(--pad-x) calc(var(--pad-y) + 14px);
+  background: var(--paper);
+  overflow: hidden;
+}
+.slide::after {
+  content: "";
+  position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(31,85,213,.30), rgba(31,85,213,0));
+  pointer-events: none;
+}
+.slide.active { display: flex; }
+
+/* 页眉：讲次小字（左） + 页码（右，手写或留空，总页码由 JS pager 提供） */
+.slide-meta {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 13px; letter-spacing: 0.08em;
+  color: var(--faint);
+  margin-bottom: 22px;
+  text-transform: uppercase;
+}
+.slide-meta .meta-page { font-family: var(--font-en); }
+
+/* 通用标题 */
+.slide-title {
+  font-size: 42px; font-weight: 720; line-height: 1.22;
+  letter-spacing: 0;
+  margin-bottom: 24px;
+}
+.slide-title .em { color: var(--accent); }
+
+/* 通用元素 --------------------------------------------------------------- */
+
+/* .kicker 标题上方小标签 */
+.kicker {
+  font-size: 14px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+/* .lead 导语段 */
+.lead {
+  font-size: 20px; line-height: 1.62;
+  color: var(--muted);
+  max-width: 56em;
+  margin-bottom: 22px;
+}
+
+/* .tag 小胶囊标签 */
+.tag {
+  display: inline-block;
+  font-size: 13px; font-weight: 600; line-height: 1;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid rgba(36, 86, 214, 0.22);
+}
+.tag.warm { background: #fbece4; color: var(--accent-2); border-color: rgba(194, 82, 30, 0.25); }
+.tag.neutral { background: #f1efe9; color: var(--muted); border-color: var(--line); }
+.tag + .tag { margin-left: 8px; }
+
+/* ul.bullets 自定义 marker：强调色小方块，二级为空心圆点 */
+ul.bullets {
+  list-style: none;
+  font-size: 21px; line-height: 1.6;
+}
+ul.bullets > li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 14px;
+}
+ul.bullets > li::before {
+  content: "";
+  position: absolute; left: 2px; top: 0.62em;
+  width: 9px; height: 9px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+ul.bullets ul {
+  list-style: none;
+  margin-top: 10px;
+  font-size: 0.88em;
+  color: var(--muted);
+}
+ul.bullets ul > li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 8px;
+}
+ul.bullets ul > li::before {
+  content: "";
+  position: absolute; left: 4px; top: 0.58em;
+  width: 7px; height: 7px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: transparent;
+}
+ul.bullets strong, .slide strong { color: var(--accent); font-weight: 700; }
+ul.bullets .hl2 { color: var(--accent-2); font-weight: 700; }
+
+/* .dense 内容多时的微调 */
+.dense .slide-title { font-size: 34px; margin-bottom: 20px; }
+.dense ul.bullets { font-size: 18px; line-height: 1.5; }
+.dense ul.bullets > li { margin-bottom: 9px; }
+.dense .lead { font-size: 18px; margin-bottom: 18px; }
+
+/* 图片：白底图自然融入纸面，轻微圆角 + 细边框 + 浅阴影 */
+.slide img {
+  display: block;
+  max-width: 100%; max-height: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: 0 3px 14px rgba(34, 34, 42, 0.055);
+  background: #fff;
+}
+figure { display: flex; flex-direction: column; align-items: center; min-width: 0; }
+figcaption, .caption {
+  margin-top: 10px;
+  font-size: 14px; color: var(--faint);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   1. cover — 封面
+   -------------------------------------------------------------------------- */
+.slide[data-layout="cover"] {
+  align-items: center; justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(680px 360px at 50% 42%, rgba(31, 85, 213, .055), transparent 72%),
+    var(--paper);
+}
+.slide[data-layout="cover"] .kicker { font-size: 16px; }
+.slide[data-layout="cover"] .cover-title {
+  font-size: 60px; font-weight: 800; line-height: 1.22;
+  max-width: 20em;
+  margin-bottom: 24px;
+}
+.slide[data-layout="cover"] .cover-sub {
+  font-size: 20px; line-height: 1.7; color: var(--muted);
+  margin-bottom: 34px;
+}
+.slide[data-layout="cover"] .cover-lecture {
+  display: inline-flex; gap: 10px; align-items: center;
+}
+
+/* 封面顶部与底部的细强调线 */
+.slide[data-layout="cover"]::before,
+.slide[data-layout="cover"]::after {
+  content: "";
+  position: absolute; left: 50%; transform: translateX(-50%);
+  width: 72px; height: 4px; border-radius: 2px;
+  background: var(--accent);
+}
+.slide[data-layout="cover"]::before { top: 88px; }
+.slide[data-layout="cover"]::after { bottom: 88px; background: var(--line); }
+
+/* --------------------------------------------------------------------------
+   2. section — 章节页
+   -------------------------------------------------------------------------- */
+.slide[data-layout="section"] {
+  align-items: center; justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(520px 300px at 50% 46%, rgba(31, 85, 213, .05), transparent 72%),
+    var(--paper);
+}
+.slide[data-layout="section"] .section-num {
+  font-family: var(--font-en);
+  font-size: 130px; font-weight: 800; line-height: 1;
+  color: var(--accent);
+  opacity: 0.16;
+  margin-bottom: 6px;
+}
+.slide[data-layout="section"] .section-title {
+  font-size: 56px; font-weight: 800; line-height: 1.25;
+}
+.slide[data-layout="section"] .section-sub {
+  margin-top: 18px;
+  font-size: 19px; color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   3. bullets — 标题 + 单栏层级列表
+   -------------------------------------------------------------------------- */
+.slide[data-layout="bullets"] .slide-body { flex: 1; min-height: 0; }
+
+/* --------------------------------------------------------------------------
+   4. two-col — 标题 + 左右双栏
+   -------------------------------------------------------------------------- */
+.slide[data-layout="two-col"] .cols {
+  flex: 1; min-height: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+}
+.slide[data-layout="two-col"] .col { min-width: 0; }
+.slide[data-layout="two-col"] .col-title {
+  font-size: 24px; font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+}
+.slide[data-layout="two-col"] .col:nth-child(2) .col-title { border-color: var(--accent-2); }
+.slide[data-layout="two-col"] ul.bullets { font-size: 19px; }
+
+/* --------------------------------------------------------------------------
+   5. split — 标题 + 左文右图（.flip 反转）
+   -------------------------------------------------------------------------- */
+.slide[data-layout="split"] .split-body {
+  flex: 1; min-height: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  align-items: center;
+}
+.slide[data-layout="split"] .split-text { min-width: 0; }
+.slide[data-layout="split"] .split-media {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-width: 0; max-height: 100%;
+}
+.slide[data-layout="split"].flip .split-text { order: 2; }
+.slide[data-layout="split"].flip .split-media { order: 1; }
+
+/* --------------------------------------------------------------------------
+   6. image-full — 整页大图
+   -------------------------------------------------------------------------- */
+.slide[data-layout="image-full"] { padding-bottom: var(--pad-y); }
+.slide[data-layout="image-full"] .slide-title { margin-bottom: 14px; }
+.slide[data-layout="image-full"] .full-media {
+  flex: 1; min-height: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.slide[data-layout="image-full"] .full-media img {
+  max-width: 100%; max-height: 100%;
+  object-fit: contain;
+}
+.slide[data-layout="image-full"] .caption { margin-top: 12px; }
+
+/* --------------------------------------------------------------------------
+   7. gallery — 标题 + 2~6 图 grid
+   -------------------------------------------------------------------------- */
+.slide[data-layout="gallery"] .gallery-grid {
+  flex: 1; min-height: 0;
+  display: grid; gap: 24px;
+  align-items: stretch;
+}
+/* 默认 2 列；用 data-cols="3" 切 3 列（4~6 图时） */
+.slide[data-layout="gallery"] .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+.slide[data-layout="gallery"] .gallery-grid[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
+.slide[data-layout="gallery"] figure {
+  justify-content: center;
+  min-height: 0;
+}
+.slide[data-layout="gallery"] figure img {
+  flex: 1; min-height: 0;
+  object-fit: contain;
+}
+
+.cooking-strip {
+  flex: 1; min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  align-items: center;
+}
+.cooking-strip img {
+  width: 100%; height: 112px !important;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   8. statement — 超大字金句页
+   -------------------------------------------------------------------------- */
+.slide[data-layout="statement"] {
+  align-items: center; justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(640px 320px at 50% 48%, rgba(31, 85, 213, .045), transparent 74%),
+    var(--paper);
+}
+.slide[data-layout="statement"] .statement-text {
+  font-size: 52px; font-weight: 800; line-height: 1.4;
+  max-width: 22em;
+}
+.slide[data-layout="statement"] .statement-text .em { color: var(--accent); }
+.slide[data-layout="statement"] .statement-sub {
+  margin-top: 26px;
+  font-size: 19px; color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   9. table — 简洁表格
+   -------------------------------------------------------------------------- */
+.slide[data-layout="table"] .table-wrap { flex: 1; min-height: 0; }
+.slide table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 19px; line-height: 1.5;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.slide table th {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700; text-align: left;
+  padding: 13px 18px;
+  font-size: 17px;
+}
+.slide table td {
+  padding: 12px 18px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+}
+.slide table tbody tr:nth-child(even) td { background: #f4f2ec; }
+.slide table td.num, .slide table th.num { font-family: var(--font-en); text-align: right; }
+.dense table { font-size: 16px; }
+.dense table th, .dense table td { padding: 9px 14px; }
+
+/* --------------------------------------------------------------------------
+   10. code — 代码 / 公式块
+   -------------------------------------------------------------------------- */
+.slide[data-layout="code"] .code-body { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 20px; }
+.code-block {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 24px 20px 28px;
+  font-family: var(--font-mono);
+  font-size: 17px; line-height: 1.65;
+  white-space: pre; overflow: hidden;
+  color: var(--ink);
+}
+/* 左边界强调色条 */
+.code-block::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--accent);
+  border-radius: 4px 0 0 4px;
+}
+.code-block .cm { color: var(--faint); }   /* 注释 */
+.code-block .kw { color: var(--accent); font-weight: 600; }  /* 关键字 */
+.code-block .st { color: var(--accent-2); }                  /* 字符串 */
+.formula-block {
+  font-family: var(--font-mono);
+  text-align: center;
+  font-size: 22px;
+  padding: 28px 24px;
+}
+
+/* --------------------------------------------------------------------------
+   11. 教学增强组件：重点提示框 / 页脚来源 / 参考文献 / 总结卡片
+     - .keypoint        重点提示框（放 slide 正文末尾；.warm 变体用于"注意/易错"）
+     - .src-note        页脚来源小字（绝对定位右下，标注图表/论文出处）
+     - section.refs     参考文献页（配 ol.ref-list，悬挂缩进，多篇可分栏 .cols-2）
+     - .card-grid       结构化总结卡片网格（data-cols="2|3"，内放 .mini-card）
+   -------------------------------------------------------------------------- */
+.keypoint {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: transparent;
+  border: 0;
+  border-top: 2px solid rgba(31, 85, 213, .30);
+  border-radius: 0;
+  padding: 13px 2px 0;
+  font-size: 18px; line-height: 1.6;
+  color: var(--ink);
+  margin-top: auto;              /* 默认沉到正文底部 */
+}
+.keypoint::before {
+  content: "重点";
+  flex: none;
+  font-size: 12px; font-weight: 750; letter-spacing: .12em;
+  color: var(--accent); background: transparent;
+  padding: 4px 0; margin-top: 1px;
+}
+.keypoint.warm { background: transparent; border-color: rgba(194, 82, 30, .32); }
+.keypoint.warm::before { content: "注意"; color: var(--accent-2); background: transparent; }
+.keypoint strong { color: var(--accent); }
+.keypoint.warm strong { color: var(--accent-2); }
+.dense .keypoint { font-size: 16px; padding: 11px 16px; }
+
+.src-note {
+  position: absolute; right: var(--pad-x); bottom: 20px;
+  max-width: 60%;
+  font-size: 12px; line-height: 1.5;
+  color: var(--faint);
+  text-align: right;
+  font-family: var(--font-en);
+}
+
+.slide[data-layout="bullets"] .ref-list,
+.refs .ref-list {
+  flex: 1; min-height: 0;
+  margin: 0; padding-left: 2.2em;
+  font-size: 15.5px; line-height: 1.75;
+  color: var(--ink);
+  column-gap: 48px;
+}
+.refs .ref-list.cols-2 { column-count: 2; }
+.ref-list li { padding-left: .4em; margin-bottom: 2px; }
+.ref-list li::marker { color: var(--accent); font-family: var(--font-en); font-weight: 600; }
+.ref-list .ref-venue { color: var(--muted); font-style: normal; }
+.ref-list .ref-title { font-weight: 600; }
+
+.card-grid { flex: 1; min-height: 0; display: grid; gap: 20px; align-content: center; }
+.card-grid[data-cols="2"] { grid-template-columns: 1fr 1fr; }
+.card-grid[data-cols="3"] { grid-template-columns: 1fr 1fr 1fr; }
+.mini-card {
+  background: transparent;
+  border: 0;
+  border-top: 3px solid var(--accent);
+  border-radius: 0;
+  padding: 18px 14px 12px 0;
+}
+.mini-card .mc-title { font-size: 20px; font-weight: 720; margin-bottom: 8px; color: var(--ink); }
+.mini-card .mc-no { font-family: var(--font-mono); font-size: 12px; color: var(--accent); letter-spacing: .15em; margin-bottom: 6px; }
+.mini-card p, .mini-card li { font-size: 16px; line-height: 1.62; color: var(--muted); margin: 0; }
+.mini-card ul { margin: 0; padding-left: 1.2em; }
+.mini-card strong { color: var(--accent); }
+
+/* --------------------------------------------------------------------------
+   固定 UI：页码 + 进度条（总览/打印时隐藏）
+   -------------------------------------------------------------------------- */
+#pager {
+  position: fixed; right: 22px; bottom: 16px; z-index: 20;
+  font-family: var(--font-en);
+  font-size: 13px; letter-spacing: 0.06em;
+  color: var(--faint);
+  background: transparent;
+  padding: 4px 0;
+  border: 0;
+  user-select: none;
+}
+#progress-track {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+  height: 3px;
+  background: rgba(34, 34, 42, 0.08);
+}
+#progress {
+  height: 100%; width: 0;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+/* --------------------------------------------------------------------------
+   总览模式（body.overview）：grid 缩略图，点击跳转
+   -------------------------------------------------------------------------- */
+body.overview { overflow: auto; }
+body.overview #viewport {
+  position: static;
+  display: block;
+  padding: 32px;
+}
+body.overview #stage {
+  width: auto; height: auto;
+  display: flex; flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  transform: none !important;
+}
+body.overview .slide {
+  position: relative; inset: auto;
+  display: flex;                 /* 总览中全部可见 */
+  flex: none;
+  transform: scale(var(--ov-scale, 0.22));
+  transform-origin: top left;
+  /* 用负 margin 把布局盒收缩到缩放后的视觉尺寸 */
+  margin: 0 calc(1280px * (var(--ov-scale, 0.22) - 1))
+             calc(720px * (var(--ov-scale, 0.22) - 1)) 0;
+  border-radius: 3px;
+  box-shadow: 0 4px 18px rgba(34, 34, 42, 0.16);
+  cursor: pointer;
+  outline: 2px solid transparent;
+  transition: outline-color 0.15s ease;
+}
+body.overview .slide:hover { outline-color: var(--accent); }
+body.overview .slide.active { outline-color: var(--accent-2); }
+body.overview #pager, body.overview #progress-track { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  #progress, body.overview .slide { transition: none; }
+}
+
+/* --------------------------------------------------------------------------
+   打印：每页 slide 一版，无导航 UI
+   -------------------------------------------------------------------------- */
+@media print {
+  body { background: #fff; overflow: visible; }
+  #viewport { position: static; display: block; }
+  #stage { width: auto; height: auto; transform: none !important; }
+  .slide {
+    position: relative; inset: auto;
+    display: flex !important;
+    width: 1280px; height: 720px;
+    page-break-after: always;
+    break-inside: avoid;
+    box-shadow: none;
+  }
+  #pager, #progress-track { display: none !important; }
+}

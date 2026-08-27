@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>课件设计系统 Demo — 深度学习与计算机视觉</title>
+<link rel="stylesheet" href="css/slides.css">
+</head>
+<body>
+<div id="viewport">
+  <div id="stage">
+
+<!-- ========== 1. cover 封面 ========== -->
+<section class="slide" data-layout="cover">
+  <div class="kicker">Deep Learning &amp; Computer Vision</div>
+  <h1 class="cover-title">深度学习与计算机视觉</h1>
+  <div class="cover-sub">授课教师：王兴刚 · 华中科技大学<br>课件内容参考：斯坦福大学 CS231n（已授权）</div>
+  <div class="cover-lecture">
+    <span class="tag">第 1 讲</span>
+    <span class="tag neutral">2026 春季学期</span>
+  </div>
+</section>
+
+<!-- ========== 2. section 章节页 ========== -->
+<section class="slide" data-layout="section">
+  <div class="section-num">01</div>
+  <div class="section-title">课程导论</div>
+  <div class="section-sub">人工智能 · 机器学习 · 深度学习 · 计算机视觉</div>
+</section>
+
+<!-- ========== 3. bullets 单栏列表 ========== -->
+<section class="slide" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 课程导论</span><span class="meta-page">03</span></div>
+  <div class="kicker">Overview</div>
+  <h2 class="slide-title">什么是<span class="em">计算机视觉</span>？</h2>
+  <div class="slide-body">
+    <p class="lead">让机器像人一样“看懂”图像与视频，是人工智能最核心的能力之一。</p>
+    <ul class="bullets">
+      <li>视觉是生物最重要的感知通道
+        <ul>
+          <li>人类大脑皮层约 50% 参与视觉处理</li>
+          <li>每秒约 10<sup>7</sup> 比特的视觉信息进入人眼</li>
+        </ul>
+      </li>
+      <li>计算机视觉的目标：<strong>从像素到语义</strong></li>
+      <li>典型任务：分类、检测、分割、重建</li>
+      <li>深度学习是当前的主导范式 <span class="tag">CNN</span> <span class="tag warm">Transformer</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 3b. bullets + .dense 内容较多时 ========== -->
+<section class="slide dense" data-layout="bullets">
+  <div class="slide-meta"><span>第 1 讲 · 课程导论</span><span class="meta-page">04</span></div>
+  <h2 class="slide-title">本讲要点（dense 版式示例）</h2>
+  <div class="slide-body">
+    <ul class="bullets">
+      <li>人工智能的历史脉络
+        <ul>
+          <li>1956 达特茅斯会议：AI 概念诞生</li>
+          <li>两次寒冬与三次浪潮</li>
+        </ul>
+      </li>
+      <li>机器学习 vs. 传统规则方法
+        <ul>
+          <li>从“手工规则”到“数据驱动”</li>
+          <li>特征工程与表示学习</li>
+        </ul>
+      </li>
+      <li>深度学习爆发的三要素：数据、算力、算法</li>
+      <li>计算机视觉的核心问题
+        <ul>
+          <li>语义鸿沟：像素与语义的差距</li>
+          <li>视角、光照、遮挡、形变带来的类内差异</li>
+        </ul>
+      </li>
+      <li>课程安排与考核方式说明</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 4. two-col 双栏 ========== -->
+<section class="slide" data-layout="two-col">
+  <div class="slide-meta"><span>第 1 讲 · 课程导论</span><span class="meta-page">05</span></div>
+  <h2 class="slide-title">传统方法 vs. 深度学习</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="col-title">传统视觉方法</div>
+      <ul class="bullets">
+        <li>手工设计特征（SIFT、HOG）</li>
+        <li>浅层分类器（SVM、Boosting）</li>
+        <li>流程清晰、可解释性强</li>
+        <li>性能受限于特征表达能力</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-title">深度学习方法</div>
+      <ul class="bullets">
+        <li>特征自动从数据中学习</li>
+        <li>端到端联合优化</li>
+        <li>性能随数据规模持续增长</li>
+        <li>依赖大量标注数据与算力</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5. split 左文右图 ========== -->
+<section class="slide" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 课程导论</span><span class="meta-page">06</span></div>
+  <h2 class="slide-title">图像分类：给定图片，预测类别</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>输入：一张 RGB 图像</li>
+        <li>输出：<strong>预定义类别</strong>的概率分布</li>
+        <li>核心挑战：视角 / 光照 / 形变 / 遮挡</li>
+        <li>代表数据集：ImageNet（1000 类、128 万张图）</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='420'><rect width='640' height='420' fill='white'/><circle cx='320' cy='190' r='110' fill='none' stroke='%232456d6' stroke-width='4'/><text x='320' y='200' font-size='30' text-anchor='middle' fill='%2322222a' font-family='sans-serif'>cat: 0.92</text><text x='320' y='360' font-size='18' text-anchor='middle' fill='%23666' font-family='sans-serif'>示意图：分类结果</text></svg>" alt="分类示意">
+      <div class="caption">图 1 · 图像分类任务示意</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5b. split + .flip 右文左图 ========== -->
+<section class="slide flip" data-layout="split">
+  <div class="slide-meta"><span>第 1 讲 · 课程导论</span><span class="meta-page">07</span></div>
+  <h2 class="slide-title">目标检测：定位并识别多个目标</h2>
+  <div class="split-body">
+    <div class="split-text">
+      <ul class="bullets">
+        <li>在分类基础上进一步给出<strong>边界框</strong></li>
+        <li>需要同时解决定位与分类两个子问题</li>
+        <li>两阶段：Faster R-CNN；单阶段：YOLO</li>
+      </ul>
+    </div>
+    <div class="split-media">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='420'><rect width='640' height='420' fill='white'/><rect x='80' y='80' width='200' height='160' fill='none' stroke='%232456d6' stroke-width='4'/><rect x='360' y='160' width='180' height='180' fill='none' stroke='%23c2521e' stroke-width='4'/><text x='180' y='70' font-size='20' text-anchor='middle' fill='%232456d6' font-family='sans-serif'>person</text><text x='450' y='150' font-size='20' text-anchor='middle' fill='%23c2521e' font-family='sans-serif'>bicycle</text></svg>" alt="检测示意">
+      <div class="caption">图 2 · 目标检测输出示例（flip 版式）</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. image-full 整页大图 ========== -->
+<section class="slide" data-layout="image-full">
+  <div class="slide-meta"><span>第 1 讲 · 课程导论</span><span class="meta-page">08</span></div>
+  <h2 class="slide-title">语义分割：逐像素的场景理解</h2>
+  <div class="full-media">
+    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1000' height='460'><rect width='1000' height='460' fill='white'/><rect x='60' y='60' width='880' height='300' fill='%23e8eefb'/><rect x='60' y='240' width='880' height='120' fill='%23fbece4'/><circle cx='300' cy='160' r='60' fill='%232456d6' opacity='0.5'/><circle cx='700' cy='150' r='50' fill='%23c2521e' opacity='0.5'/><text x='500' y='420' font-size='20' text-anchor='middle' fill='%23666' font-family='sans-serif'>天空 / 道路 / 车辆 / 行人 —— 每个像素一个类别</text></svg>" alt="语义分割示意">
+  </div>
+  <div class="caption">图 3 · 语义分割将图像分解为具有语义标签的区域</div>
+</section>
+
+<!-- ========== 7. gallery 多图 grid ========== -->
+<section class="slide" data-layout="gallery">
+  <div class="slide-meta"><span>第 1 讲 · 课程导论</span><span class="meta-page">09</span></div>
+  <h2 class="slide-title">视觉任务一览</h2>
+  <div class="gallery-grid" data-cols="2">
+    <figure>
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='260'><rect width='520' height='260' fill='white'/><circle cx='260' cy='130' r='70' fill='none' stroke='%232456d6' stroke-width='4'/></svg>" alt="分类">
+      <figcaption>(a) 图像分类</figcaption>
+    </figure>
+    <figure>
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='260'><rect width='520' height='260' fill='white'/><rect x='140' y='60' width='240' height='140' fill='none' stroke='%232456d6' stroke-width='4'/></svg>" alt="检测">
+      <figcaption>(b) 目标检测</figcaption>
+    </figure>
+    <figure>
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='260'><rect width='520' height='260' fill='white'/><rect x='0' y='150' width='520' height='110' fill='%23e8eefb'/><rect x='0' y='0' width='520' height='150' fill='%23fbece4'/></svg>" alt="分割">
+      <figcaption>(c) 语义分割</figcaption>
+    </figure>
+    <figure>
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='260'><rect width='520' height='260' fill='white'/><path d='M80 200 L200 80 L320 160 L440 60' fill='none' stroke='%232456d6' stroke-width='4'/></svg>" alt="姿态估计">
+      <figcaption>(d) 姿态估计</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ========== 8. statement 金句页 ========== -->
+<section class="slide" data-layout="statement">
+  <div class="statement-text">计算机视觉的核心问题，<br>是如何跨越<span class="em">像素</span>与<span class="em">语义</span>之间的鸿沟。</div>
+  <div class="statement-sub">—— 本讲主线</div>
+</section>
+
+<!-- ========== 9. table 表格 ========== -->
+<section class="slide" data-layout="table">
+  <div class="slide-meta"><span>第 1 讲 · 课程导论</span><span class="meta-page">11</span></div>
+  <h2 class="slide-title">ImageNet 挑战赛历年冠军</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>年份</th><th>模型</th><th>方法类别</th><th class="num">Top-5 错误率</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="num">2010</td><td>NEC-UIUC</td><td>手工特征 + SVM</td><td class="num">28.2%</td></tr>
+        <tr><td class="num">2012</td><td><strong>AlexNet</strong></td><td>深度卷积网络</td><td class="num">15.3%</td></tr>
+        <tr><td class="num">2014</td><td>GoogLeNet</td><td>Inception 模块</td><td class="num">6.7%</td></tr>
+        <tr><td class="num">2015</td><td>ResNet</td><td>残差连接（152 层）</td><td class="num">3.6%</td></tr>
+        <tr><td class="num">2017</td><td>SENet</td><td>通道注意力</td><td class="num">2.3%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ========== 10. code 代码 / 公式 ========== -->
+<section class="slide" data-layout="code">
+  <div class="slide-meta"><span>第 1 讲 · 课程导论</span><span class="meta-page">12</span></div>
+  <h2 class="slide-title">卷积运算与 PyTorch 示例</h2>
+  <div class="code-body">
+    <div class="formula-block">y[i,j] = &Sigma;<sub>m</sub> &Sigma;<sub>n</sub> x[i+m, j+n] &middot; w[m,n] + b</div>
+    <div class="code-block"><span class="kw">import</span> torch.nn <span class="kw">as</span> nn
+
+<span class="cm"># 一个 3x3 卷积层：输入 3 通道，输出 64 通道</span>
+conv = nn.Conv2d(<span class="st">in_channels</span>=3, <span class="st">out_channels</span>=64,
+                 kernel_size=3, padding=1)
+relu = nn.ReLU()</div>
+  </div>
+</section>
+
+  </div><!-- /#stage -->
+</div><!-- /#viewport -->
+
+<div id="pager"></div>
+<div id="progress-track"><div id="progress"></div></div>
+<script src="js/slides.js"></script>
+</body>
+</html>

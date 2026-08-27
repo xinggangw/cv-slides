@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>深度学习与计算机视觉 · 课程幻灯片</title>
+<link rel="stylesheet" href="css/slides.css?v=20260827">
+<style>
+  body { overflow: auto; background: var(--paper-deep); }
+  .home { max-width: 1080px; margin: 0 auto; padding: 88px 32px 96px; }
+  .home-kicker { color: var(--accent); letter-spacing: .35em; font-size: 13px; font-weight: 600; margin-bottom: 18px; }
+  .home h1 { font-size: 46px; font-weight: 800; color: var(--ink); margin: 0 0 12px; letter-spacing: .01em; }
+  .home .sub { color: var(--muted); font-size: 16px; margin-bottom: 56px; }
+  .home .sub kbd { font-family: var(--font-mono); font-size: 12px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 5px; padding: 1px 7px; color: var(--ink); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 26px; }
+  .card { display: block; text-decoration: none; color: var(--ink);
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+  .card:hover { transform: translateY(-4px); border-color: var(--accent);
+    box-shadow: 0 10px 28px rgba(34, 34, 42, .10); }
+  .card .thumb { height: 180px; display: flex; align-items: center; justify-content: center;
+    background: var(--paper); border-bottom: 1px solid var(--line); }
+  .card .thumb img { max-width: 90%; max-height: 158px; object-fit: contain; }
+  .card .meta { padding: 20px 24px 24px; }
+  .card .no { font-family: var(--font-mono); font-size: 12px; color: var(--accent); letter-spacing: .2em; }
+  .card .name { font-size: 20px; font-weight: 700; margin: 10px 0 8px; }
+  .card .cnt { font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="home">
+  <div class="home-kicker">DEEP LEARNING &amp; COMPUTER VISION</div>
+  <h1>深度学习与计算机视觉</h1>
+  <div class="sub">王兴刚 · 华中科技大学 · AI-native 幻灯片（<kbd>←</kbd><kbd>→</kbd> 翻页 · <kbd>O</kbd> 总览 · <kbd>F</kbd> 全屏）</div>
+  <div class="cards">
+    <a class="card" href="lecture1.html">
+      <div class="thumb"><img src="assets/lecture1/s011_img24.png" alt=""></div>
+      <div class="meta">
+        <div class="no">LECTURE 01</div>
+        <div class="name">深度学习与计算机视觉简介</div>
+        <div class="cnt">63 页 · 学科定位 / 视觉简史 / 问题定义与评估</div>
+      </div>
+    </a>
+    <a class="card" href="lecture2.html">
+      <div class="thumb"><img src="assets/lecture2/s023_img27.png" alt=""></div>
+      <div class="meta">
+        <div class="no">LECTURE 02</div>
+        <div class="name">从 AlexNet 到 ChatGPT</div>
+        <div class="cnt">81 页 · 训练过程 / CNN 与注意力 / 大模型机制与边界</div>
+      </div>
+    </a>
+    <a class="card" href="lecture3.html">
+      <div class="thumb"><img src="assets/lecture3/s002_img1.png" alt=""></div>
+      <div class="meta">
+        <div class="no">LECTURE 03</div>
+        <div class="name">从浅层到深度的表征学习</div>
+        <div class="cnt">86 页 · 表征判断 / 自监督学习 / 最小可复现实验</div>
+      </div>
+    </a>
+  </div>
+</div>
+</body>
+</html>
